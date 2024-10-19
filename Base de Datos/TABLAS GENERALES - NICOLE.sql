@@ -122,5 +122,69 @@ CREATE TABLE Gral.tbPersonas
 	  CONSTRAINT FK_Gral_tbPersonas_per_Ciudad FOREIGN KEY (per_Ciudad) REFERENCES Gral.tbCiudades(ciud_Id)
 );
 
+-- TABLA DESTINO --
+CREATE TABLE Tick.tbDestino
+(
+  des_id INT IDENTITY(1,1) PRIMARY KEY,
+  des_Descripcion NVARCHAR(200),
+
+  -- Auditoría
+  usu_UsuarioCreacion INT,
+  des_FechaCreacion DATETIME,
+  usu_UsuarioModificacion INT,    
+  des_FechaModificacion DATETIME,
+  des_Estado BIT
+);
+
+-- TABLA HORARIO --
+CREATE TABLE Tick.tbHorario
+(
+  hor_id INT IDENTITY(1,1) PRIMARY KEY,
+  hor_ruta NVARCHAR(200), 
+  hor_hora DATETIME,
+
+  -- Auditoría
+  usu_UsuarioCreacion INT,
+  hor_FechaCreacion DATETIME,
+  usu_UsuarioModificacion INT,    
+  hor_FechaModificacion DATETIME,
+  hor_Estado BIT
+);
+
+-- TABLA PRECIO_DESTINO --
+CREATE TABLE Tick.tbPrecio_Destino
+(
+  pre_id INT IDENTITY(1,1) PRIMARY KEY,
+  des_IDsalida INT,
+  des_IDdestino INT,
+  pre_precio DECIMAL(18,2),
+
+  -- Auditoría
+  usu_UsuarioCreacion INT,
+  pre_FechaCreacion DATETIME,
+  usu_UsuarioModificacion INT,    
+  pre_FechaModificacion DATETIME,
+  pre_Estado BIT,
+
+  CONSTRAINT FK_tbPrecio_Destino_DesSalida FOREIGN KEY (des_IDsalida) REFERENCES Tick.tbDestino(des_id),
+  CONSTRAINT FK_tbPrecio_Destino_DesDestino FOREIGN KEY (des_IDdestino) REFERENCES Tick.tbDestino(des_id)
+);
+
+-- TABLA AUTOBUS_HORARIO --
+CREATE TABLE Tick.tbAutobus_Horario
+(
+  auh_id INT IDENTITY(1,1) PRIMARY KEY,
+  aut_id INT,
+  hor_id INT,
+
+  -- Auditoría
+  usu_UsuarioCreacion INT,
+  auh_FechaCreacion DATETIME,
+  usu_UsuarioModificacion INT,    
+  auh_FechaModificacion DATETIME,
+  auh_Estado BIT,
+
+  CONSTRAINT FK_tbAutobus_Horario_Horario FOREIGN KEY (hor_id) REFERENCES Tick.tbHorario(hor_id)
+);
 
 
