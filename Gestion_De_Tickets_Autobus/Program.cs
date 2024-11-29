@@ -16,7 +16,7 @@ namespace Gestion_De_Tickets_Autobus
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormPrincipal());
+            Application.Run(new frmPrincipal());
         }
     }
 }

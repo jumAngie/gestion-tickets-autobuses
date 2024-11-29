@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace Gestion_De_Tickets_Autobus
 {
-    public partial class FormPrincipal : Form
+    public partial class frmPrincipal : Form
     {
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn(
@@ -23,7 +23,7 @@ namespace Gestion_De_Tickets_Autobus
          int nHeightEllipse  
          );
 
-        public FormPrincipal()
+        public frmPrincipal()
         {
             InitializeComponent();
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
