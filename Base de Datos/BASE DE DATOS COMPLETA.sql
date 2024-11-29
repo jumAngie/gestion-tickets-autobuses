@@ -230,7 +230,7 @@ GO
 -- TABLA DESTINO --
 CREATE TABLE Tick.tbDestino
 (
-  des_id					INT IDENTITY(1,1) PRIMARY KEY,
+  des_id					INT IDENTITY(1,1),
   des_Descripcion			NVARCHAR(200),
 
   -- Auditoría
