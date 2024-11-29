@@ -30,12 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnRegistrarVenta = new System.Windows.Forms.Button();
+            this.btnAutobuses = new System.Windows.Forms.Button();
             this.PNav = new System.Windows.Forms.Panel();
-            this.btnCliente = new System.Windows.Forms.Button();
-            this.btnRegistro = new System.Windows.Forms.Button();
-            this.btnAutobus = new System.Windows.Forms.Button();
             this.btnTickets = new System.Windows.Forms.Button();
-            this.btnEmpleado = new System.Windows.Forms.Button();
+            this.btnEmpleados = new System.Windows.Forms.Button();
+            this.btnClientes = new System.Windows.Forms.Button();
+            this.btnInicio = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -45,28 +46,65 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnSalir = new System.Windows.Forms.Button();
             this.PNmenu = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.PNmenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.panel1.Controls.Add(this.btnRegistrarVenta);
+            this.panel1.Controls.Add(this.btnAutobuses);
             this.panel1.Controls.Add(this.PNav);
-            this.panel1.Controls.Add(this.btnCliente);
-            this.panel1.Controls.Add(this.btnRegistro);
-            this.panel1.Controls.Add(this.btnAutobus);
             this.panel1.Controls.Add(this.btnTickets);
-            this.panel1.Controls.Add(this.btnEmpleado);
+            this.panel1.Controls.Add(this.btnEmpleados);
+            this.panel1.Controls.Add(this.btnClientes);
+            this.panel1.Controls.Add(this.btnInicio);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(186, 449);
+            this.panel1.Size = new System.Drawing.Size(186, 527);
             this.panel1.TabIndex = 0;
+            // 
+            // btnRegistrarVenta
+            // 
+            this.btnRegistrarVenta.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnRegistrarVenta.FlatAppearance.BorderSize = 0;
+            this.btnRegistrarVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistrarVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrarVenta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.btnRegistrarVenta.Image = ((System.Drawing.Image)(resources.GetObject("btnRegistrarVenta.Image")));
+            this.btnRegistrarVenta.Location = new System.Drawing.Point(0, 454);
+            this.btnRegistrarVenta.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.btnRegistrarVenta.Name = "btnRegistrarVenta";
+            this.btnRegistrarVenta.Size = new System.Drawing.Size(186, 62);
+            this.btnRegistrarVenta.TabIndex = 9;
+            this.btnRegistrarVenta.Text = "    Registrar Venta";
+            this.btnRegistrarVenta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRegistrarVenta.UseVisualStyleBackColor = true;
+            this.btnRegistrarVenta.Click += new System.EventHandler(this.btnRegistrarVenta_Click);
+            this.btnRegistrarVenta.Leave += new System.EventHandler(this.btnRegistrarVenta_Leave);
+            // 
+            // btnAutobuses
+            // 
+            this.btnAutobuses.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAutobuses.FlatAppearance.BorderSize = 0;
+            this.btnAutobuses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAutobuses.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAutobuses.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.btnAutobuses.Image = ((System.Drawing.Image)(resources.GetObject("btnAutobuses.Image")));
+            this.btnAutobuses.Location = new System.Drawing.Point(0, 392);
+            this.btnAutobuses.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.btnAutobuses.Name = "btnAutobuses";
+            this.btnAutobuses.Size = new System.Drawing.Size(186, 62);
+            this.btnAutobuses.TabIndex = 8;
+            this.btnAutobuses.Text = "    Autobuses";
+            this.btnAutobuses.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAutobuses.UseVisualStyleBackColor = true;
+            this.btnAutobuses.Click += new System.EventHandler(this.btnAutobus_Click);
+            this.btnAutobuses.Leave += new System.EventHandler(this.btnAutobus_Leave);
             // 
             // PNav
             // 
@@ -76,57 +114,6 @@
             this.PNav.Size = new System.Drawing.Size(10, 34);
             this.PNav.TabIndex = 3;
             // 
-            // btnCliente
-            // 
-            this.btnCliente.FlatAppearance.BorderSize = 0;
-            this.btnCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnCliente.Location = new System.Drawing.Point(-3, 345);
-            this.btnCliente.Name = "btnCliente";
-            this.btnCliente.Size = new System.Drawing.Size(186, 42);
-            this.btnCliente.TabIndex = 7;
-            this.btnCliente.Text = "Cliente";
-            this.btnCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnCliente.UseVisualStyleBackColor = true;
-            this.btnCliente.Click += new System.EventHandler(this.btnCliente_Click);
-            // 
-            // btnRegistro
-            // 
-            this.btnRegistro.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnRegistro.FlatAppearance.BorderSize = 0;
-            this.btnRegistro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnRegistro.Image = ((System.Drawing.Image)(resources.GetObject("btnRegistro.Image")));
-            this.btnRegistro.Location = new System.Drawing.Point(0, 270);
-            this.btnRegistro.Name = "btnRegistro";
-            this.btnRegistro.Size = new System.Drawing.Size(186, 42);
-            this.btnRegistro.TabIndex = 6;
-            this.btnRegistro.Text = "Registro  ";
-            this.btnRegistro.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnRegistro.UseVisualStyleBackColor = true;
-            this.btnRegistro.Click += new System.EventHandler(this.btnRegistro_Click);
-            this.btnRegistro.Leave += new System.EventHandler(this.btnRegistro_Leave);
-            // 
-            // btnAutobus
-            // 
-            this.btnAutobus.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAutobus.FlatAppearance.BorderSize = 0;
-            this.btnAutobus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAutobus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAutobus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnAutobus.Image = ((System.Drawing.Image)(resources.GetObject("btnAutobus.Image")));
-            this.btnAutobus.Location = new System.Drawing.Point(0, 228);
-            this.btnAutobus.Name = "btnAutobus";
-            this.btnAutobus.Size = new System.Drawing.Size(186, 42);
-            this.btnAutobus.TabIndex = 5;
-            this.btnAutobus.Text = "Autobuses";
-            this.btnAutobus.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnAutobus.UseVisualStyleBackColor = true;
-            this.btnAutobus.Click += new System.EventHandler(this.btnAutobus_Click);
-            this.btnAutobus.Leave += new System.EventHandler(this.btnAutobus_Leave);
-            // 
             // btnTickets
             // 
             this.btnTickets.Dock = System.Windows.Forms.DockStyle.Top;
@@ -135,33 +122,73 @@
             this.btnTickets.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTickets.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnTickets.Image = ((System.Drawing.Image)(resources.GetObject("btnTickets.Image")));
-            this.btnTickets.Location = new System.Drawing.Point(0, 186);
+            this.btnTickets.Location = new System.Drawing.Point(0, 330);
+            this.btnTickets.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.btnTickets.Name = "btnTickets";
-            this.btnTickets.Size = new System.Drawing.Size(186, 42);
-            this.btnTickets.TabIndex = 4;
-            this.btnTickets.Text = "Tickets   ";
-            this.btnTickets.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnTickets.Size = new System.Drawing.Size(186, 62);
+            this.btnTickets.TabIndex = 6;
+            this.btnTickets.Text = "    Tickets    ";
+            this.btnTickets.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnTickets.UseVisualStyleBackColor = true;
             this.btnTickets.Click += new System.EventHandler(this.btnTickets_Click);
             this.btnTickets.Leave += new System.EventHandler(this.btnTickets_Leave);
             // 
-            // btnEmpleado
+            // btnEmpleados
             // 
-            this.btnEmpleado.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnEmpleado.FlatAppearance.BorderSize = 0;
-            this.btnEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEmpleado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnEmpleado.Image = ((System.Drawing.Image)(resources.GetObject("btnEmpleado.Image")));
-            this.btnEmpleado.Location = new System.Drawing.Point(0, 144);
-            this.btnEmpleado.Name = "btnEmpleado";
-            this.btnEmpleado.Size = new System.Drawing.Size(186, 42);
-            this.btnEmpleado.TabIndex = 3;
-            this.btnEmpleado.Text = "Empleado";
-            this.btnEmpleado.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnEmpleado.UseVisualStyleBackColor = true;
-            this.btnEmpleado.Click += new System.EventHandler(this.btnEmpleado_Click);
-            this.btnEmpleado.Leave += new System.EventHandler(this.btnEmpleado_Leave);
+            this.btnEmpleados.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnEmpleados.FlatAppearance.BorderSize = 0;
+            this.btnEmpleados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEmpleados.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEmpleados.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.btnEmpleados.Image = ((System.Drawing.Image)(resources.GetObject("btnEmpleados.Image")));
+            this.btnEmpleados.Location = new System.Drawing.Point(0, 268);
+            this.btnEmpleados.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.btnEmpleados.Name = "btnEmpleados";
+            this.btnEmpleados.Size = new System.Drawing.Size(186, 62);
+            this.btnEmpleados.TabIndex = 5;
+            this.btnEmpleados.Text = "    Empleados";
+            this.btnEmpleados.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEmpleados.UseVisualStyleBackColor = true;
+            this.btnEmpleados.Click += new System.EventHandler(this.btnEmpleado_Click);
+            this.btnEmpleados.Leave += new System.EventHandler(this.btnEmpleado_Leave);
+            // 
+            // btnClientes
+            // 
+            this.btnClientes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnClientes.FlatAppearance.BorderSize = 0;
+            this.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClientes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.btnClientes.Image = ((System.Drawing.Image)(resources.GetObject("btnClientes.Image")));
+            this.btnClientes.Location = new System.Drawing.Point(0, 206);
+            this.btnClientes.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.btnClientes.Name = "btnClientes";
+            this.btnClientes.Size = new System.Drawing.Size(186, 62);
+            this.btnClientes.TabIndex = 4;
+            this.btnClientes.Text = "    Clientes";
+            this.btnClientes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnClientes.UseVisualStyleBackColor = true;
+            this.btnClientes.Click += new System.EventHandler(this.btnCliente_Click);
+            this.btnClientes.Leave += new System.EventHandler(this.btnCliente_Leave);
+            // 
+            // btnInicio
+            // 
+            this.btnInicio.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnInicio.FlatAppearance.BorderSize = 0;
+            this.btnInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.btnInicio.Image = ((System.Drawing.Image)(resources.GetObject("btnInicio.Image")));
+            this.btnInicio.Location = new System.Drawing.Point(0, 144);
+            this.btnInicio.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.btnInicio.Name = "btnInicio";
+            this.btnInicio.Size = new System.Drawing.Size(186, 62);
+            this.btnInicio.TabIndex = 3;
+            this.btnInicio.Text = "    Inicio      ";
+            this.btnInicio.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnInicio.UseVisualStyleBackColor = true;
+            this.btnInicio.Click += new System.EventHandler(this.btnEmpleado_Click);
+            this.btnInicio.Leave += new System.EventHandler(this.btnCliente_Leave);
             // 
             // panel2
             // 
@@ -224,9 +251,9 @@
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
             this.lblTitle.Location = new System.Drawing.Point(202, 22);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(100, 32);
+            this.lblTitle.Size = new System.Drawing.Size(201, 32);
             this.lblTitle.TabIndex = 2;
-            this.lblTitle.Text = "MENU";
+            this.lblTitle.Text = "DASHBOARD";
             // 
             // textBox1
             // 
@@ -234,7 +261,7 @@
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Font = new System.Drawing.Font("Myanmar Text", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.textBox1.Location = new System.Drawing.Point(509, 27);
+            this.textBox1.Location = new System.Drawing.Point(651, 27);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(292, 25);
@@ -246,7 +273,7 @@
             this.btnSalir.FlatAppearance.BorderSize = 0;
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.ForeColor = System.Drawing.Color.White;
-            this.btnSalir.Location = new System.Drawing.Point(807, 29);
+            this.btnSalir.Location = new System.Drawing.Point(949, 29);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(25, 25);
             this.btnSalir.TabIndex = 4;
@@ -256,44 +283,32 @@
             // 
             // PNmenu
             // 
-            this.PNmenu.Controls.Add(this.label4);
             this.PNmenu.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PNmenu.Location = new System.Drawing.Point(186, 76);
+            this.PNmenu.Location = new System.Drawing.Point(186, 69);
             this.PNmenu.Name = "PNmenu";
-            this.PNmenu.Size = new System.Drawing.Size(654, 373);
+            this.PNmenu.Size = new System.Drawing.Size(830, 458);
             this.PNmenu.TabIndex = 5;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(19, 284);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(299, 13);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "help necesesito mover el boton abajo de empleado o arriba xd";
             // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(840, 449);
+            this.ClientSize = new System.Drawing.Size(1016, 527);
             this.Controls.Add(this.PNmenu);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "FormPrincipal";
-            this.Text = "modificar";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "frmPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Dahsboard";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.PNmenu.ResumeLayout(false);
-            this.PNmenu.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -306,17 +321,17 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnEmpleado;
-        private System.Windows.Forms.Button btnCliente;
-        private System.Windows.Forms.Button btnRegistro;
-        private System.Windows.Forms.Button btnAutobus;
+        private System.Windows.Forms.Button btnInicio;
         private System.Windows.Forms.Button btnTickets;
+        private System.Windows.Forms.Button btnEmpleados;
+        private System.Windows.Forms.Button btnClientes;
         private System.Windows.Forms.Panel PNav;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Panel PNmenu;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnRegistrarVenta;
+        private System.Windows.Forms.Button btnAutobuses;
     }
 }

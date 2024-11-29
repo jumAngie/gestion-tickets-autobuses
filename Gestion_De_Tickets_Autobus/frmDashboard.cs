@@ -33,18 +33,13 @@ namespace Gestion_De_Tickets_Autobus
 
             frmPrincipal_vrb.Show();
         }  
-         //quitar esas dos tambien xd
-        private void btnDashboard_Click(object sender, EventArgs e)
-        {
-            
-        }
 
         private void btnEmpleado_Click(object sender, EventArgs e)
         {
-            PNav.Height = btnEmpleado.Height;
-            PNav.Top = btnEmpleado.Top;
-            PNav.Left = btnEmpleado.Left;
-            btnEmpleado.BackColor = Color.FromArgb(46, 51, 73);
+            PNav.Height = btnInicio.Height;
+            PNav.Top = btnInicio.Top;
+            PNav.Left = btnInicio.Left;
+            btnInicio.BackColor = Color.FromArgb(46, 51, 73);
 
             lblTitle.Text = "Empleado";
             this.PNmenu.Controls.Clear();
@@ -64,17 +59,17 @@ namespace Gestion_De_Tickets_Autobus
 
         private void btnCliente_Click(object sender, EventArgs e)
         {
-            PNav.Height = btnCliente.Height;
-            PNav.Top = btnCliente.Top;
-            PNav.Left = btnCliente.Left;
-            btnCliente.BackColor = Color.FromArgb(46, 51, 73);
+            PNav.Height = btnRegistrarVenta.Height;
+            PNav.Top = btnRegistrarVenta.Top;
+            PNav.Left = btnRegistrarVenta.Left;
+            btnRegistrarVenta.BackColor = Color.FromArgb(46, 51, 73);
         }
 
         private void btnTickets_Click(object sender, EventArgs e)
         {
-            PNav.Height = btnTickets.Height;
-            PNav.Top = btnTickets.Top;
-            btnTickets.BackColor = Color.FromArgb(46, 51, 73);
+            PNav.Height = btnClientes.Height;
+            PNav.Top = btnClientes.Top;
+            btnClientes.BackColor = Color.FromArgb(46, 51, 73);
 
             lblTitle.Text = "Tickets";
             this.PNmenu.Controls.Clear();
@@ -93,9 +88,9 @@ namespace Gestion_De_Tickets_Autobus
 
         private void btnAutobus_Click(object sender, EventArgs e)
         {
-            PNav.Height = btnAutobus.Height;
-            PNav.Top = btnAutobus.Top;
-            btnAutobus.BackColor = Color.FromArgb(46, 51, 73);
+            PNav.Height = btnEmpleados.Height;
+            PNav.Top = btnEmpleados.Top;
+            btnEmpleados.BackColor = Color.FromArgb(46, 51, 73);
 
             lblTitle.Text = "Autobuses";
             this.PNmenu.Controls.Clear();
@@ -113,16 +108,16 @@ namespace Gestion_De_Tickets_Autobus
             frmPrincipal_vrb.Show();
         }
 
-        private void btnRegistro_Click(object sender, EventArgs e)
+        private void btnRegistrarVenta_Click(object sender, EventArgs e)
         {
-            PNav.Height = btnRegistro.Height;
-            PNav.Top = btnRegistro.Top;
-            btnRegistro.BackColor = Color.FromArgb(46, 51, 73);
+            PNav.Height = btnClientes.Height;
+            PNav.Top = btnClientes.Top;
+            btnClientes.BackColor = Color.FromArgb(46, 51, 73);
 
-            lblTitle.Text = "Tickets";
+            lblTitle.Text = "Crear Ticket";
             this.PNmenu.Controls.Clear();
 
-            frmRegistro frmPrincipal_vrb = new frmRegistro
+            frmCrearTicket frmPrincipal_vrb = new frmCrearTicket()
             {
                 Dock = DockStyle.Fill,
                 TopLevel = false,
@@ -133,9 +128,10 @@ namespace Gestion_De_Tickets_Autobus
 
             frmPrincipal_vrb.Show();
         }
+
         private void btnEmpleado_Leave(object sender, EventArgs e)
         {
-            btnEmpleado.BackColor = Color.FromArgb(46, 50, 54);
+            btnEmpleados.BackColor = Color.FromArgb(46, 50, 54);
         }
         
         private void btnTickets_Leave(object sender, EventArgs e)
@@ -144,15 +140,15 @@ namespace Gestion_De_Tickets_Autobus
         }
         private void btnAutobus_Leave(object sender, EventArgs e)
         {
-            btnAutobus.BackColor = Color.FromArgb(46, 50, 54);
-        }
-        private void btnRegistro_Leave(object sender, EventArgs e)
-        {
-            btnRegistro.BackColor = Color.FromArgb(46, 50, 54);
+            btnAutobuses.BackColor = Color.FromArgb(46, 50, 54);
         }
         private void btnCliente_Leave(object sender, EventArgs e)
         {
-            btnCliente.BackColor = Color.FromArgb(46, 50, 54);
+            btnClientes.BackColor = Color.FromArgb(46, 50, 54);
+        }
+        private void btnRegistrarVenta_Leave(object sender, EventArgs e)
+        {
+            btnRegistrarVenta.BackColor = Color.FromArgb(46, 50, 54);
         }
 
         private void btnSalir_Click_1(object sender, EventArgs e)

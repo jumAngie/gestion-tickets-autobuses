@@ -8,5 +8,10 @@ namespace Gestion_De_Tickets_Autobus
         {
             InitializeComponent();
         }
+
+        private void groupBox3_Enter(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

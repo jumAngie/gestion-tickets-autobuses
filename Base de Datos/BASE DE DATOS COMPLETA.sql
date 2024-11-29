@@ -294,3 +294,26 @@ CREATE TABLE Tick.tbAutobus_Horario
 	CONSTRAINT FK_tbAutobus_Horario_Autobus FOREIGN KEY (aut_id) REFERENCES Tick.tbAutobuses(aut_id)
 );
 
+CREATE TABLE Tick.tbTickets
+(
+	tik_Id				INT IDENTITY(1,1),
+	per_Id				INT,
+	auh_Id				INT,
+	
+	tik_Cantidad		INT,
+	tik_Subtotal		DECIMAL(18,2),
+	tik_Descuento		DECIMAL(18,2),
+	tik_Impuesto		DECIMAL(18,2),
+	tik_Total			DECIMAL(18,2),
+	
+	 usu_UsuarioCreacion			INT,
+	 tik_FechaCreacion				DATETIME,
+	 usu_UsuarioModificacion		INT,    
+	 tik_FechaModificacion			DATETIME,
+	 tik_Estado					BIT				DEFAULT		1,
+
+	 CONSTRAINT PK_Tick_tbTickets_tik_Id						PRIMARY KEY (tik_Id),
+	 CONSTRAINT FK_Gral_tbPersonas_per_Id_Tick_tbTickets_per_Id	FOREIGN KEY (per_Id) REFERENCES Gral.tbPersonas (per_Id),
+	 CONSTRAINT FK_Tick_tbAutobus_Horario_auh_Id_Tick_tbTickets_auh_Id FOREIGN KEY (auh_Id) REFERENCES Tick.tbAutobus_Horario (auh_Id)
+);
+
