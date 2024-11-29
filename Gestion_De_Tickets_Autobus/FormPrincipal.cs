@@ -21,7 +21,6 @@ namespace Gestion_De_Tickets_Autobus
         {
             InitializeComponent();
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
-<<<<<<< Updated upstream
 
             frmEmpleado frmPrincipal_vrb = new frmEmpleado()
             {
@@ -35,15 +34,6 @@ namespace Gestion_De_Tickets_Autobus
             frmPrincipal_vrb.Show();
         }  
          //quitar esas dos tambien xd
-        private void FormPrincipal_Load (object sender, EventArgs e)
-=======
-        }
-
-        private void FormPrincipal_Load(object sender, EventArgs e)
->>>>>>> Stashed changes
-        {
-
-        }       
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             
@@ -107,7 +97,7 @@ namespace Gestion_De_Tickets_Autobus
             PNav.Top = btnAutobus.Top;
             btnAutobus.BackColor = Color.FromArgb(46, 51, 73);
 
-            lblTitle.Text = "Tickets";
+            lblTitle.Text = "Autobuses";
             this.PNmenu.Controls.Clear();
 
             frmAutobuses frmPrincipal_vrb = new frmAutobuses()
@@ -143,22 +133,11 @@ namespace Gestion_De_Tickets_Autobus
 
             frmPrincipal_vrb.Show();
         }
-
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            //quitar este metodo
-           
-        }
-<<<<<<< Updated upstream
         private void btnEmpleado_Leave(object sender, EventArgs e)
-        {           
-            btnEmpleado.BackColor = Color.FromArgb(46, 50, 54);
-=======
-        private void btnDashboard_Leave(object sender, EventArgs e)
         {
-            btnDashboard.BackColor = Color.FromArgb(46, 50, 54);
->>>>>>> Stashed changes
+            btnEmpleado.BackColor = Color.FromArgb(46, 50, 54);
         }
+        
         private void btnTickets_Leave(object sender, EventArgs e)
         {
             btnTickets.BackColor = Color.FromArgb(46, 50, 54);

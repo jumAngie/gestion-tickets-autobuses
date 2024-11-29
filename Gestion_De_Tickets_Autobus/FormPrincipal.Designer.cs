@@ -90,7 +90,6 @@
             this.btnCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnCliente.UseVisualStyleBackColor = true;
             this.btnCliente.Click += new System.EventHandler(this.btnCliente_Click);
-            this.btnCliente.Leave += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnRegistro
             // 
@@ -108,7 +107,7 @@
             this.btnRegistro.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnRegistro.UseVisualStyleBackColor = true;
             this.btnRegistro.Click += new System.EventHandler(this.btnRegistro_Click);
-            this.btnRegistro.Leave += new System.EventHandler(this.btnRegistro_Click);
+            this.btnRegistro.Leave += new System.EventHandler(this.btnRegistro_Leave);
             // 
             // btnAutobus
             // 
@@ -126,7 +125,7 @@
             this.btnAutobus.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnAutobus.UseVisualStyleBackColor = true;
             this.btnAutobus.Click += new System.EventHandler(this.btnAutobus_Click);
-            this.btnAutobus.Leave += new System.EventHandler(this.btnAutobus_Click);
+            this.btnAutobus.Leave += new System.EventHandler(this.btnAutobus_Leave);
             // 
             // btnTickets
             // 
@@ -144,7 +143,7 @@
             this.btnTickets.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnTickets.UseVisualStyleBackColor = true;
             this.btnTickets.Click += new System.EventHandler(this.btnTickets_Click);
-            this.btnTickets.Leave += new System.EventHandler(this.btnTickets_Click);
+            this.btnTickets.Leave += new System.EventHandler(this.btnTickets_Leave);
             // 
             // btnEmpleado
             // 
@@ -162,7 +161,7 @@
             this.btnEmpleado.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnEmpleado.UseVisualStyleBackColor = true;
             this.btnEmpleado.Click += new System.EventHandler(this.btnEmpleado_Click);
-            this.btnEmpleado.Leave += new System.EventHandler(this.btnDashboard_Click);
+            this.btnEmpleado.Leave += new System.EventHandler(this.btnEmpleado_Leave);
             // 
             // panel2
             // 
