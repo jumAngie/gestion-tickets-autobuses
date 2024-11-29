@@ -14,7 +14,8 @@ namespace Gestion_De_Tickets_Autobus
     public partial class frmPrincipal : Form
     {
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-        private static extern IntPtr CreateRoundRectRgn(
+        private static extern IntPtr CreateRoundRectRgn
+         (
          int nLeftRect,    
          int nTopRect,     
          int nRightRect,    
