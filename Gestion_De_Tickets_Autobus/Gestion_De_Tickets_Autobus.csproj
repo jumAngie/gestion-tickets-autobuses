@@ -47,69 +47,69 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmAutobuses.cs">
+    <Compile Include="Tickets_Formularios\frmAutobuses.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAutobuses.Designer.cs">
+    <Compile Include="Tickets_Formularios\frmAutobuses.Designer.cs">
       <DependentUpon>frmAutobuses.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmTickets.cs">
+    <Compile Include="Tickets_Formularios\frmTickets.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmTickets.Designer.cs">
+    <Compile Include="Tickets_Formularios\frmTickets.Designer.cs">
       <DependentUpon>frmTickets.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmDashboard.cs">
+    <Compile Include="Tickets_Formularios\frmDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDashboard.Designer.cs">
+    <Compile Include="Tickets_Formularios\frmDashboard.Designer.cs">
       <DependentUpon>frmDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCliente.cs">
+    <Compile Include="Tickets_Formularios\frmCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCliente.Designer.cs">
+    <Compile Include="Tickets_Formularios\frmCliente.Designer.cs">
       <DependentUpon>frmCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCrearTicket.cs">
+    <Compile Include="Tickets_Formularios\frmCrearTicket.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCrearTicket.Designer.cs">
+    <Compile Include="Tickets_Formularios\frmCrearTicket.Designer.cs">
       <DependentUpon>frmCrearTicket.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmEmpleado.cs">
+    <Compile Include="Tickets_Formularios\frmEmpleado.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmEmpleado.Designer.cs">
+    <Compile Include="Tickets_Formularios\frmEmpleado.Designer.cs">
       <DependentUpon>frmEmpleado.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmRegistro.cs">
+    <Compile Include="Tickets_Formularios\frmRegistro.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmRegistro.Designer.cs">
+    <Compile Include="Tickets_Formularios\frmRegistro.Designer.cs">
       <DependentUpon>frmRegistro.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmAutobuses.resx">
+    <EmbeddedResource Include="Tickets_Formularios\frmAutobuses.resx">
       <DependentUpon>frmAutobuses.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmTickets.resx">
+    <EmbeddedResource Include="Tickets_Formularios\frmTickets.resx">
       <DependentUpon>frmTickets.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDashboard.resx">
+    <EmbeddedResource Include="Tickets_Formularios\frmDashboard.resx">
       <DependentUpon>frmDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCliente.resx">
+    <EmbeddedResource Include="Tickets_Formularios\frmCliente.resx">
       <DependentUpon>frmCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCrearTicket.resx">
+    <EmbeddedResource Include="Tickets_Formularios\frmCrearTicket.resx">
       <DependentUpon>frmCrearTicket.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmEmpleado.resx">
+    <EmbeddedResource Include="Tickets_Formularios\frmEmpleado.resx">
       <DependentUpon>frmEmpleado.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRegistro.resx">
+    <EmbeddedResource Include="Tickets_Formularios\frmRegistro.resx">
       <DependentUpon>frmRegistro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -140,6 +140,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\asientopeque.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Tickets_DAL\" />
+    <Folder Include="Tickets_Entities\" />
+    <Folder Include="Tickets_ViewModels\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
