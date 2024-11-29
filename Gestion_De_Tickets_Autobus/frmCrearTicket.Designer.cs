@@ -730,6 +730,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmCrearTicket";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Crear Tickets";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
