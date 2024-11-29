@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace Gestion_De_Tickets_Autobus
 {
@@ -15,18 +9,19 @@ namespace Gestion_De_Tickets_Autobus
     {
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn(
-         int nLeftRect,    
-         int nTopRect,     
-         int nRightRect,    
-         int nBottomRect,   
-         int nWidthEllipse,  
-         int nHeightEllipse  
+         int nLeftRect,
+         int nTopRect,
+         int nRightRect,
+         int nBottomRect,
+         int nWidthEllipse,
+         int nHeightEllipse
          );
 
         public FormPrincipal()
         {
             InitializeComponent();
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
+<<<<<<< Updated upstream
 
             frmEmpleado frmPrincipal_vrb = new frmEmpleado()
             {
@@ -41,6 +36,11 @@ namespace Gestion_De_Tickets_Autobus
         }  
          //quitar esas dos tambien xd
         private void FormPrincipal_Load (object sender, EventArgs e)
+=======
+        }
+
+        private void FormPrincipal_Load(object sender, EventArgs e)
+>>>>>>> Stashed changes
         {
 
         }       
@@ -149,9 +149,15 @@ namespace Gestion_De_Tickets_Autobus
             //quitar este metodo
            
         }
+<<<<<<< Updated upstream
         private void btnEmpleado_Leave(object sender, EventArgs e)
         {           
             btnEmpleado.BackColor = Color.FromArgb(46, 50, 54);
+=======
+        private void btnDashboard_Leave(object sender, EventArgs e)
+        {
+            btnDashboard.BackColor = Color.FromArgb(46, 50, 54);
+>>>>>>> Stashed changes
         }
         private void btnTickets_Leave(object sender, EventArgs e)
         {
