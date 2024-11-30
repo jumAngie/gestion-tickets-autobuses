@@ -187,7 +187,6 @@
             this.btnInicio.Text = "    Inicio      ";
             this.btnInicio.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnInicio.UseVisualStyleBackColor = true;
-            this.btnInicio.Click += new System.EventHandler(this.btnEmpleado_Click);
             this.btnInicio.Leave += new System.EventHandler(this.btnCliente_Leave);
             // 
             // panel2

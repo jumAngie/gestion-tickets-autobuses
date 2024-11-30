@@ -22,16 +22,16 @@ namespace Gestion_De_Tickets_Autobus
             InitializeComponent();
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
 
-            frmEmpleado frmPrincipal_vrb = new frmEmpleado()
-            {
-                Dock = DockStyle.Fill,
-                TopLevel = false,
-                TopMost = true
-            };
-            frmPrincipal_vrb.FormBorderStyle = FormBorderStyle.None;
-            this.PNmenu.Controls.Add(frmPrincipal_vrb);
+            //frmEmpleado frmPrincipal_vrb = new frmEmpleado()
+            //{
+            //    Dock = DockStyle.Fill,
+            //    TopLevel = false,
+            //    TopMost = true
+            //};
+            //frmPrincipal_vrb.FormBorderStyle = FormBorderStyle.None;
+            //this.PNmenu.Controls.Add(frmPrincipal_vrb);
 
-            frmPrincipal_vrb.Show();
+            //frmPrincipal_vrb.Show();
         }  
 
         private void btnEmpleado_Click(object sender, EventArgs e)
@@ -63,6 +63,18 @@ namespace Gestion_De_Tickets_Autobus
             PNav.Top = btnRegistrarVenta.Top;
             PNav.Left = btnRegistrarVenta.Left;
             btnRegistrarVenta.BackColor = Color.FromArgb(46, 51, 73);
+
+            lblTitle.Text = "Cliente";
+            frmCliente frmPrincipal_vrb = new frmCliente()
+            {
+                Dock = DockStyle.Fill,
+                TopLevel = false,
+                TopMost = true
+            };
+            frmPrincipal_vrb.FormBorderStyle = FormBorderStyle.None;
+            this.PNmenu.Controls.Add(frmPrincipal_vrb);
+
+            frmPrincipal_vrb.Show();
         }
 
         private void btnTickets_Click(object sender, EventArgs e)
@@ -156,5 +168,7 @@ namespace Gestion_De_Tickets_Autobus
             Application.Exit();
 
         }
+
+        
     }
 }
