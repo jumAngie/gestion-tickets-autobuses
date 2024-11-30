@@ -41,6 +41,8 @@ namespace Gestion_De_Tickets_Autobus
             pnlDIRE.Visible = false;
             pnlDNIE.Visible = false;
         }
+
+        //VALIDACIONES VACIOS
         public bool ValidacionesVacio()
         {
             bool esvalido = true;
@@ -112,6 +114,50 @@ namespace Gestion_De_Tickets_Autobus
             lblDNIE.Visible = false;
             txtDNIE.Visible = false;
 
+        }
+
+        //VALIDACIONES NÚMEROS
+        ErrorProvider errortelefono = new ErrorProvider();
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            bool esValido = Validaciones.soloNumeros(e);
+            if (!esValido)
+            {
+                btnGuardar.Enabled = false;
+                errortelefono.SetError(txtTelefono, "Por favor, ingrese solo números.");
+            }
+            else
+            {
+                btnGuardar.Enabled = true;
+                errortelefono.Clear();
+            }
+        }
+
+
+        ErrorProvider errorDNI = new ErrorProvider();
+        private void mtxtidentidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            bool esValido = Validaciones.soloNumeros(e);
+            if (!esValido)
+            {
+                btnGuardar.Enabled = false;
+                errorDNI.SetError(mtxtidentidad, "Por favor, ingrese solo números.");
+            }
+            else
+            {
+                btnGuardar.Enabled = true;
+                errorDNI.Clear();
+            }
+        }
+
+        //VALIDACIONES EMAIL
+        ErrorProvider erroremail = new ErrorProvider();
+        private void txtEmail_Leave(object sender, EventArgs e)
+        {
+            if (!Validaciones.validarEmail(txtEmail.Text))
+                erroremail.SetError(txtEmail, "Correo no válido");
+            else
+                erroremail.Clear();
         }
         #endregion
 

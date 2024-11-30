@@ -51,6 +51,12 @@
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.lblTel = new System.Windows.Forms.Label();
+            this.pnlciudad = new System.Windows.Forms.Panel();
+            this.pnlDIRE = new System.Windows.Forms.Panel();
+            this.pnlTel = new System.Windows.Forms.Panel();
+            this.pnlcorreo = new System.Windows.Forms.Panel();
+            this.pnldepto = new System.Windows.Forms.Panel();
+            this.pnlpais = new System.Windows.Forms.Panel();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.gbDNI = new System.Windows.Forms.GroupBox();
@@ -61,15 +67,9 @@
             this.rbE = new System.Windows.Forms.RadioButton();
             this.rbH = new System.Windows.Forms.RadioButton();
             this.lblDNI = new System.Windows.Forms.Label();
-            this.dgvempleados = new System.Windows.Forms.DataGridView();
-            this.pnlciudad = new System.Windows.Forms.Panel();
-            this.pnlDIRE = new System.Windows.Forms.Panel();
-            this.pnlTel = new System.Windows.Forms.Panel();
-            this.pnlcorreo = new System.Windows.Forms.Panel();
-            this.pnldepto = new System.Windows.Forms.Panel();
-            this.pnlpais = new System.Windows.Forms.Panel();
             this.pnlDNI = new System.Windows.Forms.Panel();
             this.pnlDNIE = new System.Windows.Forms.Panel();
+            this.dgvempleados = new System.Windows.Forms.DataGridView();
             this.gbDatospersonales.SuspendLayout();
             this.gbDatosdeContacto.SuspendLayout();
             this.gbDNI.SuspendLayout();
@@ -284,6 +284,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(150, 20);
             this.txtEmail.TabIndex = 3;
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // lblEmail
             // 
@@ -300,6 +301,7 @@
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(124, 20);
             this.txtTelefono.TabIndex = 1;
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // lblTel
             // 
@@ -309,6 +311,66 @@
             this.lblTel.Size = new System.Drawing.Size(52, 13);
             this.lblTel.TabIndex = 0;
             this.lblTel.Text = "Teléfono:";
+            // 
+            // pnlciudad
+            // 
+            this.pnlciudad.BackColor = System.Drawing.Color.DarkRed;
+            this.pnlciudad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlciudad.Location = new System.Drawing.Point(23, 161);
+            this.pnlciudad.Name = "pnlciudad";
+            this.pnlciudad.Size = new System.Drawing.Size(322, 23);
+            this.pnlciudad.TabIndex = 8;
+            this.pnlciudad.Visible = false;
+            // 
+            // pnlDIRE
+            // 
+            this.pnlDIRE.BackColor = System.Drawing.Color.DarkRed;
+            this.pnlDIRE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlDIRE.Location = new System.Drawing.Point(26, 236);
+            this.pnlDIRE.Name = "pnlDIRE";
+            this.pnlDIRE.Size = new System.Drawing.Size(319, 27);
+            this.pnlDIRE.TabIndex = 9;
+            this.pnlDIRE.Visible = false;
+            // 
+            // pnlTel
+            // 
+            this.pnlTel.BackColor = System.Drawing.Color.DarkRed;
+            this.pnlTel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlTel.Location = new System.Drawing.Point(23, 38);
+            this.pnlTel.Name = "pnlTel";
+            this.pnlTel.Size = new System.Drawing.Size(124, 23);
+            this.pnlTel.TabIndex = 9;
+            this.pnlTel.Visible = false;
+            // 
+            // pnlcorreo
+            // 
+            this.pnlcorreo.BackColor = System.Drawing.Color.DarkRed;
+            this.pnlcorreo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlcorreo.Location = new System.Drawing.Point(195, 38);
+            this.pnlcorreo.Name = "pnlcorreo";
+            this.pnlcorreo.Size = new System.Drawing.Size(150, 23);
+            this.pnlcorreo.TabIndex = 10;
+            this.pnlcorreo.Visible = false;
+            // 
+            // pnldepto
+            // 
+            this.pnldepto.BackColor = System.Drawing.Color.DarkRed;
+            this.pnldepto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnldepto.Location = new System.Drawing.Point(192, 103);
+            this.pnldepto.Name = "pnldepto";
+            this.pnldepto.Size = new System.Drawing.Size(153, 25);
+            this.pnldepto.TabIndex = 11;
+            this.pnldepto.Visible = false;
+            // 
+            // pnlpais
+            // 
+            this.pnlpais.BackColor = System.Drawing.Color.DarkRed;
+            this.pnlpais.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlpais.Location = new System.Drawing.Point(26, 105);
+            this.pnlpais.Name = "pnlpais";
+            this.pnlpais.Size = new System.Drawing.Size(121, 23);
+            this.pnlpais.TabIndex = 12;
+            this.pnlpais.Visible = false;
             // 
             // btnGuardar
             // 
@@ -379,6 +441,7 @@
             this.mtxtidentidad.Size = new System.Drawing.Size(100, 20);
             this.mtxtidentidad.TabIndex = 6;
             this.mtxtidentidad.Visible = false;
+            this.mtxtidentidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtxtidentidad_KeyPress);
             // 
             // lblidentidad
             // 
@@ -423,74 +486,6 @@
             this.lblDNI.TabIndex = 2;
             this.lblDNI.Text = "Nacionalidad:";
             // 
-            // dgvempleados
-            // 
-            this.dgvempleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvempleados.Location = new System.Drawing.Point(13, 342);
-            this.dgvempleados.Name = "dgvempleados";
-            this.dgvempleados.Size = new System.Drawing.Size(763, 96);
-            this.dgvempleados.TabIndex = 10;
-            // 
-            // pnlciudad
-            // 
-            this.pnlciudad.BackColor = System.Drawing.Color.DarkRed;
-            this.pnlciudad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlciudad.Location = new System.Drawing.Point(23, 161);
-            this.pnlciudad.Name = "pnlciudad";
-            this.pnlciudad.Size = new System.Drawing.Size(322, 23);
-            this.pnlciudad.TabIndex = 8;
-            this.pnlciudad.Visible = false;
-            // 
-            // pnlDIRE
-            // 
-            this.pnlDIRE.BackColor = System.Drawing.Color.DarkRed;
-            this.pnlDIRE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlDIRE.Location = new System.Drawing.Point(26, 236);
-            this.pnlDIRE.Name = "pnlDIRE";
-            this.pnlDIRE.Size = new System.Drawing.Size(319, 27);
-            this.pnlDIRE.TabIndex = 9;
-            this.pnlDIRE.Visible = false;
-            // 
-            // pnlTel
-            // 
-            this.pnlTel.BackColor = System.Drawing.Color.DarkRed;
-            this.pnlTel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlTel.Location = new System.Drawing.Point(23, 38);
-            this.pnlTel.Name = "pnlTel";
-            this.pnlTel.Size = new System.Drawing.Size(124, 23);
-            this.pnlTel.TabIndex = 9;
-            this.pnlTel.Visible = false;
-            // 
-            // pnlcorreo
-            // 
-            this.pnlcorreo.BackColor = System.Drawing.Color.DarkRed;
-            this.pnlcorreo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlcorreo.Location = new System.Drawing.Point(195, 38);
-            this.pnlcorreo.Name = "pnlcorreo";
-            this.pnlcorreo.Size = new System.Drawing.Size(150, 23);
-            this.pnlcorreo.TabIndex = 10;
-            this.pnlcorreo.Visible = false;
-            // 
-            // pnldepto
-            // 
-            this.pnldepto.BackColor = System.Drawing.Color.DarkRed;
-            this.pnldepto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnldepto.Location = new System.Drawing.Point(192, 103);
-            this.pnldepto.Name = "pnldepto";
-            this.pnldepto.Size = new System.Drawing.Size(153, 25);
-            this.pnldepto.TabIndex = 11;
-            this.pnldepto.Visible = false;
-            // 
-            // pnlpais
-            // 
-            this.pnlpais.BackColor = System.Drawing.Color.DarkRed;
-            this.pnlpais.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlpais.Location = new System.Drawing.Point(26, 105);
-            this.pnlpais.Name = "pnlpais";
-            this.pnlpais.Size = new System.Drawing.Size(121, 23);
-            this.pnlpais.TabIndex = 12;
-            this.pnlpais.Visible = false;
-            // 
             // pnlDNI
             // 
             this.pnlDNI.BackColor = System.Drawing.Color.DarkRed;
@@ -510,6 +505,14 @@
             this.pnlDNIE.Size = new System.Drawing.Size(161, 24);
             this.pnlDNIE.TabIndex = 14;
             this.pnlDNIE.Visible = false;
+            // 
+            // dgvempleados
+            // 
+            this.dgvempleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvempleados.Location = new System.Drawing.Point(13, 342);
+            this.dgvempleados.Name = "dgvempleados";
+            this.dgvempleados.Size = new System.Drawing.Size(763, 96);
+            this.dgvempleados.TabIndex = 10;
             // 
             // frmEmpleado
             // 

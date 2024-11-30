@@ -129,6 +129,7 @@
             this.mtxtidentidad.Size = new System.Drawing.Size(100, 20);
             this.mtxtidentidad.TabIndex = 6;
             this.mtxtidentidad.Visible = false;
+            this.mtxtidentidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtxtidentidad_KeyPress);
             // 
             // lblidentidad
             // 
@@ -333,6 +334,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(150, 20);
             this.txtEmail.TabIndex = 3;
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // lblEmail
             // 
@@ -349,6 +351,7 @@
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(124, 20);
             this.txtTelefono.TabIndex = 1;
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // lblTel
             // 
