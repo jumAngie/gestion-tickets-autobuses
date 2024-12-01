@@ -147,5 +147,8 @@
     <Folder Include="Tickets_Entities\" />
     <Folder Include="Tickets_ViewModels\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cerrar-sesion.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
