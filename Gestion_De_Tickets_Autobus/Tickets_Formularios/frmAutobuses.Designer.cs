@@ -30,23 +30,28 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAutobuses));
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbxMarca = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtModelo = new System.Windows.Forms.TextBox();
+            this.numAsiento = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
+            this.rbtVip = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtMatricula = new System.Windows.Forms.TextBox();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.PicBuses = new System.Windows.Forms.PictureBox();
+            this.pnlAutobuses = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.lblVip = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numAsiento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicBuses)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -59,25 +64,30 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Ingrese Matricula";
             // 
-            // comboBox1
+            // cbxMarca
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(20, 52);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(160, 26);
-            this.comboBox1.TabIndex = 2;
+            this.cbxMarca.FormattingEnabled = true;
+            this.cbxMarca.Location = new System.Drawing.Point(20, 52);
+            this.cbxMarca.Name = "cbxMarca";
+            this.cbxMarca.Size = new System.Drawing.Size(160, 26);
+            this.cbxMarca.TabIndex = 2;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.numericUpDown1);
+            this.groupBox1.Controls.Add(this.lblVip);
+            this.groupBox1.Controls.Add(this.txtModelo);
+            this.groupBox1.Controls.Add(this.numAsiento);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Controls.Add(this.rbtVip);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.cbxMarca);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtMatricula);
+            this.groupBox1.Controls.Add(this.pnlAutobuses);
+            this.groupBox1.Controls.Add(this.panel3);
+            this.groupBox1.Controls.Add(this.panel2);
+            this.groupBox1.Controls.Add(this.panel1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(23, 38);
@@ -87,24 +97,19 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informacion del Auto";
             // 
-            // radioButton1
+            // txtModelo
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.ForeColor = System.Drawing.Color.White;
-            this.radioButton1.Location = new System.Drawing.Point(416, 52);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(48, 22);
-            this.radioButton1.TabIndex = 4;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "VIP";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.txtModelo.Location = new System.Drawing.Point(20, 124);
+            this.txtModelo.Name = "txtModelo";
+            this.txtModelo.Size = new System.Drawing.Size(160, 24);
+            this.txtModelo.TabIndex = 12;
             // 
-            // textBox1
+            // numAsiento
             // 
-            this.textBox1.Location = new System.Drawing.Point(223, 52);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(149, 24);
-            this.textBox1.TabIndex = 5;
+            this.numAsiento.Location = new System.Drawing.Point(223, 124);
+            this.numAsiento.Name = "numAsiento";
+            this.numAsiento.Size = new System.Drawing.Size(149, 24);
+            this.numAsiento.TabIndex = 11;
             // 
             // label2
             // 
@@ -115,6 +120,18 @@
             this.label2.Size = new System.Drawing.Size(50, 18);
             this.label2.TabIndex = 6;
             this.label2.Text = "Marca";
+            // 
+            // rbtVip
+            // 
+            this.rbtVip.AutoSize = true;
+            this.rbtVip.ForeColor = System.Drawing.Color.White;
+            this.rbtVip.Location = new System.Drawing.Point(416, 43);
+            this.rbtVip.Name = "rbtVip";
+            this.rbtVip.Size = new System.Drawing.Size(48, 22);
+            this.rbtVip.TabIndex = 4;
+            this.rbtVip.TabStop = true;
+            this.rbtVip.Text = "VIP";
+            this.rbtVip.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -136,37 +153,32 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Numero de Asientos";
             // 
-            // button1
+            // txtMatricula
             // 
-            this.button1.Location = new System.Drawing.Point(530, 232);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(82, 27);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Guardar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.txtMatricula.Location = new System.Drawing.Point(223, 52);
+            this.txtMatricula.Name = "txtMatricula";
+            this.txtMatricula.Size = new System.Drawing.Size(149, 24);
+            this.txtMatricula.TabIndex = 5;
             // 
-            // button2
+            // btnGuardar
             // 
-            this.button2.Location = new System.Drawing.Point(628, 232);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(77, 30);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "Cancelar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnGuardar.Location = new System.Drawing.Point(530, 232);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(82, 27);
+            this.btnGuardar.TabIndex = 9;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // numericUpDown1
+            // btnCancelar
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(223, 124);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(149, 24);
-            this.numericUpDown1.TabIndex = 11;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(20, 124);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(160, 24);
-            this.textBox2.TabIndex = 12;
+            this.btnCancelar.Location = new System.Drawing.Point(628, 232);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(77, 30);
+            this.btnCancelar.TabIndex = 10;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // dataGridView1
             // 
@@ -176,14 +188,62 @@
             this.dataGridView1.Size = new System.Drawing.Size(713, 140);
             this.dataGridView1.TabIndex = 11;
             // 
-            // pictureBox1
+            // PicBuses
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(530, 65);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(134, 121);
-            this.pictureBox1.TabIndex = 12;
-            this.pictureBox1.TabStop = false;
+            this.PicBuses.Image = ((System.Drawing.Image)(resources.GetObject("PicBuses.Image")));
+            this.PicBuses.Location = new System.Drawing.Point(530, 65);
+            this.PicBuses.Name = "PicBuses";
+            this.PicBuses.Size = new System.Drawing.Size(134, 121);
+            this.PicBuses.TabIndex = 12;
+            this.PicBuses.TabStop = false;
+            // 
+            // pnlAutobuses
+            // 
+            this.pnlAutobuses.BackColor = System.Drawing.Color.DarkRed;
+            this.pnlAutobuses.Location = new System.Drawing.Point(20, 52);
+            this.pnlAutobuses.Name = "pnlAutobuses";
+            this.pnlAutobuses.Size = new System.Drawing.Size(160, 31);
+            this.pnlAutobuses.TabIndex = 20;
+            this.pnlAutobuses.Visible = false;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.DarkRed;
+            this.panel1.Location = new System.Drawing.Point(223, 124);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(149, 29);
+            this.panel1.TabIndex = 21;
+            this.panel1.Visible = false;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.DarkRed;
+            this.panel2.Location = new System.Drawing.Point(20, 124);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(160, 29);
+            this.panel2.TabIndex = 22;
+            this.panel2.Visible = false;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.DarkRed;
+            this.panel3.Location = new System.Drawing.Point(223, 52);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(149, 29);
+            this.panel3.TabIndex = 23;
+            this.panel3.Visible = false;
+            // 
+            // lblVip
+            // 
+            this.lblVip.AutoSize = true;
+            this.lblVip.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVip.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblVip.Location = new System.Drawing.Point(395, 43);
+            this.lblVip.Name = "lblVip";
+            this.lblVip.Size = new System.Drawing.Size(15, 20);
+            this.lblVip.TabIndex = 24;
+            this.lblVip.Text = "*";
+            this.lblVip.Visible = false;
             // 
             // frmAutobuses
             // 
@@ -191,36 +251,41 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(717, 438);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.PicBuses);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmAutobuses";
             this.Text = "fmrAutobuses";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numAsiento)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicBuses)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbxMarca;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.RadioButton rbtVip;
+        private System.Windows.Forms.TextBox txtMatricula;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.NumericUpDown numAsiento;
+        private System.Windows.Forms.TextBox txtModelo;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox PicBuses;
+        private System.Windows.Forms.Panel pnlAutobuses;
+        private System.Windows.Forms.Label lblVip;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel1;
     }
 }

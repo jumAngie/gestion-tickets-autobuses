@@ -16,5 +16,20 @@ namespace Gestion_De_Tickets_Autobus
         {
             InitializeComponent();
         }
+
+
+        #region Botones
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
+
+
     }
 }
