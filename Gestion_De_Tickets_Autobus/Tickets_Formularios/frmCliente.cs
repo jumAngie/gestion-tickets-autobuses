@@ -24,7 +24,7 @@ namespace Gestion_De_Tickets_Autobus
 
 
         #region VALIDACIONES Y LIMPIEZA DE CAMPOS
-        public void panel_OcultarValidaciones()
+        public void Panel_OcultarValidaciones()
         {
             pnlnombre.Visible = false;
             pnlDNI.Visible = false;
@@ -172,7 +172,7 @@ namespace Gestion_De_Tickets_Autobus
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             LimpiarCampos();
-            panel_OcultarValidaciones();
+            Panel_OcultarValidaciones();
             MensajeAdvertencia_Hide();
         }
 
