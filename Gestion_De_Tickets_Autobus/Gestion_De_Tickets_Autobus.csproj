@@ -59,11 +59,11 @@
     <Compile Include="Tickets_Formularios\frmTickets.Designer.cs">
       <DependentUpon>frmTickets.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tickets_Formularios\frmDashboard.cs">
+    <Compile Include="Tickets_Formularios\frmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Tickets_Formularios\frmDashboard.Designer.cs">
-      <DependentUpon>frmDashboard.cs</DependentUpon>
+    <Compile Include="Tickets_Formularios\frmPrincipal.Designer.cs">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Tickets_Formularios\frmCliente.cs">
       <SubType>Form</SubType>
@@ -98,8 +98,8 @@
     <EmbeddedResource Include="Tickets_Formularios\frmTickets.resx">
       <DependentUpon>frmTickets.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Tickets_Formularios\frmDashboard.resx">
-      <DependentUpon>frmDashboard.cs</DependentUpon>
+    <EmbeddedResource Include="Tickets_Formularios\frmPrincipal.resx">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tickets_Formularios\frmCliente.resx">
       <DependentUpon>frmCliente.cs</DependentUpon>
