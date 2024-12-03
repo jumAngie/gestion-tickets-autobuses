@@ -239,6 +239,8 @@ CREATE TABLE Tick.tbDestino
   usu_UsuarioModificacion	INT,    
   des_FechaModificacion		DATETIME,
   des_Estado				BIT				DEFAULT		1
+
+  CONSTRAINT PK_Tick_tbDestino_des_id PRIMARY KEY (des_id)
 );
 
 -- TABLA HORARIO --
