@@ -53,6 +53,12 @@
     <Compile Include="Tickets_Formularios\frmAutobuses.Designer.cs">
       <DependentUpon>frmAutobuses.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tickets_Formularios\frmPrincipalPrueba.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tickets_Formularios\frmPrincipalPrueba.Designer.cs">
+      <DependentUpon>frmPrincipalPrueba.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tickets_Formularios\frmTickets.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +100,9 @@
     <Compile Include="Validaciones.cs" />
     <EmbeddedResource Include="Tickets_Formularios\frmAutobuses.resx">
       <DependentUpon>frmAutobuses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tickets_Formularios\frmPrincipalPrueba.resx">
+      <DependentUpon>frmPrincipalPrueba.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tickets_Formularios\frmTickets.resx">
       <DependentUpon>frmTickets.cs</DependentUpon>
@@ -149,6 +158,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cerrar-sesion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\autobus.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

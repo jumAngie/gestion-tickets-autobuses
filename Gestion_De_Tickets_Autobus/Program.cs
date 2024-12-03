@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gestion_De_Tickets_Autobus.Tickets_Formularios;
+using System;
 using System.Windows.Forms;
 
 namespace Gestion_De_Tickets_Autobus
