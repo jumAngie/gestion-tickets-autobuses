@@ -1,11 +1,11 @@
 -- /* LLENADO DE LAS TABLAS - INSERTS */ -- 
 
 --USUARIOS
-INSERT INTO Acce.tbUsuarios (usu_Usuario	,usu_Contrasena, per_ID,rol_ID,usu_UsuarioCreacion,usu_FechaCreacion )
+INSERT INTO Acce.tbUsuarios (usu_Usuario, usu_Contrasena, per_ID, rol_ID, usu_UsuarioCreacion, usu_FechaCreacion )
 VALUES						('Admin', '123', 1, 1, 1, GETDATE());
 GO
 -- ROLES
-INSERT INTO Acce.tbRoles (rol_Descripcion,usu_UsuarioCreacion,rol_FechaCreacion)
+INSERT INTO Acce.tbRoles (rol_Descripcion, usu_UsuarioCreacion,rol_FechaCreacion)
 VALUES					('Administrador',		1,					GETDATE());
 GO
 -- SEXOS
@@ -22,7 +22,10 @@ VALUES                  ('Empleado', 1 ,                                GETDATE(
 GO
 INSERT INTO Gral.tbCargos(car_Descripcion,usu_UsuarioCreacion,car_FechaCreacion)
 VALUES                  ('Cliente', 1 ,                                GETDATE());
-Go
+GO
+INSERT INTO Gral.tbCargos(car_Descripcion,usu_UsuarioCreacion,car_FechaCreacion)
+VALUES                  ('Ambos'  , 1 ,                                GETDATE());
+GO
 
 -- PAISES
 INSERT INTO Gral.tbPaises(pais_Descripcion,usua_UsuarioCreacion, pais_FechaCreacion)
@@ -87,115 +90,115 @@ GO
 
 --- Ciudades
 -------------------------------- 3 ciudades de Atlantida -------------------------------- 
-INSERT INTO Gral.tbCiudades([dept_Id], [ciud_Descripcion],[usua_UsuarioCreacion],[ciud_FechaCreacion])
+INSERT INTO Gral.tbCiudades(dept_ID, [ciud_Descripcion],[usua_UsuarioCreacion],[ciud_FechaCreacion])
 VALUES						(1,			'La Ceiba',				1,						GETDATE()),
 							(1,			'Esparta',				1,						GETDATE()),
 							(1,			'Jutiapa',				1,						GETDATE());
 GO
 -------------------------------- 3 ciudades de Choluteca -------------------------------- 
-INSERT INTO Gral.tbCiudades([dept_Id], [ciud_Descripcion],[usua_UsuarioCreacion],[ciud_FechaCreacion])
+INSERT INTO Gral.tbCiudades(dept_ID, [ciud_Descripcion],[usua_UsuarioCreacion],[ciud_FechaCreacion])
 VALUES						(2,			'San Isidro',				1,						GETDATE()),
 							(2,			'Pespire',				1,						GETDATE()),
 							(2,			'Choluteca',				1,						GETDATE());
 GO
 -------------------------------- 3 ciudades de Colón -------------------------------- 
-INSERT INTO Gral.tbCiudades([dept_Id], [ciud_Descripcion],[usua_UsuarioCreacion],[ciud_FechaCreacion])
+INSERT INTO Gral.tbCiudades(dept_ID, [ciud_Descripcion],[usua_UsuarioCreacion],[ciud_FechaCreacion])
 VALUES						(3,			'Trujillo',				1,						GETDATE()),
 							(3,			'Tocoa',				1,						GETDATE()),
 							(3,			'Bonito Oriental',		1,						GETDATE());
 GO
 
 -------------------------------- 3 ciudades de Comayagua -------------------------------- 
-INSERT INTO Gral.tbCiudades([dept_Id], [ciud_Descripcion],[usua_UsuarioCreacion],[ciud_FechaCreacion])
+INSERT INTO Gral.tbCiudades(dept_ID, [ciud_Descripcion],[usua_UsuarioCreacion],[ciud_FechaCreacion])
 VALUES						(4,			'Comayagua',			1,						GETDATE()),
 							(4,			'Siguatepeque',			1,						GETDATE()),
 							(4,			'La Libertad',			1,						GETDATE());
 GO
 
 -------------------------------- 3 ciudades de Copán -------------------------------- 
-INSERT INTO Gral.tbCiudades([dept_Id], [ciud_Descripcion],[usua_UsuarioCreacion],[ciud_FechaCreacion])
+INSERT INTO Gral.tbCiudades(dept_ID, [ciud_Descripcion],[usua_UsuarioCreacion],[ciud_FechaCreacion])
 VALUES						(5,			'Santa Rosa de Copán',	1,						GETDATE()),
 							(5,			'La Entrada',			1,						GETDATE()),
 							(5,			'Dulce Nombre',			1,						GETDATE());
 GO
 
 -------------------------------- 3 ciudades de Cortés -------------------------------- 
-INSERT INTO Gral.tbCiudades([dept_Id], [ciud_Descripcion],[usua_UsuarioCreacion],[ciud_FechaCreacion])
+INSERT INTO Gral.tbCiudades(dept_ID, [ciud_Descripcion],[usua_UsuarioCreacion],[ciud_FechaCreacion])
 VALUES						(6,			'San Pedro Sula',		1,						GETDATE()),
 							(6,			'Puerto Cortés',		1,						GETDATE()),
 							(6,			'Choloma',				1,						GETDATE());
 GO
 
 -------------------------------- 3 ciudades de El Paraíso -------------------------------- 
-INSERT INTO Gral.tbCiudades([dept_Id], [ciud_Descripcion],[usua_UsuarioCreacion],[ciud_FechaCreacion])
+INSERT INTO Gral.tbCiudades(dept_ID, [ciud_Descripcion],[usua_UsuarioCreacion],[ciud_FechaCreacion])
 VALUES						(7,			'Danlí',				1,						GETDATE()),
 							(7,			'Yuscarán',				1,						GETDATE()),
 							(7,			'Alauca',				1,						GETDATE());
 GO
 
 -------------------------------- 3 ciudades de Francisco Morazán -------------------------------- 
-INSERT INTO Gral.tbCiudades([dept_Id], [ciud_Descripcion],[usua_UsuarioCreacion],[ciud_FechaCreacion])
+INSERT INTO Gral.tbCiudades(dept_ID, [ciud_Descripcion],[usua_UsuarioCreacion],[ciud_FechaCreacion])
 VALUES						(8,			'Tegucigalpa',			1,						GETDATE()),
 							(8,			'Valle de Ángeles',		1,						GETDATE()),
 							(8,			'Santa Lucía',			1,						GETDATE());
 GO
 
 -------------------------------- 3 ciudades de Gracias a Dios -------------------------------- 
-INSERT INTO Gral.tbCiudades([dept_Id], [ciud_Descripcion],[usua_UsuarioCreacion],[ciud_FechaCreacion])
+INSERT INTO Gral.tbCiudades(dept_ID, [ciud_Descripcion],[usua_UsuarioCreacion],[ciud_FechaCreacion])
 VALUES						(9,			'Puerto Lempira',		1,						GETDATE()),
 							(9,			'Brus Laguna',			1,						GETDATE()),
 							(9,			'Ahuas',				1,						GETDATE());
 GO
 
 -------------------------------- 3 ciudades de Intibucá -------------------------------- 
-INSERT INTO Gral.tbCiudades([dept_Id], [ciud_Descripcion],[usua_UsuarioCreacion],[ciud_FechaCreacion])
+INSERT INTO Gral.tbCiudades(dept_ID, [ciud_Descripcion],[usua_UsuarioCreacion],[ciud_FechaCreacion])
 VALUES						(10,		'La Esperanza',			1,						GETDATE()),
 							(10,		'Yamaranguila',			1,						GETDATE()),
 							(10,		'San Francisco de Opalaca', 1,					GETDATE());
 GO
 
 -------------------------------- 3 ciudades de Islas de la Bahía -------------------------------- 
-INSERT INTO Gral.tbCiudades([dept_Id], [ciud_Descripcion],[usua_UsuarioCreacion],[ciud_FechaCreacion])
+INSERT INTO Gral.tbCiudades(dept_ID, [ciud_Descripcion],[usua_UsuarioCreacion],[ciud_FechaCreacion])
 VALUES						(11,		'Coxen Hole',			1,						GETDATE()),
 							(11,		'Utila',				1,						GETDATE()),
 							(11,		'French Harbour',		1,						GETDATE());
 
 -------------------------------- 3 ciudades de La Paz -------------------------------- 
-INSERT INTO Gral.tbCiudades([dept_Id], [ciud_Descripcion],[usua_UsuarioCreacion],[ciud_FechaCreacion])
+INSERT INTO Gral.tbCiudades(dept_ID, [ciud_Descripcion],[usua_UsuarioCreacion],[ciud_FechaCreacion])
 VALUES						(12,		'La Paz',				1,						GETDATE()),
 							(12,		'Marcala',				1,						GETDATE()),
 							(12,		'Cabañas',				1,						GETDATE());
 GO
 
 -------------------------------- 3 ciudades de Lempira -------------------------------- 
-INSERT INTO Gral.tbCiudades([dept_Id], [ciud_Descripcion],[usua_UsuarioCreacion],[ciud_FechaCreacion])
+INSERT INTO Gral.tbCiudades(dept_ID, [ciud_Descripcion],[usua_UsuarioCreacion],[ciud_FechaCreacion])
 VALUES						(13,		'Gracias',				1,						GETDATE()),
 							(13,		'Erandique',			1,						GETDATE()),
 							(13,		'La Campa',				1,						GETDATE());
 GO
 
 -------------------------------- 3 ciudades de Ocotepeque -------------------------------- 
-INSERT INTO Gral.tbCiudades([dept_Id], [ciud_Descripcion],[usua_UsuarioCreacion],[ciud_FechaCreacion])
+INSERT INTO Gral.tbCiudades(dept_ID, [ciud_Descripcion],[usua_UsuarioCreacion],[ciud_FechaCreacion])
 VALUES						(14,		'Nueva Ocotepeque',		1,						GETDATE()),
 							(14,		'La Encarnación',		1,						GETDATE()),
 							(14,		'Sensenti',				1,						GETDATE());
 GO
 
 -------------------------------- 3 ciudades de Olancho -------------------------------- 
-INSERT INTO Gral.tbCiudades([dept_Id], [ciud_Descripcion],[usua_UsuarioCreacion],[ciud_FechaCreacion])
+INSERT INTO Gral.tbCiudades(dept_ID, [ciud_Descripcion],[usua_UsuarioCreacion],[ciud_FechaCreacion])
 VALUES						(15,		'Juticalpa',			1,						GETDATE()),
 							(15,		'Catacamas',			1,						GETDATE()),
 							(15,		'San Francisco de la Paz',	1,				    GETDATE());
 GO
 
 -------------------------------- 3 ciudades de Santa Bárbara -------------------------------- 
-INSERT INTO Gral.tbCiudades([dept_Id], [ciud_Descripcion],[usua_UsuarioCreacion],[ciud_FechaCreacion])
+INSERT INTO Gral.tbCiudades(dept_ID, [ciud_Descripcion],[usua_UsuarioCreacion],[ciud_FechaCreacion])
 VALUES						(16,		'Santa Bárbara',		1,						GETDATE()),
 							(16,		'Quimistán',			1,						GETDATE()),
 							(16,		'Ilama',				1,						GETDATE());
 GO
 -------------------------------- 3 ciudades de Valle -------------------------------- 
-INSERT INTO Gral.tbCiudades([dept_Id], [ciud_Descripcion],[usua_UsuarioCreacion],[ciud_FechaCreacion])
+INSERT INTO Gral.tbCiudades(dept_ID, [ciud_Descripcion],[usua_UsuarioCreacion],[ciud_FechaCreacion])
 VALUES						(17,		'Nacaome',				1,						GETDATE()),
 							(17,		'San Lorenzo',			1,						GETDATE()),
 							(17,		'Amapala',				1,						GETDATE());
@@ -203,16 +206,21 @@ VALUES						(17,		'Nacaome',				1,						GETDATE()),
 GO						
 
 -------------------------------- 3 ciudades de Yoro -------------------------------- 
-INSERT INTO Gral.tbCiudades([dept_Id], [ciud_Descripcion],[usua_UsuarioCreacion],[ciud_FechaCreacion])
+INSERT INTO Gral.tbCiudades(dept_ID, [ciud_Descripcion],[usua_UsuarioCreacion],[ciud_FechaCreacion])
 VALUES						(18,		'Yoro',					1,						GETDATE()),
 							(18,		'El Progreso',			1,						GETDATE()),
 							(18,		'Olanchito',			1,						GETDATE());
 GO
                  
 -- PERSONA
-INSERT INTO Gral.tbPersonas(per_NombreCompleto, per_Correo, per_DNI, per_Telefono, per_FechaNacimiento, per_Sexo, per_Cargo, per_Ciudad, per_Direccion, usu_UsuarioCreacion, per_FechaCreacion)
+INSERT INTO Gral.tbPersonas(per_NombreCompleto, per_Correo, per_DNI, per_Telefono, per_FechaNacimiento, sex_ID, car_ID, ciud_ID, per_Direccion, usu_UsuarioCreacion, per_FechaCreacion)
 VALUES						 ('Angie Yahaira Campos Arias','angie.campos@gmail.com', '0512200300736', '96633080', '2003-01-03', 1,1,5
 							,'Avenida Flores, 8va Calle, Casa #34',1, GETDATE())
+GO
+-- PERSONA
+INSERT INTO Gral.tbPersonas(per_NombreCompleto, per_Correo, per_DNI, per_Telefono, per_FechaNacimiento, sex_ID, car_ID, ciud_ID, per_Direccion, usu_UsuarioCreacion, per_FechaCreacion)
+VALUES						 ('Kenia Lopez Arellano','kla.mathse@gmail.com', '78599665', '9999631', '1999-01-03', 1,2,12
+							,'Avenida Arellano, Casa #105',1, GETDATE())
 GO
 
 --Autobus_Horario
@@ -309,6 +317,79 @@ VALUES                           (1, 6, 40.00,1, GETDATE())
 GO
 
 --HORARIO
-INSERT INTO Tick.tbHorario( hor_ruta, hor_hora, usu_UsuarioCreacion, hor_FechaCreacion)
-VALUES                    ()             
+INSERT INTO Tick.tbHorario(hor_identificador, hor_ruta, hor_hora, usu_UsuarioCreacion, hor_FechaCreacion)
+VALUES                    (1,'SALIDA', '08:00', 1, GETDATE())             
 GO
+INSERT INTO Tick.tbHorario(hor_identificador, hor_ruta, hor_hora, usu_UsuarioCreacion, hor_FechaCreacion)
+VALUES                    (1,'SALIDA', '09:00', 1, GETDATE())             
+GO
+INSERT INTO Tick.tbHorario(hor_identificador, hor_ruta, hor_hora, usu_UsuarioCreacion, hor_FechaCreacion)
+VALUES                    (1,'SALIDA', '10:00', 1, GETDATE())             
+GO
+INSERT INTO Tick.tbHorario(hor_identificador, hor_ruta, hor_hora, usu_UsuarioCreacion, hor_FechaCreacion)
+VALUES                    (1, 'SALIDA', '12:00', 1, GETDATE())             
+GO
+INSERT INTO Tick.tbHorario(hor_identificador, hor_ruta, hor_hora, usu_UsuarioCreacion, hor_FechaCreacion)
+VALUES                    (1, 'SALIDA', '13:00', 1, GETDATE())             
+GO
+INSERT INTO Tick.tbHorario(hor_identificador, hor_ruta, hor_hora, usu_UsuarioCreacion, hor_FechaCreacion)
+VALUES                    (1, 'SALIDA', '14:00', 1, GETDATE())             
+GO
+INSERT INTO Tick.tbHorario(hor_identificador, hor_ruta, hor_hora, usu_UsuarioCreacion, hor_FechaCreacion)
+VALUES                    (1, 'SALIDA', '16:00', 1, GETDATE())             
+GO
+INSERT INTO Tick.tbHorario(hor_identificador, hor_ruta, hor_hora, usu_UsuarioCreacion, hor_FechaCreacion)
+VALUES                    (1, 'SALIDA', '17:00', 1, GETDATE())             
+GO
+INSERT INTO Tick.tbHorario(hor_identificador, hor_ruta, hor_hora, usu_UsuarioCreacion, hor_FechaCreacion)
+VALUES                    (1, 'SALIDA', '18:00', 1, GETDATE())             
+GO
+INSERT INTO Tick.tbHorario(hor_identificador, hor_ruta, hor_hora, usu_UsuarioCreacion, hor_FechaCreacion)
+VALUES                    (2,'LLEGADA', '11:00', 1, GETDATE())             
+GO
+INSERT INTO Tick.tbHorario(hor_identificador, hor_ruta, hor_hora, usu_UsuarioCreacion, hor_FechaCreacion)
+VALUES                    (2,'LLEGADA', '12:00', 1, GETDATE())             
+GO
+INSERT INTO Tick.tbHorario(hor_identificador, hor_ruta, hor_hora, usu_UsuarioCreacion, hor_FechaCreacion)
+VALUES                    (2,'LLEGADA', '13:00', 1, GETDATE())             
+GO
+INSERT INTO Tick.tbHorario(hor_identificador, hor_ruta, hor_hora, usu_UsuarioCreacion, hor_FechaCreacion)
+VALUES                    (2,'LLEGADA', '15:00', 1, GETDATE())             
+GO
+INSERT INTO Tick.tbHorario(hor_identificador, hor_ruta, hor_hora, usu_UsuarioCreacion, hor_FechaCreacion)
+VALUES                    (2,'LLEGADA', '16:00', 1, GETDATE())             
+GO
+INSERT INTO Tick.tbHorario(hor_identificador, hor_ruta, hor_hora, usu_UsuarioCreacion, hor_FechaCreacion)
+VALUES                    (2,'LLEGADA', '17:00', 1, GETDATE())             
+GO
+INSERT INTO Tick.tbHorario(hor_identificador, hor_ruta, hor_hora, usu_UsuarioCreacion, hor_FechaCreacion)
+VALUES                    (2,'LLEGADA', '18:00', 1, GETDATE())             
+GO
+INSERT INTO Tick.tbHorario(hor_identificador, hor_ruta, hor_hora, usu_UsuarioCreacion, hor_FechaCreacion)
+VALUES                    (2,'LLEGADA', '20:00', 1, GETDATE())             
+GO
+INSERT INTO Tick.tbHorario(hor_identificador, hor_ruta, hor_hora, usu_UsuarioCreacion, hor_FechaCreacion)
+VALUES                    (2,'LLEGADA', '21:00', 1, GETDATE())             
+GO
+
+---- AUTOBUS ASIGNADO A LAS 8:00 AM
+INSERT INTO Tick.tbAutobus_Horario(aut_id, hor_id, usu_UsuarioCreacion, auh_FechaCreacion)
+VALUES								(1,1,1, GETDATE())
+GO
+
+--- VOY A HACER UNA PLANIFICACIÓN
+---- PLANIFICO QUE EL 8 DE DICIEMBRE SALDRA UN BUS A LAS 8:00 AM
+INSERT INTO Tick.tbPlanificacion(pln_Fecha, auh_ID, usu_UsuarioCreacion, pln_FechaCreacion)
+VALUES		('2024-12-8', 1, 1, GETDATE());
+
+--- INSERTANDO 30 ASIENTOS QUE PERTENECEN A LA PLANIFICACION 1, QUE PERTENECE A EL BUS 1 QUE SALEA LAS 8 AM
+DECLARE @cantidadAsientos INT = 30;
+DECLARE @pln_ID INT = 1;
+DECLARE @i INT = 1;
+
+WHILE @i <= @cantidadAsientos
+BEGIN
+    INSERT INTO Tick.tbPlanificacion_Asientos (pln_ID, num_Asiento, usu_UsuarioCreacion, pln_FechaCreacion)
+    VALUES (@pln_ID, @i, 1, GETDATE());  -- Insertar asientos como libres
+    SET @i = @i + 1;
+END;
