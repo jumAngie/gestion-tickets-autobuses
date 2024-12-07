@@ -18,7 +18,10 @@ GO
 
 -- Cargos
 INSERT INTO Gral.tbCargos(car_Descripcion,usu_UsuarioCreacion,car_FechaCreacion)
-Values                  ('Gerente', 1 ,                                GETDATE());
+VALUES                  ('Empleado', 1 ,                                GETDATE());
+GO
+INSERT INTO Gral.tbCargos(car_Descripcion,usu_UsuarioCreacion,car_FechaCreacion)
+VALUES                  ('Cliente', 1 ,                                GETDATE());
 Go
 
 -- PAISES
@@ -263,11 +266,6 @@ INSERT INTO Tick.tbDestino( des_Descripcion, usu_UsuarioCreacion, des_FechaCreac
 VALUES                       ('El Progreso' ,1, GETDATE())
 GO
 
---HORARIO
---INSERT INTO Tick.tbHorario( hor_ruta, hor_hora, usu_UsuarioCreacion, hor_FechaCreacion)
---VALUES                  
---GO
-
 ----Precio_Destino
 ------------ LA LIMA - UNAH CORTES
 INSERT INTO Tick.tbPrecio_Destino(des_IDsalida, des_IDdestino, pre_precio, usu_UsuarioCreacion, pre_FechaCreacion)
@@ -310,4 +308,7 @@ INSERT INTO Tick.tbPrecio_Destino(des_IDsalida, des_IDdestino, pre_precio, usu_U
 VALUES                           (1, 6, 40.00,1, GETDATE())                 
 GO
 
-SELECT * FROM Tick.tbDestino
+--HORARIO
+INSERT INTO Tick.tbHorario( hor_ruta, hor_hora, usu_UsuarioCreacion, hor_FechaCreacion)
+VALUES                    ()             
+GO
