@@ -47,6 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BDConnection.cs" />
+    <Compile Include="ScriptsDatabase.cs" />
     <Compile Include="Tickets_Formularios\frmAutobuses.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,6 +163,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\autobus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\empleados-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\empleados-3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clientes-3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

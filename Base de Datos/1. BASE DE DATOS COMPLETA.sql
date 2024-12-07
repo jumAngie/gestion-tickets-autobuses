@@ -179,9 +179,9 @@ CREATE TABLE Tick.tbMarca
 		mar_Descripcion				NVARCHAR(500),
 
 		mar_UsuarioCreacion			INT							NOT NULL,
-		mar_UsuarioModificacion		INT							NOT NULL,
+		mar_UsuarioModificacion		INT							,
 		mar_FehaCreacion			DATETIME					NOT NULL,
-		mar_FechaModificacion		DATETIME					NOT NULL,
+		mar_FechaModificacion		DATETIME					,
 		mar_Estado					BIT				DEFAULT		1,
 
 		CONSTRAINT PK_Tick_tbMarca_mar_ID			PRIMARY KEY(mar_ID),
@@ -195,9 +195,9 @@ CREATE TABLE Tick.tbModelo
 		mod_Descripcion				NVARCHAR(500),
 
 		mod_UsuarioCreacion			INT							NOT NULL,
-		mod_UsuarioModificacion		INT							NOT NULL,
+		mod_UsuarioModificacion		INT							,
 		mod_FehaCreacion			DATETIME					NOT NULL,
-		mod_FechaModificacion		DATETIME					NOT NULL,
+		mod_FechaModificacion		DATETIME					,
 		mod_Estado					BIT				DEFAULT		1,
 
 		CONSTRAINT PK_Tick_tbModelo_mod_ID			PRIMARY KEY(mod_ID),
@@ -215,9 +215,9 @@ CREATE TABLE Tick.tbAutobuses
 		aut_cantAsientos			INT,
 
 		aut_UsuarioCreacion			INT							NOT NULL,
-		aut_UsuarioModificacion		INT							NOT NULL,
+		aut_UsuarioModificacion		INT							,
 		aut_FechaCreacion			DATETIME					NOT NULL,
-		aut_FechaModificacion		DATETIME					NOT NULL,
+		aut_FechaModificacion		DATETIME					,
 		aut_Estado					BIT				DEFAULT		1,
 
 		CONSTRAINT PK_Tick_tbAutobuses_aut_ID		PRIMARY KEY(aut_ID),
