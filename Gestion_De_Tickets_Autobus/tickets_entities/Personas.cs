@@ -17,6 +17,8 @@ namespace Gestion_De_Tickets_Autobus.Tickets_Entities
         public DateTime per_FechaNacimiento { get; set; }
         public int per_Sexo { get; set; }
         public int per_Cargo { get; set; }
+        public int per_Ciudad { get; set; }
+
         public string per_Direccion { get; set; }
         public int usu_UsuarioCreacion { get; set; }
         public DateTime per_FechaCreacion { get; set; }

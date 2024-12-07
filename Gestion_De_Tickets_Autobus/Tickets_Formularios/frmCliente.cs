@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Gestion_De_Tickets_Autobus.Tickets_DAL;
+using Gestion_De_Tickets_Autobus.Tickets_Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Gestion_De_Tickets_Autobus
 {
@@ -17,6 +20,31 @@ namespace Gestion_De_Tickets_Autobus
         private int sexo = 0;
         private int cliente = 2;
         #endregion
+
+        //INSERTAR
+        public void InsertarClientes()
+        {
+            if (rbF.Checked) sexo = 1;
+            if (rbM.Checked) sexo = 2;
+
+            Personas Pr = new Personas
+            {
+                per_NombreCompleto = txtNombre.Text,
+                per_DNI = mtxtidentidad.Text,
+                per_Telefono = txtTelefono.Text,
+                per_FechaNacimiento = dtFechaNacimiento.Value,
+                per_Sexo = sexo,
+                per_Correo = txtEmail.Text,
+                per_Ciudad = Convert.ToInt32(cbxciudad.SelectedValue),
+                per_Direccion = txtDirE.Text,
+                per_Cargo = cliente,
+                per_FechaCreacion = DateTime.Now,
+                usu_UsuarioCreacion = 1 // Id por mientras, acá va el id del usuario logeado
+            };
+
+            string resultados = ClientesDAL.InsertarClientes(Pr);
+            MessageBox.Show(resultados, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
         public frmCliente()
         {
             InitializeComponent();
