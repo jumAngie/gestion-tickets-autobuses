@@ -232,13 +232,35 @@ INSERT INTO Tick.tbAutobuses(aut_Matricula, mar_ID, mod_ID, aut_esVIP, aut_cantA
 VALUES                        ('HA67899K' , 1, 1 ,  1, 30, 1  ,   GETDATE())
 GO
 
+
+
 --DESTINO
 INSERT INTO Tick.tbDestino( des_Descripcion, usu_UsuarioCreacion, des_FechaCreacion)
-VALUES                       ('El Progreso' ,1, GETDATE())
+VALUES                       ('UNAH-Cortés' ,1, GETDATE())
 GO
 
 INSERT INTO Tick.tbDestino( des_Descripcion, usu_UsuarioCreacion, des_FechaCreacion)
-VALUES                       ('San Pedro Sula' ,1, GETDATE())
+VALUES                       ('Mall Galerías del Valle' ,1, GETDATE())
+GO
+
+INSERT INTO Tick.tbDestino( des_Descripcion, usu_UsuarioCreacion, des_FechaCreacion)
+VALUES                       ('Colonia Satélite' ,1, GETDATE())
+GO
+
+INSERT INTO Tick.tbDestino( des_Descripcion, usu_UsuarioCreacion, des_FechaCreacion)
+VALUES                       ('EXPOCENTRO' ,1, GETDATE())
+GO
+
+INSERT INTO Tick.tbDestino( des_Descripcion, usu_UsuarioCreacion, des_FechaCreacion)
+VALUES                       ('MegaMall' ,1, GETDATE())
+GO
+
+INSERT INTO Tick.tbDestino( des_Descripcion, usu_UsuarioCreacion, des_FechaCreacion)
+VALUES                       ('Entrada a La Lima' ,1, GETDATE())
+GO
+
+INSERT INTO Tick.tbDestino( des_Descripcion, usu_UsuarioCreacion, des_FechaCreacion)
+VALUES                       ('El Progreso' ,1, GETDATE())
 GO
 
 --HORARIO
@@ -247,7 +269,45 @@ GO
 --GO
 
 ----Precio_Destino
---INSERT INTO Tick.tbPrecio_Destino( des_IDsalida, des_IDdestino, pre_precio, usu_UsuarioCreacion, pre_FechaCreacion)
---VALUES                  
---GO
+------------ LA LIMA - UNAH CORTES
+INSERT INTO Tick.tbPrecio_Destino(des_IDsalida, des_IDdestino, pre_precio, usu_UsuarioCreacion, pre_FechaCreacion)
+VALUES                           (6, 1, 40.00,1, GETDATE())                 
+GO
+------------ EL PROGRESO - UNAH CORTES
+INSERT INTO Tick.tbPrecio_Destino(des_IDsalida, des_IDdestino, pre_precio, usu_UsuarioCreacion, pre_FechaCreacion)
+VALUES                           (7, 1, 45.00, 1, GETDATE())                 
+GO
+------------ SATELITE - UNAH CORTES
+INSERT INTO Tick.tbPrecio_Destino(des_IDsalida, des_IDdestino, pre_precio, usu_UsuarioCreacion, pre_FechaCreacion)
+VALUES                           (3, 1, 35.00,1, GETDATE())                 
+GO
+------------ EXPOCENTRO - UNAH CORTES
+INSERT INTO Tick.tbPrecio_Destino(des_IDsalida, des_IDdestino, pre_precio, usu_UsuarioCreacion, pre_FechaCreacion)
+VALUES                           (4, 1, 15.00,1, GETDATE())                 
+GO
+------------ MEGAMALL - UNAH CORTES
+INSERT INTO Tick.tbPrecio_Destino(des_IDsalida, des_IDdestino, pre_precio, usu_UsuarioCreacion, pre_FechaCreacion)
+VALUES                           (5, 1, 20.00,1, GETDATE())                 
+GO
+------------ UNAH CORTES - MALL GALERIAS
+INSERT INTO Tick.tbPrecio_Destino(des_IDsalida, des_IDdestino, pre_precio, usu_UsuarioCreacion, pre_FechaCreacion)
+VALUES                           (1, 2, 10.00,1, GETDATE())                 
+GO
+------------ UNAH CORTES - COLONIA SATELITE
+INSERT INTO Tick.tbPrecio_Destino(des_IDsalida, des_IDdestino, pre_precio, usu_UsuarioCreacion, pre_FechaCreacion)
+VALUES                           (1, 2, 35.00,1, GETDATE())                 
+GO
+------------ UNAH CORTES - EXPOCENTRO
+INSERT INTO Tick.tbPrecio_Destino(des_IDsalida, des_IDdestino, pre_precio, usu_UsuarioCreacion, pre_FechaCreacion)
+VALUES                           (1, 4, 15.00,1, GETDATE())                 
+GO
+------------ UNAH CORTES - EL PROGRESO
+INSERT INTO Tick.tbPrecio_Destino(des_IDsalida, des_IDdestino, pre_precio, usu_UsuarioCreacion, pre_FechaCreacion)
+VALUES                           (1, 4, 45.00,1, GETDATE())                 
+GO
+------------ UNAH CORTES - LA LIMA
+INSERT INTO Tick.tbPrecio_Destino(des_IDsalida, des_IDdestino, pre_precio, usu_UsuarioCreacion, pre_FechaCreacion)
+VALUES                           (1, 6, 40.00,1, GETDATE())                 
+GO
 
+SELECT * FROM Tick.tbDestino
