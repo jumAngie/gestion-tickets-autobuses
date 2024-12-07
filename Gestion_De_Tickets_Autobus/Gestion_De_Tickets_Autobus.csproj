@@ -35,6 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -49,6 +50,11 @@
   <ItemGroup>
     <Compile Include="BDConnection.cs" />
     <Compile Include="ScriptsDatabase.cs" />
+    <Compile Include="Tickets_DAL\AutobusesDAL.cs" />
+    <Compile Include="Tickets_DAL\ClientesDAL.cs" />
+    <Compile Include="Tickets_DAL\EmpleadosDAL.cs" />
+    <Compile Include="Tickets_Entities\Autobuses.cs" />
+    <Compile Include="Tickets_Entities\Personas.cs" />
     <Compile Include="Tickets_Formularios\frmAutobuses.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,8 +160,6 @@
     <None Include="Resources\asientopeque.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Tickets_DAL\" />
-    <Folder Include="Tickets_Entities\" />
     <Folder Include="Tickets_ViewModels\" />
   </ItemGroup>
   <ItemGroup>
