@@ -11,7 +11,7 @@ namespace Gestion_De_Tickets_Autobus
         #region Empleados
         public static string ListarEmpleados = "";
         public static string BuscarEmpleados = "Gral.Empleados_Buscar";
-        public static string InsertarEmpleados = "Gral.UDP_tbPersonas_Insertar"
+        public static string InsertarEmpleados = "Gral.UDP_tbPersonas_Insertar";
         #endregion
         #region Clientes
         public static string InertarClientes = "Gral.UDP_tbPersonas_Insertar";
