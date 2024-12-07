@@ -1,7 +1,7 @@
 -- /* LLENADO DE LAS TABLAS - INSERTS */ -- 
 
 --USUARIOS
-INSERT INTO Acce.tbUsuarios (,usu_Usuario	,usu_Contrasena, per_ID,rol_ID,usu_UsuarioCreacion,usu_FechaCreacion )
+INSERT INTO Acce.tbUsuarios (usu_Usuario	,usu_Contrasena, per_ID,rol_ID,usu_UsuarioCreacion,usu_FechaCreacion )
 VALUES						('Admin', '123', 1, 1, 1, GETDATE());
 GO
 -- ROLES
@@ -9,10 +9,10 @@ INSERT INTO Acce.tbRoles (rol_Descripcion,usu_UsuarioCreacion,rol_FechaCreacion)
 VALUES					('Administrador',		1,					GETDATE());
 GO
 -- SEXOS
-INSERT INTO Gral.tbSexos([sex_Descripcion],[usu_UsuarioCreacion],[sex_FechaCreacion]¨)
+INSERT INTO Gral.tbSexos([sex_Descripcion],[usu_UsuarioCreacion],[sex_FechaCreacion])
 VALUES					('Femenino', 1, GETDATE())
 GO
-INSERT INTO Gral.tbSexos([sex_Descripcion],[usu_UsuarioCreacion],[sex_FechaCreacion]¨)
+INSERT INTO Gral.tbSexos([sex_Descripcion],[usu_UsuarioCreacion],[sex_FechaCreacion])
 VALUES					('Masculino', 1, GETDATE())
 GO
 
@@ -208,46 +208,46 @@ GO
                  
 -- PERSONA
 INSERT INTO Gral.tbPersonas(per_NombreCompleto, per_Correo, per_DNI, per_Telefono, per_FechaNacimiento, per_Sexo, per_Cargo, per_Ciudad, per_Direccion, usu_UsuarioCreacion, per_FechaCreacion)
-VALUES						 ('Angie Yahaira Campos Arias','angie.campos@gmail.com', '0512200300736', '2003-01-03', 1,1,5
+VALUES						 ('Angie Yahaira Campos Arias','angie.campos@gmail.com', '0512200300736', '96633080', '2003-01-03', 1,1,5
 							,'Avenida Flores, 8va Calle, Casa #34',1, GETDATE())
 GO
 
 --Autobus_Horario
-INSERT INTO Tick.tbAutobus_Horario( aut_id, hor_id, usu_UsuarioCreacion, auh_FechaCreacion)
-VALUES
-GO
+--INSERT INTO Tick.tbAutobus_Horario( aut_id, hor_id, usu_UsuarioCreacion, auh_FechaCreacion)
+--VALUES
+--GO
 
 --MARCA
 Insert INTO  Tick.tbMarca(mar_Descripcion, mar_UsuarioCreacion, mar_FehaCreacion )
-VALUES                    ('Isuzu', 1 GETDATE()),
+VALUES                    ('Isuzu', 1 , GETDATE())
 GO
 
 --MODELO
 INSERT INTO Tick.tbModelo (mod_Descripcion, mod_UsuarioCreacion, mod_FehaCreacion)
-VALUES                        ('b11R' , 1,   GETDATE()),
+VALUES                        ('b11R' , 1,   GETDATE())
 GO
 
 --AUTOBUSES
 INSERT INTO Tick.tbAutobuses(aut_Matricula, mar_ID, mod_ID, aut_esVIP, aut_cantAsientos, aut_UsuarioCreacion, aut_FechaCreacion)
-VALUES                        ('HA67899K' , 1,1, 1,30,1     GETDATE()),
+VALUES                        ('HA67899K' , 1, 1 ,  1, 30, 1  ,   GETDATE())
 GO
 
 --DESTINO
 INSERT INTO Tick.tbDestino( des_Descripcion, usu_UsuarioCreacion, des_FechaCreacion)
-VALUES                       ('El progreso' ,1, GETDATE()),
+VALUES                       ('El Progreso' ,1, GETDATE())
 GO
 
 INSERT INTO Tick.tbDestino( des_Descripcion, usu_UsuarioCreacion, des_FechaCreacion)
-VALUES                       ('San Pedro Sula' ,1, GETDATE()),
+VALUES                       ('San Pedro Sula' ,1, GETDATE())
 GO
 
 --HORARIO
-INSERT INTO Tick.tbHorario( hor_ruta, hor_hora, usu_UsuarioCreacion, hor_FechaCreacion)
-VALUES                  
-GO
+--INSERT INTO Tick.tbHorario( hor_ruta, hor_hora, usu_UsuarioCreacion, hor_FechaCreacion)
+--VALUES                  
+--GO
 
---Precio_Destino
-INSERT INTO Tick.tbPrecio_Destino( des_IDsalida, des_IDdestino, pre_precio, usu_UsuarioCreacion, pre_FechaCreacion)
-VALUES                  
-GO
+----Precio_Destino
+--INSERT INTO Tick.tbPrecio_Destino( des_IDsalida, des_IDdestino, pre_precio, usu_UsuarioCreacion, pre_FechaCreacion)
+--VALUES                  
+--GO
 

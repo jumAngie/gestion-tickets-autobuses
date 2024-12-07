@@ -57,8 +57,6 @@
             this.pnlcorreo = new System.Windows.Forms.Panel();
             this.pnldepto = new System.Windows.Forms.Panel();
             this.pnlpais = new System.Windows.Forms.Panel();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.gbDNI = new System.Windows.Forms.GroupBox();
             this.txtDNIE = new System.Windows.Forms.TextBox();
             this.lblDNIE = new System.Windows.Forms.Label();
@@ -70,6 +68,8 @@
             this.pnlDNI = new System.Windows.Forms.Panel();
             this.pnlDNIE = new System.Windows.Forms.Panel();
             this.dgvempleados = new System.Windows.Forms.DataGridView();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.gbDatospersonales.SuspendLayout();
             this.gbDatosdeContacto.SuspendLayout();
             this.gbDNI.SuspendLayout();
@@ -372,30 +372,6 @@
             this.pnlpais.TabIndex = 12;
             this.pnlpais.Visible = false;
             // 
-            // btnGuardar
-            // 
-            this.btnGuardar.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnGuardar.Location = new System.Drawing.Point(515, 297);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(109, 39);
-            this.btnGuardar.TabIndex = 8;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = false;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnCancelar.Location = new System.Drawing.Point(658, 297);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(109, 39);
-            this.btnCancelar.TabIndex = 9;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
             // gbDNI
             // 
             this.gbDNI.Controls.Add(this.txtDNIE);
@@ -514,16 +490,43 @@
             this.dgvempleados.Size = new System.Drawing.Size(763, 96);
             this.dgvempleados.TabIndex = 10;
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Gray;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(673, 297);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(103, 31);
+            this.button2.TabIndex = 27;
+            this.button2.Text = "Cancelar";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(53)))), ((int)(((byte)(80)))));
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.ForeColor = System.Drawing.Color.White;
+            this.btnGuardar.Location = new System.Drawing.Point(564, 297);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(103, 31);
+            this.btnGuardar.TabIndex = 26;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            // 
             // frmEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.dgvempleados);
             this.Controls.Add(this.gbDNI);
-            this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.gbDatosdeContacto);
             this.Controls.Add(this.gbDatospersonales);
             this.Name = "frmEmpleado";
@@ -562,8 +565,6 @@
         private System.Windows.Forms.ComboBox cbxdepto;
         private System.Windows.Forms.TextBox txtDirE;
         private System.Windows.Forms.Label lblDirE;
-        private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.GroupBox gbDNI;
         private System.Windows.Forms.RadioButton rbE;
         private System.Windows.Forms.RadioButton rbH;
@@ -583,5 +584,7 @@
         private System.Windows.Forms.Panel pnlpais;
         private System.Windows.Forms.Panel pnlDNI;
         private System.Windows.Forms.Panel pnlDNIE;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnGuardar;
     }
 }

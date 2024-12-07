@@ -20,7 +20,7 @@ namespace Gestion_De_Tickets_Autobus
         public frmPrincipal()
         {
             InitializeComponent();
-            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
+            //Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
             PNav.Height = btnInicio.Height;
             PNav.Top = btnInicio.Top;
             btnInicio.BackColor = Color.FromArgb(46, 51, 73);
@@ -207,6 +207,11 @@ namespace Gestion_De_Tickets_Autobus
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTitle_Click(object sender, EventArgs e)
         {
 
         }
