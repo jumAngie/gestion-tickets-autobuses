@@ -357,7 +357,7 @@ namespace Gestion_De_Tickets_Autobus
             boton_mostrarEditar();
             DataGridViewRow fila = dgClientes.Rows[e.RowIndex];
 
-            int per_ID = Convert.ToInt32(fila.Cells["Cliente"].Value);
+            int per_ID = Convert.ToInt32(fila.Cells["per_ID"].Value);
             id_filaseleccionada = per_ID;
 
             LimpiarCampos();

@@ -71,16 +71,17 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
                 while (reader.Read())
                 {
                     ClientesViewModel ClienteView = new ClientesViewModel();
-                    ClienteView.NombreCompleto = reader.GetString(0);
-                    ClienteView.DNI = reader.GetString(1);
-                    ClienteView.Telefono = reader.GetString(2);
-                    ClienteView.Correo = reader.GetString(3);
-                    ClienteView.FechaNacimiento = reader.GetDateTime(4);
-                    ClienteView.Sexo_Descripcion = reader.GetString(5);
-                    ClienteView.Ciud_Descripcion = reader.GetString(6);
-                    ClienteView.Dept_Descripcion = reader.GetString(7);
-                    ClienteView.Pais_Descripcion = reader.GetString(8);
-                    ClienteView.Direccion = reader.GetString(9);
+                    ClienteView.per_ID = reader.GetInt32(0);
+                    ClienteView.NombreCompleto = reader.GetString(1);
+                    ClienteView.DNI = reader.GetString(2);
+                    ClienteView.Telefono = reader.GetString(3);
+                    ClienteView.Correo = reader.GetString(4);
+                    ClienteView.FechaNacimiento = reader.GetDateTime(5);
+                    ClienteView.Sexo_Descripcion = reader.GetString(6);
+                    ClienteView.Ciud_Descripcion = reader.GetString(7);
+                    ClienteView.Dept_Descripcion = reader.GetString(8);
+                    ClienteView.Pais_Descripcion = reader.GetString(9);
+                    ClienteView.Direccion = reader.GetString(10);
 
 
                     lista.Add(ClienteView);
