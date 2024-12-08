@@ -379,58 +379,58 @@ GO
 
 --HORARIO
 INSERT INTO Tick.tbHorario(hor_identificador, hor_ruta, hor_hora, usu_UsuarioCreacion, hor_FechaCreacion)
-VALUES                    (1,'SALIDA', '08:00', 1, GETDATE())             
+VALUES                    (1,'DESTINO A UNAH', '08:00', 1, GETDATE())             
 GO
 INSERT INTO Tick.tbHorario(hor_identificador, hor_ruta, hor_hora, usu_UsuarioCreacion, hor_FechaCreacion)
-VALUES                    (1,'SALIDA', '09:00', 1, GETDATE())             
+VALUES                    (1,'DESTINO A UNAH', '09:00', 1, GETDATE())             
 GO
 INSERT INTO Tick.tbHorario(hor_identificador, hor_ruta, hor_hora, usu_UsuarioCreacion, hor_FechaCreacion)
-VALUES                    (1,'SALIDA', '10:00', 1, GETDATE())             
+VALUES                    (1,'DESTINO A UNAH', '10:00', 1, GETDATE())             
 GO
 INSERT INTO Tick.tbHorario(hor_identificador, hor_ruta, hor_hora, usu_UsuarioCreacion, hor_FechaCreacion)
-VALUES                    (1, 'SALIDA', '12:00', 1, GETDATE())             
+VALUES                    (1, 'DESTINO A UNAH', '12:00', 1, GETDATE())             
 GO
 INSERT INTO Tick.tbHorario(hor_identificador, hor_ruta, hor_hora, usu_UsuarioCreacion, hor_FechaCreacion)
-VALUES                    (1, 'SALIDA', '13:00', 1, GETDATE())             
+VALUES                    (1, 'DESTINO A UNAH', '13:00', 1, GETDATE())             
 GO
 INSERT INTO Tick.tbHorario(hor_identificador, hor_ruta, hor_hora, usu_UsuarioCreacion, hor_FechaCreacion)
-VALUES                    (1, 'SALIDA', '14:00', 1, GETDATE())             
+VALUES                    (1, 'DESTINO A UNAH', '14:00', 1, GETDATE())             
 GO
 INSERT INTO Tick.tbHorario(hor_identificador, hor_ruta, hor_hora, usu_UsuarioCreacion, hor_FechaCreacion)
-VALUES                    (1, 'SALIDA', '16:00', 1, GETDATE())             
+VALUES                    (1, 'DESTINO A UNAH', '16:00', 1, GETDATE())             
 GO
 INSERT INTO Tick.tbHorario(hor_identificador, hor_ruta, hor_hora, usu_UsuarioCreacion, hor_FechaCreacion)
-VALUES                    (1, 'SALIDA', '17:00', 1, GETDATE())             
+VALUES                    (1, 'DESTINO A UNAH', '17:00', 1, GETDATE())             
 GO
 INSERT INTO Tick.tbHorario(hor_identificador, hor_ruta, hor_hora, usu_UsuarioCreacion, hor_FechaCreacion)
-VALUES                    (1, 'SALIDA', '18:00', 1, GETDATE())             
+VALUES                    (1, 'DESTINO A UNAH', '18:00', 1, GETDATE())             
 GO
 INSERT INTO Tick.tbHorario(hor_identificador, hor_ruta, hor_hora, usu_UsuarioCreacion, hor_FechaCreacion)
-VALUES                    (2,'LLEGADA', '11:00', 1, GETDATE())             
+VALUES                    (2,'SALIENDO DE UNAH', '11:00', 1, GETDATE())             
 GO
 INSERT INTO Tick.tbHorario(hor_identificador, hor_ruta, hor_hora, usu_UsuarioCreacion, hor_FechaCreacion)
-VALUES                    (2,'LLEGADA', '12:00', 1, GETDATE())             
+VALUES                    (2,'SALIENDO DE UNAH', '12:00', 1, GETDATE())             
 GO
 INSERT INTO Tick.tbHorario(hor_identificador, hor_ruta, hor_hora, usu_UsuarioCreacion, hor_FechaCreacion)
-VALUES                    (2,'LLEGADA', '13:00', 1, GETDATE())             
+VALUES                    (2,'SALIENDO DE UNAH', '13:00', 1, GETDATE())             
 GO
 INSERT INTO Tick.tbHorario(hor_identificador, hor_ruta, hor_hora, usu_UsuarioCreacion, hor_FechaCreacion)
-VALUES                    (2,'LLEGADA', '15:00', 1, GETDATE())             
+VALUES                    (2,'SALIENDO DE UNAH', '15:00', 1, GETDATE())             
 GO
 INSERT INTO Tick.tbHorario(hor_identificador, hor_ruta, hor_hora, usu_UsuarioCreacion, hor_FechaCreacion)
-VALUES                    (2,'LLEGADA', '16:00', 1, GETDATE())             
+VALUES                    (2,'SALIENDO DE UNAH', '16:00', 1, GETDATE())             
 GO
 INSERT INTO Tick.tbHorario(hor_identificador, hor_ruta, hor_hora, usu_UsuarioCreacion, hor_FechaCreacion)
-VALUES                    (2,'LLEGADA', '17:00', 1, GETDATE())             
+VALUES                    (2,'SALIENDO DE UNAH', '17:00', 1, GETDATE())             
 GO
 INSERT INTO Tick.tbHorario(hor_identificador, hor_ruta, hor_hora, usu_UsuarioCreacion, hor_FechaCreacion)
-VALUES                    (2,'LLEGADA', '18:00', 1, GETDATE())             
+VALUES                    (2,'SALIENDO DE UNAH', '18:00', 1, GETDATE())             
 GO
 INSERT INTO Tick.tbHorario(hor_identificador, hor_ruta, hor_hora, usu_UsuarioCreacion, hor_FechaCreacion)
-VALUES                    (2,'LLEGADA', '20:00', 1, GETDATE())             
+VALUES                    (2,'SALIENDO DE UNAH', '20:00', 1, GETDATE())             
 GO
 INSERT INTO Tick.tbHorario(hor_identificador, hor_ruta, hor_hora, usu_UsuarioCreacion, hor_FechaCreacion)
-VALUES                    (2,'LLEGADA', '21:00', 1, GETDATE())             
+VALUES                    (2,'SALIENDO DE UNAH', '21:00', 1, GETDATE())             
 GO
 
 ---- AUTOBUS ASIGNADO A LAS 8:00 AM
