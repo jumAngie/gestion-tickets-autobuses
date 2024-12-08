@@ -298,6 +298,101 @@ INSERT INTO Tick.tbModelo (mar_ID, mod_Descripcion, mod_UsuarioCreacion, mod_Feh
 VALUES                    (2, 'Volvo 9900 ' , 1,   GETDATE())
 GO
 
+INSERT INTO Tick.tbModelo (mar_ID, mod_Descripcion, mod_UsuarioCreacion, mod_FehaCreacion)
+VALUES                    (3, 'Scania Touring' , 1,   GETDATE())
+GO
+
+INSERT INTO Tick.tbModelo (mar_ID, mod_Descripcion, mod_UsuarioCreacion, mod_FehaCreacion)
+VALUES                    (3, 'Scania Irizar i6S' , 1,   GETDATE())
+GO
+
+INSERT INTO Tick.tbModelo (mar_ID, mod_Descripcion, mod_UsuarioCreacion, mod_FehaCreacion)
+VALUES                    (3, 'Scania Interlink' , 1,   GETDATE())
+GO
+
+INSERT INTO Tick.tbModelo (mar_ID, mod_Descripcion, mod_UsuarioCreacion, mod_FehaCreacion)
+VALUES                    (4, 'MAN Lion s Coach' , 1,   GETDATE())
+GO
+
+INSERT INTO Tick.tbModelo (mar_ID, mod_Descripcion, mod_UsuarioCreacion, mod_FehaCreacion)
+VALUES                    (4, 'MAN Lion s Intercity' , 1,   GETDATE())
+GO
+
+INSERT INTO Tick.tbModelo (mar_ID, mod_Descripcion, mod_UsuarioCreacion, mod_FehaCreacion)
+VALUES                    (4, 'MAN RHC' , 1,   GETDATE())
+GO
+
+INSERT INTO Tick.tbModelo (mar_ID, mod_Descripcion, mod_UsuarioCreacion, mod_FehaCreacion)
+VALUES                    (5, 'Paradiso 1200 G7' , 1,   GETDATE())
+GO
+
+INSERT INTO Tick.tbModelo (mar_ID, mod_Descripcion, mod_UsuarioCreacion, mod_FehaCreacion)
+VALUES                    (5, 'Viaggio 1050' , 1,   GETDATE())
+GO
+
+INSERT INTO Tick.tbModelo (mar_ID, mod_Descripcion, mod_UsuarioCreacion, mod_FehaCreacion)
+VALUES                    (5, 'Paradiso 1800 DD' , 1,   GETDATE())
+GO
+
+INSERT INTO Tick.tbModelo (mar_ID, mod_Descripcion, mod_UsuarioCreacion, mod_FehaCreacion)
+VALUES                    (6, 'Irizar i6' , 1,   GETDATE())
+GO
+
+INSERT INTO Tick.tbModelo (mar_ID, mod_Descripcion, mod_UsuarioCreacion, mod_FehaCreacion)
+VALUES                    (6, 'Irizar i4 ' , 1,   GETDATE())
+GO
+
+INSERT INTO Tick.tbModelo (mar_ID, mod_Descripcion, mod_UsuarioCreacion, mod_FehaCreacion)
+VALUES                    (6, 'Irizar i8' , 1,   GETDATE())
+GO
+
+INSERT INTO Tick.tbModelo (mar_ID, mod_Descripcion, mod_UsuarioCreacion, mod_FehaCreacion)
+VALUES                    (7, 'ZK6122H9' , 1,   GETDATE())
+GO
+
+INSERT INTO Tick.tbModelo (mar_ID, mod_Descripcion, mod_UsuarioCreacion, mod_FehaCreacion)
+VALUES                    (7, 'ZK6146H' , 1,   GETDATE())
+GO
+
+INSERT INTO Tick.tbModelo (mar_ID, mod_Descripcion, mod_UsuarioCreacion, mod_FehaCreacion)
+VALUES                    (7, 'ZK6118HGA' , 1,   GETDATE())
+GO
+
+INSERT INTO Tick.tbModelo (mar_ID, mod_Descripcion, mod_UsuarioCreacion, mod_FehaCreacion)
+VALUES                    (8, 'XMQ6129Y' , 1,   GETDATE())
+GO
+
+INSERT INTO Tick.tbModelo (mar_ID, mod_Descripcion, mod_UsuarioCreacion, mod_FehaCreacion)
+VALUES                    (8, 'XMQ6130Y' , 1,   GETDATE())
+GO
+
+INSERT INTO Tick.tbModelo (mar_ID, mod_Descripcion, mod_UsuarioCreacion, mod_FehaCreacion)
+VALUES                    (8, 'XMQ6900Y' , 1,   GETDATE())
+GO
+
+INSERT INTO Tick.tbModelo (mar_ID, mod_Descripcion, mod_UsuarioCreacion, mod_FehaCreacion)
+VALUES                    (9, 'XML6125J13' , 1,   GETDATE())
+GO
+
+INSERT INTO Tick.tbModelo (mar_ID, mod_Descripcion, mod_UsuarioCreacion, mod_FehaCreacion)
+VALUES                    (9, 'XML6957' , 1,   GETDATE())
+GO
+
+INSERT INTO Tick.tbModelo (mar_ID, mod_Descripcion, mod_UsuarioCreacion, mod_FehaCreacion)
+VALUES                    (9, 'XML6137E' , 1,   GETDATE())
+GO
+
+INSERT INTO Tick.tbModelo (mar_ID, mod_Descripcion, mod_UsuarioCreacion, mod_FehaCreacion)
+VALUES                    (10, 'Tourliner' , 1,   GETDATE())
+GO
+
+INSERT INTO Tick.tbModelo (mar_ID, mod_Descripcion, mod_UsuarioCreacion, mod_FehaCreacion)
+VALUES                    (10, 'Cityliner' , 1,   GETDATE())
+GO
+
+INSERT INTO Tick.tbModelo (mar_ID, mod_Descripcion, mod_UsuarioCreacion, mod_FehaCreacion)
+VALUES                    (10, 'Skyliner' , 1,   GETDATE())
+GO
 
 --AUTOBUSES
 INSERT INTO Tick.tbAutobuses(aut_Matricula, mar_ID, mod_ID, aut_esVIP, aut_cantAsientos, aut_UsuarioCreacion, aut_FechaCreacion)
