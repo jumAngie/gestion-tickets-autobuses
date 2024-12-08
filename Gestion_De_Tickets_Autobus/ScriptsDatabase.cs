@@ -40,5 +40,9 @@ namespace Gestion_De_Tickets_Autobus
         public static string Modelos_CMBX = "Tick.Marcas_CMB";
         public static string Marcas_CMBX = "Tick.Modelos_CMB";
         #endregion
+
+        #region Validaciones
+        public static string ExistenciaDNI = "Gral.ValidarExistenciaDNI";
+        #endregion
     }
 }

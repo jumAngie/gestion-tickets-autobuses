@@ -61,3 +61,10 @@ AS
 			WHERE  mar_ID = @mar_ID
 	END
 GO
+--- HORARIOS
+CREATE OR ALTER PROCEDURE Tick.Horarios_Dibujado
+AS
+BEGIN
+	SELECT hor_ID, hor_identificador, hor_Ruta, hor_hora FROM Tick.tbHorario
+END
+

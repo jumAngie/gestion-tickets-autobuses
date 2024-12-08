@@ -88,7 +88,8 @@ GO
 CREATE OR ALTER PROCEDURE Gral.UDP_tbPersonas_Insertar
 @per_NombreCompleto		NVARCHAR(MAX), 
 @per_Correo				NVARCHAR(200), 
-@per_DNI				NVARCHAR(13), 
+@per_DNI				NVARCHAR(25),
+@per_Extranjero         BIT,
 @per_Telefono			NVARCHAR(50), 
 @per_FechaNacimiento	DATE, 
 @sex_ID					INT, 
@@ -100,12 +101,12 @@ CREATE OR ALTER PROCEDURE Gral.UDP_tbPersonas_Insertar
 AS
 	BEGIN
 		BEGIN TRY
-		INSERT INTO Gral.tbPersonas(per_NombreCompleto, per_Correo, per_DNI, 
+		INSERT INTO Gral.tbPersonas(per_NombreCompleto, per_Correo, per_DNI, per_Extranjero,
 									per_Telefono, per_FechaNacimiento, sex_ID, car_ID, 
 									ciud_ID, per_Direccion, usu_UsuarioCreacion, 
 									per_FechaCreacion)
 
-			VALUES				   (@per_NombreCompleto, @per_Correo, @per_DNI, 
+			VALUES				   (@per_NombreCompleto, @per_Correo, @per_DNI, @per_Extranjero,
 									@per_Telefono, @per_FechaNacimiento, @sex_ID, @car_ID, 
 									@ciud_ID, @per_Direccion, @usu_UsuarioCreacion, 
 									@per_FechaCreacion)
@@ -125,7 +126,8 @@ AS
 			SELECT 
 				per_NombreCompleto, 
 				per_Correo,
-				per_DNI, 
+				per_DNI,
+				per_Extranjero,
 				per_Telefono, 
 				per_FechaNacimiento,
 				sex_ID,
@@ -147,7 +149,8 @@ CREATE OR ALTER PROCEDURE Gral.UDP_tbPersonas_Editar
 	@per_ID					INT, 
 	@per_NombreCompleto		NVARCHAR(500), 
 	@per_Correo				NVARCHAR(20),
-	@per_DNI				NVARCHAR(20), 
+	@per_DNI				NVARCHAR(25), 
+	@per_Extranjero			BIT,
 	@per_Telefono			NVARCHAR(150), 
 	@per_FechaNacimiento	DATE, 
 	@sex_ID					INT, 
@@ -162,6 +165,7 @@ AS
 			UPDATE Gral.tbPersonas
 			SET	   per_NombreCompleto = @per_NombreCompleto,
 				   per_DNI = @per_DNI,
+				   per_Extranjero = @per_Extranjero,
 				   per_Correo = @per_Correo,
 				   per_Telefono = @per_Telefono,
 				   per_FechaNacimiento = @per_FechaNacimiento,
