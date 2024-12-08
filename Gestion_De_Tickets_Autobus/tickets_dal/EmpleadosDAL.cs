@@ -28,6 +28,7 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
 
                     cmd.Parameters.AddWithValue("@per_NombreCompleto", PrEmpleados.per_NombreCompleto);
                     cmd.Parameters.AddWithValue("@per_DNI", PrEmpleados.per_DNI);
+                    cmd.Parameters.AddWithValue("@per_Extranjero", PrEmpleados.per_Extranjero);
                     cmd.Parameters.AddWithValue("@per_Telefono", PrEmpleados.per_Telefono);
                     cmd.Parameters.AddWithValue("@per_Correo", PrEmpleados.per_Correo);
                     cmd.Parameters.AddWithValue("@per_FechaNacimiento", fechaformateada);

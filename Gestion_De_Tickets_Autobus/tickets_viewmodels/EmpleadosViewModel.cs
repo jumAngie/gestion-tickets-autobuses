@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,6 +43,8 @@ namespace Gestion_De_Tickets_Autobus.Tickets_ViewModels
         [DisplayName("Direccion")]
         public string Direccion { get; set; }
 
+        [NotMapped]
+        public bool per_Extranjero { get; set; }
 
     }
 }

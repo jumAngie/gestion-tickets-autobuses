@@ -6,7 +6,7 @@
 CREATE OR ALTER PROCEDURE Gral.ValidarExistenciaDNI
 @per_DNI NVARCHAR(25)
 AS
-	BEGIN TRY
+	BEGIN 
 		DECLARE @CANTIDAD INT = 0;
 		SET @CANTIDAD = (SELECT COUNT(*)
 		FROM Gral.tbPersonas
@@ -16,7 +16,4 @@ AS
 			SELECT 1 AS 'personasConDNI'
 		ELSE
 			SELECT 0 AS 'personasConDNI'
-	END TRY
-	BEGIN CATCH
-		
-	END CATCH
+	END 
