@@ -27,15 +27,14 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
                     string fechaformateada = PrClientes.per_FechaNacimiento.ToString("yyyy-MM-dd");
 
                     cmd.Parameters.AddWithValue("@per_NombreCompleto", PrClientes.per_NombreCompleto);
+                    cmd.Parameters.AddWithValue("@per_Correo", PrClientes.per_Correo);
                     cmd.Parameters.AddWithValue("@per_DNI", PrClientes.per_DNI);
                     cmd.Parameters.AddWithValue("@per_Telefono", PrClientes.per_Telefono);
-                    cmd.Parameters.AddWithValue("@per_Correo", PrClientes.per_Correo);
                     cmd.Parameters.AddWithValue("@per_FechaNacimiento", fechaformateada);
-                    cmd.Parameters.AddWithValue("@per_Sexo", PrClientes.per_Sexo);
-                    cmd.Parameters.AddWithValue("@per_Cargo", PrClientes.per_Cargo);
-                    cmd.Parameters.AddWithValue("@per_Ciudad", PrClientes.per_Ciudad);
+                    cmd.Parameters.AddWithValue("@sex_ID", PrClientes.per_Sexo);
+                    cmd.Parameters.AddWithValue("@car_ID", PrClientes.per_Cargo);
+                    cmd.Parameters.AddWithValue("@ciud_ID", PrClientes.per_Ciudad);
                     cmd.Parameters.AddWithValue("@per_Direccion", PrClientes.per_Direccion);
-                    cmd.Parameters.AddWithValue("@per_Estado", PrClientes.per_Estado);
                     cmd.Parameters.AddWithValue("@usu_UsuarioCreacion", PrClientes.usu_UsuarioCreacion);
                     cmd.Parameters.AddWithValue("@per_FechaCreacion", PrClientes.per_FechaCreacion);
 
@@ -74,15 +73,14 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
                     ClienteView.NombreCompleto = reader.GetString(0);
                     ClienteView.DNI = reader.GetString(1);
                     ClienteView.Telefono = reader.GetString(2);
-                    ClienteView.correo = reader.GetString(3);
-                    ClienteView.Pais_Descripcion = reader.GetString(4);
-                    ClienteView.Dept_Descripcion = reader.GetString(5);
+                    ClienteView.Correo = reader.GetString(3);
+                    ClienteView.FechaNacimiento = reader.GetDateTime(4);
+                    ClienteView.Sexo_Descripcion = reader.GetString(5);
                     ClienteView.Ciud_Descripcion = reader.GetString(6);
-                    ClienteView.Direccion = reader.GetString(7);
-                    ClienteView.FechaNacimiento = reader.GetDateTime(8);
-                    ClienteView.Sexo_Descripcion = reader.GetString(9);
-                    ClienteView.cargo_Descripcion = reader.GetString(10);
-
+                    ClienteView.Dept_Descripcion = reader.GetString(7);
+                    ClienteView.Pais_Descripcion = reader.GetString(8);
+                    ClienteView.Direccion = reader.GetString(9);
+       
 
                     lista.Add(ClienteView);
                 }
