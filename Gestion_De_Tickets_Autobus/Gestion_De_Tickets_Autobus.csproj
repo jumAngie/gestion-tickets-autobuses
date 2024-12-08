@@ -51,8 +51,11 @@
     <Compile Include="BDConnection.cs" />
     <Compile Include="ScriptsDatabase.cs" />
     <Compile Include="Tickets_DAL\AutobusesDAL.cs" />
+    <Compile Include="Tickets_DAL\CiudadesDAL.cs" />
     <Compile Include="Tickets_DAL\ClientesDAL.cs" />
+    <Compile Include="Tickets_DAL\DeptosDAL.cs" />
     <Compile Include="Tickets_DAL\EmpleadosDAL.cs" />
+    <Compile Include="Tickets_DAL\PaisesDAL.cs" />
     <Compile Include="Tickets_Entities\Autobuses.cs" />
     <Compile Include="Tickets_Entities\Personas.cs" />
     <Compile Include="Tickets_Formularios\frmAutobuses.cs">
@@ -151,7 +154,6 @@
   <ItemGroup>
     <None Include="Resources\asientopeque.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\cerrar-sesion.png" />
   </ItemGroup>
@@ -166,6 +168,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\clientes-3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buscarcolorizado.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
