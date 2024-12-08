@@ -24,6 +24,7 @@ namespace Gestion_De_Tickets_Autobus
         #region VARIABLES
         private int sexo = 0;
         private int cliente = 2;
+        private int id_filaseleccionada;
         #endregion
 
         //INSERTAR
@@ -51,10 +52,37 @@ namespace Gestion_De_Tickets_Autobus
             MessageBox.Show(resultados, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        //LISTAR
         public void ListarClientes()
         {
             dgClientes.DataSource = ClientesDAL.ListarClientes();
         }
+
+        //EDITAR
+        public void Editar_Clientes(int per_Id)
+        {
+            Personas Cliente = new Personas
+            {
+                per_Id = per_Id,
+                per_NombreCompleto = txtNombre.Text,
+                per_Correo = txtEmail.Text,
+                per_DNI = mtxtidentidad.Text,
+                per_Telefono = txtTelefono.Text,
+                per_FechaNacimiento = dtFechaNacimiento.Value,
+                per_Sexo = sexo,
+                per_Cargo = cliente,
+                per_Ciudad = Convert.ToInt32(cbxciudad.SelectedValue),
+                per_Direccion = txtDirE.Text,
+                usu_UsuarioModificacion = 1, // acá se debe de cambiar cuando se haga el LogIn
+                per_FechaModificacion = DateTime.Now
+            };
+
+            string resultado = ClientesDAL.EditarClientes(Cliente);
+
+            MessageBox.Show(resultado, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+
         public frmCliente()
         {
             InitializeComponent();
@@ -191,9 +219,22 @@ namespace Gestion_De_Tickets_Autobus
             else
                 erroremail.Clear();
         }
+
+        public void boton_mostrarEditar()
+        {
+            btnEditar.Visible = true;
+            btnGuardar.Visible = false;
+        }
+
+        public void boton_mostrarGuardar()
+        {
+            btnEditar.Visible = false;
+            btnGuardar.Visible = true;
+
+        }
         #endregion
 
-       
+
 
         #region MENSAJES
         public void MensajeAdvertencia()
@@ -288,6 +329,60 @@ namespace Gestion_De_Tickets_Autobus
             Panel_OcultarValidaciones();
             MensajeAdvertencia_Hide();
         }
+
+        private void dgClientes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dgClientes.Columns["btnEliminar"].Index && e.RowIndex >= 0)
+            {
+
+                int ciud_Id = Convert.ToInt32(dgCiudades.Rows[e.RowIndex].Cells["CiudadID"].Value);
+                var result = MessageBox.Show("¿Está seguro que desea eliminar este registro?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    Eliminar_Ciudades(ciud_Id);
+                    Listado_Ciudades();
+                    LimpiarCampos();
+                }
+            }
+            else if (e.RowIndex >= 0)
+            {
+                boton_mostrarEditar();
+                DataGridViewRow fila = dgCiudades.Rows[e.RowIndex];
+
+                int ciud_Id = Convert.ToInt32(fila.Cells["CiudadID"].Value);
+                id_filaSeleccionada = ciud_Id;
+
+                LimpiarCampos();
+                panel_OcultarValidaciones();
+                Editar_CargarDatos(ciud_Id);
+            }
+
+            private async void btnEditar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bool esValido = ValidacionesVacio();
+                if (esValido)
+                {
+                    Editar_Clientes(id_filaseleccionada);
+                    ListarClientes();
+                    LimpiarCampos();
+                    boton_mostrarGuardar();
+                }
+                else
+                {
+                    MensajeAdvertencia();
+                    await Task.Delay(4000);
+                    MensajeAdvertencia_Hide();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         #endregion
 
 
