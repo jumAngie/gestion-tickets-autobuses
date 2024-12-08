@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace Gestion_De_Tickets_Autobus.Tickets_ViewModels
 {
-    public class ClientesViewModel
+    public class EmpleadosViewModel
     {
+
         [DisplayName("Nombre Completo")]
         public string NombreCompleto { get; set; }
 
@@ -27,19 +28,20 @@ namespace Gestion_De_Tickets_Autobus.Tickets_ViewModels
         [DisplayName("Sexo")]
         public string Sexo_Descripcion { get; set; }
 
-
-        [DisplayName("Pais")]
-        public string Pais_Descripcion { get; set; }
+        [DisplayName("Ciudad")]
+        public string Ciud_Descripcion { get; set; }
+       
 
         [DisplayName("Departamnto")]
         public string Dept_Descripcion { get; set; }
 
-        [DisplayName("Ciudad")]
-        public string Ciud_Descripcion { get; set; }
+        [DisplayName("Pais")]
+        public string Pais_Descripcion { get; set; }
+
 
         [DisplayName("Direccion")]
         public string Direccion { get; set; }
 
-       
+
     }
 }
