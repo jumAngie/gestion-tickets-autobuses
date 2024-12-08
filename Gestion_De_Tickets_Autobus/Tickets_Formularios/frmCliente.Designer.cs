@@ -89,6 +89,7 @@
             this.dgClientes.Name = "dgClientes";
             this.dgClientes.Size = new System.Drawing.Size(786, 128);
             this.dgClientes.TabIndex = 16;
+            this.dgClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgClientes_CellClick);
             // 
             // gbDNI
             // 
