@@ -24,6 +24,7 @@ namespace Gestion_De_Tickets_Autobus
         #region VARIABLES
         private int sexo = 0;
         private int cliente = 2;
+        private bool extranjero;
         private int id_filaseleccionada;
         #endregion
 
@@ -66,6 +67,7 @@ namespace Gestion_De_Tickets_Autobus
             if (personas != null)
             {
                 txtNombre.Text = personas.per_NombreCompleto;
+                extranjero = personas.per_Extranjero;
                 mtxtidentidad.Text = personas.per_DNI;
                 txtTelefono.Text = personas.per_Telefono;
                 txtEmail.Text = personas.per_Correo;
@@ -74,8 +76,10 @@ namespace Gestion_De_Tickets_Autobus
                 cliente = personas.per_Cargo;
                 txtDirE.Text = personas.per_Direccion;
                 cbxpais.SelectedValue = personas.pais_Id;
-                cbxciudad.SelectedValue = personas.per_Ciudad;
+                CargarDeptoPorPaisCMB(personas.pais_Id);
                 cbxdepto.SelectedValue = personas.dept_Id;
+                CargarCiudadesporDepartamentoCMB(personas.dept_Id);
+                cbxciudad.SelectedValue = personas.per_Ciudad;
 
             }
         }
