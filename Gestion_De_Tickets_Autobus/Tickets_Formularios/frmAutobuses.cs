@@ -4,14 +4,24 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Gestion_De_Tickets_Autobus.Tickets_DAL;
 
 namespace Gestion_De_Tickets_Autobus
 {
     public partial class frmAutobuses : Form
+
     {
+        #region CLASES
+        MarcasDAL marcas = new MarcasDAL();
+        ModelosDAL modelos = new ModelosDAL();
+        AutobusesDAL autobuses = new AutobusesDAL();
+        #endregion
+
         #region VARIABLES
         private bool esVIP = false;
         private bool esNormal = false;
@@ -116,35 +126,31 @@ namespace Gestion_De_Tickets_Autobus
             esVIP = !rbtNormal.Checked; 
         }
 
-        private void btnSeleccionarImagen_Click(object sender, EventArgs e)
-        {
-            using (OpenFileDialog ofd = new OpenFileDialog())
-            {
-                ofd.Filter = "Archivos de Imagen|*.jpg;*.jpeg;*.png;*.bmp";
-                if (ofd.ShowDialog() == DialogResult.OK)
-                {
-                    PicBuses.Image = Image.FromFile(ofd.FileName);
-                }
-            }
-        }
+
         #endregion
 
         #region LLENANDO COMBOBOX
-        public void CargarModeloCMB()
+
+        // Cargar Modelos
+        public void CargarModelosCMB(int mar_ID)
         {
-           // cbxModelo.DataSource = Modelo.CargarModelo();
-            cbxModelo.ValueMember = "mod_ID";
-            cbxModelo.DisplayMember = "mod_Descripcion";
+            cbxModelo.DataSource = modelos.CargarModelosPorMarca(mar_ID);
+            cbxModelo.ValueMember = "mod_ID";          
+            cbxModelo.DisplayMember = "mod_Descripcion"; 
+            cbxModelo.SelectedIndex = -1;  
         }
 
-        public void CargarMarcaCMB()
+        // Cargar Marcas
+        public void CargarMarcasCMB()
         {
-           // cbxMarca.DataSource = Marca.CargarMarca();
-            cbxMarca.ValueMember = " mar_ID";
-            cbxMarca.DisplayMember = "mod_Descripcion";
+            cbxMarca.DataSource = marcas.CargarMarcas();
+            cbxMarca.ValueMember = "mar_ID";           
+            cbxMarca.DisplayMember = "mar_Descripcion"; 
+            cbxMarca.SelectedIndex = -1;                
         }
-       
+
         #endregion
+
 
 
     }
