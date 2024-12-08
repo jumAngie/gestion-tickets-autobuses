@@ -1,5 +1,6 @@
 ﻿using Gestion_De_Tickets_Autobus.Tickets_DAL;
 using Gestion_De_Tickets_Autobus.Tickets_Entities;
+using Gestion_De_Tickets_Autobus.Tickets_Formularios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -319,6 +320,12 @@ namespace Gestion_De_Tickets_Autobus
             cbxciudad.DisplayMember = "ciud_Descripcion";
         }
         #endregion
+
+        private void btnPersonaExistente_Click(object sender, EventArgs e)
+        {
+            frmRegistrarPersonaExistente registroPersonaExistente = new frmRegistrarPersonaExistente();
+            registroPersonaExistente.Show();
+        }
     }
 }
 

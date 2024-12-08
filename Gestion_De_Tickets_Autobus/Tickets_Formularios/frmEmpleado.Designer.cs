@@ -73,6 +73,7 @@
             this.pnlBuscar = new System.Windows.Forms.Panel();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnPersonaExistente = new System.Windows.Forms.Button();
             this.gbDatospersonales.SuspendLayout();
             this.gbDatosdeContacto.SuspendLayout();
             this.gbDNI.SuspendLayout();
@@ -555,12 +556,26 @@
             this.pictureBox1.TabIndex = 32;
             this.pictureBox1.TabStop = false;
             // 
+            // btnPersonaExistente
+            // 
+            this.btnPersonaExistente.BackColor = System.Drawing.Color.Transparent;
+            this.btnPersonaExistente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPersonaExistente.ForeColor = System.Drawing.Color.White;
+            this.btnPersonaExistente.Location = new System.Drawing.Point(377, 306);
+            this.btnPersonaExistente.Name = "btnPersonaExistente";
+            this.btnPersonaExistente.Size = new System.Drawing.Size(153, 30);
+            this.btnPersonaExistente.TabIndex = 34;
+            this.btnPersonaExistente.Text = "Registrar Persona Existente";
+            this.btnPersonaExistente.UseVisualStyleBackColor = false;
+            this.btnPersonaExistente.Click += new System.EventHandler(this.btnPersonaExistente_Click);
+            // 
             // frmEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(822, 482);
+            this.Controls.Add(this.btnPersonaExistente);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.dgEmpleados);
@@ -632,5 +647,6 @@
         private System.Windows.Forms.Panel pnlBuscar;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnPersonaExistente;
     }
 }

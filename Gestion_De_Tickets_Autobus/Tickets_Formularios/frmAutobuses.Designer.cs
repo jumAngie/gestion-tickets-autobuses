@@ -51,7 +51,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numAsientos)).BeginInit();
-            this.pnlModelo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -79,6 +78,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbxModelo);
+            this.groupBox1.Controls.Add(this.pnlModelo);
             this.groupBox1.Controls.Add(this.rbtVip);
             this.groupBox1.Controls.Add(this.rbtNormal);
             this.groupBox1.Controls.Add(this.numAsientos);
@@ -91,7 +92,6 @@
             this.groupBox1.Controls.Add(this.txtMatricula);
             this.groupBox1.Controls.Add(this.pnlMarca);
             this.groupBox1.Controls.Add(this.pnlMatricula);
-            this.groupBox1.Controls.Add(this.pnlModelo);
             this.groupBox1.Controls.Add(this.pnlAsientos);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
@@ -208,17 +208,16 @@
             // pnlModelo
             // 
             this.pnlModelo.BackColor = System.Drawing.Color.DarkRed;
-            this.pnlModelo.Controls.Add(this.cbxModelo);
-            this.pnlModelo.Location = new System.Drawing.Point(23, 123);
+            this.pnlModelo.Location = new System.Drawing.Point(23, 136);
             this.pnlModelo.Name = "pnlModelo";
-            this.pnlModelo.Size = new System.Drawing.Size(186, 29);
+            this.pnlModelo.Size = new System.Drawing.Size(186, 16);
             this.pnlModelo.TabIndex = 22;
             this.pnlModelo.Visible = false;
             // 
             // cbxModelo
             // 
             this.cbxModelo.FormattingEnabled = true;
-            this.cbxModelo.Location = new System.Drawing.Point(0, -1);
+            this.cbxModelo.Location = new System.Drawing.Point(23, 121);
             this.cbxModelo.Name = "cbxModelo";
             this.cbxModelo.Size = new System.Drawing.Size(186, 24);
             this.cbxModelo.TabIndex = 28;
@@ -311,7 +310,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numAsientos)).EndInit();
-            this.pnlModelo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);

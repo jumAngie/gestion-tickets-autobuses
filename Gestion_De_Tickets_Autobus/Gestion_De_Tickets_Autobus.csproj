@@ -66,11 +66,23 @@
     <Compile Include="Tickets_Formularios\frmAutobuses.Designer.cs">
       <DependentUpon>frmAutobuses.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tickets_Formularios\frmDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tickets_Formularios\frmDashboard.Designer.cs">
+      <DependentUpon>frmDashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tickets_Formularios\frmPlanificaciones.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Tickets_Formularios\frmPlanificaciones.Designer.cs">
       <DependentUpon>frmPlanificaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tickets_Formularios\frmRegistrarPersonaExistente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tickets_Formularios\frmRegistrarPersonaExistente.Designer.cs">
+      <DependentUpon>frmRegistrarPersonaExistente.cs</DependentUpon>
     </Compile>
     <Compile Include="Tickets_Formularios\frmTickets.cs">
       <SubType>Form</SubType>
@@ -117,8 +129,14 @@
     <EmbeddedResource Include="Tickets_Formularios\frmAutobuses.resx">
       <DependentUpon>frmAutobuses.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Tickets_Formularios\frmDashboard.resx">
+      <DependentUpon>frmDashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Tickets_Formularios\frmPlanificaciones.resx">
       <DependentUpon>frmPlanificaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tickets_Formularios\frmRegistrarPersonaExistente.resx">
+      <DependentUpon>frmRegistrarPersonaExistente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tickets_Formularios\frmTickets.resx">
       <DependentUpon>frmTickets.cs</DependentUpon>
@@ -184,6 +202,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\buscarcolorizado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home-inicio.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

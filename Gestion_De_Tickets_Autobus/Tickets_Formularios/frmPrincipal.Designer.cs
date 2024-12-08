@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.panel1 = new System.Windows.Forms.Panel();
             this.PNav = new System.Windows.Forms.Panel();
@@ -41,10 +42,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.PNmenu = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.tHora = new System.Windows.Forms.Timer(this.components);
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.lblHora = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -54,7 +58,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.PNav);
             this.panel1.Controls.Add(this.btnRegistrarVenta);
             this.panel1.Controls.Add(this.btnAutobuses);
@@ -85,7 +88,7 @@
             this.btnRegistrarVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrarVenta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnRegistrarVenta.Image = ((System.Drawing.Image)(resources.GetObject("btnRegistrarVenta.Image")));
-            this.btnRegistrarVenta.Location = new System.Drawing.Point(0, 412);
+            this.btnRegistrarVenta.Location = new System.Drawing.Point(0, 430);
             this.btnRegistrarVenta.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.btnRegistrarVenta.Name = "btnRegistrarVenta";
             this.btnRegistrarVenta.Size = new System.Drawing.Size(186, 62);
@@ -104,7 +107,7 @@
             this.btnAutobuses.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAutobuses.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnAutobuses.Image = ((System.Drawing.Image)(resources.GetObject("btnAutobuses.Image")));
-            this.btnAutobuses.Location = new System.Drawing.Point(0, 350);
+            this.btnAutobuses.Location = new System.Drawing.Point(0, 368);
             this.btnAutobuses.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.btnAutobuses.Name = "btnAutobuses";
             this.btnAutobuses.Size = new System.Drawing.Size(186, 62);
@@ -123,7 +126,7 @@
             this.btnTickets.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTickets.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnTickets.Image = ((System.Drawing.Image)(resources.GetObject("btnTickets.Image")));
-            this.btnTickets.Location = new System.Drawing.Point(0, 288);
+            this.btnTickets.Location = new System.Drawing.Point(0, 306);
             this.btnTickets.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.btnTickets.Name = "btnTickets";
             this.btnTickets.Size = new System.Drawing.Size(186, 62);
@@ -142,7 +145,7 @@
             this.btnEmpleados.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEmpleados.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnEmpleados.Image = ((System.Drawing.Image)(resources.GetObject("btnEmpleados.Image")));
-            this.btnEmpleados.Location = new System.Drawing.Point(0, 226);
+            this.btnEmpleados.Location = new System.Drawing.Point(0, 244);
             this.btnEmpleados.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.btnEmpleados.Name = "btnEmpleados";
             this.btnEmpleados.Size = new System.Drawing.Size(186, 62);
@@ -161,7 +164,7 @@
             this.btnClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClientes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnClientes.Image = ((System.Drawing.Image)(resources.GetObject("btnClientes.Image")));
-            this.btnClientes.Location = new System.Drawing.Point(0, 164);
+            this.btnClientes.Location = new System.Drawing.Point(0, 182);
             this.btnClientes.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Size = new System.Drawing.Size(186, 62);
@@ -179,8 +182,8 @@
             this.btnInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnInicio.Image = ((System.Drawing.Image)(resources.GetObject("btnInicio.Image")));
-            this.btnInicio.Location = new System.Drawing.Point(0, 102);
+            this.btnInicio.Image = global::Gestion_De_Tickets_Autobus.Properties.Resources.home_inicio;
+            this.btnInicio.Location = new System.Drawing.Point(0, 120);
             this.btnInicio.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.btnInicio.Name = "btnInicio";
             this.btnInicio.Size = new System.Drawing.Size(186, 62);
@@ -199,7 +202,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(186, 102);
+            this.panel2.Size = new System.Drawing.Size(186, 120);
             this.panel2.TabIndex = 0;
             // 
             // label2
@@ -207,7 +210,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(178)))));
-            this.label2.Location = new System.Drawing.Point(33, 85);
+            this.label2.Location = new System.Drawing.Point(33, 88);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(114, 12);
             this.label2.TabIndex = 2;
@@ -217,7 +220,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(149)))));
-            this.label1.Location = new System.Drawing.Point(63, 72);
+            this.label1.Location = new System.Drawing.Point(63, 75);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 13);
             this.label1.TabIndex = 1;
@@ -225,27 +228,14 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Image = global::Gestion_De_Tickets_Autobus.Properties.Resources.autobus;
             this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(53, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(66, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(70, 57);
+            this.pictureBox1.Size = new System.Drawing.Size(57, 57);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Image = global::Gestion_De_Tickets_Autobus.Properties.Resources.cerrar_sesion;
-            this.pictureBox2.Location = new System.Drawing.Point(66, 512);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(36, 36);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // label3
             // 
@@ -261,21 +251,63 @@
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Font = new System.Drawing.Font("Raleway", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
-            this.lblTitle.Location = new System.Drawing.Point(192, 21);
+            this.lblTitle.Location = new System.Drawing.Point(206, 9);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(103, 32);
+            this.lblTitle.Size = new System.Drawing.Size(89, 39);
             this.lblTitle.TabIndex = 2;
-            this.lblTitle.Text = "INICIO";
+            this.lblTitle.Text = "Inicio";
             // 
             // PNmenu
             // 
+            this.PNmenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.PNmenu.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.PNmenu.Location = new System.Drawing.Point(186, 56);
             this.PNmenu.Name = "PNmenu";
             this.PNmenu.Size = new System.Drawing.Size(819, 504);
             this.PNmenu.TabIndex = 5;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox2.Image = global::Gestion_De_Tickets_Autobus.Properties.Resources.cerrar_sesion;
+            this.pictureBox2.Location = new System.Drawing.Point(957, 12);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(36, 36);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // tHora
+            // 
+            this.tHora.Tick += new System.EventHandler(this.tHora_Tick);
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Font = new System.Drawing.Font("Amble", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblFecha.Location = new System.Drawing.Point(842, 9);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(62, 22);
+            this.lblFecha.TabIndex = 6;
+            this.lblFecha.Text = "label5";
+            // 
+            // lblHora
+            // 
+            this.lblHora.AutoSize = true;
+            this.lblHora.BackColor = System.Drawing.Color.White;
+            this.lblHora.Font = new System.Drawing.Font("MS Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHora.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.lblHora.Location = new System.Drawing.Point(844, 36);
+            this.lblHora.Name = "lblHora";
+            this.lblHora.Size = new System.Drawing.Size(55, 13);
+            this.lblHora.TabIndex = 6;
+            this.lblHora.Text = "label5";
             // 
             // frmPrincipal
             // 
@@ -283,14 +315,19 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.ClientSize = new System.Drawing.Size(1005, 560);
+            this.Controls.Add(this.lblHora);
+            this.Controls.Add(this.lblFecha);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.PNmenu);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Dahsboard";
+            this.Text = "UNIRUTAS";
+            this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -319,5 +356,8 @@
         private System.Windows.Forms.Button btnRegistrarVenta;
         private System.Windows.Forms.Button btnAutobuses;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Timer tHora;
+        private System.Windows.Forms.Label lblFecha;
+        private System.Windows.Forms.Label lblHora;
     }
 }
