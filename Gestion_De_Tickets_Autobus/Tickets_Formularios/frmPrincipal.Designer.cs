@@ -32,7 +32,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.PNav = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.btnRegistrarVenta = new System.Windows.Forms.Button();
             this.btnAutobuses = new System.Windows.Forms.Button();
             this.btnTickets = new System.Windows.Forms.Button();
@@ -56,8 +55,6 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.panel1.Controls.Add(this.PNav);
-            this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.btnCerrarSesion);
             this.panel1.Controls.Add(this.btnRegistrarVenta);
             this.panel1.Controls.Add(this.btnAutobuses);
             this.panel1.Controls.Add(this.btnTickets);
@@ -81,31 +78,16 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox2.Image = global::Gestion_De_Tickets_Autobus.Properties.Resources.cerrar_sesion;
-            this.pictureBox2.Location = new System.Drawing.Point(12, 532);
+            this.pictureBox2.Location = new System.Drawing.Point(957, 12);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(33, 25);
+            this.pictureBox2.Size = new System.Drawing.Size(36, 36);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
-            // btnCerrarSesion
-            // 
-            this.btnCerrarSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnCerrarSesion.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(136)))), ((int)(((byte)(249)))));
-            this.btnCerrarSesion.FlatAppearance.BorderSize = 5;
-            this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCerrarSesion.ForeColor = System.Drawing.Color.White;
-            this.btnCerrarSesion.Location = new System.Drawing.Point(0, 529);
-            this.btnCerrarSesion.Name = "btnCerrarSesion";
-            this.btnCerrarSesion.Size = new System.Drawing.Size(186, 31);
-            this.btnCerrarSesion.TabIndex = 0;
-            this.btnCerrarSesion.Text = "Cerrar Sesión";
-            this.btnCerrarSesion.UseVisualStyleBackColor = false;
-            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
             // 
             // btnRegistrarVenta
             // 
@@ -298,8 +280,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.ClientSize = new System.Drawing.Size(1005, 560);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.PNmenu);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.label3);
@@ -335,7 +318,6 @@
         private System.Windows.Forms.Panel PNmenu;
         private System.Windows.Forms.Button btnRegistrarVenta;
         private System.Windows.Forms.Button btnAutobuses;
-        private System.Windows.Forms.Button btnCerrarSesion;
         private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
