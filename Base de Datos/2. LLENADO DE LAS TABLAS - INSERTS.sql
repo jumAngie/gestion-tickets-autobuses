@@ -237,14 +237,67 @@ GO
 --GO
 
 --MARCA
-Insert INTO  Tick.tbMarca(mar_Descripcion, mar_UsuarioCreacion, mar_FehaCreacion )
-VALUES                    ('Isuzu', 1 , GETDATE())
+INSERT INTO  Tick.tbMarca(mar_Descripcion, mar_UsuarioCreacion, mar_FehaCreacion )
+VALUES                    ('Mercedes-Benz', 1 , GETDATE())
+GO
+--MARCA
+INSERT INTO  Tick.tbMarca(mar_Descripcion, mar_UsuarioCreacion, mar_FehaCreacion )
+VALUES                    ('Volvo', 1 , GETDATE())
+GO
+--MARCA
+INSERT INTO  Tick.tbMarca(mar_Descripcion, mar_UsuarioCreacion, mar_FehaCreacion )
+VALUES                    ('Scania', 1 , GETDATE())
+GO
+--MARCA
+INSERT INTO  Tick.tbMarca(mar_Descripcion, mar_UsuarioCreacion, mar_FehaCreacion )
+VALUES                    ('MAN', 1 , GETDATE())
+GO
+--MARCA
+INSERT INTO  Tick.tbMarca(mar_Descripcion, mar_UsuarioCreacion, mar_FehaCreacion )
+VALUES                    ('Marcopolo', 1 , GETDATE())
+GO
+--MARCA
+INSERT INTO  Tick.tbMarca(mar_Descripcion, mar_UsuarioCreacion, mar_FehaCreacion )
+VALUES                    ('Irizar', 1 , GETDATE())
+GO
+--MARCA
+INSERT INTO  Tick.tbMarca(mar_Descripcion, mar_UsuarioCreacion, mar_FehaCreacion )
+VALUES                    ('Yutong', 1 , GETDATE())
+GO
+--MARCA
+INSERT INTO  Tick.tbMarca(mar_Descripcion, mar_UsuarioCreacion, mar_FehaCreacion )
+VALUES                    ('King Long', 1 , GETDATE())
+GO
+--MARCA
+INSERT INTO  Tick.tbMarca(mar_Descripcion, mar_UsuarioCreacion, mar_FehaCreacion )
+VALUES                    ('Golden Dragon', 1 , GETDATE())
+GO
+--MARCA
+INSERT INTO  Tick.tbMarca(mar_Descripcion, mar_UsuarioCreacion, mar_FehaCreacion )
+VALUES                    ('Neoplan', 1 , GETDATE())
 GO
 
---MODELO
-INSERT INTO Tick.tbModelo (mod_Descripcion, mod_UsuarioCreacion, mod_FehaCreacion)
-VALUES                        ('b11R' , 1,   GETDATE())
+--MODELO 1 Mercedes-Benz
+INSERT INTO Tick.tbModelo (mar_ID, mod_Descripcion, mod_UsuarioCreacion, mod_FehaCreacion)
+VALUES                    (1, 'Tourismo RHD' , 1,   GETDATE())
 GO
+INSERT INTO Tick.tbModelo (mar_ID, mod_Descripcion, mod_UsuarioCreacion, mod_FehaCreacion)
+VALUES                    (1, 'Intouro M' , 1,   GETDATE())
+GO
+INSERT INTO Tick.tbModelo (mar_ID, mod_Descripcion, mod_UsuarioCreacion, mod_FehaCreacion)
+VALUES                    (1, 'Travego' , 1,   GETDATE())
+GO
+--MODELO 2 VOLVO
+INSERT INTO Tick.tbModelo (mar_ID, mod_Descripcion, mod_UsuarioCreacion, mod_FehaCreacion)
+VALUES                    (2, 'Volvo 9700' , 1,   GETDATE())
+GO
+INSERT INTO Tick.tbModelo (mar_ID, mod_Descripcion, mod_UsuarioCreacion, mod_FehaCreacion)
+VALUES                    (2, 'Volvo B11R' , 1,   GETDATE())
+GO
+INSERT INTO Tick.tbModelo (mar_ID, mod_Descripcion, mod_UsuarioCreacion, mod_FehaCreacion)
+VALUES                    (2, 'Volvo 9900 ' , 1,   GETDATE())
+GO
+
 
 --AUTOBUSES
 INSERT INTO Tick.tbAutobuses(aut_Matricula, mar_ID, mod_ID, aut_esVIP, aut_cantAsientos, aut_UsuarioCreacion, aut_FechaCreacion)
@@ -385,7 +438,7 @@ INSERT INTO Tick.tbAutobus_Horario(aut_ID, hor_ID, usu_UsuarioCreacion, auh_Fech
 VALUES								(1,1,1, GETDATE())
 GO
 
---- AUTOBUS HORARIO: 8:AM RUTA:UNAHCORTES EL PROGRESO-45
+--- AUTOBUS h45lm5 HORARIO: 8:AM RUTA:UNAHCORTES EL PROGRESO-45
 INSERT INTO Tick.tbAuto_Hora_Preci_Desti(auh_ID, pre_ID)
 VALUES		(1,1)
 
@@ -394,22 +447,7 @@ INSERT INTO Tick.tbPlanificacion(pln_Fecha, audes_ID, usu_UsuarioCreacion, pln_F
 VALUES							('2024-12-11', 1, 1, GETDATE())
 
 --- INSERTANDO 30 ASIENTOS QUE PERTENECEN A LA PLANIFICACION 1, QUE PERTENECE A EL BUS 1 QUE SALEA LAS 8 AM
-GO
-CREATE OR ALTER PROCEDURE Tick.CrearPlanificación
-@pln_Fecha DATE,
-@audes_ID  INT,
-@usu_UsuarioCreacion INT,
-@pln_FechaCreacion DATETIME
-AS
-	BEGIN TRY
-		BEGIN
-			INSERT INTO Tick.tbPlanificacion(pln_Fecha, audes_ID, usu_UsuarioCreacion, pln_FechaCreacion)
-			VALUES							(@pln_Fecha, @audes_ID, @usu_UsuarioCreacion, @pln_FechaCreacion)
-		END
-	END TRY
-	BEGIN CATCH
-	END CATCH
-GO
+
 DECLARE @pln_ID INT = 1;
 DECLARE @cantidadAsientos INT = (SELECT 
 									T4.aut_cantAsientos 
@@ -423,6 +461,6 @@ DECLARE @i INT = 1;
 WHILE @i <= @cantidadAsientos
 BEGIN
     INSERT INTO Tick.tbPlanificacion_Asientos (pln_ID, num_Asiento, usu_UsuarioCreacion, pln_FechaCreacion)
-    VALUES (@pln_ID, @i, 1, GETDATE());  -- Insertar asientos como libres
+    VALUES (@pln_ID, @i, 1, GETDATE()); 
     SET @i = @i + 1;
 END;
