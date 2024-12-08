@@ -70,10 +70,15 @@
             this.pnlnombre = new System.Windows.Forms.Panel();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).BeginInit();
             this.gbDNI.SuspendLayout();
             this.gbDatosdeContacto.SuspendLayout();
             this.gbDatospersonales.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dgClientes
@@ -81,7 +86,7 @@
             this.dgClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgClientes.Location = new System.Drawing.Point(19, 342);
             this.dgClientes.Name = "dgClientes";
-            this.dgClientes.Size = new System.Drawing.Size(763, 96);
+            this.dgClientes.Size = new System.Drawing.Size(786, 128);
             this.dgClientes.TabIndex = 16;
             // 
             // gbDNI
@@ -126,7 +131,7 @@
             this.mtxtidentidad.Location = new System.Drawing.Point(25, 78);
             this.mtxtidentidad.Mask = "0000-0000-00000";
             this.mtxtidentidad.Name = "mtxtidentidad";
-            this.mtxtidentidad.Size = new System.Drawing.Size(100, 20);
+            this.mtxtidentidad.Size = new System.Drawing.Size(120, 20);
             this.mtxtidentidad.TabIndex = 6;
             this.mtxtidentidad.Visible = false;
             this.mtxtidentidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtxtidentidad_KeyPress);
@@ -180,7 +185,7 @@
             this.pnlDNI.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlDNI.Location = new System.Drawing.Point(25, 78);
             this.pnlDNI.Name = "pnlDNI";
-            this.pnlDNI.Size = new System.Drawing.Size(100, 24);
+            this.pnlDNI.Size = new System.Drawing.Size(120, 24);
             this.pnlDNI.TabIndex = 13;
             this.pnlDNI.Visible = false;
             // 
@@ -218,7 +223,7 @@
             this.gbDatosdeContacto.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.gbDatosdeContacto.Location = new System.Drawing.Point(403, 12);
             this.gbDatosdeContacto.Name = "gbDatosdeContacto";
-            this.gbDatosdeContacto.Size = new System.Drawing.Size(379, 279);
+            this.gbDatosdeContacto.Size = new System.Drawing.Size(402, 279);
             this.gbDatosdeContacto.TabIndex = 13;
             this.gbDatosdeContacto.TabStop = false;
             this.gbDatosdeContacto.Text = "Datos de Contacto";
@@ -238,16 +243,16 @@
             // 
             // txtDirE
             // 
-            this.txtDirE.Location = new System.Drawing.Point(26, 221);
+            this.txtDirE.Location = new System.Drawing.Point(23, 221);
             this.txtDirE.Multiline = true;
             this.txtDirE.Name = "txtDirE";
-            this.txtDirE.Size = new System.Drawing.Size(319, 38);
+            this.txtDirE.Size = new System.Drawing.Size(342, 38);
             this.txtDirE.TabIndex = 11;
             // 
             // lblDirE
             // 
             this.lblDirE.AutoSize = true;
-            this.lblDirE.Location = new System.Drawing.Point(29, 196);
+            this.lblDirE.Location = new System.Drawing.Point(20, 202);
             this.lblDirE.Name = "lblDirE";
             this.lblDirE.Size = new System.Drawing.Size(91, 13);
             this.lblDirE.TabIndex = 10;
@@ -256,9 +261,9 @@
             // cbxciudad
             // 
             this.cbxciudad.FormattingEnabled = true;
-            this.cbxciudad.Location = new System.Drawing.Point(23, 159);
+            this.cbxciudad.Location = new System.Drawing.Point(23, 153);
             this.cbxciudad.Name = "cbxciudad";
-            this.cbxciudad.Size = new System.Drawing.Size(322, 21);
+            this.cbxciudad.Size = new System.Drawing.Size(342, 21);
             this.cbxciudad.TabIndex = 9;
             // 
             // cbxdepto
@@ -266,23 +271,23 @@
             this.cbxdepto.FormattingEnabled = true;
             this.cbxdepto.Location = new System.Drawing.Point(192, 103);
             this.cbxdepto.Name = "cbxdepto";
-            this.cbxdepto.Size = new System.Drawing.Size(153, 21);
+            this.cbxdepto.Size = new System.Drawing.Size(176, 21);
             this.cbxdepto.TabIndex = 8;
             this.cbxdepto.SelectedIndexChanged += new System.EventHandler(this.cbxDepto_SelectedIndexChanged);
             // 
             // cbxpais
             // 
             this.cbxpais.FormattingEnabled = true;
-            this.cbxpais.Location = new System.Drawing.Point(26, 103);
+            this.cbxpais.Location = new System.Drawing.Point(23, 103);
             this.cbxpais.Name = "cbxpais";
-            this.cbxpais.Size = new System.Drawing.Size(121, 21);
+            this.cbxpais.Size = new System.Drawing.Size(144, 21);
             this.cbxpais.TabIndex = 7;
             this.cbxpais.SelectedIndexChanged += new System.EventHandler(this.cbxPais_SelectedIndexChanged);
             // 
             // lblciudad
             // 
             this.lblciudad.AutoSize = true;
-            this.lblciudad.Location = new System.Drawing.Point(23, 133);
+            this.lblciudad.Location = new System.Drawing.Point(20, 137);
             this.lblciudad.Name = "lblciudad";
             this.lblciudad.Size = new System.Drawing.Size(43, 13);
             this.lblciudad.TabIndex = 6;
@@ -300,7 +305,7 @@
             // lblpais
             // 
             this.lblpais.AutoSize = true;
-            this.lblpais.Location = new System.Drawing.Point(23, 84);
+            this.lblpais.Location = new System.Drawing.Point(20, 84);
             this.lblpais.Name = "lblpais";
             this.lblpais.Size = new System.Drawing.Size(32, 13);
             this.lblpais.TabIndex = 4;
@@ -310,7 +315,7 @@
             // 
             this.txtEmail.Location = new System.Drawing.Point(195, 36);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(150, 20);
+            this.txtEmail.Size = new System.Drawing.Size(173, 20);
             this.txtEmail.TabIndex = 3;
             this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
@@ -327,7 +332,7 @@
             // 
             this.txtTelefono.Location = new System.Drawing.Point(23, 37);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(124, 20);
+            this.txtTelefono.Size = new System.Drawing.Size(147, 20);
             this.txtTelefono.TabIndex = 1;
             this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
@@ -344,9 +349,9 @@
             // 
             this.pnlciudad.BackColor = System.Drawing.Color.DarkRed;
             this.pnlciudad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlciudad.Location = new System.Drawing.Point(23, 161);
+            this.pnlciudad.Location = new System.Drawing.Point(23, 155);
             this.pnlciudad.Name = "pnlciudad";
-            this.pnlciudad.Size = new System.Drawing.Size(322, 23);
+            this.pnlciudad.Size = new System.Drawing.Size(342, 23);
             this.pnlciudad.TabIndex = 8;
             this.pnlciudad.Visible = false;
             // 
@@ -354,9 +359,9 @@
             // 
             this.pnlDIRE.BackColor = System.Drawing.Color.DarkRed;
             this.pnlDIRE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlDIRE.Location = new System.Drawing.Point(26, 236);
+            this.pnlDIRE.Location = new System.Drawing.Point(23, 236);
             this.pnlDIRE.Name = "pnlDIRE";
-            this.pnlDIRE.Size = new System.Drawing.Size(319, 27);
+            this.pnlDIRE.Size = new System.Drawing.Size(342, 27);
             this.pnlDIRE.TabIndex = 9;
             this.pnlDIRE.Visible = false;
             // 
@@ -366,7 +371,7 @@
             this.pnlTel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlTel.Location = new System.Drawing.Point(23, 38);
             this.pnlTel.Name = "pnlTel";
-            this.pnlTel.Size = new System.Drawing.Size(124, 23);
+            this.pnlTel.Size = new System.Drawing.Size(147, 23);
             this.pnlTel.TabIndex = 9;
             this.pnlTel.Visible = false;
             // 
@@ -376,7 +381,7 @@
             this.pnlcorreo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlcorreo.Location = new System.Drawing.Point(195, 38);
             this.pnlcorreo.Name = "pnlcorreo";
-            this.pnlcorreo.Size = new System.Drawing.Size(150, 23);
+            this.pnlcorreo.Size = new System.Drawing.Size(173, 23);
             this.pnlcorreo.TabIndex = 10;
             this.pnlcorreo.Visible = false;
             // 
@@ -386,7 +391,7 @@
             this.pnldepto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnldepto.Location = new System.Drawing.Point(192, 103);
             this.pnldepto.Name = "pnldepto";
-            this.pnldepto.Size = new System.Drawing.Size(153, 25);
+            this.pnldepto.Size = new System.Drawing.Size(176, 25);
             this.pnldepto.TabIndex = 11;
             this.pnldepto.Visible = false;
             // 
@@ -394,9 +399,9 @@
             // 
             this.pnlpais.BackColor = System.Drawing.Color.DarkRed;
             this.pnlpais.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlpais.Location = new System.Drawing.Point(26, 105);
+            this.pnlpais.Location = new System.Drawing.Point(23, 105);
             this.pnlpais.Name = "pnlpais";
-            this.pnlpais.Size = new System.Drawing.Size(121, 23);
+            this.pnlpais.Size = new System.Drawing.Size(144, 23);
             this.pnlpais.TabIndex = 12;
             this.pnlpais.Visible = false;
             // 
@@ -499,7 +504,7 @@
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(679, 297);
+            this.btnCancelar.Location = new System.Drawing.Point(702, 297);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(103, 31);
             this.btnCancelar.TabIndex = 29;
@@ -513,7 +518,7 @@
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar.Location = new System.Drawing.Point(570, 297);
+            this.btnGuardar.Location = new System.Drawing.Point(593, 297);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(103, 31);
             this.btnGuardar.TabIndex = 28;
@@ -521,12 +526,42 @@
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscar.Location = new System.Drawing.Point(3, 3);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(319, 22);
+            this.txtBuscar.TabIndex = 31;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.txtBuscar);
+            this.panel1.Location = new System.Drawing.Point(19, 306);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(357, 30);
+            this.panel1.TabIndex = 32;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Gestion_De_Tickets_Autobus.Properties.Resources.buscarcolorizado;
+            this.pictureBox1.Location = new System.Drawing.Point(328, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(24, 22);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 32;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(822, 482);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.dgClientes);
@@ -543,6 +578,9 @@
             this.gbDatosdeContacto.PerformLayout();
             this.gbDatospersonales.ResumeLayout(false);
             this.gbDatospersonales.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -591,5 +629,8 @@
         private System.Windows.Forms.Panel pnlnombre;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel1;
     }
 }
