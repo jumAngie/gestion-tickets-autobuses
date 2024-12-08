@@ -117,6 +117,9 @@
     <EmbeddedResource Include="Tickets_Formularios\frmAutobuses.resx">
       <DependentUpon>frmAutobuses.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Tickets_Formularios\frmPlanificaciones.resx">
+      <DependentUpon>frmPlanificaciones.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Tickets_Formularios\frmTickets.resx">
       <DependentUpon>frmTickets.cs</DependentUpon>
     </EmbeddedResource>

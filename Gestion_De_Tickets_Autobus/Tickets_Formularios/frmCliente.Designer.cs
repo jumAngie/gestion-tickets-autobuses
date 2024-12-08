@@ -569,6 +569,7 @@
             this.Controls.Add(this.gbDatosdeContacto);
             this.Controls.Add(this.gbDatospersonales);
             this.Name = "frmCliente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "frmCliente";
             this.Load += new System.EventHandler(this.frmCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).EndInit();
