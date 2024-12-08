@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvempleados = new System.Windows.Forms.DataGridView();
+            this.dgClientes = new System.Windows.Forms.DataGridView();
             this.gbDNI = new System.Windows.Forms.GroupBox();
             this.txtDNIE = new System.Windows.Forms.TextBox();
             this.lblDNIE = new System.Windows.Forms.Label();
@@ -70,19 +70,19 @@
             this.pnlnombre = new System.Windows.Forms.Panel();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvempleados)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).BeginInit();
             this.gbDNI.SuspendLayout();
             this.gbDatosdeContacto.SuspendLayout();
             this.gbDatospersonales.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dgvempleados
+            // dgClientes
             // 
-            this.dgvempleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvempleados.Location = new System.Drawing.Point(19, 342);
-            this.dgvempleados.Name = "dgvempleados";
-            this.dgvempleados.Size = new System.Drawing.Size(763, 96);
-            this.dgvempleados.TabIndex = 16;
+            this.dgClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgClientes.Location = new System.Drawing.Point(19, 342);
+            this.dgClientes.Name = "dgClientes";
+            this.dgClientes.Size = new System.Drawing.Size(763, 96);
+            this.dgClientes.TabIndex = 16;
             // 
             // gbDNI
             // 
@@ -268,6 +268,7 @@
             this.cbxdepto.Name = "cbxdepto";
             this.cbxdepto.Size = new System.Drawing.Size(153, 21);
             this.cbxdepto.TabIndex = 8;
+            this.cbxdepto.SelectedIndexChanged += new System.EventHandler(this.cbxDepto_SelectedIndexChanged);
             // 
             // cbxpais
             // 
@@ -276,6 +277,7 @@
             this.cbxpais.Name = "cbxpais";
             this.cbxpais.Size = new System.Drawing.Size(121, 21);
             this.cbxpais.TabIndex = 7;
+            this.cbxpais.SelectedIndexChanged += new System.EventHandler(this.cbxPais_SelectedIndexChanged);
             // 
             // lblciudad
             // 
@@ -527,13 +529,14 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.dgvempleados);
+            this.Controls.Add(this.dgClientes);
             this.Controls.Add(this.gbDNI);
             this.Controls.Add(this.gbDatosdeContacto);
             this.Controls.Add(this.gbDatospersonales);
             this.Name = "frmCliente";
             this.Text = "frmCliente";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvempleados)).EndInit();
+            this.Load += new System.EventHandler(this.frmCliente_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).EndInit();
             this.gbDNI.ResumeLayout(false);
             this.gbDNI.PerformLayout();
             this.gbDatosdeContacto.ResumeLayout(false);
@@ -546,7 +549,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvempleados;
+        private System.Windows.Forms.DataGridView dgClientes;
         private System.Windows.Forms.GroupBox gbDNI;
         private System.Windows.Forms.TextBox txtDNIE;
         private System.Windows.Forms.Label lblDNIE;

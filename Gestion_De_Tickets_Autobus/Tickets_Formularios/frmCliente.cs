@@ -15,6 +15,11 @@ namespace Gestion_De_Tickets_Autobus
 {
     public partial class frmCliente : Form
     {
+        #region CLASES
+        PaisesDAL paises = new PaisesDAL();
+        DeptosDAL depto = new DeptosDAL();
+        CiudadesDAL ciudad = new CiudadesDAL();
+        #endregion
 
         #region VARIABLES
         private int sexo = 0;
@@ -44,6 +49,11 @@ namespace Gestion_De_Tickets_Autobus
 
             string resultados = ClientesDAL.InsertarClientes(Pr);
             MessageBox.Show(resultados, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        public void ListarClientes()
+        {
+            dgClientes.DataSource = ClientesDAL.ListarClientes();
         }
         public frmCliente()
         {
@@ -197,27 +207,42 @@ namespace Gestion_De_Tickets_Autobus
         #endregion
 
         #region EVENTOS DE LOS ELEMENTOS DEL FORMULARIO
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void frmCliente_Load(object sender, EventArgs e)
         {
+            CargarPaisesCMB();
+            cbxdepto.Text = "Seleccione un país.";
+            cbxciudad.Text = "Seleccione un departamento.";
             LimpiarCampos();
             Panel_OcultarValidaciones();
             MensajeAdvertencia_Hide();
         }
-
-        private async void btnGuardar_Click(object sender, EventArgs e)
+        
+        private void cbxPais_SelectedIndexChanged(object sender, EventArgs e)
         {
-            bool esValido = ValidacionesVacio();
-            if (esValido)
+            if (cbxpais.SelectedValue != null && cbxpais.SelectedValue is int)
+            {
+                cbxdepto.Enabled = true;
+                int pais_Id = (int)cbxpais.SelectedValue;
+                CargarDeptoPorPaisCMB(pais_Id);
+            }
+        }
+
+        private void cbxDepto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxdepto.SelectedValue != null && cbxdepto.SelectedValue is int)
             {
 
-                LimpiarCampos();
-
+                int dept_Id = (int)cbxdepto.SelectedValue;
+                if (dept_Id > 0) // verifica que sea un valor válidop
+                {
+                    cbxciudad.Enabled = true;
+                    CargarCiudadesporDepartamentoCMB(dept_Id);
+                }
             }
             else
             {
-                MensajeAdvertencia();
-                await Task.Delay(5000);
-                MensajeAdvertencia_Hide();
+                cbxciudad.DataSource = null;
+                cbxciudad.Enabled = false;
             }
         }
         private void rbH_CheckedChanged(object sender, EventArgs e)
@@ -237,5 +262,55 @@ namespace Gestion_De_Tickets_Autobus
 
         }
         #endregion
+
+        #region BOTONES
+        private async void btnGuardar_Click(object sender, EventArgs e)
+        {
+            bool esValido = ValidacionesVacio();
+            if (esValido)
+            {
+
+                LimpiarCampos();
+
+            }
+            else
+            {
+                MensajeAdvertencia();
+                await Task.Delay(5000);
+                MensajeAdvertencia_Hide();
+            }
+        }
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
+            Panel_OcultarValidaciones();
+            MensajeAdvertencia_Hide();
+        }
+        #endregion
+
+
+        #region LLENANDO COMBOBOX
+        public void CargarPaisesCMB()
+        {
+            cbxpais.DataSource = paises.CargarPaises();
+            cbxpais.ValueMember = "pais_Id";
+            cbxpais.DisplayMember = "pais_Descripcion";
+        }
+
+        private void CargarDeptoPorPaisCMB(int pais_Id)
+        {
+            cbxdepto.DataSource = depto.CargarDepartamentosPorPais(pais_Id);
+            cbxdepto.ValueMember = "dept_Id";
+            cbxdepto.DisplayMember = "dept_Descripcion";
+        }
+        public void CargarCiudadesporDepartamentoCMB(int dept_Id)
+        {
+            cbxciudad.DataSource = ciudad.CargarCiudadesPorDepto(dept_Id);
+            cbxciudad.ValueMember = "ciud_Id";
+            cbxciudad.DisplayMember = "ciud_Descripcion";
+        }
+        #endregion
+
+       
     }
 }
