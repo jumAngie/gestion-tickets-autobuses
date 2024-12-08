@@ -33,8 +33,8 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
                     cmd.Parameters.AddWithValue("@per_FechaNacimiento", fechaformateada);
                     cmd.Parameters.AddWithValue("@sex_ID", PrEmpleados.per_Sexo);
                     cmd.Parameters.AddWithValue("@car_ID", PrEmpleados.per_Cargo);
+                    cmd.Parameters.AddWithValue("@ciud_ID", PrEmpleados.per_Ciudad);
                     cmd.Parameters.AddWithValue("@per_Direccion", PrEmpleados.per_Direccion);
-                    cmd.Parameters.AddWithValue("@ciu_ID", PrEmpleados.per_Ciudad);
                     cmd.Parameters.AddWithValue("@usu_UsuarioCreacion", PrEmpleados.usu_UsuarioCreacion);
                     cmd.Parameters.AddWithValue("@per_FechaCreacion", PrEmpleados.per_FechaCreacion);
 

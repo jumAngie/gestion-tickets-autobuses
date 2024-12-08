@@ -247,6 +247,7 @@
             this.cbxdepto.Name = "cbxdepto";
             this.cbxdepto.Size = new System.Drawing.Size(153, 21);
             this.cbxdepto.TabIndex = 8;
+            this.cbxdepto.SelectedIndexChanged += new System.EventHandler(this.cbxDepto_SelectedIndexChanged);
             // 
             // cbxpais
             // 
@@ -255,6 +256,7 @@
             this.cbxpais.Name = "cbxpais";
             this.cbxpais.Size = new System.Drawing.Size(121, 21);
             this.cbxpais.TabIndex = 7;
+            this.cbxpais.SelectedIndexChanged += new System.EventHandler(this.cbxPais_SelectedIndexChanged);
             // 
             // lblciudad
             // 
