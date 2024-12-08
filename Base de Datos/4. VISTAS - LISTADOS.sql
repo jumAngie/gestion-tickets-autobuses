@@ -63,8 +63,6 @@ AS
 			ON aut.mar_ID = m.mar_ID	INNER JOIN Tick.tbModelo mo
 			ON aut.mod_ID = mo.mod_ID 	
 GO
-<<<<<<< Updated upstream
-=======
 ------------------------------------------------------
 CREATE OR ALTER VIEW Tick.Tickets_Listado
 AS
@@ -107,6 +105,4 @@ AS
 		ON   T6.des_IDdestino = T10.des_ID	
 	WHERE tik_ID = @tik_ID
 	END
-
->>>>>>> Stashed changes
 
