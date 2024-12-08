@@ -17,12 +17,12 @@ namespace Gestion_De_Tickets_Autobus
         private bool esNormal = false;
         #endregion
         
-
         public frmAutobuses()
         {
             InitializeComponent();
             
-        }      
+        } 
+        
         #region VALIDACIONES Y LIMPIEZA DE CAMPOS
         public void OcultarValidaciones()
         {
@@ -50,9 +50,6 @@ namespace Gestion_De_Tickets_Autobus
 
             return esValido;
         }
-        #endregion
-
-        #region limpiar Campos
         public void LimpiarCampos()
         {
             cbxMarca.SelectedIndex = -1;
@@ -132,7 +129,7 @@ namespace Gestion_De_Tickets_Autobus
         }
         #endregion
 
-      #region LLENANDO COMBOBOX
+        #region LLENANDO COMBOBOX
         public void CargarModeloCMB()
         {
            // cbxModelo.DataSource = Modelo.CargarModelo();
@@ -147,18 +144,6 @@ namespace Gestion_De_Tickets_Autobus
             cbxMarca.DisplayMember = "mod_Descripcion";
         }
        
-        #endregion
-
-        #region borrar esto  
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-
-        }
         #endregion
 
 
