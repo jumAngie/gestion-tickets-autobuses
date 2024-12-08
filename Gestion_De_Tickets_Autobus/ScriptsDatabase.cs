@@ -31,5 +31,14 @@ namespace Gestion_De_Tickets_Autobus
         public static string EditarAutobuses_CargarInformacion = "Tick.UDP_tbAutobuses_CargarInformacion";
         public static string EditarAutbouses = "Tick.UDP_tbAutobuses_Editar";
         #endregion
+
+        #region ComboBox
+        public static string Paises_CMBX = "Gral.Paises_CMB";
+        public static string Departamentos_CMBX = "Gral.Departamentos_CMB";
+        public static string Ciudades_CMBX = "Gral.Ciudades_CMB";
+        public static string MetodosPago_CMBX = "Tick.MetodosPago_CMB";
+        public static string Modelos_CMBX = "Tick.Marcas_CMB";
+        public static string Marcas_CMBX = "Tick.Modelos_CMB";
+        #endregion
     }
 }
