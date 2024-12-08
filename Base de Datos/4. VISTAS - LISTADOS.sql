@@ -62,4 +62,20 @@ AS
 			ON aut.mar_ID = m.mar_ID	INNER JOIN Tick.tbModelo mo
 			ON aut.mod_ID = mo.mod_ID 	
 GO
+------------------------------------------------------
+CREATE OR ALTER VIEW Tick.Tickets_Listado
+AS
+	SELECT 
+			tik_ID,
+			T2.per_NombreCompleto,
+			T3.meto_Descripcion,
+			tik_Subtotal,
+			tik_Descuento,
+			tik_Impuesto,
+			tik_Total
+	FROM	Tick.tbTickets_Encabezado T1 INNER JOIN Gral.tbPersonas T2
+	ON		T1.per_ID = T2.per_ID		 INNER JOIN Tick.tbMetodosPago T3
+	ON		T1.meto_ID = T3.meto_Id		 
+GO
+
 
