@@ -40,8 +40,5 @@ namespace Gestion_De_Tickets_Autobus.Tickets_ViewModels
 
         [DisplayName("Direccion")]
         public string Direccion { get; set; }
-
-        [NotMapped]
-        public bool per_Extranjero { get; set; }
     }
 }

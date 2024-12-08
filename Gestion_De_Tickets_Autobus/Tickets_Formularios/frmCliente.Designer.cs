@@ -101,9 +101,9 @@
             this.gbDNI.Controls.Add(this.pnlDNI);
             this.gbDNI.Controls.Add(this.pnlDNIE);
             this.gbDNI.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.gbDNI.Location = new System.Drawing.Point(19, 155);
+            this.gbDNI.Location = new System.Drawing.Point(13, 155);
             this.gbDNI.Name = "gbDNI";
-            this.gbDNI.Size = new System.Drawing.Size(357, 136);
+            this.gbDNI.Size = new System.Drawing.Size(384, 136);
             this.gbDNI.TabIndex = 12;
             this.gbDNI.TabStop = false;
             this.gbDNI.Text = "Datos de Identificación:";
@@ -416,9 +416,9 @@
             this.gbDatospersonales.Controls.Add(this.lblNombre);
             this.gbDatospersonales.Controls.Add(this.pnlnombre);
             this.gbDatospersonales.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.gbDatospersonales.Location = new System.Drawing.Point(18, 12);
+            this.gbDatospersonales.Location = new System.Drawing.Point(12, 12);
             this.gbDatospersonales.Name = "gbDatospersonales";
-            this.gbDatospersonales.Size = new System.Drawing.Size(358, 136);
+            this.gbDatospersonales.Size = new System.Drawing.Size(385, 136);
             this.gbDatospersonales.TabIndex = 11;
             this.gbDatospersonales.TabStop = false;
             this.gbDatospersonales.Text = "Datos Personales";
@@ -504,7 +504,7 @@
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(702, 297);
+            this.btnCancelar.Location = new System.Drawing.Point(702, 301);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(103, 31);
             this.btnCancelar.TabIndex = 29;
@@ -518,7 +518,7 @@
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar.Location = new System.Drawing.Point(593, 297);
+            this.btnGuardar.Location = new System.Drawing.Point(593, 301);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(103, 31);
             this.btnGuardar.TabIndex = 28;
