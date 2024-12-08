@@ -185,3 +185,49 @@ AS
 		END CATCH
 	END
 GO
+
+------- TICKETS  ------------
+-- CREAR DETALLES --
+GO
+CREATE OR ALTER PROCEDURE Tick.tbTickets_Detalle_Insertar
+    @tik_ID INT,
+    @pas_ID INT
+AS
+BEGIN
+    BEGIN TRY
+        BEGIN
+
+            DECLARE @Disponibilidad INT;
+
+            SELECT @Disponibilidad = tdt_Disponibilidad
+            FROM Tick.tbPlanificacion_Asientos
+            WHERE pas_ID = @pas_ID;
+
+            IF @Disponibilidad IS NULL
+            BEGIN
+                SELECT 'El asiento especificado no existe.';
+                RETURN;
+            END
+
+            IF @Disponibilidad = 1
+            BEGIN
+                SELECT 'El asiento ya está siendo ocupado.';
+                RETURN;
+            END
+
+            INSERT INTO Tick.tbTickets_Detalle (tik_ID, pas_ID)
+            VALUES (@tik_ID, @pas_ID);
+
+            
+            UPDATE Tick.tbPlanificacion_Asientos
+            SET tdt_Disponibilidad = 1
+            WHERE pas_ID = @pas_ID;
+
+            SELECT 'Asiento reservado con éxito.';
+        END
+    END TRY
+    BEGIN CATCH
+        -- Manejo de errores
+        SELECT 'ERROR: ' + ERROR_MESSAGE();
+    END CATCH
+END;

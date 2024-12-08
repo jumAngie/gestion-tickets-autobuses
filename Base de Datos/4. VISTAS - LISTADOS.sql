@@ -106,4 +106,3 @@ AS
 		ON   T6.des_IDdestino = T10.des_ID	
 	WHERE tik_ID = @tik_ID
 	END
-

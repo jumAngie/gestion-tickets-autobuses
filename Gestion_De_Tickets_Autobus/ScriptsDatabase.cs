@@ -44,5 +44,13 @@ namespace Gestion_De_Tickets_Autobus
         #region Validaciones
         public static string ExistenciaDNI = "Gral.ValidarExistenciaDNI";
         #endregion
+
+        #region Tickets Encabezado
+        public static string ListarTickets = "SELECT * FROM Tick.Tickets_Listado";
+        #endregion
+
+        #region Tickets Detalle
+        public static string ListarDetallesPorID = "Tick.Tickets_Detalles_Listado";
+        #endregion
     }
 }
