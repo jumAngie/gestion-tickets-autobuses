@@ -389,3 +389,40 @@ GO
 INSERT INTO Tick.tbAuto_Hora_Preci_Desti(auh_ID, pre_ID)
 VALUES		(1,1)
 
+----- PLANIFICACION QUE TOMA DE LOS AUTOBUSES YA ASIGNADOS
+INSERT INTO Tick.tbPlanificacion(pln_Fecha, audes_ID, usu_UsuarioCreacion, pln_FechaCreacion)
+VALUES							('2024-12-11', 1, 1, GETDATE())
+
+--- INSERTANDO 30 ASIENTOS QUE PERTENECEN A LA PLANIFICACION 1, QUE PERTENECE A EL BUS 1 QUE SALEA LAS 8 AM
+GO
+CREATE OR ALTER PROCEDURE Tick.CrearPlanificación
+@pln_Fecha DATE,
+@audes_ID  INT,
+@usu_UsuarioCreacion INT,
+@pln_FechaCreacion DATETIME
+AS
+	BEGIN TRY
+		BEGIN
+			INSERT INTO Tick.tbPlanificacion(pln_Fecha, audes_ID, usu_UsuarioCreacion, pln_FechaCreacion)
+			VALUES							(@pln_Fecha, @audes_ID, @usu_UsuarioCreacion, @pln_FechaCreacion)
+		END
+	END TRY
+	BEGIN CATCH
+	END CATCH
+GO
+DECLARE @pln_ID INT = 1;
+DECLARE @cantidadAsientos INT = (SELECT 
+									T4.aut_cantAsientos 
+									FROM Tick.tbPlanificacion T1	INNER JOIN Tick.tbAuto_Hora_Preci_Desti T2
+									ON	T1.audes_ID = T2.audes_ID	INNER JOIN Tick.tbAutobus_Horario T3
+									ON  T2.auh_ID = T3.auh_ID		INNER JOIN Tick.tbAutobuses T4
+									ON  T3.aut_ID = T4.aut_ID
+									WHERE T1.audes_ID = @pln_ID);
+DECLARE @i INT = 1;
+
+WHILE @i <= @cantidadAsientos
+BEGIN
+    INSERT INTO Tick.tbPlanificacion_Asientos (pln_ID, num_Asiento, usu_UsuarioCreacion, pln_FechaCreacion)
+    VALUES (@pln_ID, @i, 1, GETDATE());  -- Insertar asientos como libres
+    SET @i = @i + 1;
+END;
