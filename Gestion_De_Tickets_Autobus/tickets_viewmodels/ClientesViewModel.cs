@@ -12,14 +12,16 @@ namespace Gestion_De_Tickets_Autobus.Tickets_ViewModels
         [DisplayName("Nombre Completo")]
         public string NombreCompleto { get; set; }
 
-        [DisplayName("Correo")]
-        public string Correo { get; set; }
+       
 
         [DisplayName("DNI Cliente")]
         public string DNI { get; set; }
 
         [DisplayName("Telefono")]
         public string Telefono { get; set; }
+
+        [DisplayName("Correo")]
+        public string Correo { get; set; }
 
         [DisplayName("Fecha de Nacimiento")]
         public DateTime FechaNacimiento { get; set; }
