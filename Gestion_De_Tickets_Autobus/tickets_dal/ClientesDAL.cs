@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Gestion_De_Tickets_Autobus.Tickets_Entities;
+using Gestion_De_Tickets_Autobus.Tickets_ViewModels;
 
 namespace Gestion_De_Tickets_Autobus.Tickets_DAL
 {
@@ -20,7 +21,7 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
                 using (SqlConnection conexion = BDConnection.ObtenerConexion())
                 {
                     conexion.Open();
-                    SqlCommand cmd = new SqlCommand(ScriptsDatabase.InertarClientes, conexion);
+                    SqlCommand cmd = new SqlCommand(ScriptsDatabase.InsertarClientes, conexion);
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     string fechaformateada = PrClientes.per_FechaNacimiento.ToString("yyyy-MM-dd");
@@ -52,6 +53,43 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
 
 
             return Mensaje;
+        }
+
+        //LISTAR
+        public static List<ClientesViewModel> ListarClientes()
+        {
+            List<ClientesViewModel> lista = new List<ClientesViewModel>();
+
+            using (SqlConnection conexion = BDConnection.ObtenerConexion())
+            {
+                conexion.Open();
+                string query = ScriptsDatabase.ListarClientes;
+                SqlCommand comando = new SqlCommand(query, conexion);
+
+                SqlDataReader reader = comando.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    ClientesViewModel ClienteView = new ClientesViewModel();
+                    ClienteView.NombreCompleto = reader.GetString(0);
+                    ClienteView.DNI = reader.GetString(1);
+                    ClienteView.Telefono = reader.GetString(2);
+                    ClienteView.correo = reader.GetString(3);
+                    ClienteView.Pais_Descripcion = reader.GetString(4);
+                    ClienteView.Dept_Descripcion = reader.GetString(5);
+                    ClienteView.Ciud_Descripcion = reader.GetString(6);
+                    ClienteView.Direccion = reader.GetString(7);
+                    ClienteView.FechaNacimiento = reader.GetDateTime(8);
+                    ClienteView.Sexo_Descripcion = reader.GetString(9);
+                    ClienteView.cargo_Descripcion = reader.GetString(10);
+
+
+                    lista.Add(ClienteView);
+                }
+
+                conexion.Close();
+                return lista;
+            }
         }
     }
 }
