@@ -86,6 +86,45 @@ namespace Gestion_De_Tickets_Autobus
         #endregion
 
         #region EVENTOS DE LOS ELEMENTOS DEL FORMULARIO
+
+        private void frmAutobuses_Load(object sender, EventArgs e)
+        {
+            CargarMarcasCMB(); 
+            cbxModelo.Text = "Seleccione una marca."; 
+            LimpiarCampos();
+            OcultarValidaciones();
+            OcultarAdvertencia();
+        }
+
+        private void cbxMarca_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxMarca.SelectedValue != null && cbxMarca.SelectedValue is int)
+            {
+                cbxModelo.Enabled = true; 
+                int marca_Id = (int)cbxMarca.SelectedValue;             
+                CargarModelosCMB(marca_Id);
+            }
+            else
+            {
+                cbxModelo.DataSource = null; 
+                cbxModelo.Enabled = false;
+            }
+        }
+
+        private void btVip_CheckedChanged(object sender, EventArgs e)
+        {
+            esVIP = rbtVip.Checked;
+            esNormal = !rbtVip.Checked;
+        }
+
+        private void rbtNormal_CheckedChanged(object sender, EventArgs e)
+        {
+            esNormal = rbtNormal.Checked;
+            esVIP = !rbtNormal.Checked;
+        }
+        #endregion
+
+        #region BOTONES
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
             var result = MessageBox.Show("¿Está seguro de que desea cancelar?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -94,7 +133,6 @@ namespace Gestion_De_Tickets_Autobus
                 LimpiarCampos();
             }
         }
-
 
         private async void BtnGuardar_Click(object sender, EventArgs e)
         {
@@ -113,20 +151,6 @@ namespace Gestion_De_Tickets_Autobus
                 OcultarAdvertencia();
             }
         }
-
-        private void btVip_CheckedChanged(object sender, EventArgs e)
-        {
-            esVIP = rbtVip.Checked;
-            esNormal = !rbtVip.Checked;
-        }
-
-        private void rbtNormal_CheckedChanged(object sender, EventArgs e)
-        {
-            esNormal = rbtNormal.Checked;
-            esVIP = !rbtNormal.Checked; 
-        }
-
-
         #endregion
 
         #region LLENANDO COMBOBOX
