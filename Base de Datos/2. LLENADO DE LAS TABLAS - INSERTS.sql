@@ -223,6 +223,14 @@ VALUES						 ('Kenia Lopez Arellano','kla.mathse@gmail.com', '78599665', '999963
 							,'Avenida Arellano, Casa #105',1, GETDATE())
 GO
 
+-- Metodos de Pago
+INSERT INTO Tick.tbMetodosPago([meto_Descripcion], [usua_UsuarioCreacion],[meto_FechaCreacion] )
+VALUES							  ('Efectivo', 1, GETDATE())
+GO
+INSERT INTO Tick.tbMetodosPago([meto_Descripcion], [usua_UsuarioCreacion],[meto_FechaCreacion] )
+VALUES							  ('Tarjeta', 1, GETDATE())
+GO
+
 --Autobus_Horario
 --INSERT INTO Tick.tbAutobus_Horario( aut_id, hor_id, usu_UsuarioCreacion, auh_FechaCreacion)
 --VALUES
@@ -373,23 +381,11 @@ VALUES                    (2,'LLEGADA', '21:00', 1, GETDATE())
 GO
 
 ---- AUTOBUS ASIGNADO A LAS 8:00 AM
-INSERT INTO Tick.tbAutobus_Horario(aut_id, hor_id, usu_UsuarioCreacion, auh_FechaCreacion)
+INSERT INTO Tick.tbAutobus_Horario(aut_ID, hor_ID, usu_UsuarioCreacion, auh_FechaCreacion)
 VALUES								(1,1,1, GETDATE())
 GO
 
---- VOY A HACER UNA PLANIFICACIÓN
----- PLANIFICO QUE EL 8 DE DICIEMBRE SALDRA UN BUS A LAS 8:00 AM
-INSERT INTO Tick.tbPlanificacion(pln_Fecha, auh_ID, usu_UsuarioCreacion, pln_FechaCreacion)
-VALUES		('2024-12-8', 1, 1, GETDATE());
+--- AUTOBUS HORARIO: 8:AM RUTA:UNAHCORTES EL PROGRESO-45
+INSERT INTO Tick.tbAuto_Hora_Preci_Desti(auh_ID, pre_ID)
+VALUES		(1,1)
 
---- INSERTANDO 30 ASIENTOS QUE PERTENECEN A LA PLANIFICACION 1, QUE PERTENECE A EL BUS 1 QUE SALEA LAS 8 AM
-DECLARE @cantidadAsientos INT = 30;
-DECLARE @pln_ID INT = 1;
-DECLARE @i INT = 1;
-
-WHILE @i <= @cantidadAsientos
-BEGIN
-    INSERT INTO Tick.tbPlanificacion_Asientos (pln_ID, num_Asiento, usu_UsuarioCreacion, pln_FechaCreacion)
-    VALUES (@pln_ID, @i, 1, GETDATE());  -- Insertar asientos como libres
-    SET @i = @i + 1;
-END;
