@@ -32,13 +32,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbxMarca = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.PicBuses = new System.Windows.Forms.PictureBox();
-            this.txtModelo = new System.Windows.Forms.TextBox();
+            this.rbtVip = new System.Windows.Forms.RadioButton();
+            this.rbtNormal = new System.Windows.Forms.RadioButton();
             this.numAsientos = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
-            this.rbtVip = new System.Windows.Forms.RadioButton();
+            this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtMatricula = new System.Windows.Forms.TextBox();
@@ -46,15 +44,18 @@
             this.pnlMatricula = new System.Windows.Forms.Panel();
             this.pnlModelo = new System.Windows.Forms.Panel();
             this.pnlAsientos = new System.Windows.Forms.Panel();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.PicBuses = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.lblAdvertencia = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.btnImagen = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbxModelo = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PicBuses)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numAsientos)).BeginInit();
+            this.pnlModelo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PicBuses)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -77,13 +78,13 @@
             this.cbxMarca.Name = "cbxMarca";
             this.cbxMarca.Size = new System.Drawing.Size(186, 24);
             this.cbxMarca.TabIndex = 2;
+            this.cbxMarca.Text = "Selecione...";
             this.cbxMarca.SelectedIndexChanged += new System.EventHandler(this.BtnGuardar_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.rbtVip);
-            this.groupBox1.Controls.Add(this.txtModelo);
-            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Controls.Add(this.rbtNormal);
             this.groupBox1.Controls.Add(this.numAsientos);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label5);
@@ -105,51 +106,31 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información General";
             // 
-            // button2
+            // rbtVip
             // 
-            this.button2.BackColor = System.Drawing.Color.Gray;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(199, 211);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(103, 31);
-            this.button2.TabIndex = 25;
-            this.button2.Text = "Cancelar";
-            this.button2.UseVisualStyleBackColor = false;
+            this.rbtVip.AutoSize = true;
+            this.rbtVip.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtVip.ForeColor = System.Drawing.Color.White;
+            this.rbtVip.Location = new System.Drawing.Point(225, 169);
+            this.rbtVip.Name = "rbtVip";
+            this.rbtVip.Size = new System.Drawing.Size(46, 20);
+            this.rbtVip.TabIndex = 4;
+            this.rbtVip.TabStop = true;
+            this.rbtVip.Text = "VIP";
+            this.rbtVip.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // rbtNormal
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(53)))), ((int)(((byte)(80)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(90, 211);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(103, 31);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "Guardar";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.BtnGuardar_Click);
-            // 
-            // PicBuses
-            // 
-            this.PicBuses.Image = ((System.Drawing.Image)(resources.GetObject("PicBuses.Image")));
-            this.PicBuses.Location = new System.Drawing.Point(25, 42);
-            this.PicBuses.Name = "PicBuses";
-            this.PicBuses.Size = new System.Drawing.Size(128, 124);
-            this.PicBuses.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PicBuses.TabIndex = 12;
-            this.PicBuses.TabStop = false;
-            // 
-            // txtModelo
-            // 
-            this.txtModelo.Location = new System.Drawing.Point(23, 123);
-            this.txtModelo.Name = "txtModelo";
-            this.txtModelo.Size = new System.Drawing.Size(186, 22);
-            this.txtModelo.TabIndex = 12;
-            this.txtModelo.TextChanged += new System.EventHandler(this.BtnGuardar_Click);
+            this.rbtNormal.AutoSize = true;
+            this.rbtNormal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtNormal.ForeColor = System.Drawing.Color.White;
+            this.rbtNormal.Location = new System.Drawing.Point(140, 169);
+            this.rbtNormal.Name = "rbtNormal";
+            this.rbtNormal.Size = new System.Drawing.Size(69, 20);
+            this.rbtNormal.TabIndex = 4;
+            this.rbtNormal.TabStop = true;
+            this.rbtNormal.Text = "Normal";
+            this.rbtNormal.UseVisualStyleBackColor = true;
             // 
             // numAsientos
             // 
@@ -169,18 +150,16 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Marca";
             // 
-            // rbtVip
+            // label5
             // 
-            this.rbtVip.AutoSize = true;
-            this.rbtVip.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtVip.ForeColor = System.Drawing.Color.White;
-            this.rbtVip.Location = new System.Drawing.Point(225, 169);
-            this.rbtVip.Name = "rbtVip";
-            this.rbtVip.Size = new System.Drawing.Size(46, 20);
-            this.rbtVip.TabIndex = 4;
-            this.rbtVip.TabStop = true;
-            this.rbtVip.Text = "VIP";
-            this.rbtVip.UseVisualStyleBackColor = true;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(20, 171);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(83, 16);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "Exclusividad";
             // 
             // label3
             // 
@@ -233,6 +212,7 @@
             // pnlModelo
             // 
             this.pnlModelo.BackColor = System.Drawing.Color.DarkRed;
+            this.pnlModelo.Controls.Add(this.cbxModelo);
             this.pnlModelo.Location = new System.Drawing.Point(23, 123);
             this.pnlModelo.Name = "pnlModelo";
             this.pnlModelo.Size = new System.Drawing.Size(186, 29);
@@ -247,6 +227,44 @@
             this.pnlAsientos.Size = new System.Drawing.Size(175, 29);
             this.pnlAsientos.TabIndex = 21;
             this.pnlAsientos.Visible = false;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.Gray;
+            this.btnCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.White;
+            this.btnCancelar.Location = new System.Drawing.Point(199, 211);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(103, 31);
+            this.btnCancelar.TabIndex = 25;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(53)))), ((int)(((byte)(80)))));
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.ForeColor = System.Drawing.Color.White;
+            this.btnGuardar.Location = new System.Drawing.Point(90, 211);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(103, 31);
+            this.btnGuardar.TabIndex = 24;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
+            // 
+            // PicBuses
+            // 
+            this.PicBuses.Image = ((System.Drawing.Image)(resources.GetObject("PicBuses.Image")));
+            this.PicBuses.Location = new System.Drawing.Point(25, 42);
+            this.PicBuses.Name = "PicBuses";
+            this.PicBuses.Size = new System.Drawing.Size(128, 124);
+            this.PicBuses.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PicBuses.TabIndex = 12;
+            this.PicBuses.TabStop = false;
             // 
             // dataGridView1
             // 
@@ -270,48 +288,24 @@
             this.lblAdvertencia.Visible = false;
             this.lblAdvertencia.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
-            // button3
+            // btnImagen
             // 
-            this.button3.BackColor = System.Drawing.Color.White;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(53)))), ((int)(((byte)(80)))));
-            this.button3.Location = new System.Drawing.Point(169, 77);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(123, 54);
-            this.button3.TabIndex = 26;
-            this.button3.Text = "Seleccionar Imagen";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(20, 171);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(83, 16);
-            this.label5.TabIndex = 27;
-            this.label5.Text = "Exclusividad";
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.ForeColor = System.Drawing.Color.White;
-            this.radioButton1.Location = new System.Drawing.Point(140, 169);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(69, 20);
-            this.radioButton1.TabIndex = 4;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Normal";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.btnImagen.BackColor = System.Drawing.Color.White;
+            this.btnImagen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImagen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(53)))), ((int)(((byte)(80)))));
+            this.btnImagen.Location = new System.Drawing.Point(169, 77);
+            this.btnImagen.Name = "btnImagen";
+            this.btnImagen.Size = new System.Drawing.Size(123, 54);
+            this.btnImagen.TabIndex = 26;
+            this.btnImagen.Text = "Seleccionar Imagen";
+            this.btnImagen.UseVisualStyleBackColor = false;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.PicBuses);
-            this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.btnImagen);
+            this.groupBox2.Controls.Add(this.btnCancelar);
+            this.groupBox2.Controls.Add(this.btnGuardar);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(469, 31);
@@ -320,6 +314,15 @@
             this.groupBox2.TabIndex = 28;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Adicional";
+            // 
+            // cbxModelo
+            // 
+            this.cbxModelo.FormattingEnabled = true;
+            this.cbxModelo.Location = new System.Drawing.Point(0, -1);
+            this.cbxModelo.Name = "cbxModelo";
+            this.cbxModelo.Size = new System.Drawing.Size(186, 24);
+            this.cbxModelo.TabIndex = 28;
+            this.cbxModelo.Text = "Selecione...";
             // 
             // frmAutobuses
             // 
@@ -335,8 +338,9 @@
             this.Text = "fmrAutobuses";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PicBuses)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numAsientos)).EndInit();
+            this.pnlModelo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PicBuses)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -354,7 +358,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NumericUpDown numAsientos;
-        private System.Windows.Forms.TextBox txtModelo;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.PictureBox PicBuses;
         private System.Windows.Forms.Panel pnlMarca;
@@ -362,11 +365,12 @@
         private System.Windows.Forms.Panel pnlModelo;
         private System.Windows.Forms.Panel pnlAsientos;
         private System.Windows.Forms.Label lblAdvertencia;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.Button btnImagen;
+        private System.Windows.Forms.RadioButton rbtNormal;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ComboBox cbxModelo;
     }
 }
