@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAutobuses));
             this.label1 = new System.Windows.Forms.Label();
             this.cbxMarca = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -43,19 +42,16 @@
             this.pnlMarca = new System.Windows.Forms.Panel();
             this.pnlMatricula = new System.Windows.Forms.Panel();
             this.pnlModelo = new System.Windows.Forms.Panel();
+            this.cbxModelo = new System.Windows.Forms.ComboBox();
             this.pnlAsientos = new System.Windows.Forms.Panel();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.PicBuses = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.lblAdvertencia = new System.Windows.Forms.Label();
-            this.btnImagen = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cbxModelo = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numAsientos)).BeginInit();
             this.pnlModelo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PicBuses)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -219,6 +215,15 @@
             this.pnlModelo.TabIndex = 22;
             this.pnlModelo.Visible = false;
             // 
+            // cbxModelo
+            // 
+            this.cbxModelo.FormattingEnabled = true;
+            this.cbxModelo.Location = new System.Drawing.Point(0, -1);
+            this.cbxModelo.Name = "cbxModelo";
+            this.cbxModelo.Size = new System.Drawing.Size(186, 24);
+            this.cbxModelo.TabIndex = 28;
+            this.cbxModelo.Text = "Selecione...";
+            // 
             // pnlAsientos
             // 
             this.pnlAsientos.BackColor = System.Drawing.Color.DarkRed;
@@ -256,22 +261,12 @@
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
-            // PicBuses
-            // 
-            this.PicBuses.Image = ((System.Drawing.Image)(resources.GetObject("PicBuses.Image")));
-            this.PicBuses.Location = new System.Drawing.Point(25, 42);
-            this.PicBuses.Name = "PicBuses";
-            this.PicBuses.Size = new System.Drawing.Size(128, 124);
-            this.PicBuses.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PicBuses.TabIndex = 12;
-            this.PicBuses.TabStop = false;
-            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(24, 338);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 318);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(764, 100);
+            this.dataGridView1.Size = new System.Drawing.Size(764, 120);
             this.dataGridView1.TabIndex = 11;
             // 
             // lblAdvertencia
@@ -288,22 +283,8 @@
             this.lblAdvertencia.Visible = false;
             this.lblAdvertencia.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
-            // btnImagen
-            // 
-            this.btnImagen.BackColor = System.Drawing.Color.White;
-            this.btnImagen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImagen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(53)))), ((int)(((byte)(80)))));
-            this.btnImagen.Location = new System.Drawing.Point(169, 77);
-            this.btnImagen.Name = "btnImagen";
-            this.btnImagen.Size = new System.Drawing.Size(123, 54);
-            this.btnImagen.TabIndex = 26;
-            this.btnImagen.Text = "Seleccionar Imagen";
-            this.btnImagen.UseVisualStyleBackColor = false;
-            // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.PicBuses);
-            this.groupBox2.Controls.Add(this.btnImagen);
             this.groupBox2.Controls.Add(this.btnCancelar);
             this.groupBox2.Controls.Add(this.btnGuardar);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -314,15 +295,6 @@
             this.groupBox2.TabIndex = 28;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Adicional";
-            // 
-            // cbxModelo
-            // 
-            this.cbxModelo.FormattingEnabled = true;
-            this.cbxModelo.Location = new System.Drawing.Point(0, -1);
-            this.cbxModelo.Name = "cbxModelo";
-            this.cbxModelo.Size = new System.Drawing.Size(186, 24);
-            this.cbxModelo.TabIndex = 28;
-            this.cbxModelo.Text = "Selecione...";
             // 
             // frmAutobuses
             // 
@@ -340,7 +312,6 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numAsientos)).EndInit();
             this.pnlModelo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PicBuses)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -359,7 +330,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NumericUpDown numAsientos;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.PictureBox PicBuses;
         private System.Windows.Forms.Panel pnlMarca;
         private System.Windows.Forms.Panel pnlMatricula;
         private System.Windows.Forms.Panel pnlModelo;
@@ -368,7 +338,6 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnImagen;
         private System.Windows.Forms.RadioButton rbtNormal;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ComboBox cbxModelo;
