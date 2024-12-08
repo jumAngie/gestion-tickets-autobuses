@@ -21,6 +21,7 @@ AS
 			ON d.pais_Id		=	p.pais_Id
  WHERE		pers.car_ID	= 1 OR pers.car_ID = 3 AND per_Estado = 1
 GO
+
 ---------------------------------------------------
 CREATE OR ALTER VIEW Gral.Clientes_Listado
 AS
@@ -62,3 +63,4 @@ AS
 			ON aut.mar_ID = m.mar_ID	INNER JOIN Tick.tbModelo mo
 			ON aut.mod_ID = mo.mod_ID 	
 GO
+

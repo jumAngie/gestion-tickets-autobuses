@@ -73,6 +73,8 @@ namespace Gestion_De_Tickets_Autobus
             btnClientes.BackColor = Color.FromArgb(46, 51, 73);
 
             lblTitle.Text = "Cliente";
+            this.PNmenu.Controls.Clear();
+
             frmCliente frmPrincipal_vrb = new frmCliente()
             {
                 Dock = DockStyle.Fill,
@@ -185,12 +187,6 @@ namespace Gestion_De_Tickets_Autobus
             btnRegistrarVenta.BackColor = Color.FromArgb(46, 50, 54);
         }
 
-        private void btnSalir_Click_1(object sender, EventArgs e)
-        {
-            Salir();
-
-        }
-
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
             Salir();
@@ -199,21 +195,6 @@ namespace Gestion_De_Tickets_Autobus
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             Salir();
-        }
-
-        private void PNmenu_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblTitle_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
