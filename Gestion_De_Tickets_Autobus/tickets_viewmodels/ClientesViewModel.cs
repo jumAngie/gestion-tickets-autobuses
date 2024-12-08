@@ -12,14 +12,21 @@ namespace Gestion_De_Tickets_Autobus.Tickets_ViewModels
         [DisplayName("Nombre Completo")]
         public string NombreCompleto { get; set; }
 
+        [DisplayName("Correo")]
+        public string Correo { get; set; }
+
         [DisplayName("DNI Cliente")]
         public string DNI { get; set; }
 
         [DisplayName("Telefono")]
         public string Telefono { get; set; }
 
-        [DisplayName("correo")]
-        public string correo { get; set; }
+        [DisplayName("Fecha de Nacimiento")]
+        public DateTime FechaNacimiento { get; set; }
+
+        [DisplayName("Sexo")]
+        public string Sexo_Descripcion { get; set; }
+
 
         [DisplayName("Pais")]
         public string Pais_Descripcion { get; set; }
@@ -33,13 +40,6 @@ namespace Gestion_De_Tickets_Autobus.Tickets_ViewModels
         [DisplayName("Direccion")]
         public string Direccion { get; set; }
 
-        [DisplayName("Fecha de Nacimiento")]
-        public DateTime FechaNacimiento { get; set; }
-
-        [DisplayName("Sexo")]
-        public string Sexo_Descripcion { get; set; }
-
-        [DisplayName("Cargo")]
-        public string cargo_Descripcion { get; set; }
+       
     }
 }

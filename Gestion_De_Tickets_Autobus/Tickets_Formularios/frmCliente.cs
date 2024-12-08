@@ -210,6 +210,7 @@ namespace Gestion_De_Tickets_Autobus
         private void frmCliente_Load(object sender, EventArgs e)
         {
             CargarPaisesCMB();
+            ListarClientes();
             cbxdepto.Text = "Seleccione un país.";
             cbxciudad.Text = "Seleccione un departamento.";
             LimpiarCampos();
@@ -269,7 +270,8 @@ namespace Gestion_De_Tickets_Autobus
             bool esValido = ValidacionesVacio();
             if (esValido)
             {
-
+                InsertarClientes();
+                ListarClientes();
                 LimpiarCampos();
 
             }
