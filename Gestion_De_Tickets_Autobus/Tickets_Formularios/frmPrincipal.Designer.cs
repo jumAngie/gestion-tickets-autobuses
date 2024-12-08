@@ -285,7 +285,6 @@
             this.lblTitle.Size = new System.Drawing.Size(103, 32);
             this.lblTitle.TabIndex = 2;
             this.lblTitle.Text = "INICIO";
-            this.lblTitle.Click += new System.EventHandler(this.lblTitle_Click);
             // 
             // PNmenu
             // 
@@ -294,7 +293,6 @@
             this.PNmenu.Name = "PNmenu";
             this.PNmenu.Size = new System.Drawing.Size(819, 488);
             this.PNmenu.TabIndex = 5;
-            this.PNmenu.Paint += new System.Windows.Forms.PaintEventHandler(this.PNmenu_Paint);
             // 
             // frmPrincipal
             // 

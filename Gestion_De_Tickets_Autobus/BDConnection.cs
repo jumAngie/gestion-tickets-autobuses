@@ -9,7 +9,7 @@ namespace Gestion_De_Tickets_Autobus
 {
     public class BDConnection
     {
-        private static string connString = "";
+        private static string connString = "workstation id=TICKETS.mssql.somee.com;packet size=4096;user id=gestion-tickets_SQLLogin_1;pwd=m86l8votyp;data source=TICKETS.mssql.somee.com;persist security info=False;initial catalog=TICKETS;TrustServerCertificate=True";
 
         public static SqlConnection ObtenerConexion()
         {

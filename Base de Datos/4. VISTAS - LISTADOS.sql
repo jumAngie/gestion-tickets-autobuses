@@ -11,18 +11,19 @@ AS
 			d.dept_Descripcion,
 			p.pais_Descripcion,
 			per_Direccion,
-			per_Cargo
+			car.car_Descripcion
 
-  FROM		Gral.tbPersonas pers		INNER JOIN Gral.tbCiudades c
-			ON pers.per_Ciudad = c.ciud_Id	INNER JOIN Gral.tbSexos s
-			ON pers.per_Sexo = s.sex_Id	INNER JOIN Gral.tbCargos car
-			ON pers.per_Cargo = car.car_id	INNER JOIN Gral.tbDepartamentos d
-			ON c.dept_Id = d.dept_Id INNER JOIN Gral.tbPaises p
-			ON d.pais_Id = p.pais_Id
- WHERE		pers.per_Cargo = 1
+  FROM		Gral.tbPersonas pers					INNER JOIN Gral.tbCiudades c
+			ON pers.ciud_ID		=	c.ciud_Id		INNER JOIN Gral.tbSexos s
+			ON pers.sex_ID		=	s.sex_Id		INNER JOIN Gral.tbCargos car
+			ON pers.car_ID		=	car.car_id		INNER JOIN Gral.tbDepartamentos d
+			ON c.dept_Id		=	d.dept_Id		INNER JOIN Gral.tbPaises p
+			ON d.pais_Id		=	p.pais_Id
+ WHERE		pers.car_ID	= 1 OR pers.car_ID = 3 AND per_Estado = 1
 GO
 
-CREATE OR ALTER VIEW Gral.DatosGenerales_Cliente
+---------------------------------------------------
+CREATE OR ALTER VIEW Gral.Clientes_Listado
 AS
 	SELECT 
 			per_NombreCompleto, 
@@ -35,28 +36,31 @@ AS
 			d.dept_Descripcion,
 			p.pais_Descripcion,
 			per_Direccion,
-			per_Cargo
+			car.car_Descripcion
 
- FROM		Gral.tbPersonas pers		INNER JOIN Gral.tbCiudades c
-			ON pers.per_Ciudad = c.ciud_Id	INNER JOIN Gral.tbSexos s
-			ON pers.per_Sexo = s.sex_Id	INNER JOIN Gral.tbCargos car
-			ON pers.per_Cargo = car.car_id	INNER JOIN Gral.tbDepartamentos d
-			ON c.dept_Id = d.dept_Id INNER JOIN Gral.tbPaises p
-			ON d.pais_Id = p.pais_Id
- WHERE		pers.per_Cargo = 2
+  FROM		Gral.tbPersonas pers					INNER JOIN Gral.tbCiudades c
+			ON pers.ciud_ID		=	c.ciud_Id		INNER JOIN Gral.tbSexos s
+			ON pers.sex_ID		=	s.sex_Id		INNER JOIN Gral.tbCargos car
+			ON pers.car_ID		=	car.car_id		INNER JOIN Gral.tbDepartamentos d
+			ON c.dept_Id		=	d.dept_Id		INNER JOIN Gral.tbPaises p
+			ON d.pais_Id		=	p.pais_Id
+ WHERE		pers.car_ID	= 2 OR pers.car_ID = 3
 GO
-
+---------------------------------------------------
 CREATE OR ALTER VIEW Tick.Listado_Autobuses
 AS
 	SELECT 
 			aut_Matricula, 
-			m.mar_ID, 
-			mo.mod_ID, 
-			aut_esVIP, 
-			aut_cantAsientos, 
-			aut_Estado
+			m.mar_Descripcion,
+			mo.mod_Descripcion,
+			CASE 
+			WHEN aut_esVIP = 1 THEN 'VIP'
+			ELSE 'Normal'
+			END AS aut_esVIP, 
+			aut_cantAsientos
 
  FROM		Tick.tbAutobuses aut		INNER JOIN Tick.tbMarca m
 			ON aut.mar_ID = m.mar_ID	INNER JOIN Tick.tbModelo mo
 			ON aut.mod_ID = mo.mod_ID 	
 GO
+
