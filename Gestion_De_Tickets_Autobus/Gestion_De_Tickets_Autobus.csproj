@@ -55,6 +55,8 @@
     <Compile Include="Tickets_DAL\ClientesDAL.cs" />
     <Compile Include="Tickets_DAL\DeptosDAL.cs" />
     <Compile Include="Tickets_DAL\EmpleadosDAL.cs" />
+    <Compile Include="Tickets_DAL\MarcasDAL.cs" />
+    <Compile Include="Tickets_DAL\ModelosDAL.cs" />
     <Compile Include="Tickets_DAL\PaisesDAL.cs" />
     <Compile Include="Tickets_Entities\Autobuses.cs" />
     <Compile Include="Tickets_Entities\Personas.cs" />
@@ -102,6 +104,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tickets_ViewModels\AutobusesViewModel.cs" />
     <Compile Include="Tickets_ViewModels\ClientesViewModel.cs" />
     <Compile Include="Validaciones.cs" />
     <EmbeddedResource Include="Tickets_Formularios\frmAutobuses.resx">

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Gestion_De_Tickets_Autobus.Tickets_Entities;
+using Gestion_De_Tickets_Autobus.Tickets_ViewModels;
 
 namespace Gestion_De_Tickets_Autobus.Tickets_DAL
 {
@@ -46,5 +47,48 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
 
             return mensaje;
         }
+        // LISTAR
+        public static List<AutobusesViewModel> ListarAutobuses()
+        {
+            List<AutobusesViewModel> lista = new List<AutobusesViewModel>();
+
+            try
+            {
+                using (SqlConnection conexion = BDConnection.ObtenerConexion())
+                {
+                    conexion.Open();
+                    string query = ScriptsDatabase.ListarAutobuses;
+                    SqlCommand comando = new SqlCommand(query, conexion);
+
+                    SqlDataReader reader = comando.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        AutobusesViewModel autobus = new AutobusesViewModel
+                        {
+                            aut_Matricula = reader.GetString(0), 
+                            mar_ID = reader.GetInt32(1),  
+                            mod_ID = reader.GetInt32(2), 
+                            aut_esVIP = reader.GetBoolean(3),   
+                            aut_cantAsientos = reader.GetInt32(4),   
+                            aut_Estado = reader.GetBoolean(5),    
+                            usu_UsuarioCreacion = reader.GetInt32(6),  
+                            aut_FechaCreacion = reader.GetDateTime(7)
+                        };
+
+                        
+                        lista.Add(autobus);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejo de excepciones
+                throw new Exception("Error al listar autobuses: " + ex.Message);
+            }
+
+            return lista;
+        }
+
     }
 }

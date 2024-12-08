@@ -132,6 +132,22 @@ namespace Gestion_De_Tickets_Autobus
         }
         #endregion
 
+      #region LLENANDO COMBOBOX
+        public void CargarModeloCMB()
+        {
+           // cbxModelo.DataSource = Modelo.CargarModelo();
+            cbxModelo.ValueMember = "mod_ID";
+            cbxModelo.DisplayMember = "mod_Descripcion";
+        }
+
+        public void CargarMarcaCMB()
+        {
+           // cbxMarca.DataSource = Marca.CargarMarca();
+            cbxMarca.ValueMember = " mar_ID";
+            cbxMarca.DisplayMember = "mod_Descripcion";
+        }
+       
+        #endregion
 
         #region borrar esto  
         private void btnCancelar_Click(object sender, EventArgs e)
