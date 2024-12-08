@@ -27,6 +27,7 @@ namespace Gestion_De_Tickets_Autobus
         private int id_filaseleccionada;
         #endregion
 
+        #region CRUD
         //INSERTAR
         public void InsertarClientes()
         {
@@ -58,8 +59,28 @@ namespace Gestion_De_Tickets_Autobus
             dgClientes.DataSource = ClientesDAL.ListarClientes();
         }
 
-        //EDITAR
-        public void Editar_Clientes(int per_Id)
+        //CARGAR DATOS EDITAR
+        public void Editar_CargarDatos(int clien_Id)
+        {
+            Personas personas = ClientesDAL.Editar_CargarDatos(clien_Id);
+            if (personas != null)
+            {
+                txtNombre.Text = personas.per_NombreCompleto;
+                mtxtidentidad.Text = personas.per_DNI;
+                txtTelefono.Text = personas.per_Telefono;
+                txtEmail.Text = personas.per_Correo;
+                dtFechaNacimiento.Value = personas.per_FechaNacimiento;
+                sexo = personas.per_Sexo;
+                cliente = personas.per_Cargo;
+                txtDirE.Text = personas.per_Direccion;
+                cbxpais.SelectedValue = personas.pais_Id;
+                cbxciudad.SelectedValue = personas.per_Ciudad;
+                cbxdepto.SelectedValue = personas.dept_Id;
+
+            }
+        }
+                //EDITAR
+                public void Editar_Clientes(int per_Id)
         {
             Personas Cliente = new Personas
             {
@@ -81,7 +102,7 @@ namespace Gestion_De_Tickets_Autobus
 
             MessageBox.Show(resultado, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
+        #endregion
 
         public frmCliente()
         {
@@ -258,7 +279,7 @@ namespace Gestion_De_Tickets_Autobus
             Panel_OcultarValidaciones();
             MensajeAdvertencia_Hide();
         }
-        
+
         private void cbxPais_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbxpais.SelectedValue != null && cbxpais.SelectedValue is int)
@@ -332,32 +353,20 @@ namespace Gestion_De_Tickets_Autobus
 
         private void dgClientes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == dgClientes.Columns["btnEliminar"].Index && e.RowIndex >= 0)
-            {
 
-                int ciud_Id = Convert.ToInt32(dgCiudades.Rows[e.RowIndex].Cells["CiudadID"].Value);
-                var result = MessageBox.Show("¿Está seguro que desea eliminar este registro?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (result == DialogResult.Yes)
-                {
-                    Eliminar_Ciudades(ciud_Id);
-                    Listado_Ciudades();
-                    LimpiarCampos();
-                }
-            }
-            else if (e.RowIndex >= 0)
-            {
-                boton_mostrarEditar();
-                DataGridViewRow fila = dgCiudades.Rows[e.RowIndex];
+            boton_mostrarEditar();
+            DataGridViewRow fila = dgClientes.Rows[e.RowIndex];
 
-                int ciud_Id = Convert.ToInt32(fila.Cells["CiudadID"].Value);
-                id_filaSeleccionada = ciud_Id;
+            int per_ID = Convert.ToInt32(fila.Cells["Cliente"].Value);
+            id_filaseleccionada = per_ID;
 
-                LimpiarCampos();
-                panel_OcultarValidaciones();
-                Editar_CargarDatos(ciud_Id);
-            }
+            LimpiarCampos();
+            Panel_OcultarValidaciones();
+            Editar_CargarDatos(per_ID);
+        }
 
-            private async void btnEditar_Click(object sender, EventArgs e)
+
+        private async void btnEditar_Click(object sender, EventArgs e)
         {
             try
             {
@@ -382,6 +391,7 @@ namespace Gestion_De_Tickets_Autobus
                 MessageBox.Show("Ocurrió un error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         #endregion
 
@@ -408,6 +418,7 @@ namespace Gestion_De_Tickets_Autobus
         }
         #endregion
 
-       
+
     }
 }
+
