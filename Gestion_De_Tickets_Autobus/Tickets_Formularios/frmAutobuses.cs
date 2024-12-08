@@ -12,15 +12,17 @@ namespace Gestion_De_Tickets_Autobus
 {
     public partial class frmAutobuses : Form
     {
+        #region VARIABLES
+        private bool esVIP = false;
+        private bool esNormal = false;
+        #endregion
+        
+
         public frmAutobuses()
         {
             InitializeComponent();
-        }
-
-        #region VARIABLES
-        private bool esVIP = false;
-        #endregion
-
+            
+        }      
         #region VALIDACIONES Y LIMPIEZA DE CAMPOS
         public void OcultarValidaciones()
         {
@@ -36,13 +38,13 @@ namespace Gestion_De_Tickets_Autobus
 
             // Validar campos
             if (cbxMarca.SelectedIndex == -1) { pnlMarca.Visible = true; esValido = false; }
-            if (string.IsNullOrWhiteSpace(txtModelo.Text)) { pnlModelo.Visible = true; esValido = false; }
+            if (string.IsNullOrWhiteSpace(cbxModelo.Text)) { pnlModelo.Visible = true; esValido = false; }
             if (string.IsNullOrWhiteSpace(txtMatricula.Text)) { pnlMatricula.Visible = true; esValido = false; }
             if (numAsientos.Value <= 0) { pnlAsientos.Visible = true; esValido = false; }
 
             // Ocultar errores si ya son válidos
             pnlMarca.Visible = cbxMarca.SelectedIndex == -1;
-            pnlModelo.Visible = string.IsNullOrWhiteSpace(txtModelo.Text);
+            pnlModelo.Visible = string.IsNullOrWhiteSpace(cbxModelo.Text);
             pnlMatricula.Visible = string.IsNullOrWhiteSpace(txtMatricula.Text);
             pnlAsientos.Visible = numAsientos.Value <= 0;
 
@@ -54,10 +56,11 @@ namespace Gestion_De_Tickets_Autobus
         public void LimpiarCampos()
         {
             cbxMarca.SelectedIndex = -1;
-            txtModelo.Clear();
+            cbxModelo.SelectedIndex = -1;
             txtMatricula.Clear();
             numAsientos.Value = 0;
             rbtVip.Checked = false;
+            rbtNormal.Checked = false;
 
             OcultarValidaciones();
         }
@@ -78,9 +81,13 @@ namespace Gestion_De_Tickets_Autobus
         #region EVENTOS DE LOS ELEMENTOS DEL FORMULARIO
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
-            LimpiarCampos();
-            OcultarAdvertencia();
+            var result = MessageBox.Show("¿Está seguro de que desea cancelar?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                LimpiarCampos();
+            }
         }
+
 
         private async void BtnGuardar_Click(object sender, EventArgs e)
         {
@@ -103,9 +110,30 @@ namespace Gestion_De_Tickets_Autobus
         private void btVip_CheckedChanged(object sender, EventArgs e)
         {
             esVIP = rbtVip.Checked;
+            esNormal = !rbtVip.Checked;
+        }
+
+        private void rbtNormal_CheckedChanged(object sender, EventArgs e)
+        {
+            esNormal = rbtNormal.Checked;
+            esVIP = !rbtNormal.Checked; 
+        }
+
+        private void btnSeleccionarImagen_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.Filter = "Archivos de Imagen|*.jpg;*.jpeg;*.png;*.bmp";
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    PicBuses.Image = Image.FromFile(ofd.FileName);
+                }
+            }
         }
         #endregion
-        #region Botones
+
+
+        #region borrar esto  
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             
