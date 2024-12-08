@@ -109,16 +109,18 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
                             if (reader.Read())
                             {
                                 clientes = new Personas
+
+
                                 {
                                     per_NombreCompleto = reader.GetString(0),
                                     per_Correo = reader.GetString(1),
                                     per_DNI = reader.GetString(2),
                                     per_Telefono = reader.GetString(3),
-                                    per_Ciudad = reader.GetInt32(4),
-                                    per_Direccion = reader.GetString(5),
-                                    per_FechaNacimiento = reader.GetDateTime(6),
-                                    per_Sexo = reader.GetInt32(7),
-                                    per_Cargo = reader.GetInt32(8),
+                                    per_FechaNacimiento = reader.GetDateTime(4),
+                                    per_Sexo = reader.GetInt32(5),
+                                    per_Cargo = reader.GetInt32(6),
+                                    per_Ciudad = reader.GetInt32(7),
+                                    per_Direccion = reader.GetString(8),
                                     dept_Id = reader.GetInt32(9),
                                     pais_Id = reader.GetInt32(10),
                                 };
@@ -149,11 +151,11 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
                         cmd.Parameters.AddWithValue("@per_Correo", clientes.per_Correo);
                         cmd.Parameters.AddWithValue("@per_DNI", clientes.per_DNI);
                         cmd.Parameters.AddWithValue("@per_Telefono", clientes.per_Telefono);
-                        cmd.Parameters.AddWithValue("@ciud_Id", clientes.per_Ciudad);
-                        cmd.Parameters.AddWithValue("@per_Direccion", clientes.per_Direccion);
                         cmd.Parameters.AddWithValue("@per_FechaNacimiento", clientes.per_FechaNacimiento);
                         cmd.Parameters.AddWithValue("@sex_ID", clientes.per_Sexo);
                         cmd.Parameters.AddWithValue("@car_ID", clientes.per_Cargo);
+                        cmd.Parameters.AddWithValue("@ciud_Id", clientes.per_Ciudad);
+                        cmd.Parameters.AddWithValue("@per_Direccion", clientes.per_Direccion);
                         cmd.Parameters.AddWithValue("@dept_Id", clientes.dept_Id);
                         cmd.Parameters.AddWithValue("@pais_Id", clientes.pais_Id);
 
