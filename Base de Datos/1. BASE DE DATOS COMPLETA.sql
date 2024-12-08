@@ -265,7 +265,8 @@ CREATE TABLE Tick.tbHorario
 (
 	  hor_ID					INT IDENTITY(1,1) PRIMARY KEY,
 	  hor_ruta					NVARCHAR(200), 
-	  hor_hora					DATETIME,
+	  hor_hora					VARCHAR(6),
+	  hor_identificador			INT,
 
 	  -- Auditoría
 	  usu_UsuarioCreacion		INT			NOT NULL,
@@ -292,16 +293,16 @@ CREATE TABLE Tick.tbPrecio_Destino
 	  pre_Estado BIT				DEFAULT		1,
 
 	CONSTRAINT PK_tbPrecio_Destino_pre_ID		PRIMARY KEY	(pre_ID),
-	CONSTRAINT FK_tbPrecio_Destino_DesSalida	FOREIGN KEY (des_IDsalida)	REFERENCES Tick.tbDestino(des_id),
-	CONSTRAINT FK_tbPrecio_Destino_DesDestino	FOREIGN KEY (des_IDdestino) REFERENCES Tick.tbDestino(des_id)
+	CONSTRAINT FK_tbPrecio_Destino_DesSalida	FOREIGN KEY (des_IDsalida)	REFERENCES Tick.tbDestino(des_ID),
+	CONSTRAINT FK_tbPrecio_Destino_DesDestino	FOREIGN KEY (des_IDdestino) REFERENCES Tick.tbDestino(des_ID)
 );
 
 -- TABLA AUTOBUS_HORARIO --
 CREATE TABLE Tick.tbAutobus_Horario
 (
 	  auh_ID						INT IDENTITY(1,1),
-	  aut_id						INT,
-	  hor_id						INT,
+	  aut_ID						INT,
+	  hor_ID						INT,
 
 	  -- Auditoría
 	  usu_UsuarioCreacion			INT				NOT NULL,
@@ -311,16 +312,27 @@ CREATE TABLE Tick.tbAutobus_Horario
 	  auh_Estado					BIT				DEFAULT		1,
 
 	CONSTRAINT PK_tbAutobus_Horario_auh_ID	PRIMARY KEY(auh_ID),
-	CONSTRAINT FK_tbAutobus_Horario_Horario FOREIGN KEY (hor_id) REFERENCES Tick.tbHorario(hor_id),
-	CONSTRAINT FK_tbAutobus_Horario_Autobus FOREIGN KEY (aut_id) REFERENCES Tick.tbAutobuses(aut_id)
+	CONSTRAINT FK_tbAutobus_Horario_Horario FOREIGN KEY (hor_ID) REFERENCES Tick.tbHorario(hor_ID),
+	CONSTRAINT FK_tbAutobus_Horario_Autobus FOREIGN KEY (aut_ID) REFERENCES Tick.tbAutobuses(aut_ID)
 );
 GO
+
+CREATE TABLE Tick.tbAuto_Hora_Preci_Desti
+(
+	audes_ID		INT IDENTITY(1,1),
+	auh_ID			INT,
+	pre_ID			INT,
+
+	CONSTRAINT PK_tbAuto_Hora_Preci_Desti_audes_ID	PRIMARY KEY(audes_ID),
+	CONSTRAINT FK_tbAuto_Hora_Preci_Desti_auh_ID_Tick_tbAutobus_Horario_auh_ID FOREIGN KEY(auh_ID) REFERENCES Tick.tbAutobus_Horario(auh_ID),
+	CONSTRAINT FK_tbAuto_Hora_Preci_Desti_pre_ID_Tick_tbPrecio_Destino_pre_ID	FOREIGN KEY(pre_ID) REFERENCES Tick.tbPrecio_Destino(pre_ID)
+);
 
 CREATE TABLE Tick.tbPlanificacion
 (
 		pln_ID				INT IDENTITY(1,1),
 		pln_Fecha			DATE,
-		auh_ID				INT,
+		audes_ID			INT,
 
 		-- Auditoría
 		usu_UsuarioCreacion			INT				NOT NULL,
@@ -330,9 +342,9 @@ CREATE TABLE Tick.tbPlanificacion
 		auh_Estado					BIT				DEFAULT		1,
 
 		CONSTRAINT PK_Tick_tbPlanificacion_pln_ID											PRIMARY KEY(pln_ID),
-		CONSTRAINT FK_Tick_tbPlanificacion_auh_ID_Tick_tbAutobus_Horario_auh_ID				FOREIGN KEY (auh_ID)						REFERENCES Tick.tbAutobus_Horario (auh_ID),
-		CONSTRAINT FK_Tick_tbPlanificacion_usu_UsuarioCreacion_Acce_tbUsuarios_usu_ID		FOREIGN KEY (usu_UsuarioCreacion)	REFERENCES Acce.tbUsuarios (usu_ID),
-		CONSTRAINT FK_Tick_tbPlanificacion_usu_UsuarioModificacion_Acce_tbUsuarios_usu_ID	FOREIGN KEY (usu_UsuarioModificacion) REFERENCES Acce.tbUsuarios (usu_ID)
+		CONSTRAINT FK_Tick_tbPlanificacion_audes_ID_Tick_tbAuto_Hora_Preci_Desti_audes_ID	FOREIGN KEY (audes_ID)					REFERENCES Tick.tbAuto_Hora_Preci_Desti (audes_ID),
+		CONSTRAINT FK_Tick_tbPlanificacion_usu_UsuarioCreacion_Acce_tbUsuarios_usu_ID		FOREIGN KEY (usu_UsuarioCreacion)		REFERENCES Acce.tbUsuarios (usu_ID),
+		CONSTRAINT FK_Tick_tbPlanificacion_usu_UsuarioModificacion_Acce_tbUsuarios_usu_ID	FOREIGN KEY (usu_UsuarioModificacion)	REFERENCES Acce.tbUsuarios (usu_ID)
 );
 GO
 
@@ -341,14 +353,13 @@ CREATE TABLE Tick.tbPlanificacion_Asientos
 		pas_ID				INT IDENTITY(1,1),
 		pln_ID				INT,
 		num_Asiento			INT,
-		tdt_Disponibilidad	BIT,
+		tdt_Disponibilidad	BIT DEFAULT 1,
 
 		-- Auditoría
 		usu_UsuarioCreacion			INT				NOT NULL,
 		pln_FechaCreacion			DATETIME		NOT NULL,
 		usu_UsuarioModificacion		INT	,    
 		pln_FechaModificacion		DATETIME,
-		auh_Estado					BIT				DEFAULT		1,
 
 		CONSTRAINT PK_Tick_tbPlanificacion_Asientos_pas_ID											PRIMARY KEY(pas_ID),
 		CONSTRAINT FK_Tick_tbPlanificacion_Asientos_pln_ID_Tick_tbPlanificacion_pln_ID				FOREIGN KEY (pln_ID)					REFERENCES Tick.tbPlanificacion (pln_ID),
@@ -375,17 +386,19 @@ CREATE TABLE Tick.tbTickets_Encabezado
 	 tik_FechaModificacion			DATETIME ,
 	 tik_Estado					BIT				DEFAULT		1,
 
-	 CONSTRAINT PK_Tick_tbTickets_Encabezado_tik_Id						PRIMARY KEY (tik_Id),
+	 CONSTRAINT PK_Tick_tbTickets_Encabezado_tik_ID						PRIMARY KEY (tik_ID),
 	 CONSTRAINT FK_Tick_tbTickets_Encabezado_meto_ID_Tick_tbMetodosPago_meto_ID FOREIGN KEY (meto_ID) REFERENCES Tick.tbMetodosPago(meto_ID),
-	 CONSTRAINT FK_Gral_tbPersonas_per_Id_Tick_tbTickets_per_Id	FOREIGN KEY (per_ID) REFERENCES Gral.tbPersonas (per_ID),
+	 CONSTRAINT FK_Gral_tbPersonas_per_ID_Tick_tbTickets_per_ID	FOREIGN KEY (per_ID) REFERENCES Gral.tbPersonas (per_ID),
 );
-
+GO
 CREATE TABLE Tick.tbTickets_Detalle
 (
 	tdt_ID				INT IDENTITY(1,1),
 	tik_ID				INT,
 	pas_ID				INT,
 	
-	CONSTRAINT PK_Tick_tbTickets_Detalle_tdt_ID	PRIMARY KEY(tdt_ID)
+	CONSTRAINT PK_Tick_tbTickets_Detalle_tdt_ID	PRIMARY KEY(tdt_ID),
+	CONSTRAINT FK_Tick_tbTickets_Detalle_tik_ID_Tick_tbTickets_Encabezado_tik_ID		FOREIGN KEY(tik_ID)		REFERENCES Tick.tbTickets_Encabezado (tik_ID),
+	CONSTRAINT FK_Tick_tbTickets_Detalle_pas_ID_Tick_tbPlanificacion_Asientos_pas_ID	FOREIGN KEY(pas_ID)		REFERENCES Tick.tbPlanificacion_Asientos(pas_ID)
 );
 

@@ -22,7 +22,7 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
                 using (SqlConnection conexion = BDConnection.ObtenerConexion())
                 {
                     conexion.Open();
-                    SqlCommand cmd = new SqlCommand(ScriptsDatabase.InertarAutobuses, conexion);
+                    SqlCommand cmd = new SqlCommand(ScriptsDatabase.InsertarAutobuses, conexion);
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.AddWithValue("@aut_Matricula", aut.aut_Matricula);
