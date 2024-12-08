@@ -52,10 +52,12 @@ AS
 GO
 -- MODELOS
 CREATE OR ALTER PROCEDURE Tick.Modelos_CMB
+@mar_ID INT
 AS
 	BEGIN
 			SELECT '0' AS 'mod_ID', ' - Seleccione una opción -' AS 'mod_Descripcion'
 			UNION ALL
 			SELECT mod_ID, mod_Descripcion FROM Tick.tbModelo
+			WHERE  mar_ID = @mar_ID
 	END
 GO

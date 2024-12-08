@@ -289,9 +289,9 @@
             // PNmenu
             // 
             this.PNmenu.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PNmenu.Location = new System.Drawing.Point(186, 72);
+            this.PNmenu.Location = new System.Drawing.Point(186, 56);
             this.PNmenu.Name = "PNmenu";
-            this.PNmenu.Size = new System.Drawing.Size(819, 488);
+            this.PNmenu.Size = new System.Drawing.Size(819, 504);
             this.PNmenu.TabIndex = 5;
             // 
             // frmPrincipal

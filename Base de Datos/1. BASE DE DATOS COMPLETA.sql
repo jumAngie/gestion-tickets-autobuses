@@ -209,6 +209,7 @@ GO
 CREATE TABLE Tick.tbModelo
 (
 		mod_ID						INT				IDENTITY(1,1),
+		mar_ID						INT,
 		mod_Descripcion				NVARCHAR(500),
 
 		mod_UsuarioCreacion			INT							NOT NULL,
@@ -217,7 +218,8 @@ CREATE TABLE Tick.tbModelo
 		mod_FechaModificacion		DATETIME					,
 		mod_Estado					BIT				DEFAULT		1,
 
-		CONSTRAINT PK_Tick_tbModelo_mod_ID			PRIMARY KEY(mod_ID),
+		CONSTRAINT PK_Tick_tbModelo_mod_ID						PRIMARY KEY(mod_ID),	
+		CONSTRAINT FK_Tick_tbModelo_mar_ID_Tick_tbMarca_mar_ID FOREIGN KEY (mar_ID) REFERENCES Tick.tbMarca (mar_ID)
 );
 GO
 
