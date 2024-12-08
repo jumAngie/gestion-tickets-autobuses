@@ -67,13 +67,18 @@
             this.lblDNI = new System.Windows.Forms.Label();
             this.pnlDNI = new System.Windows.Forms.Panel();
             this.pnlDNIE = new System.Windows.Forms.Panel();
-            this.dgvempleados = new System.Windows.Forms.DataGridView();
+            this.dgEmpleados = new System.Windows.Forms.DataGridView();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.pnlBuscar = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
             this.gbDatospersonales.SuspendLayout();
             this.gbDatosdeContacto.SuspendLayout();
             this.gbDNI.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvempleados)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgEmpleados)).BeginInit();
+            this.pnlBuscar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // gbDatospersonales
@@ -482,13 +487,13 @@
             this.pnlDNIE.TabIndex = 14;
             this.pnlDNIE.Visible = false;
             // 
-            // dgvempleados
+            // dgEmpleados
             // 
-            this.dgvempleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvempleados.Location = new System.Drawing.Point(13, 342);
-            this.dgvempleados.Name = "dgvempleados";
-            this.dgvempleados.Size = new System.Drawing.Size(763, 96);
-            this.dgvempleados.TabIndex = 10;
+            this.dgEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgEmpleados.Location = new System.Drawing.Point(13, 342);
+            this.dgEmpleados.Name = "dgEmpleados";
+            this.dgEmpleados.Size = new System.Drawing.Size(763, 96);
+            this.dgEmpleados.TabIndex = 10;
             // 
             // btnCancelar
             // 
@@ -519,6 +524,35 @@
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
+            // pnlBuscar
+            // 
+            this.pnlBuscar.BackColor = System.Drawing.Color.White;
+            this.pnlBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlBuscar.Controls.Add(this.txtBuscar);
+            this.pnlBuscar.Controls.Add(this.pictureBox1);
+            this.pnlBuscar.Location = new System.Drawing.Point(13, 306);
+            this.pnlBuscar.Name = "pnlBuscar";
+            this.pnlBuscar.Size = new System.Drawing.Size(357, 30);
+            this.pnlBuscar.TabIndex = 33;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Gestion_De_Tickets_Autobus.Properties.Resources.buscarcolorizado;
+            this.pictureBox1.Location = new System.Drawing.Point(328, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(24, 22);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 32;
+            this.pictureBox1.TabStop = false;
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscar.Location = new System.Drawing.Point(3, 3);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(319, 22);
+            this.txtBuscar.TabIndex = 31;
+            // 
             // frmEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -527,19 +561,24 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.dgvempleados);
+            this.Controls.Add(this.dgEmpleados);
             this.Controls.Add(this.gbDNI);
             this.Controls.Add(this.gbDatosdeContacto);
             this.Controls.Add(this.gbDatospersonales);
+            this.Controls.Add(this.pnlBuscar);
             this.Name = "frmEmpleado";
             this.Text = "frmEmpleado";
+            this.Load += new System.EventHandler(this.frmEmpleado_Load);
             this.gbDatospersonales.ResumeLayout(false);
             this.gbDatospersonales.PerformLayout();
             this.gbDatosdeContacto.ResumeLayout(false);
             this.gbDatosdeContacto.PerformLayout();
             this.gbDNI.ResumeLayout(false);
             this.gbDNI.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvempleados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgEmpleados)).EndInit();
+            this.pnlBuscar.ResumeLayout(false);
+            this.pnlBuscar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -575,7 +614,7 @@
         private System.Windows.Forms.MaskedTextBox mtxtidentidad;
         private System.Windows.Forms.Label lblidentidad;
         private System.Windows.Forms.TextBox txtDNIE;
-        private System.Windows.Forms.DataGridView dgvempleados;
+        private System.Windows.Forms.DataGridView dgEmpleados;
         private System.Windows.Forms.Label lblAdvertencia;
         private System.Windows.Forms.Panel pnlnombre;
         private System.Windows.Forms.Panel pnlciudad;
@@ -588,5 +627,8 @@
         private System.Windows.Forms.Panel pnlDNIE;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Panel pnlBuscar;
+        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -103,6 +103,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tickets_ViewModels\ClientesViewModel.cs" />
+    <Compile Include="Tickets_ViewModels\EmpleadosViewModel.cs" />
     <Compile Include="Validaciones.cs" />
     <EmbeddedResource Include="Tickets_Formularios\frmAutobuses.resx">
       <DependentUpon>frmAutobuses.cs</DependentUpon>
