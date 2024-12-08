@@ -12,8 +12,6 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
 {
     internal class AutobusesDAL
     {
-
-
         //INSERTAR
         public static string InsertarAutobuses(Autobuses aut)
         {
@@ -67,13 +65,10 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
                         AutobusesViewModel autobus = new AutobusesViewModel
                         {
                             aut_Matricula = reader.GetString(0), 
-                            mar_ID = reader.GetInt32(1),  
-                            mod_ID = reader.GetInt32(2), 
-                            aut_esVIP = reader.GetBoolean(3),   
-                            aut_cantAsientos = reader.GetInt32(4),   
-                            aut_Estado = reader.GetBoolean(5),    
-                            usu_UsuarioCreacion = reader.GetInt32(6),  
-                            aut_FechaCreacion = reader.GetDateTime(7)
+                            mar_Descripcion = reader.GetInt32(1),  
+                            mod_Descripcion = reader.GetInt32(2), 
+                            aut_esVIP = reader.GetString(3),   
+                            aut_cantAsientos = reader.GetInt32(4),
                         };
 
                         

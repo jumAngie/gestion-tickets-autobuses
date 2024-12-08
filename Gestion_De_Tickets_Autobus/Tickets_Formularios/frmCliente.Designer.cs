@@ -73,6 +73,7 @@
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnEditar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).BeginInit();
             this.gbDNI.SuspendLayout();
             this.gbDatosdeContacto.SuspendLayout();
@@ -88,6 +89,7 @@
             this.dgClientes.Name = "dgClientes";
             this.dgClientes.Size = new System.Drawing.Size(786, 128);
             this.dgClientes.TabIndex = 16;
+            this.dgClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgClientes_CellClick);
             // 
             // gbDNI
             // 
@@ -101,9 +103,9 @@
             this.gbDNI.Controls.Add(this.pnlDNI);
             this.gbDNI.Controls.Add(this.pnlDNIE);
             this.gbDNI.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.gbDNI.Location = new System.Drawing.Point(19, 155);
+            this.gbDNI.Location = new System.Drawing.Point(13, 155);
             this.gbDNI.Name = "gbDNI";
-            this.gbDNI.Size = new System.Drawing.Size(357, 136);
+            this.gbDNI.Size = new System.Drawing.Size(384, 136);
             this.gbDNI.TabIndex = 12;
             this.gbDNI.TabStop = false;
             this.gbDNI.Text = "Datos de Identificación:";
@@ -416,9 +418,9 @@
             this.gbDatospersonales.Controls.Add(this.lblNombre);
             this.gbDatospersonales.Controls.Add(this.pnlnombre);
             this.gbDatospersonales.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.gbDatospersonales.Location = new System.Drawing.Point(18, 12);
+            this.gbDatospersonales.Location = new System.Drawing.Point(12, 12);
             this.gbDatospersonales.Name = "gbDatospersonales";
-            this.gbDatospersonales.Size = new System.Drawing.Size(358, 136);
+            this.gbDatospersonales.Size = new System.Drawing.Size(385, 136);
             this.gbDatospersonales.TabIndex = 11;
             this.gbDatospersonales.TabStop = false;
             this.gbDatospersonales.Text = "Datos Personales";
@@ -504,7 +506,7 @@
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(702, 297);
+            this.btnCancelar.Location = new System.Drawing.Point(702, 301);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(103, 31);
             this.btnCancelar.TabIndex = 29;
@@ -518,7 +520,7 @@
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar.Location = new System.Drawing.Point(593, 297);
+            this.btnGuardar.Location = new System.Drawing.Point(593, 301);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(103, 31);
             this.btnGuardar.TabIndex = 28;
@@ -555,12 +557,28 @@
             this.pictureBox1.TabIndex = 32;
             this.pictureBox1.TabStop = false;
             // 
+            // btnEditar
+            // 
+            this.btnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(53)))), ((int)(((byte)(80)))));
+            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar.ForeColor = System.Drawing.Color.White;
+            this.btnEditar.Location = new System.Drawing.Point(470, 297);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(103, 31);
+            this.btnEditar.TabIndex = 33;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Visible = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
             // frmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(822, 482);
+            this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
@@ -569,6 +587,7 @@
             this.Controls.Add(this.gbDatosdeContacto);
             this.Controls.Add(this.gbDatospersonales);
             this.Name = "frmCliente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "frmCliente";
             this.Load += new System.EventHandler(this.frmCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).EndInit();
@@ -632,5 +651,6 @@
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnEditar;
     }
 }

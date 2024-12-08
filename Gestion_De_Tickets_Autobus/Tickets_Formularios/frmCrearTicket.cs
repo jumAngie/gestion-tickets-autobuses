@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Drawing;
+using System.Windows.Forms;
 
 namespace Gestion_De_Tickets_Autobus
 {
@@ -12,6 +13,11 @@ namespace Gestion_De_Tickets_Autobus
         private void groupBox3_Enter(object sender, System.EventArgs e)
         {
 
+        }
+
+        private void btnAsiento_Click(object sender, System.EventArgs e)
+        {
+            
         }
     }
 }

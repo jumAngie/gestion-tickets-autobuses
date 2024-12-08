@@ -28,6 +28,7 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
 
                     cmd.Parameters.AddWithValue("@per_NombreCompleto", PrEmpleados.per_NombreCompleto);
                     cmd.Parameters.AddWithValue("@per_DNI", PrEmpleados.per_DNI);
+                    cmd.Parameters.AddWithValue("@per_Extranjero", PrEmpleados.per_Extranjero);
                     cmd.Parameters.AddWithValue("@per_Telefono", PrEmpleados.per_Telefono);
                     cmd.Parameters.AddWithValue("@per_Correo", PrEmpleados.per_Correo);
                     cmd.Parameters.AddWithValue("@per_FechaNacimiento", fechaformateada);
@@ -73,16 +74,17 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
                 while (reader.Read())
                 {
                     EmpleadosViewModel EmpleadosView = new EmpleadosViewModel();
-                    EmpleadosView.NombreCompleto = reader.GetString(0);
-                    EmpleadosView.Correo = reader.GetString(1);
-                    EmpleadosView.DNI = reader.GetString(2);
-                    EmpleadosView.Telefono = reader.GetString(3);
-                    EmpleadosView.FechaNacimiento = reader.GetDateTime(4);
-                    EmpleadosView.Sexo_Descripcion = reader.GetString(5);
-                    EmpleadosView.Ciud_Descripcion = reader.GetString(6);
-                    EmpleadosView.Dept_Descripcion = reader.GetString(7);
-                    EmpleadosView.Pais_Descripcion = reader.GetString(8);
-                    EmpleadosView.Direccion = reader.GetString(9);
+                    EmpleadosView.per_ID = reader.GetInt32(0);
+                    EmpleadosView.NombreCompleto = reader.GetString(1);
+                    EmpleadosView.Correo = reader.GetString(2);
+                    EmpleadosView.DNI = reader.GetString(3);
+                    EmpleadosView.Telefono = reader.GetString(4);
+                    EmpleadosView.FechaNacimiento = reader.GetDateTime(5);
+                    EmpleadosView.Sexo_Descripcion = reader.GetString(6);
+                    EmpleadosView.Ciud_Descripcion = reader.GetString(7);
+                    EmpleadosView.Dept_Descripcion = reader.GetString(8);
+                    EmpleadosView.Pais_Descripcion = reader.GetString(9);
+                    EmpleadosView.Direccion = reader.GetString(10);
 
 
                     lista.Add(EmpleadosView);

@@ -24,8 +24,11 @@ namespace Gestion_De_Tickets_Autobus
         #region VARIABLES
         private int sexo = 0;
         private int cliente = 2;
+        private bool extranjero;
+        private int id_filaseleccionada;
         #endregion
 
+        #region CRUD
         //INSERTAR
         public void InsertarClientes()
         {
@@ -51,10 +54,60 @@ namespace Gestion_De_Tickets_Autobus
             MessageBox.Show(resultados, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        //LISTAR
         public void ListarClientes()
         {
             dgClientes.DataSource = ClientesDAL.ListarClientes();
         }
+
+        //CARGAR DATOS EDITAR
+        public void Editar_CargarDatos(int clien_Id)
+        {
+            Personas personas = ClientesDAL.Editar_CargarDatos(clien_Id);
+            if (personas != null)
+            {
+                txtNombre.Text = personas.per_NombreCompleto;
+                extranjero = personas.per_Extranjero;
+                mtxtidentidad.Text = personas.per_DNI;
+                txtTelefono.Text = personas.per_Telefono;
+                txtEmail.Text = personas.per_Correo;
+                dtFechaNacimiento.Value = personas.per_FechaNacimiento;
+                sexo = personas.per_Sexo;
+                cliente = personas.per_Cargo;
+                txtDirE.Text = personas.per_Direccion;
+                cbxpais.SelectedValue = personas.pais_Id;
+                CargarDeptoPorPaisCMB(personas.pais_Id);
+                cbxdepto.SelectedValue = personas.dept_Id;
+                CargarCiudadesporDepartamentoCMB(personas.dept_Id);
+                cbxciudad.SelectedValue = personas.per_Ciudad;
+
+            }
+        }
+                //EDITAR
+                public void Editar_Clientes(int per_Id)
+        {
+            Personas Cliente = new Personas
+            {
+                per_Id = per_Id,
+                per_NombreCompleto = txtNombre.Text,
+                per_Correo = txtEmail.Text,
+                per_DNI = mtxtidentidad.Text,
+                per_Telefono = txtTelefono.Text,
+                per_FechaNacimiento = dtFechaNacimiento.Value,
+                per_Sexo = sexo,
+                per_Cargo = cliente,
+                per_Ciudad = Convert.ToInt32(cbxciudad.SelectedValue),
+                per_Direccion = txtDirE.Text,
+                usu_UsuarioModificacion = 1, // acá se debe de cambiar cuando se haga el LogIn
+                per_FechaModificacion = DateTime.Now
+            };
+
+            string resultado = ClientesDAL.EditarClientes(Cliente);
+
+            MessageBox.Show(resultado, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        #endregion
+
         public frmCliente()
         {
             InitializeComponent();
@@ -191,9 +244,22 @@ namespace Gestion_De_Tickets_Autobus
             else
                 erroremail.Clear();
         }
+
+        public void boton_mostrarEditar()
+        {
+            btnEditar.Visible = true;
+            btnGuardar.Visible = false;
+        }
+
+        public void boton_mostrarGuardar()
+        {
+            btnEditar.Visible = false;
+            btnGuardar.Visible = true;
+
+        }
         #endregion
 
-       
+
 
         #region MENSAJES
         public void MensajeAdvertencia()
@@ -217,7 +283,7 @@ namespace Gestion_De_Tickets_Autobus
             Panel_OcultarValidaciones();
             MensajeAdvertencia_Hide();
         }
-        
+
         private void cbxPais_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbxpais.SelectedValue != null && cbxpais.SelectedValue is int)
@@ -288,6 +354,49 @@ namespace Gestion_De_Tickets_Autobus
             Panel_OcultarValidaciones();
             MensajeAdvertencia_Hide();
         }
+
+        private void dgClientes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            boton_mostrarEditar();
+            DataGridViewRow fila = dgClientes.Rows[e.RowIndex];
+
+            int per_ID = Convert.ToInt32(fila.Cells["per_ID"].Value);
+            id_filaseleccionada = per_ID;
+
+            LimpiarCampos();
+            Panel_OcultarValidaciones();
+            Editar_CargarDatos(per_ID);
+        }
+
+
+        private async void btnEditar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bool esValido = ValidacionesVacio();
+                if (esValido)
+                {
+                    Editar_Clientes(id_filaseleccionada);
+                    ListarClientes();
+                    LimpiarCampos();
+                    boton_mostrarGuardar();
+                }
+                else
+                {
+                    MensajeAdvertencia();
+                    await Task.Delay(4000);
+                    MensajeAdvertencia_Hide();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
         #endregion
 
 
@@ -313,6 +422,7 @@ namespace Gestion_De_Tickets_Autobus
         }
         #endregion
 
-       
+
     }
 }
+

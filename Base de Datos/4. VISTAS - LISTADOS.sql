@@ -1,6 +1,7 @@
 CREATE OR ALTER VIEW Gral.Empleados_Listado
 AS
 	SELECT 
+			per_ID,
 			per_NombreCompleto, 
 			per_Correo, 
 			per_DNI, 
@@ -26,6 +27,7 @@ GO
 CREATE OR ALTER VIEW Gral.Clientes_Listado
 AS
 	SELECT 
+			per_ID,
 			per_NombreCompleto, 
 			per_DNI, 
 			per_Telefono,
@@ -104,4 +106,3 @@ AS
 		ON   T6.des_IDdestino = T10.des_ID	
 	WHERE tik_ID = @tik_ID
 	END
-

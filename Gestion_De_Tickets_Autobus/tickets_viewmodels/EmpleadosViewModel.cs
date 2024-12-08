@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,8 @@ namespace Gestion_De_Tickets_Autobus.Tickets_ViewModels
 {
     public class EmpleadosViewModel
     {
+        [DisplayName("ID")]
+        public int per_ID { get; set; }
 
         [DisplayName("Nombre Completo")]
         public string NombreCompleto { get; set; }
@@ -39,9 +42,8 @@ namespace Gestion_De_Tickets_Autobus.Tickets_ViewModels
         public string Pais_Descripcion { get; set; }
 
 
-        [DisplayName("Direccion")]
+        [DisplayName("Dirección")]
         public string Direccion { get; set; }
-
 
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gestion_De_Tickets_Autobus.Tickets_Formularios;
+using System;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -20,21 +21,23 @@ namespace Gestion_De_Tickets_Autobus
         public frmPrincipal()
         {
             InitializeComponent();
+            tHora.Enabled = true;
             //Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
             PNav.Height = btnInicio.Height;
             PNav.Top = btnInicio.Top;
-            btnInicio.BackColor = Color.FromArgb(46, 51, 73);
+            PNav.Left = btnInicio.Left;
+            // btnInicio.BackColor = Color.FromArgb(46, 51, 73);
 
-            //frmEmpleado frmPrincipal_vrb = new frmEmpleado()
-            //{
-            //    Dock = DockStyle.Fill,
-            //    TopLevel = false,
-            //    TopMost = true
-            //};
-            //frmPrincipal_vrb.FormBorderStyle = FormBorderStyle.None;
-            //this.PNmenu.Controls.Add(frmPrincipal_vrb);
+            /*frmDashboard frmPrincipal_vrb = new frmDashboard()
+            {
+                Dock = DockStyle.Fill,
+                TopLevel = false,
+                TopMost = true
+            };
+            frmPrincipal_vrb.FormBorderStyle = FormBorderStyle.None;
+            this.PNmenu.Controls.Add(frmPrincipal_vrb);
 
-            //frmPrincipal_vrb.Show();
+            frmPrincipal_vrb.Show();*/
         }
 
         public void Salir()
@@ -47,9 +50,9 @@ namespace Gestion_De_Tickets_Autobus
             PNav.Height = btnEmpleados.Height;
             PNav.Top = btnEmpleados.Top;
             PNav.Left = btnEmpleados.Left;
-            btnEmpleados.BackColor = Color.FromArgb(46, 51, 73);
+           // btnEmpleados.BackColor = Color.FromArgb(46, 51, 73);
 
-            lblTitle.Text = "Empleado";
+            lblTitle.Text = "Gestionar Empleados";
             this.PNmenu.Controls.Clear();
 
             frmEmpleado frmPrincipal_vrb = new frmEmpleado()
@@ -70,9 +73,9 @@ namespace Gestion_De_Tickets_Autobus
             PNav.Height = btnClientes.Height;
             PNav.Top = btnClientes.Top;
             PNav.Left = btnClientes.Left;
-            btnClientes.BackColor = Color.FromArgb(46, 51, 73);
+            //btnClientes.BackColor = Color.FromArgb(46, 51, 73);
 
-            lblTitle.Text = "Cliente";
+            lblTitle.Text = "Gestionar Clientes";
             this.PNmenu.Controls.Clear();
 
             frmCliente frmPrincipal_vrb = new frmCliente()
@@ -91,9 +94,10 @@ namespace Gestion_De_Tickets_Autobus
         {
             PNav.Height = btnTickets.Height;
             PNav.Top = btnTickets.Top;
-            btnTickets.BackColor = Color.FromArgb(46, 51, 73);
+            PNav.Left = btnTickets.Left;
+            //btnTickets.BackColor = Color.FromArgb(46, 51, 73);
 
-            lblTitle.Text = "Tickets";
+            lblTitle.Text = "Ver Tickets y Asientos Vendidos";
             this.PNmenu.Controls.Clear();
 
             frmTickets frmPrincipal_vrb = new frmTickets()
@@ -112,9 +116,10 @@ namespace Gestion_De_Tickets_Autobus
         {
             PNav.Height = btnAutobuses.Height;
             PNav.Top = btnAutobuses.Top;
-            btnAutobuses.BackColor = Color.FromArgb(46, 51, 73);
+            PNav.Left = btnAutobuses.Left;
+            //btnAutobuses.BackColor = Color.FromArgb(46, 51, 73);
 
-            lblTitle.Text = "Autobuses";
+            lblTitle.Text = "Gestionar Autobuses";
             this.PNmenu.Controls.Clear();
 
             frmAutobuses frmPrincipal_vrb = new frmAutobuses()
@@ -134,9 +139,10 @@ namespace Gestion_De_Tickets_Autobus
         {
             PNav.Height = btnRegistrarVenta.Height;
             PNav.Top = btnRegistrarVenta.Top;
-            btnRegistrarVenta.BackColor = Color.FromArgb(46, 51, 73);
+            PNav.Left = btnRegistrarVenta.Left;
+            //btnRegistrarVenta.BackColor = Color.FromArgb(46, 51, 73);
 
-            lblTitle.Text = "Crear Ticket";
+            lblTitle.Text = "Registrar Venta";
             this.PNmenu.Controls.Clear();
 
             frmCrearTicket frmPrincipal_vrb = new frmCrearTicket()
@@ -154,47 +160,64 @@ namespace Gestion_De_Tickets_Autobus
         {
             PNav.Height = btnInicio.Height;
             PNav.Top = btnInicio.Top;
-            btnInicio.BackColor = Color.FromArgb(46, 51, 73);
+            PNav.Left = btnInicio.Left;
+            //btnInicio.BackColor = Color.FromArgb(46, 51, 73);
 
             lblTitle.Text = "Inicio";
             this.PNmenu.Controls.Clear();
+
+            frmDashboard frmPrincipal_vrb = new frmDashboard()
+            {
+                Dock = DockStyle.Fill,
+                TopLevel = false,
+                TopMost = true
+            };
+            frmPrincipal_vrb.FormBorderStyle = FormBorderStyle.None;
+            this.PNmenu.Controls.Add(frmPrincipal_vrb);
+
+            frmPrincipal_vrb.Show();
         }
 
         private void btnInicio_Leave(object sender, EventArgs e)
         {
-            btnInicio.BackColor = Color.FromArgb(24, 30, 54);
+            //btnInicio.BackColor = Color.FromArgb(46, 51, 73);
         }
 
         private void btnEmpleado_Leave(object sender, EventArgs e)
         {
-            btnEmpleados.BackColor = Color.FromArgb(46, 50, 54);
+            //btnEmpleados.BackColor = Color.FromArgb(46, 51, 73);
         }
-        
+       
         private void btnTickets_Leave(object sender, EventArgs e)
         {
-            btnTickets.BackColor = Color.FromArgb(46, 50, 54);
+           // btnTickets.BackColor = Color.FromArgb(46, 51, 73);
         }
         private void btnAutobus_Leave(object sender, EventArgs e)
         {
-            btnAutobuses.BackColor = Color.FromArgb(46, 50, 54);
+            //btnAutobuses.BackColor = Color.FromArgb(46, 51, 73);
         }
         private void btnCliente_Leave(object sender, EventArgs e)
         {
-            btnClientes.BackColor = Color.FromArgb(46, 50, 54);
+           // btnClientes.BackColor = Color.FromArgb(46, 51, 73);
         }
         private void btnRegistrarVenta_Leave(object sender, EventArgs e)
         {
-            btnRegistrarVenta.BackColor = Color.FromArgb(46, 50, 54);
-        }
-
-        private void btnCerrarSesion_Click(object sender, EventArgs e)
-        {
-            Salir();
+           // btnRegistrarVenta.BackColor = Color.FromArgb(46, 51, 73);
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             Salir();
+        }
+
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+            lblFecha.Text = DateTime.Now.ToShortDateString();
+        }
+
+        private void tHora_Tick(object sender, EventArgs e)
+        {
+            lblHora.Text = DateTime.Now.ToString("hh:mm tt");
         }
     }
 }

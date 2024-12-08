@@ -147,8 +147,9 @@ CREATE TABLE Gral.tbPersonas
 	  per_ID					INT IDENTITY (1,1),
 	  per_NombreCompleto		NVARCHAR(MAX),
 	  per_Correo				NVARCHAR(200),
-	  per_DNI					NVARCHAR(13),
-	  per_Telefono				NVARCHAR(50),
+	  per_DNI					NVARCHAR(25)	NOT NULL,
+	  per_Extranjero			BIT		DEFAULT 0,
+	  per_Telefono				NVARCHAR(50)	NOT NULL,
 	  per_FechaNacimiento		DATETIME,  
 	  sex_ID					INT,   
 	  car_ID					INT,
@@ -165,7 +166,8 @@ CREATE TABLE Gral.tbPersonas
 	  CONSTRAINT PK_Gral_tbPersonas_per_id PRIMARY KEY (per_id),
 	  CONSTRAINT FK_Gral_tbPersonas_per_Sexo FOREIGN KEY (sex_ID) REFERENCES Gral.tbSexos(sex_id), 
 	  CONSTRAINT FK_Gral_tbPersonas_per_Cargo FOREIGN KEY (car_ID) REFERENCES Gral.tbCargos(car_id), 
-	  CONSTRAINT FK_Gral_tbPersonas_per_Ciudad FOREIGN KEY (ciud_ID) REFERENCES Gral.tbCiudades(ciud_Id)
+	  CONSTRAINT FK_Gral_tbPersonas_per_Ciudad FOREIGN KEY (ciud_ID) REFERENCES Gral.tbCiudades(ciud_Id),
+	  CONSTRAINT UQ_Gral_tbPersonas_per_DNI		UNIQUE(per_DNI)
 );
 
 --**********************************************************--
