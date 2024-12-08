@@ -27,16 +27,15 @@ CREATE OR ALTER VIEW Gral.Clientes_Listado
 AS
 	SELECT 
 			per_NombreCompleto, 
-			per_Correo, 
 			per_DNI, 
-			per_Telefono, 
+			per_Telefono,
+			per_Correo, 
 			per_FechaNacimiento, 
 			s.sex_Descripcion, 
 			c.ciud_Descripcion, 
 			d.dept_Descripcion,
 			p.pais_Descripcion,
-			per_Direccion,
-			car.car_Descripcion
+			per_Direccion
 
   FROM		Gral.tbPersonas pers					INNER JOIN Gral.tbCiudades c
 			ON pers.ciud_ID		=	c.ciud_Id		INNER JOIN Gral.tbSexos s
