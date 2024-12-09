@@ -24,7 +24,7 @@ namespace Gestion_De_Tickets_Autobus.Tickets_ViewModels
         [DisplayName("Descuento")]
         public decimal tik_Descuento { get; set; }
 
-        [DisplayName("Impuesto (ISV 15%)")]
+        [DisplayName("Impuesto (15%)")]
         public decimal tik_Impuesto { get; set; }
 
         [DisplayName("Monto Total")]

@@ -31,10 +31,11 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.PNav = new System.Windows.Forms.Panel();
-            this.btnRegistrarVenta = new System.Windows.Forms.Button();
-            this.btnAutobuses = new System.Windows.Forms.Button();
+            this.btnPlanificar = new System.Windows.Forms.Button();
             this.btnTickets = new System.Windows.Forms.Button();
+            this.btnRegistrarVenta = new System.Windows.Forms.Button();
+            this.PNav = new System.Windows.Forms.Panel();
+            this.btnAutobuses = new System.Windows.Forms.Button();
             this.btnEmpleados = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
             this.btnInicio = new System.Windows.Forms.Button();
@@ -59,9 +60,10 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.panel1.Controls.Add(this.PNav);
+            this.panel1.Controls.Add(this.btnPlanificar);
+            this.panel1.Controls.Add(this.btnTickets);
             this.panel1.Controls.Add(this.btnRegistrarVenta);
             this.panel1.Controls.Add(this.btnAutobuses);
-            this.panel1.Controls.Add(this.btnTickets);
             this.panel1.Controls.Add(this.btnEmpleados);
             this.panel1.Controls.Add(this.btnClientes);
             this.panel1.Controls.Add(this.btnInicio);
@@ -72,13 +74,43 @@
             this.panel1.Size = new System.Drawing.Size(186, 560);
             this.panel1.TabIndex = 0;
             // 
-            // PNav
+            // btnPlanificar
             // 
-            this.PNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.PNav.Location = new System.Drawing.Point(-7, 150);
-            this.PNav.Name = "PNav";
-            this.PNav.Size = new System.Drawing.Size(10, 34);
-            this.PNav.TabIndex = 3;
+            this.btnPlanificar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnPlanificar.FlatAppearance.BorderSize = 0;
+            this.btnPlanificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPlanificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPlanificar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.btnPlanificar.Image = ((System.Drawing.Image)(resources.GetObject("btnPlanificar.Image")));
+            this.btnPlanificar.Location = new System.Drawing.Point(0, 492);
+            this.btnPlanificar.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.btnPlanificar.Name = "btnPlanificar";
+            this.btnPlanificar.Size = new System.Drawing.Size(186, 62);
+            this.btnPlanificar.TabIndex = 6;
+            this.btnPlanificar.Text = "   Planificaciones";
+            this.btnPlanificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPlanificar.UseVisualStyleBackColor = true;
+            this.btnPlanificar.Click += new System.EventHandler(this.btnPlanificar_Click);
+            this.btnPlanificar.Leave += new System.EventHandler(this.btnTickets_Leave);
+            // 
+            // btnTickets
+            // 
+            this.btnTickets.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnTickets.FlatAppearance.BorderSize = 0;
+            this.btnTickets.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTickets.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTickets.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.btnTickets.Image = ((System.Drawing.Image)(resources.GetObject("btnTickets.Image")));
+            this.btnTickets.Location = new System.Drawing.Point(0, 430);
+            this.btnTickets.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.btnTickets.Name = "btnTickets";
+            this.btnTickets.Size = new System.Drawing.Size(186, 62);
+            this.btnTickets.TabIndex = 6;
+            this.btnTickets.Text = "    Tickets    ";
+            this.btnTickets.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnTickets.UseVisualStyleBackColor = true;
+            this.btnTickets.Click += new System.EventHandler(this.btnTickets_Click);
+            this.btnTickets.Leave += new System.EventHandler(this.btnTickets_Leave);
             // 
             // btnRegistrarVenta
             // 
@@ -88,7 +120,7 @@
             this.btnRegistrarVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrarVenta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnRegistrarVenta.Image = ((System.Drawing.Image)(resources.GetObject("btnRegistrarVenta.Image")));
-            this.btnRegistrarVenta.Location = new System.Drawing.Point(0, 430);
+            this.btnRegistrarVenta.Location = new System.Drawing.Point(0, 368);
             this.btnRegistrarVenta.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.btnRegistrarVenta.Name = "btnRegistrarVenta";
             this.btnRegistrarVenta.Size = new System.Drawing.Size(186, 62);
@@ -99,6 +131,14 @@
             this.btnRegistrarVenta.Click += new System.EventHandler(this.btnRegistrarVenta_Click);
             this.btnRegistrarVenta.Leave += new System.EventHandler(this.btnRegistrarVenta_Leave);
             // 
+            // PNav
+            // 
+            this.PNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.PNav.Location = new System.Drawing.Point(-7, 150);
+            this.PNav.Name = "PNav";
+            this.PNav.Size = new System.Drawing.Size(10, 34);
+            this.PNav.TabIndex = 3;
+            // 
             // btnAutobuses
             // 
             this.btnAutobuses.Dock = System.Windows.Forms.DockStyle.Top;
@@ -107,7 +147,7 @@
             this.btnAutobuses.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAutobuses.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnAutobuses.Image = ((System.Drawing.Image)(resources.GetObject("btnAutobuses.Image")));
-            this.btnAutobuses.Location = new System.Drawing.Point(0, 368);
+            this.btnAutobuses.Location = new System.Drawing.Point(0, 306);
             this.btnAutobuses.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.btnAutobuses.Name = "btnAutobuses";
             this.btnAutobuses.Size = new System.Drawing.Size(186, 62);
@@ -117,25 +157,6 @@
             this.btnAutobuses.UseVisualStyleBackColor = true;
             this.btnAutobuses.Click += new System.EventHandler(this.btnAutobus_Click);
             this.btnAutobuses.Leave += new System.EventHandler(this.btnAutobus_Leave);
-            // 
-            // btnTickets
-            // 
-            this.btnTickets.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnTickets.FlatAppearance.BorderSize = 0;
-            this.btnTickets.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTickets.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTickets.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnTickets.Image = ((System.Drawing.Image)(resources.GetObject("btnTickets.Image")));
-            this.btnTickets.Location = new System.Drawing.Point(0, 306);
-            this.btnTickets.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
-            this.btnTickets.Name = "btnTickets";
-            this.btnTickets.Size = new System.Drawing.Size(186, 62);
-            this.btnTickets.TabIndex = 6;
-            this.btnTickets.Text = "    Tickets    ";
-            this.btnTickets.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnTickets.UseVisualStyleBackColor = true;
-            this.btnTickets.Click += new System.EventHandler(this.btnTickets_Click);
-            this.btnTickets.Leave += new System.EventHandler(this.btnTickets_Leave);
             // 
             // btnEmpleados
             // 
@@ -359,5 +380,6 @@
         private System.Windows.Forms.Timer tHora;
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Label lblHora;
+        private System.Windows.Forms.Button btnPlanificar;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Gestion_De_Tickets_Autobus.Tickets_DAL;
 using Gestion_De_Tickets_Autobus.Tickets_Entities;
+using Gestion_De_Tickets_Autobus.Tickets_ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -58,6 +59,38 @@ namespace Gestion_De_Tickets_Autobus
         public void ListarClientes()
         {
             dgClientes.DataSource = ClientesDAL.ListarClientes();
+        }
+        public void RestablecerListaOriginal()
+        {
+            txtBuscar.Text = "";
+            ListarClientes();
+        }
+
+        public void BuscarClientes()
+        {
+            string filtro = txtBuscar.Text.Trim().ToLower();
+
+            if (dgClientes.DataSource != null)
+            {
+                if (string.IsNullOrEmpty(filtro))
+                {
+                    RestablecerListaOriginal();
+                    return;
+                }
+
+                var listaTickets = (List<ClientesViewModel>)dgClientes.DataSource;
+
+                var listaFiltrada = listaTickets.Where(t =>
+                    t.NombreCompleto.ToLower().Contains(filtro) ||
+                    t.per_ID.ToString().Contains(filtro) ||
+                    t.DNI.ToString().Contains(filtro) ||
+                    t.Telefono.ToLower().Contains(filtro) ||
+                    t.Correo.ToLower().Contains(filtro)
+                ).ToList();
+
+
+                dgClientes.DataSource = listaFiltrada;
+            }
         }
 
         //CARGAR DATOS EDITAR
@@ -357,6 +390,8 @@ namespace Gestion_De_Tickets_Autobus
 
         private void dgClientes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0)
+                return;
 
             boton_mostrarEditar();
             DataGridViewRow fila = dgClientes.Rows[e.RowIndex];
@@ -420,9 +455,13 @@ namespace Gestion_De_Tickets_Autobus
             cbxciudad.ValueMember = "ciud_Id";
             cbxciudad.DisplayMember = "ciud_Descripcion";
         }
+
         #endregion
 
-
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            BuscarClientes();
+        }
     }
 }
 

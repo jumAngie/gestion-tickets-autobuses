@@ -40,9 +40,9 @@
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.txtHora = new System.Windows.Forms.TextBox();
-            this.txtAutobus = new System.Windows.Forms.TextBox();
             this.txtSalidaDestino = new System.Windows.Forms.TextBox();
             this.txtRuta = new System.Windows.Forms.TextBox();
+            this.txtAutobus = new System.Windows.Forms.TextBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -52,9 +52,9 @@
             this.txtMetodoPago = new System.Windows.Forms.TextBox();
             this.txtCliente = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblSubtotal = new System.Windows.Forms.Label();
+            this.lblDescuento = new System.Windows.Forms.Label();
+            this.lblImpuesto = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -120,6 +120,7 @@
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(319, 22);
             this.txtBuscar.TabIndex = 31;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // panel2
             // 
@@ -141,12 +142,13 @@
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(658, 9);
+            this.btnCancelar.Location = new System.Drawing.Point(619, 9);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(103, 25);
+            this.btnCancelar.Size = new System.Drawing.Size(142, 25);
             this.btnCancelar.TabIndex = 28;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // panel3
             // 
@@ -157,9 +159,9 @@
             this.panel3.Controls.Add(this.pictureBox9);
             this.panel3.Controls.Add(this.pictureBox4);
             this.panel3.Controls.Add(this.txtHora);
-            this.panel3.Controls.Add(this.txtAutobus);
             this.panel3.Controls.Add(this.txtSalidaDestino);
             this.panel3.Controls.Add(this.txtRuta);
+            this.panel3.Controls.Add(this.txtAutobus);
             this.panel3.Controls.Add(this.pictureBox6);
             this.panel3.Controls.Add(this.pictureBox3);
             this.panel3.Controls.Add(this.pictureBox5);
@@ -191,7 +193,7 @@
             // pictureBox7
             // 
             this.pictureBox7.Image = global::Gestion_De_Tickets_Autobus.Properties.Resources.autobus__1_;
-            this.pictureBox7.Location = new System.Drawing.Point(260, 78);
+            this.pictureBox7.Location = new System.Drawing.Point(260, 10);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(30, 30);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -201,7 +203,7 @@
             // pictureBox9
             // 
             this.pictureBox9.Image = global::Gestion_De_Tickets_Autobus.Properties.Resources.mapas_y_banderas;
-            this.pictureBox9.Location = new System.Drawing.Point(15, 142);
+            this.pictureBox9.Location = new System.Drawing.Point(15, 152);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(30, 30);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -223,23 +225,18 @@
             this.txtHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHora.Location = new System.Drawing.Point(51, 78);
             this.txtHora.Name = "txtHora";
+            this.txtHora.ReadOnly = true;
             this.txtHora.Size = new System.Drawing.Size(182, 26);
             this.txtHora.TabIndex = 6;
-            // 
-            // txtAutobus
-            // 
-            this.txtAutobus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAutobus.Location = new System.Drawing.Point(296, 78);
-            this.txtAutobus.Name = "txtAutobus";
-            this.txtAutobus.Size = new System.Drawing.Size(182, 26);
-            this.txtAutobus.TabIndex = 6;
             // 
             // txtSalidaDestino
             // 
             this.txtSalidaDestino.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSalidaDestino.Location = new System.Drawing.Point(51, 142);
+            this.txtSalidaDestino.Multiline = true;
             this.txtSalidaDestino.Name = "txtSalidaDestino";
-            this.txtSalidaDestino.Size = new System.Drawing.Size(182, 26);
+            this.txtSalidaDestino.ReadOnly = true;
+            this.txtSalidaDestino.Size = new System.Drawing.Size(182, 50);
             this.txtSalidaDestino.TabIndex = 6;
             // 
             // txtRuta
@@ -247,13 +244,23 @@
             this.txtRuta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRuta.Location = new System.Drawing.Point(51, 110);
             this.txtRuta.Name = "txtRuta";
+            this.txtRuta.ReadOnly = true;
             this.txtRuta.Size = new System.Drawing.Size(182, 26);
             this.txtRuta.TabIndex = 6;
+            // 
+            // txtAutobus
+            // 
+            this.txtAutobus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAutobus.Location = new System.Drawing.Point(296, 10);
+            this.txtAutobus.Name = "txtAutobus";
+            this.txtAutobus.ReadOnly = true;
+            this.txtAutobus.Size = new System.Drawing.Size(182, 26);
+            this.txtAutobus.TabIndex = 6;
             // 
             // pictureBox6
             // 
             this.pictureBox6.Image = global::Gestion_De_Tickets_Autobus.Properties.Resources.tarjeta_de_miembro;
-            this.pictureBox6.Location = new System.Drawing.Point(260, 42);
+            this.pictureBox6.Location = new System.Drawing.Point(260, 78);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(30, 30);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -273,7 +280,7 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = global::Gestion_De_Tickets_Autobus.Properties.Resources.billetera;
-            this.pictureBox5.Location = new System.Drawing.Point(260, 10);
+            this.pictureBox5.Location = new System.Drawing.Point(260, 42);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(30, 30);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -293,8 +300,9 @@
             // txtTipoBus
             // 
             this.txtTipoBus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTipoBus.Location = new System.Drawing.Point(296, 42);
+            this.txtTipoBus.Location = new System.Drawing.Point(296, 78);
             this.txtTipoBus.Name = "txtTipoBus";
+            this.txtTipoBus.ReadOnly = true;
             this.txtTipoBus.Size = new System.Drawing.Size(182, 26);
             this.txtTipoBus.TabIndex = 4;
             // 
@@ -303,14 +311,16 @@
             this.txtFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFecha.Location = new System.Drawing.Point(51, 42);
             this.txtFecha.Name = "txtFecha";
+            this.txtFecha.ReadOnly = true;
             this.txtFecha.Size = new System.Drawing.Size(182, 26);
             this.txtFecha.TabIndex = 4;
             // 
             // txtMetodoPago
             // 
             this.txtMetodoPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMetodoPago.Location = new System.Drawing.Point(296, 10);
+            this.txtMetodoPago.Location = new System.Drawing.Point(296, 42);
             this.txtMetodoPago.Name = "txtMetodoPago";
+            this.txtMetodoPago.ReadOnly = true;
             this.txtMetodoPago.Size = new System.Drawing.Size(182, 26);
             this.txtMetodoPago.TabIndex = 4;
             // 
@@ -319,15 +329,16 @@
             this.txtCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCliente.Location = new System.Drawing.Point(51, 10);
             this.txtCliente.Name = "txtCliente";
+            this.txtCliente.ReadOnly = true;
             this.txtCliente.Size = new System.Drawing.Size(182, 26);
             this.txtCliente.TabIndex = 4;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.panel4.Controls.Add(this.label10);
-            this.panel4.Controls.Add(this.label8);
-            this.panel4.Controls.Add(this.label4);
+            this.panel4.Controls.Add(this.lblSubtotal);
+            this.panel4.Controls.Add(this.lblDescuento);
+            this.panel4.Controls.Add(this.lblImpuesto);
             this.panel4.Controls.Add(this.label7);
             this.panel4.Controls.Add(this.label6);
             this.panel4.Controls.Add(this.label2);
@@ -338,38 +349,38 @@
             this.panel4.Size = new System.Drawing.Size(218, 78);
             this.panel4.TabIndex = 3;
             // 
-            // label10
+            // lblSubtotal
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(170, 6);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(31, 16);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "0.00";
+            this.lblSubtotal.AutoSize = true;
+            this.lblSubtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubtotal.ForeColor = System.Drawing.Color.White;
+            this.lblSubtotal.Location = new System.Drawing.Point(170, 6);
+            this.lblSubtotal.Name = "lblSubtotal";
+            this.lblSubtotal.Size = new System.Drawing.Size(31, 16);
+            this.lblSubtotal.TabIndex = 1;
+            this.lblSubtotal.Text = "0.00";
             // 
-            // label8
+            // lblDescuento
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(170, 22);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(31, 16);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "0.00";
+            this.lblDescuento.AutoSize = true;
+            this.lblDescuento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescuento.ForeColor = System.Drawing.Color.White;
+            this.lblDescuento.Location = new System.Drawing.Point(170, 22);
+            this.lblDescuento.Name = "lblDescuento";
+            this.lblDescuento.Size = new System.Drawing.Size(31, 16);
+            this.lblDescuento.TabIndex = 1;
+            this.lblDescuento.Text = "0.00";
             // 
-            // label4
+            // lblImpuesto
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(170, 38);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(31, 16);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "0.00";
+            this.lblImpuesto.AutoSize = true;
+            this.lblImpuesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblImpuesto.ForeColor = System.Drawing.Color.White;
+            this.lblImpuesto.Location = new System.Drawing.Point(170, 38);
+            this.lblImpuesto.Name = "lblImpuesto";
+            this.lblImpuesto.Size = new System.Drawing.Size(31, 16);
+            this.lblImpuesto.TabIndex = 1;
+            this.lblImpuesto.Text = "0.00";
             // 
             // label7
             // 
@@ -477,7 +488,7 @@
             this.lblNumTicket.Name = "lblNumTicket";
             this.lblNumTicket.Size = new System.Drawing.Size(24, 25);
             this.lblNumTicket.TabIndex = 0;
-            this.lblNumTicket.Text = "  ";
+            this.lblNumTicket.Text = "0";
             // 
             // label1
             // 
@@ -559,11 +570,11 @@
         private System.Windows.Forms.TextBox txtAutobus;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.TextBox txtSalidaDestino;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblImpuesto;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblSubtotal;
+        private System.Windows.Forms.Label lblDescuento;
         private System.Windows.Forms.Label label7;
     }
 }

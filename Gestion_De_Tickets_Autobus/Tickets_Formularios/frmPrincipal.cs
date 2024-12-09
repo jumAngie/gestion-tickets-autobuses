@@ -178,6 +178,29 @@ namespace Gestion_De_Tickets_Autobus
             frmPrincipal_vrb.Show();
         }
 
+
+        private void btnPlanificar_Click(object sender, EventArgs e)
+        {
+            PNav.Height = btnPlanificar.Height;
+            PNav.Top = btnPlanificar.Top;
+            PNav.Left = btnPlanificar.Left;
+            //btnInicio.BackColor = Color.FromArgb(46, 51, 73);
+
+            lblTitle.Text = "Gestionar Planificaciones";
+            this.PNmenu.Controls.Clear();
+
+            frmPlanificaciones frmPrincipal_vrb = new frmPlanificaciones()
+            {
+                Dock = DockStyle.Fill,
+                TopLevel = false,
+                TopMost = true
+            };
+            frmPrincipal_vrb.FormBorderStyle = FormBorderStyle.None;
+            this.PNmenu.Controls.Add(frmPrincipal_vrb);
+
+            frmPrincipal_vrb.Show();
+        }
+
         private void btnInicio_Leave(object sender, EventArgs e)
         {
             //btnInicio.BackColor = Color.FromArgb(46, 51, 73);
