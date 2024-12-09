@@ -8,11 +8,13 @@ using System.Threading.Tasks;
 using Gestion_De_Tickets_Autobus.Tickets_Entities;
 using Gestion_De_Tickets_Autobus.Tickets_ViewModels;
 using System.Windows.Forms;
+using Gestion_De_Tickets_Autobus.Tickets_Formularios;
 
 namespace Gestion_De_Tickets_Autobus.Tickets_DAL
 {
     public class ClientesDAL
     {
+
         //INSERTAR
         public static string InsertarClientes(Personas PrClientes)
         {
@@ -194,7 +196,7 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
 
 
                     cmd.Parameters.AddWithValue("@per_DNI", Existencia);
-                  
+
 
                     int resultado = (int)cmd.ExecuteScalar();
                     return resultado == 1;
@@ -211,7 +213,54 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
                 MessageBox.Show("Ocurrió un error: " + ex.Message);
                 return false;
             }
+        }
+            //COMBOBOX
+            public DataTable CargarPersonasC()
+            {
+                DataTable dt = new DataTable();
+
+                using (SqlConnection conexion = BDConnection.ObtenerConexion())
+                {
+                    conexion.Open();
+                    using (SqlCommand cmd = new SqlCommand(ScriptsDatabase.PersonasExistentes_Clientes, conexion))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        da.Fill(dt);
+                    }
+                }
+
+                return dt;
+            }
+
+        public static string PersonaExist(int per_Id)
+        {
+            string mensaje = "";
+            try
+            {
+                using (SqlConnection conexion = BDConnection.ObtenerConexion())
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand(ScriptsDatabase.PersonasExistentes_Empleados, conexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@per_ID",per_Id);                    
+
+                    mensaje = (string)cmd.ExecuteScalar();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                mensaje = "Error: " + ex.Message;
+                throw;
+            }
+
+            return mensaje;
+
 
         }
+
     }
 }

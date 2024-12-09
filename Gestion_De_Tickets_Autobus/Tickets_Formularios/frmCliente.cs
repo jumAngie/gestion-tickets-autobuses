@@ -1,5 +1,6 @@
 ﻿using Gestion_De_Tickets_Autobus.Tickets_DAL;
 using Gestion_De_Tickets_Autobus.Tickets_Entities;
+using Gestion_De_Tickets_Autobus.Tickets_Formularios;
 using Gestion_De_Tickets_Autobus.Tickets_ViewModels;
 using System;
 using System.Collections.Generic;
@@ -475,7 +476,11 @@ namespace Gestion_De_Tickets_Autobus
             }
         }
 
-
+        private void btnPersonaExistente_Click(object sender, EventArgs e)
+        {
+            frmRegistrarPersonaExistenteEmpleados registroPersonaExistente= new frmRegistrarPersonaExistenteEmpleados();
+            registroPersonaExistente.Show();
+        }
         #endregion
 
 

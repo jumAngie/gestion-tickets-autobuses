@@ -215,6 +215,25 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
 
         }
 
+        //COMBOBOX
+        public DataTable CargarPersonasE()
+        {
+            DataTable dt = new DataTable();
+
+            using (SqlConnection conexion = BDConnection.ObtenerConexion())
+            {
+                conexion.Open();
+                using (SqlCommand cmd = new SqlCommand(ScriptsDatabase.PersonasExistentes_Empleados, conexion))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(dt);
+                }
+            }
+
+            return dt;
+        }
     }
     
 }

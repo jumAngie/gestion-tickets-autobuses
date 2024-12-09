@@ -565,7 +565,7 @@
             this.btnPersonaExistente.BackColor = System.Drawing.Color.Transparent;
             this.btnPersonaExistente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPersonaExistente.ForeColor = System.Drawing.Color.White;
-            this.btnPersonaExistente.Location = new System.Drawing.Point(299, 306);
+            this.btnPersonaExistente.Location = new System.Drawing.Point(321, 305);
             this.btnPersonaExistente.Name = "btnPersonaExistente";
             this.btnPersonaExistente.Size = new System.Drawing.Size(153, 30);
             this.btnPersonaExistente.TabIndex = 34;
