@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Gestion_De_Tickets_Autobus.Tickets_DAL;
 using Gestion_De_Tickets_Autobus.Tickets_Entities;
+using Gestion_De_Tickets_Autobus.Tickets_ViewModels;
 
 namespace Gestion_De_Tickets_Autobus
 {
@@ -161,10 +162,10 @@ namespace Gestion_De_Tickets_Autobus
 
         public void CargarAutobuses()
         {
-            try
+            try 
             {
-                // Obtener la lista de autobuses desde la base de datos
-                List<Autobuses> listaAutobuses = AutobusesDAL.ObtenerTodosLosAutobuses();
+                // Obtener la lista de autobuses desde la base de datos 
+                List<AutobusesViewModel> listaAutobuses = AutobusesDAL.ObtenerTodosLosAutobuses();
 
                 // Asignar la lista al DataGridView
                 dgAutobuses.DataSource = listaAutobuses;
@@ -176,12 +177,8 @@ namespace Gestion_De_Tickets_Autobus
                 dgAutobuses.Columns["aut_Matricula"].HeaderText = "Matrícula";
                 dgAutobuses.Columns["aut_cantAsientos"].HeaderText = "Cantidad de Asientos";
                 dgAutobuses.Columns["aut_esVIP"].HeaderText = "Exclusivo VIP";
-
-                
-                dgAutobuses.Columns["usu_UsuarioCreacion"].Visible = false;
-                dgAutobuses.Columns["usu_UsuarioModificacion"].Visible = false;
-                dgAutobuses.Columns["aut_FechaCreacion"].Visible = false;
-                dgAutobuses.Columns["aut_FechaModificacion"].Visible = false;
+              
+               
             }
             catch (Exception ex)
             {

@@ -47,9 +47,9 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
             return mensaje;
         }
         // LISTAR
-        public static List<Autobuses> ObtenerTodosLosAutobuses()
+        public static List<AutobusesViewModel> ObtenerTodosLosAutobuses()
         {
-            List<Autobuses> listaAutobuses = new List<Autobuses>();
+            List<AutobusesViewModel> listaAutobuses = new List<AutobusesViewModel>();
 
             try
             {
@@ -61,14 +61,14 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
 
                     while (reader.Read())
                     {
-                        Autobuses autobus = new Autobuses
+                        AutobusesViewModel autobus = new AutobusesViewModel
                         {
                             aut_Id = reader.GetInt32(reader.GetOrdinal("aut_Id")),
                             mar_Descripcion = reader.GetString(reader.GetOrdinal("mar_Descripcion")),
                             mod_Descripcion = reader.GetString(reader.GetOrdinal("mod_Descripcion")),
                             aut_Matricula = reader.GetString(reader.GetOrdinal("aut_Matricula")),
                             aut_cantAsientos = reader.GetInt32(reader.GetOrdinal("aut_cantAsientos")),
-                            aut_esVIP = reader.GetBoolean(reader.GetOrdinal("aut_esVIP"))
+                            aut_esVIP = reader.GetString(reader.GetOrdinal("aut_esVIP"))
                         };
                         listaAutobuses.Add(autobus);
                     }

@@ -16,10 +16,10 @@ using System.Threading.Tasks;
             public string aut_Matricula { get; set; }
 
             [DisplayName("Marca")]
-            public int mar_Descripcion { get; set; }
+            public string mar_Descripcion { get; set; }
 
             [DisplayName("Modelo")]
-            public int mod_Descripcion { get; set; }
+            public string mod_Descripcion { get; set; }
 
             [DisplayName("Exclusividad VIP")]
             public string aut_esVIP { get; set; }
