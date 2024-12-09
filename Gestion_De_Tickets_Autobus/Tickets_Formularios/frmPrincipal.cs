@@ -23,6 +23,67 @@ namespace Gestion_De_Tickets_Autobus
         public DatosUsuarioViewModel UsuarioActual { get; set; }
         public List<PantallasViewModel> pantallasPermitidas { get; set; }
 
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            DibujarMenu();
+            if (UsuarioActual != null)
+            {
+                string mensajeBienvenida = "";
+                lblUsername.Text = UsuarioActual.usu_Usuario;
+                lblRol.Text = UsuarioActual.rol_Descripcion;
+                if (UsuarioActual.sex_Id == 1) mensajeBienvenida = "Bienvenida";
+                else mensajeBienvenida = "Bienvenido";
+
+                lblMensajeBienvenida.Text = $"¡ {mensajeBienvenida}, {UsuarioActual.per_NombreCompleto} !";
+            }
+        }
+
+        private void DibujarMenu()
+        {
+            int posicionY = 224; // Margen de espacio entre el header y los botones
+
+            foreach (var pantalla in pantallasPermitidas)
+            {
+                if (pantalla.pant_NombreBoton == "btnClientes")
+                {
+                    btnClientes.Visible = true;
+                    btnClientes.Location = new System.Drawing.Point(0, posicionY);
+                    posicionY += btnClientes.Height + btnClientes.Margin.Top + btnClientes.Margin.Bottom;
+                }
+                else if (pantalla.pant_NombreBoton == "btnEmpleados")
+                {
+                    btnEmpleados.Visible = true;
+                    btnEmpleados.Location = new System.Drawing.Point(0, posicionY);
+                    posicionY += btnEmpleados.Height + btnEmpleados.Margin.Top + btnEmpleados.Margin.Bottom;
+                }
+                else if (pantalla.pant_NombreBoton == "btnAutobuses")
+                {
+                    btnAutobuses.Visible = true;
+                    btnAutobuses.Location = new System.Drawing.Point(0, posicionY);
+                    posicionY += btnAutobuses.Height + btnAutobuses.Margin.Top + btnAutobuses.Margin.Bottom;
+                }
+                else if (pantalla.pant_NombreBoton == "btnRegistrarVenta")
+                {
+                    btnRegistrarVenta.Visible = true;
+                    btnRegistrarVenta.Location = new System.Drawing.Point(0, posicionY);
+                    posicionY += btnRegistrarVenta.Height + btnRegistrarVenta.Margin.Top + btnRegistrarVenta.Margin.Bottom;
+                }
+                else if (pantalla.pant_NombreBoton == "btnTickets")
+                {
+                    btnTickets.Visible = true;
+                    btnTickets.Location = new System.Drawing.Point(0, posicionY);
+                    posicionY += btnTickets.Height + btnTickets.Margin.Top + btnTickets.Margin.Bottom;
+                }
+                else if (pantalla.pant_NombreBoton == "btnPlanificar")
+                {
+                    btnPlanificar.Visible = true;
+                    btnPlanificar.Location = new System.Drawing.Point(0, posicionY);
+                    posicionY += btnPlanificar.Height + btnPlanificar.Margin.Top + btnPlanificar.Margin.Bottom;
+                }
+            }
+        }
+
         public frmPrincipal()
         {
             InitializeComponent();
