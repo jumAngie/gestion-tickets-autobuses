@@ -21,7 +21,7 @@ namespace Gestion_De_Tickets_Autobus.Tickets_Formularios
         }
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-
+            Application.Exit();
         }
         ErrorProvider txtusuarioError = new ErrorProvider();
         ErrorProvider txtContraseniaError = new ErrorProvider();
