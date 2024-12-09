@@ -29,11 +29,10 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.cbxMarca = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbxMarcas = new System.Windows.Forms.ComboBox();
             this.cbxModelo = new System.Windows.Forms.ComboBox();
             this.pnlModelo = new System.Windows.Forms.Panel();
-            this.rbtVip = new System.Windows.Forms.RadioButton();
             this.rbtNormal = new System.Windows.Forms.RadioButton();
             this.numAsientos = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
@@ -73,6 +72,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.rbtEsVIP = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numAsientos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -93,26 +93,17 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Ingrese Matricula";
             // 
-            // cbxMarca
-            // 
-            this.cbxMarca.FormattingEnabled = true;
-            this.cbxMarca.Location = new System.Drawing.Point(23, 51);
-            this.cbxMarca.Name = "cbxMarca";
-            this.cbxMarca.Size = new System.Drawing.Size(186, 24);
-            this.cbxMarca.TabIndex = 2;
-            this.cbxMarca.Text = "Selecione...";
-            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.rbtEsVIP);
+            this.groupBox1.Controls.Add(this.rbtNormal);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.cbxMarcas);
             this.groupBox1.Controls.Add(this.cbxModelo);
             this.groupBox1.Controls.Add(this.pnlModelo);
-            this.groupBox1.Controls.Add(this.rbtVip);
-            this.groupBox1.Controls.Add(this.rbtNormal);
             this.groupBox1.Controls.Add(this.numAsientos);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.cbxMarca);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtMatricula);
@@ -128,6 +119,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información General";
             // 
+            // cbxMarcas
+            // 
+            this.cbxMarcas.FormattingEnabled = true;
+            this.cbxMarcas.Location = new System.Drawing.Point(22, 51);
+            this.cbxMarcas.Name = "cbxMarcas";
+            this.cbxMarcas.Size = new System.Drawing.Size(187, 24);
+            this.cbxMarcas.TabIndex = 30;
+            this.cbxMarcas.SelectedIndexChanged += new System.EventHandler(this.cbxMarcas_SelectedIndexChanged);
+            // 
             // cbxModelo
             // 
             this.cbxModelo.FormattingEnabled = true;
@@ -135,7 +135,6 @@
             this.cbxModelo.Name = "cbxModelo";
             this.cbxModelo.Size = new System.Drawing.Size(186, 24);
             this.cbxModelo.TabIndex = 28;
-            this.cbxModelo.Text = "Selecione...";
             // 
             // pnlModelo
             // 
@@ -146,25 +145,12 @@
             this.pnlModelo.TabIndex = 22;
             this.pnlModelo.Visible = false;
             // 
-            // rbtVip
-            // 
-            this.rbtVip.AutoSize = true;
-            this.rbtVip.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtVip.ForeColor = System.Drawing.Color.White;
-            this.rbtVip.Location = new System.Drawing.Point(225, 169);
-            this.rbtVip.Name = "rbtVip";
-            this.rbtVip.Size = new System.Drawing.Size(46, 20);
-            this.rbtVip.TabIndex = 4;
-            this.rbtVip.TabStop = true;
-            this.rbtVip.Text = "VIP";
-            this.rbtVip.UseVisualStyleBackColor = true;
-            // 
             // rbtNormal
             // 
             this.rbtNormal.AutoSize = true;
             this.rbtNormal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbtNormal.ForeColor = System.Drawing.Color.White;
-            this.rbtNormal.Location = new System.Drawing.Point(140, 169);
+            this.rbtNormal.Location = new System.Drawing.Point(140, 167);
             this.rbtNormal.Name = "rbtNormal";
             this.rbtNormal.Size = new System.Drawing.Size(69, 20);
             this.rbtNormal.TabIndex = 4;
@@ -195,7 +181,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(20, 171);
+            this.label5.Location = new System.Drawing.Point(20, 169);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(83, 16);
             this.label5.TabIndex = 27;
@@ -233,9 +219,9 @@
             // pnlMarca
             // 
             this.pnlMarca.BackColor = System.Drawing.Color.DarkRed;
-            this.pnlMarca.Location = new System.Drawing.Point(23, 51);
+            this.pnlMarca.Location = new System.Drawing.Point(23, 70);
             this.pnlMarca.Name = "pnlMarca";
-            this.pnlMarca.Size = new System.Drawing.Size(186, 31);
+            this.pnlMarca.Size = new System.Drawing.Size(186, 12);
             this.pnlMarca.TabIndex = 20;
             this.pnlMarca.Visible = false;
             // 
@@ -270,6 +256,7 @@
             this.btnCancelar.TabIndex = 25;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click_1);
             // 
             // btnGuardar
             // 
@@ -576,7 +563,20 @@
             this.txtBuscar.Location = new System.Drawing.Point(3, 3);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(319, 22);
-            this.txtBuscar.TabIndex = 31;
+            this.txtBuscar.TabIndex = 1;
+            // 
+            // rbtEsVIP
+            // 
+            this.rbtEsVIP.AutoSize = true;
+            this.rbtEsVIP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtEsVIP.ForeColor = System.Drawing.Color.White;
+            this.rbtEsVIP.Location = new System.Drawing.Point(225, 167);
+            this.rbtEsVIP.Name = "rbtEsVIP";
+            this.rbtEsVIP.Size = new System.Drawing.Size(46, 20);
+            this.rbtEsVIP.TabIndex = 4;
+            this.rbtEsVIP.TabStop = true;
+            this.rbtEsVIP.Text = "VIP";
+            this.rbtEsVIP.UseVisualStyleBackColor = true;
             // 
             // frmAutobuses
             // 
@@ -611,9 +611,7 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbxMarca;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton rbtVip;
         private System.Windows.Forms.TextBox txtMatricula;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -655,5 +653,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.ComboBox cbxMarcas;
+        private System.Windows.Forms.RadioButton rbtEsVIP;
     }
 }

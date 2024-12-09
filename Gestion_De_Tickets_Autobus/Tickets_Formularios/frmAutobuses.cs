@@ -47,13 +47,13 @@ namespace Gestion_De_Tickets_Autobus
             bool esValido = true;
 
             // Validar campos
-            if (cbxMarca.SelectedIndex == -1) { pnlMarca.Visible = true; esValido = false; }
+            if (cbxMarcas.SelectedIndex == -1) { pnlMarca.Visible = true; esValido = false; }
             if (cbxModelo.SelectedIndex == -1) { pnlModelo.Visible = true; esValido = false; }
             if (string.IsNullOrWhiteSpace(txtMatricula.Text)) { pnlMatricula.Visible = true; esValido = false; }
             if (numAsientos.Value <= 0) { pnlAsientos.Visible = true; esValido = false; }
 
             // Ocultar errores si ya son válidos
-            pnlMarca.Visible = cbxMarca.SelectedIndex == -1;
+            pnlMarca.Visible = cbxMarcas.SelectedIndex == -1;
             pnlModelo.Visible = string.IsNullOrWhiteSpace(cbxModelo.Text);
             pnlMatricula.Visible = string.IsNullOrWhiteSpace(txtMatricula.Text);
             pnlAsientos.Visible = numAsientos.Value <= 0;
@@ -62,11 +62,13 @@ namespace Gestion_De_Tickets_Autobus
         }
         public void LimpiarCampos()
         {
-            cbxMarca.SelectedIndex = -1;
+            cbxMarcas.SelectedIndex = 0;
             cbxModelo.SelectedIndex = -1;
+            cbxModelo.Text = "Seleccione una marca.";
+            cbxModelo.Enabled = false;
             txtMatricula.Clear();
             numAsientos.Value = 0;
-            rbtVip.Checked = false;
+            rbtEsVIP.Checked = false;
             rbtNormal.Checked = false;
 
             OcultarValidaciones();
@@ -85,62 +87,35 @@ namespace Gestion_De_Tickets_Autobus
         }
         #endregion
 
+        #region LLENANDO COMBOBOX
+
+        // Cargar Modelos
+        public void CargarModelosCMB(int mar_ID)
+        {
+            cbxModelo.DataSource = modelos.CargarModelosPorMarca(mar_ID);
+            cbxModelo.ValueMember = "mod_ID";
+            cbxModelo.DisplayMember = "mod_Descripcion";
+        }
+
+        // Cargar Marcas
+        public void CargarMarcasCMB()
+        {
+            cbxMarcas.DataSource = marcas.CargarMarcas();
+            cbxMarcas.ValueMember = "mar_ID";
+            cbxMarcas.DisplayMember = "mar_Descripcion";
+        }
+        #endregion
+
         #region EVENTOS DE LOS ELEMENTOS DEL FORMULARIO
 
         private void frmAutobuses_Load(object sender, EventArgs e)
         {
-            CargarMarcasCMB(); 
+            CargarMarcasCMB();
             cbxModelo.Text = "Seleccione una marca."; 
+            cbxModelo.Enabled = false;
             LimpiarCampos();
             OcultarValidaciones();
             OcultarAdvertencia();
-        }
-
-        private void cbxMarca_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cbxMarca.SelectedValue != null && cbxMarca.SelectedValue is int)
-            {
-                cbxModelo.Enabled = true; 
-                int marca_Id = (int)cbxMarca.SelectedValue;             
-                CargarModelosCMB(marca_Id);
-            }
-            else
-            {
-                cbxModelo.DataSource = null; 
-                cbxModelo.Enabled = false;
-            }
-        }
-
-        private void cbxModelo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cbxModelo.SelectedValue != null && cbxModelo.SelectedValue is int)
-            {
-                int modelo_Id = (int)cbxModelo.SelectedValue;
-                if (modelo_Id > 0) ;
-            }
-
-        }
-        private void btVip_CheckedChanged(object sender, EventArgs e)
-        {
-            esVIP = rbtVip.Checked;
-            esNormal = !rbtVip.Checked;
-        }
-
-        private void rbtNormal_CheckedChanged(object sender, EventArgs e)
-        {
-            esNormal = rbtNormal.Checked;
-            esVIP = !rbtNormal.Checked;
-        }
-        #endregion
-
-        #region BOTONES
-        private void BtnCancelar_Click(object sender, EventArgs e)
-        {
-            var result = MessageBox.Show("¿Está seguro de que desea cancelar?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                LimpiarCampos();
-            }
         }
 
         private async void BtnGuardar_Click(object sender, EventArgs e)
@@ -160,31 +135,25 @@ namespace Gestion_De_Tickets_Autobus
                 OcultarAdvertencia();
             }
         }
-        #endregion
 
-        #region LLENANDO COMBOBOX
-
-        // Cargar Modelos
-        public void CargarModelosCMB(int mar_ID)
+        private void cbxMarcas_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cbxModelo.DataSource = modelos.CargarModelosPorMarca(mar_ID);
-            cbxModelo.ValueMember = "mod_ID";          
-            cbxModelo.DisplayMember = "mod_Descripcion"; 
-            cbxModelo.SelectedIndex = -1;  
+            if (cbxMarcas.SelectedValue != null && cbxMarcas.SelectedValue is int)
+            {
+                cbxModelo.Enabled = true;
+                int marca_Id = (int)cbxMarcas.SelectedValue;
+                CargarModelosCMB(marca_Id);
+            }
         }
 
-        // Cargar Marcas
-        public void CargarMarcasCMB()
+        private void btnCancelar_Click_1(object sender, EventArgs e)
         {
-            cbxMarca.DataSource = marcas.CargarMarcas();
-            cbxMarca.ValueMember = "mar_ID";           
-            cbxMarca.DisplayMember = "mar_Descripcion"; 
-            cbxMarca.SelectedIndex = -1;                
+            var result = MessageBox.Show("¿Está seguro de que desea cancelar?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                LimpiarCampos();
+            }
         }
-
         #endregion
-
-
-
     }
 }
