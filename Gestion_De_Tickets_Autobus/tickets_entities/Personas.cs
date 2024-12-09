@@ -32,5 +32,7 @@ namespace Gestion_De_Tickets_Autobus.Tickets_Entities
         [NotMapped]
         public int pais_Id { get; set; }
         public bool per_Extranjero { get; set; }
+
+        public bool per_existencias { get; set; }
     }
 }

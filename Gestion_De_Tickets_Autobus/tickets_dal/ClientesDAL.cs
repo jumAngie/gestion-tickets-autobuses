@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Gestion_De_Tickets_Autobus.Tickets_Entities;
 using Gestion_De_Tickets_Autobus.Tickets_ViewModels;
+using System.Windows.Forms;
 
 namespace Gestion_De_Tickets_Autobus.Tickets_DAL
 {
@@ -93,91 +94,124 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
         }
 
         //CARGAR DATOS EDITAR Y EDITAR
-            public static Personas Editar_CargarDatos(int clien_ID)
+        public static Personas Editar_CargarDatos(int clien_ID)
+        {
+            Personas clientes = null;
+            try
             {
-                Personas clientes = null;
-                try
+                using (SqlConnection conexion = BDConnection.ObtenerConexion())
                 {
-                    using (SqlConnection conexion = BDConnection.ObtenerConexion())
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand(ScriptsDatabase.EditarClientes_CargarInformacion, conexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@per_Id", clien_ID);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        conexion.Open();
-                        SqlCommand cmd = new SqlCommand(ScriptsDatabase.EditarClientes_CargarInformacion, conexion);
-                        cmd.CommandType = CommandType.StoredProcedure;
-
-                        cmd.Parameters.AddWithValue("@per_Id", clien_ID);
-
-                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        if (reader.Read())
                         {
-                            if (reader.Read())
+                            clientes = new Personas
+
+
                             {
-                                clientes = new Personas
-
-
-                                {
-                                    per_NombreCompleto = reader.GetString(0),
-                                    per_Correo = reader.GetString(1),
-                                    per_DNI = reader.GetString(2),
-                                    per_Telefono = reader.GetString(3),
-                                    per_FechaNacimiento = reader.GetDateTime(4),
-                                    per_Sexo = reader.GetInt32(5),
-                                    per_Cargo = reader.GetInt32(6),
-                                    per_Ciudad = reader.GetInt32(7),
-                                    per_Direccion = reader.GetString(8),
-                                    dept_Id = reader.GetInt32(9),
-                                    pais_Id = reader.GetInt32(10),
-                                };
-                            }
+                                per_NombreCompleto = reader.GetString(0),
+                                per_Correo = reader.GetString(1),
+                                per_DNI = reader.GetString(2),
+                                per_Telefono = reader.GetString(3),
+                                per_FechaNacimiento = reader.GetDateTime(4),
+                                per_Sexo = reader.GetInt32(5),
+                                per_Cargo = reader.GetInt32(6),
+                                per_Ciudad = reader.GetInt32(7),
+                                per_Direccion = reader.GetString(8),
+                                dept_Id = reader.GetInt32(9),
+                                pais_Id = reader.GetInt32(10),
+                            };
                         }
                     }
                 }
-                catch (Exception ex)
-                {
-                    throw new Exception("Error al cargar la información de los clientes: " + ex.Message);
-                }
-
-                return clientes;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al cargar la información de los clientes: " + ex.Message);
             }
 
-            public static string EditarClientes(Personas clientes)
-            {
-                string mensaje = "";
-                try
-                {
-                    using (SqlConnection conexion = BDConnection.ObtenerConexion())
-                    {
-                        conexion.Open();
-                        SqlCommand cmd = new SqlCommand(ScriptsDatabase.EditarClientes, conexion);
-                        cmd.CommandType = CommandType.StoredProcedure;
+            return clientes;
+        }
 
-                        cmd.Parameters.AddWithValue("@per_ID", clientes.per_Id);
-                        cmd.Parameters.AddWithValue("@per_NombreCompleto", clientes.per_NombreCompleto);
-                        cmd.Parameters.AddWithValue("@per_Correo", clientes.per_Correo);
-                        cmd.Parameters.AddWithValue("@per_DNI", clientes.per_DNI);
-                        cmd.Parameters.AddWithValue("@per_extranjero", clientes.per_Extranjero);
-                        cmd.Parameters.AddWithValue("@per_Telefono", clientes.per_Telefono);
-                        cmd.Parameters.AddWithValue("@per_FechaNacimiento", clientes.per_FechaNacimiento);
-                        cmd.Parameters.AddWithValue("@sex_ID", clientes.per_Sexo);
-                        cmd.Parameters.AddWithValue("@car_ID", clientes.per_Cargo);
-                        cmd.Parameters.AddWithValue("@ciud_Id", clientes.per_Ciudad);
-                        cmd.Parameters.AddWithValue("@per_Direccion", clientes.per_Direccion);
-                        cmd.Parameters.AddWithValue("@usu_UsuarioModificacion", clientes.usu_UsuarioModificacion);
-                        cmd.Parameters.AddWithValue("@per_FechaModificacion", clientes.per_FechaModificacion);
+        public static string EditarClientes(Personas clientes)
+        {
+            string mensaje = "";
+            try
+            {
+                using (SqlConnection conexion = BDConnection.ObtenerConexion())
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand(ScriptsDatabase.EditarClientes, conexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@per_ID", clientes.per_Id);
+                    cmd.Parameters.AddWithValue("@per_NombreCompleto", clientes.per_NombreCompleto);
+                    cmd.Parameters.AddWithValue("@per_Correo", clientes.per_Correo);
+                    cmd.Parameters.AddWithValue("@per_DNI", clientes.per_DNI);
+                    cmd.Parameters.AddWithValue("@per_extranjero", clientes.per_Extranjero);
+                    cmd.Parameters.AddWithValue("@per_Telefono", clientes.per_Telefono);
+                    cmd.Parameters.AddWithValue("@per_FechaNacimiento", clientes.per_FechaNacimiento);
+                    cmd.Parameters.AddWithValue("@sex_ID", clientes.per_Sexo);
+                    cmd.Parameters.AddWithValue("@car_ID", clientes.per_Cargo);
+                    cmd.Parameters.AddWithValue("@ciud_Id", clientes.per_Ciudad);
+                    cmd.Parameters.AddWithValue("@per_Direccion", clientes.per_Direccion);
+                    cmd.Parameters.AddWithValue("@usu_UsuarioModificacion", clientes.usu_UsuarioModificacion);
+                    cmd.Parameters.AddWithValue("@per_FechaModificacion", clientes.per_FechaModificacion);
 
 
 
                     mensaje = (string)cmd.ExecuteScalar();
-                    }
-
                 }
-                catch (Exception ex)
+
+            }
+            catch (Exception ex)
+            {
+                mensaje = "Error: " + ex.Message;
+                throw;
+            }
+
+            return mensaje;
+
+
+        }
+
+        //EXISTENCIAS DNI
+        public static bool ExistenciaDNI(string Existencia)
+        {
+            try
+            {
+                using (SqlConnection conexion = BDConnection.ObtenerConexion())
                 {
-                    mensaje = "Error: " + ex.Message;
-                    throw;
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand(ScriptsDatabase.ExistenciaDNI, conexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+
+                    cmd.Parameters.AddWithValue("@per_DNI", Existencia);
+                  
+
+                    int resultado = (int)cmd.ExecuteScalar();
+                    return resultado == 1;
                 }
 
-                return mensaje;
-            
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Error en la base de datos: " + ex.Message);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error: " + ex.Message);
+                return false;
+            }
 
-         }
+        }
     }
 }

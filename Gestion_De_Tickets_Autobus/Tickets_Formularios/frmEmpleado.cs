@@ -275,6 +275,35 @@ namespace Gestion_De_Tickets_Autobus
             btnGuardar.Visible = true;
 
         }
+
+        //VALIDAR DNI EXISTENTES
+        private void mtxtidentidad_Leave(object sender, EventArgs e)
+        {
+            if (EmpleadosDAL.ExistenciaDNI(mtxtidentidad.Text))
+            {
+                MessageBox.Show("El DNI ya está registrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                btnGuardar.Enabled = false;
+                return; // Salir del método si el DNI ya está registrado
+            }
+            else
+            {
+                btnGuardar.Enabled = true;
+            }
+        }
+
+        private void txtDNIE_Leave(object sender, EventArgs e)
+        {
+            if (EmpleadosDAL.ExistenciaDNI(txtDNIE.Text))
+            {
+                MessageBox.Show("El DNI ya está registrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                btnGuardar.Enabled = false;
+                return; // Salir del método si el DNI ya está registrado
+            }
+            else
+            {
+                btnGuardar.Enabled = true;
+            }
+        }
         #endregion
 
         #region MENSAJES

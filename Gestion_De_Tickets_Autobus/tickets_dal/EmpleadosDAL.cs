@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Gestion_De_Tickets_Autobus.Tickets_ViewModels;
+using System.Windows.Forms;
 
 namespace Gestion_De_Tickets_Autobus.Tickets_DAL
 {
@@ -137,7 +138,6 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
                 {
                     throw new Exception("Error al cargar la información de los clientes: " + ex.Message);
                 }
-
                 return empleados;
             }
 
@@ -182,6 +182,39 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
 
 
             }
+        //EXISTENCIAS DNI
+        public static bool ExistenciaDNI(string Existencia)
+        {
+            try
+            {
+                using (SqlConnection conexion = BDConnection.ObtenerConexion())
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand(ScriptsDatabase.ExistenciaDNI, conexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+
+                    cmd.Parameters.AddWithValue("@per_DNI", Existencia);
+
+
+                    int resultado = (int)cmd.ExecuteScalar();
+                    return resultado == 1;
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Error en la base de datos: " + ex.Message);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error: " + ex.Message);
+                return false;
+            }
+
+        }
+
     }
     
 }

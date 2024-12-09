@@ -35,6 +35,7 @@ namespace Gestion_De_Tickets_Autobus
             if (rbF.Checked) sexo = 1;
             if (rbM.Checked) sexo = 2;
             if (rbE.Checked) extranjero = true;
+
             Personas Pr = new Personas
             {
                 per_NombreCompleto = txtNombre.Text,
@@ -50,9 +51,11 @@ namespace Gestion_De_Tickets_Autobus
                 per_FechaCreacion = DateTime.Now,
                 usu_UsuarioCreacion = 1 // Id por mientras, acá va el id del usuario logeado
             };
-
-            string resultados = ClientesDAL.InsertarClientes(Pr);
-            MessageBox.Show(resultados, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+          
+                string resultados = ClientesDAL.InsertarClientes(Pr);
+                MessageBox.Show(resultados, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+          
+            
         }
 
         //LISTAR
@@ -270,6 +273,35 @@ namespace Gestion_De_Tickets_Autobus
             btnGuardar.Visible = true;
 
         }
+
+        //VALIDAR DNI EXISTENTES
+        private void mtxtidentidad_Leave(object sender, EventArgs e)
+        {
+            if (ClientesDAL.ExistenciaDNI(mtxtidentidad.Text))
+            {
+                MessageBox.Show("El DNI ya está registrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                btnGuardar.Enabled = false;
+                return; // Salir del método si el DNI ya está registrado
+            }
+            else
+            {
+                btnGuardar.Enabled = true;
+            }
+        }
+
+        private void txtDNIE_Leave(object sender, EventArgs e)
+        {
+            if (ClientesDAL.ExistenciaDNI(txtDNIE.Text))
+            {
+                MessageBox.Show("El DNI ya está registrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                btnGuardar.Enabled = false;
+                return; // Salir del método si el DNI ya está registrado
+            }
+            else
+            {
+                btnGuardar.Enabled = true;
+            }
+        }
         #endregion
 
 
@@ -437,9 +469,10 @@ namespace Gestion_De_Tickets_Autobus
             cbxciudad.ValueMember = "ciud_Id";
             cbxciudad.DisplayMember = "ciud_Descripcion";
         }
+
         #endregion
 
-
+        
     }
 }
 

@@ -407,6 +407,7 @@
             this.txtDNIE.Size = new System.Drawing.Size(161, 20);
             this.txtDNIE.TabIndex = 8;
             this.txtDNIE.Visible = false;
+            this.txtDNIE.Leave += new System.EventHandler(this.txtDNIE_Leave);
             // 
             // lblDNIE
             // 
@@ -427,6 +428,7 @@
             this.mtxtidentidad.TabIndex = 6;
             this.mtxtidentidad.Visible = false;
             this.mtxtidentidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtxtidentidad_KeyPress);
+            this.mtxtidentidad.Leave += new System.EventHandler(this.mtxtidentidad_Leave);
             // 
             // lblidentidad
             // 
