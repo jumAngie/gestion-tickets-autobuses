@@ -1,4 +1,5 @@
-﻿using Gestion_De_Tickets_Autobus.Tickets_ViewModels;
+﻿using Gestion_De_Tickets_Autobus.Tickets_DAL;
+using Gestion_De_Tickets_Autobus.Tickets_ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

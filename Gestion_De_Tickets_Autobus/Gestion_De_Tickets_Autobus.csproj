@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BDConnection.cs" />
+    <Compile Include="Encriptacion.cs" />
     <Compile Include="ScriptsDatabase.cs" />
     <Compile Include="Tickets_DAL\AutobusesDAL.cs" />
     <Compile Include="Tickets_DAL\CiudadesDAL.cs" />
@@ -136,6 +137,7 @@
     <Compile Include="Tickets_ViewModels\ClientesViewModel.cs" />
     <Compile Include="Tickets_ViewModels\DatosUsuarioViewModel.cs" />
     <Compile Include="Tickets_ViewModels\EmpleadosViewModel.cs" />
+    <Compile Include="Tickets_ViewModels\PantallasViewModel.cs" />
     <Compile Include="Tickets_ViewModels\TicketsDetallesViewModel.cs" />
     <Compile Include="Tickets_ViewModels\TicketsViewModel.cs" />
     <Compile Include="Validaciones.cs" />

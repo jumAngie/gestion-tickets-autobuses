@@ -1,5 +1,7 @@
 ﻿using Gestion_De_Tickets_Autobus.Tickets_Formularios;
+using Gestion_De_Tickets_Autobus.Tickets_ViewModels;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -17,6 +19,9 @@ namespace Gestion_De_Tickets_Autobus
          int nWidthEllipse,
          int nHeightEllipse
          );
+
+        public DatosUsuarioViewModel UsuarioActual { get; set; }
+        public List<PantallasViewModel> pantallasPermitidas { get; set; }
 
         public frmPrincipal()
         {

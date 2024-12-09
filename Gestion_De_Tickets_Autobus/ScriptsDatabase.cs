@@ -60,5 +60,10 @@ namespace Gestion_De_Tickets_Autobus
         #region Tickets Detalle
         public static string ListarDetallesPorID = "Tick.Tickets_Detalles_Listado";
         #endregion
+
+        #region LogIn
+        public static string DibujarPantallas = "";
+        public static string IniciarSesión = "";
+        #endregion
     }
 }
