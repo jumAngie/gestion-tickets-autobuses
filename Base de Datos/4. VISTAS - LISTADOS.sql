@@ -87,12 +87,15 @@ AS
 		SELECT	tdt_ID, 
 				T2.num_Asiento,
 				T3.pln_Fecha,
-				T7.aut_esVIP,
+				CASE 
+				WHEN aut_esVIP = 1 THEN 'VIP'
+				ELSE 'Normal'
+				END AS aut_esVIP, 
 				T7.aut_Matricula,
 				T8.hor_ruta,
 				T8.hor_hora,
-				T9.des_Descripcion,
-				T10.des_Descripcion,
+				T9.des_Descripcion AS 'desSalida',
+				T10.des_Descripcion AS 'desDestino',
 				T6.pre_precio
 		FROM Tick.tbTickets_Detalle T1		INNER JOIN Tick.tbPlanificacion_Asientos T2
 		ON	 T1.pas_ID = T2.pas_ID			INNER JOIN Tick.tbPlanificacion T3
