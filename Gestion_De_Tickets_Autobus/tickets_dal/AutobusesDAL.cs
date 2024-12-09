@@ -47,44 +47,41 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
             return mensaje;
         }
         // LISTAR
-        public static List<AutobusesViewModel> ListarAutobuses()
+        public static List<Autobuses> ObtenerTodosLosAutobuses()
         {
-            List<AutobusesViewModel> lista = new List<AutobusesViewModel>();
+            List<Autobuses> listaAutobuses = new List<Autobuses>();
 
             try
             {
                 using (SqlConnection conexion = BDConnection.ObtenerConexion())
                 {
                     conexion.Open();
-                    string query = ScriptsDatabase.ListarAutobuses;
-                    SqlCommand comando = new SqlCommand(query, conexion);
-
-                    SqlDataReader reader = comando.ExecuteReader();
+                    SqlCommand cmd = new SqlCommand("SELECT aut_Id, mar_Descripcion, mod_Descripcion, aut_Matricula, aut_cantAsientos, aut_esVIP FROM Autobuses", conexion);
+                    SqlDataReader reader = cmd.ExecuteReader();
 
                     while (reader.Read())
                     {
-                        AutobusesViewModel autobus = new AutobusesViewModel
+                        Autobuses autobus = new Autobuses
                         {
-                            aut_Matricula = reader.GetString(0), 
-                            mar_Descripcion = reader.GetInt32(1),  
-                            mod_Descripcion = reader.GetInt32(2), 
-                            aut_esVIP = reader.GetString(3),   
-                            aut_cantAsientos = reader.GetInt32(4),
+                            aut_Id = reader.GetInt32(reader.GetOrdinal("aut_Id")),
+                            mar_Descripcion = reader.GetString(reader.GetOrdinal("mar_Descripcion")),
+                            mod_Descripcion = reader.GetString(reader.GetOrdinal("mod_Descripcion")),
+                            aut_Matricula = reader.GetString(reader.GetOrdinal("aut_Matricula")),
+                            aut_cantAsientos = reader.GetInt32(reader.GetOrdinal("aut_cantAsientos")),
+                            aut_esVIP = reader.GetBoolean(reader.GetOrdinal("aut_esVIP"))
                         };
-
-                        
-                        lista.Add(autobus);
+                        listaAutobuses.Add(autobus);
                     }
                 }
             }
             catch (Exception ex)
             {
-                // Manejo de excepciones
-                throw new Exception("Error al listar autobuses: " + ex.Message);
+                MessageBox.Show("Error al obtener los autobuses: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            return lista;
+            return listaAutobuses;
         }
+
 
         //COMBOBOX
         public DataTable CargarAutobuses(int pre_ID)

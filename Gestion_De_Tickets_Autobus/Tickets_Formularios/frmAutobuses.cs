@@ -10,6 +10,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Gestion_De_Tickets_Autobus.Tickets_DAL;
+using Gestion_De_Tickets_Autobus.Tickets_Entities;
 
 namespace Gestion_De_Tickets_Autobus
 {
@@ -110,6 +111,7 @@ namespace Gestion_De_Tickets_Autobus
 
         private void frmAutobuses_Load(object sender, EventArgs e)
         {
+            CargarAutobuses();
             CargarMarcasCMB();
             cbxModelo.Text = "Seleccione una marca."; 
             cbxModelo.Enabled = false;
@@ -154,6 +156,38 @@ namespace Gestion_De_Tickets_Autobus
                 LimpiarCampos();
             }
         }
+
         #endregion
+
+        public void CargarAutobuses()
+        {
+            try
+            {
+                // Obtener la lista de autobuses desde la base de datos
+                List<Autobuses> listaAutobuses = AutobusesDAL.ObtenerTodosLosAutobuses();
+
+                // Asignar la lista al DataGridView
+                dgAutobuses.DataSource = listaAutobuses;
+
+                // Personalizar las columnas del DataGridView
+                dgAutobuses.Columns["aut_Id"].HeaderText = "ID del Autobús";
+                dgAutobuses.Columns["mar_Descripcion"].HeaderText = "Marca";
+                dgAutobuses.Columns["mod_Descripcion"].HeaderText = "Modelo";
+                dgAutobuses.Columns["aut_Matricula"].HeaderText = "Matrícula";
+                dgAutobuses.Columns["aut_cantAsientos"].HeaderText = "Cantidad de Asientos";
+                dgAutobuses.Columns["aut_esVIP"].HeaderText = "Exclusivo VIP";
+
+                
+                dgAutobuses.Columns["usu_UsuarioCreacion"].Visible = false;
+                dgAutobuses.Columns["usu_UsuarioModificacion"].Visible = false;
+                dgAutobuses.Columns["aut_FechaCreacion"].Visible = false;
+                dgAutobuses.Columns["aut_FechaModificacion"].Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los autobuses: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }
