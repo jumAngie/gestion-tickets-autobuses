@@ -68,11 +68,22 @@ namespace Gestion_De_Tickets_Autobus
             {
                 txtNombre.Text = personas.per_NombreCompleto;
                 extranjero = personas.per_Extranjero;
-                mtxtidentidad.Text = personas.per_DNI;
+                if (extranjero == true)
+                {
+                    txtDNIE.Text = personas.per_DNI;
+                    rbE.Checked = true;
+                }
+                if (extranjero == false)
+                {
+                    mtxtidentidad.Text = personas.per_DNI;
+                    rbH.Checked = true;
+                }
                 txtTelefono.Text = personas.per_Telefono;
                 txtEmail.Text = personas.per_Correo;
                 dtFechaNacimiento.Value = personas.per_FechaNacimiento;
                 sexo = personas.per_Sexo;
+                if (sexo == 1) rbF.Checked = true;
+                if (sexo == 2) rbM.Checked = true;
                 cliente = personas.per_Cargo;
                 txtDirE.Text = personas.per_Direccion;
                 cbxpais.SelectedValue = personas.pais_Id;
