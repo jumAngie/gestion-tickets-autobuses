@@ -51,6 +51,7 @@ GO
 CREATE OR ALTER VIEW Tick.Listado_Autobuses
 AS
 	SELECT 
+			aut_ID,
 			aut_Matricula, 
 			m.mar_Descripcion,
 			mo.mod_Descripcion,

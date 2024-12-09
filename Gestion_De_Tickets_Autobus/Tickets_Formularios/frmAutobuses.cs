@@ -33,8 +33,15 @@ namespace Gestion_De_Tickets_Autobus
         {
             InitializeComponent();
             
-        } 
-        
+        }
+
+        #region CRUD
+        public void CargarAutobuses()
+        {
+            dgAutobuses.DataSource = AutobusesDAL.ListarAutobuses();
+        }
+        #endregion
+
         #region VALIDACIONES Y LIMPIEZA DE CAMPOS
         public void OcultarValidaciones()
         {
@@ -160,31 +167,7 @@ namespace Gestion_De_Tickets_Autobus
 
         #endregion
 
-        public void CargarAutobuses()
-        {
-            try 
-            {
-                // Obtener la lista de autobuses desde la base de datos 
-                List<AutobusesViewModel> listaAutobuses = AutobusesDAL.ObtenerTodosLosAutobuses();
-
-                // Asignar la lista al DataGridView
-                dgAutobuses.DataSource = listaAutobuses;
-
-                // Personalizar las columnas del DataGridView
-                dgAutobuses.Columns["aut_Id"].HeaderText = "ID del Autobús";
-                dgAutobuses.Columns["mar_Descripcion"].HeaderText = "Marca";
-                dgAutobuses.Columns["mod_Descripcion"].HeaderText = "Modelo";
-                dgAutobuses.Columns["aut_Matricula"].HeaderText = "Matrícula";
-                dgAutobuses.Columns["aut_cantAsientos"].HeaderText = "Cantidad de Asientos";
-                dgAutobuses.Columns["aut_esVIP"].HeaderText = "Exclusivo VIP";
-              
-               
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al cargar los autobuses: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        
 
     }
 }

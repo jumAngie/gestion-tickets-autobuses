@@ -47,7 +47,7 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
             return mensaje;
         }
         // LISTAR
-        public static List<AutobusesViewModel> ObtenerTodosLosAutobuses()
+        public static List<AutobusesViewModel> ListarAutobuses()
         {
             List<AutobusesViewModel> listaAutobuses = new List<AutobusesViewModel>();
 
@@ -56,7 +56,7 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
                 using (SqlConnection conexion = BDConnection.ObtenerConexion())
                 {
                     conexion.Open();
-                    SqlCommand cmd = new SqlCommand("SELECT aut_Id, mar_Descripcion, mod_Descripcion, aut_Matricula, aut_cantAsientos, aut_esVIP FROM Autobuses", conexion);
+                    SqlCommand cmd = new SqlCommand(ScriptsDatabase.ListarAutobuses, conexion);
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     while (reader.Read())
@@ -64,9 +64,9 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
                         AutobusesViewModel autobus = new AutobusesViewModel
                         {
                             aut_Id = reader.GetInt32(reader.GetOrdinal("aut_Id")),
+                            aut_Matricula = reader.GetString(reader.GetOrdinal("aut_Matricula")),
                             mar_Descripcion = reader.GetString(reader.GetOrdinal("mar_Descripcion")),
                             mod_Descripcion = reader.GetString(reader.GetOrdinal("mod_Descripcion")),
-                            aut_Matricula = reader.GetString(reader.GetOrdinal("aut_Matricula")),
                             aut_cantAsientos = reader.GetInt32(reader.GetOrdinal("aut_cantAsientos")),
                             aut_esVIP = reader.GetString(reader.GetOrdinal("aut_esVIP"))
                         };
