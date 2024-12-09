@@ -1,4 +1,5 @@
 ﻿using Gestion_De_Tickets_Autobus.Tickets_DAL;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -51,9 +52,52 @@ namespace Gestion_De_Tickets_Autobus
         }
         #endregion
 
-        private void btnAsiento_Click(object sender, System.EventArgs e)
+        private void DibujarAsientos(int audes_ID)
         {
-            
+            // Limpia los botones existentes
+            pnlAsientos.Controls.Clear();
+
+            // Obtener los asientos desde la base de datos
+            var listaAsientos = AutobusesDAL.ObtenerAsientos(audes_ID);
+
+            // Configuración de filas y columnas
+            int maxColumnas = 6;
+            int espacioX = 55; // Espaciado horizontal
+            int espacioY = 30; // Espaciado vertical
+            int inicioX = 5;
+            int inicioY = 5;
+
+            int fila = 0, columna = 0;
+
+            // Crear los botones
+            foreach (var asiento in listaAsientos)
+            {
+                Button btnAsiento = new Button();
+
+                // Configurar botón
+                btnAsiento.Name = "btnAsiento" + asiento.pas_ID;
+                btnAsiento.Text = asiento.num_Asiento.ToString();
+                btnAsiento.Size = new Size(50, 30);
+                btnAsiento.BackColor = asiento.disponibilidad ? Color.Maroon : Color.ForestGreen;
+                btnAsiento.ForeColor = Color.White;
+
+                // Posición del botón
+                btnAsiento.Location = new Point(inicioX + (columna * espacioX), inicioY + (fila * espacioY));
+
+                // Evento Click
+                btnAsiento.Click += (s, e) => BotonAsiento_Click(s, e, asiento.pas_ID, asiento.disponibilidad, btnAsiento);
+
+                // Agregar al panel
+                pnlAsientos.Controls.Add(btnAsiento);
+
+                // Actualizar filas y columnas
+                columna++;
+                if (columna >= maxColumnas)
+                {
+                    columna = 0;
+                    fila++;
+                }
+            }
         }
 
         private void frmCrearTicket_Load(object sender, System.EventArgs e)
@@ -87,6 +131,27 @@ namespace Gestion_De_Tickets_Autobus
             {
                 int audes_ID = (int)cmbAutobus.SelectedValue;
                 Autobus_Precio(audes_ID);
+                DibujarAsientos(audes_ID);
+            }
+        }
+
+        private void BotonAsiento_Click(object sender, EventArgs e, int pas_ID, bool disponibilidad, Button btnAsiento)
+        {
+            // Si el asiento ya está ocupado desde la base de datos, no hacer nada
+            if (disponibilidad)
+            {
+                MessageBox.Show("Este asiento ya está ocupado.");
+                return;
+            }
+
+            // Cambiar estado del botón
+            if (btnAsiento.BackColor == Color.ForestGreen)
+            {
+                btnAsiento.BackColor = Color.Orange; // Marcar como seleccionado
+            }
+            else if (btnAsiento.BackColor == Color.Orange)
+            {
+                btnAsiento.BackColor = Color.ForestGreen; // Desmarcar
             }
         }
     }

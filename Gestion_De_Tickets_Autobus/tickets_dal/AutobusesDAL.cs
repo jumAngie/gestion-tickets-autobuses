@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Gestion_De_Tickets_Autobus.Tickets_Entities;
 using Gestion_De_Tickets_Autobus.Tickets_ViewModels;
+using System.Windows.Forms;
 
 namespace Gestion_De_Tickets_Autobus.Tickets_DAL
 {
@@ -135,6 +136,38 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
 
 
         }
+
+        public static List<(int pas_ID, int num_Asiento, bool disponibilidad)> ObtenerAsientos(int audes_ID)
+        {
+            var listaAsientos = new List<(int, int, bool)>();
+            try
+            {
+                using (SqlConnection conexion = BDConnection.ObtenerConexion())
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand(ScriptsDatabase.Autobuses_Asientos, conexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@audes_ID", audes_ID);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        listaAsientos.Add((
+                            reader.GetInt32(0), // pas_ID
+                            reader.GetInt32(1), // num_Asiento
+                            reader.GetBoolean(2)  // disponibilidad
+                        ));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            return listaAsientos;
+        }
+
 
     }
 }

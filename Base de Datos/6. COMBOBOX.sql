@@ -130,12 +130,30 @@ BEGIN
 	WHERE pre_ID = @pre_ID
 END
 GO
+---------------------------------------
 CREATE OR ALTER PROCEDURE Tick.Autobus_Precio
-@pre_ID INT
+@audes_ID INT
 AS
 BEGIN
-	SELECT	 T2.pre_precio
+	SELECT	 pre_precio
 	FROM	 Tick.tbAuto_Hora_Preci_Desti T1 INNER JOIN Tick.tbPrecio_Destino T2
-	ON       T1.pre_ID = T2.pre_ID																																															
-	WHERE	 T1.pre_ID = @pre_ID
-END													
+	ON       T1.pre_ID = T2.pre_ID	
+	WHERE	 audes_ID = @audes_ID
+END	
+
+--------------------------------------------
+GO
+CREATE OR ALTER PROCEDURE Tick.Asientos_Autobus
+@audes_ID INT
+AS
+BEGIN 
+		DECLARE @pln_ID INT
+		SET		@pln_ID = (	SELECT	pln_ID
+							FROM	Tick.tbPlanificacion
+							WHERE	audes_ID = @audes_ID)
+	
+	
+	SELECT pas_ID, num_Asiento, tdt_Disponibilidad FROM Tick.tbPlanificacion_Asientos
+	WHERE pln_ID = @pln_ID
+		
+END

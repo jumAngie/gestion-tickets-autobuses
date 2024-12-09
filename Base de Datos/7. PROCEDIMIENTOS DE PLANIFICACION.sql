@@ -36,25 +36,13 @@ AS
 	END CATCH
 
 ----------------------------------------------------------------------------------------
----- GUARDO EL VALOR DE MI DESTINO
-DECLARE @PRE_ID INT = 1
-
----- CARGO LOS BUSES QUE CONTIENEN MI RUTA DESEADO Y CARGO INFORMACION DE ESE BUS + HORARIO --- SERÁ MOSTRADO EN UN COMBOBOX EN VISUAL
-	SELECT		audes_ID,
-				T4.hor_hora + ' - ' + T3.aut_Matricula + ' - ' + CASE WHEN aut_esVIP = 1 THEN 'VIP' ELSE 'Normal' END AS  'Autobus'
-	FROM	 Tick.tbAuto_Hora_Preci_Desti T1 INNER JOIN Tick.tbAutobus_Horario T2
-	ON       T1.auh_ID = T2.auh_ID		 INNER JOIN Tick.tbAutobuses T3
-	ON       T2.aut_ID = T3.aut_ID		 INNER JOIN Tick.tbHorario T4
-	ON		 T2.hor_ID = T4.hor_ID
-	WHERE pre_ID = @PRE_ID
-
 --- GUARDO ESA INFORMACIÓN 
 DECLARE @audes_ID INT = 1
 
 ---- BUSCO EN LA PLANIFICACION QUE CONTENGA ESE BUS -- ESTO TIENE QUE SER PROGRAMACION POR DETRAS
-SELECT pln_ID
-FROM Tick.tbPlanificacion
-WHERE audes_ID = @audes_ID
+SELECT	pln_ID
+FROM	Tick.tbPlanificacion
+WHERE	audes_ID = @audes_ID
 
 ---- GUARDO LA PLANIFICACION
 DECLARE @PLN INT = 1
