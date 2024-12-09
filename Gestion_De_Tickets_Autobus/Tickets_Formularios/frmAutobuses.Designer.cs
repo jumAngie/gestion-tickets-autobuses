@@ -299,7 +299,7 @@
             this.lblAdvertencia.BackColor = System.Drawing.Color.DarkRed;
             this.lblAdvertencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAdvertencia.ForeColor = System.Drawing.Color.Snow;
-            this.lblAdvertencia.Location = new System.Drawing.Point(565, 12);
+            this.lblAdvertencia.Location = new System.Drawing.Point(576, 9);
             this.lblAdvertencia.Name = "lblAdvertencia";
             this.lblAdvertencia.Size = new System.Drawing.Size(223, 16);
             this.lblAdvertencia.TabIndex = 13;
