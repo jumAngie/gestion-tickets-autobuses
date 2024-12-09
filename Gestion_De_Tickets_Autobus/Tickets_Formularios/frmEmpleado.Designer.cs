@@ -74,6 +74,7 @@
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnPersonaExistente = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
             this.gbDatospersonales.SuspendLayout();
             this.gbDatosdeContacto.SuspendLayout();
             this.gbDNI.SuspendLayout();
@@ -406,6 +407,7 @@
             this.txtDNIE.Size = new System.Drawing.Size(161, 20);
             this.txtDNIE.TabIndex = 8;
             this.txtDNIE.Visible = false;
+            this.txtDNIE.Leave += new System.EventHandler(this.txtDNIE_Leave);
             // 
             // lblDNIE
             // 
@@ -426,6 +428,7 @@
             this.mtxtidentidad.TabIndex = 6;
             this.mtxtidentidad.Visible = false;
             this.mtxtidentidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtxtidentidad_KeyPress);
+            this.mtxtidentidad.Leave += new System.EventHandler(this.mtxtidentidad_Leave);
             // 
             // lblidentidad
             // 
@@ -497,6 +500,7 @@
             this.dgEmpleados.Name = "dgEmpleados";
             this.dgEmpleados.Size = new System.Drawing.Size(797, 128);
             this.dgEmpleados.TabIndex = 10;
+            this.dgEmpleados.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgEmpleadoss_CellClick);
             // 
             // btnCancelar
             // 
@@ -505,7 +509,7 @@
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(707, 301);
+            this.btnCancelar.Location = new System.Drawing.Point(707, 306);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(103, 31);
             this.btnCancelar.TabIndex = 27;
@@ -519,7 +523,7 @@
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar.Location = new System.Drawing.Point(598, 301);
+            this.btnGuardar.Location = new System.Drawing.Point(598, 306);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(103, 31);
             this.btnGuardar.TabIndex = 26;
@@ -535,7 +539,7 @@
             this.pnlBuscar.Controls.Add(this.pictureBox1);
             this.pnlBuscar.Location = new System.Drawing.Point(13, 306);
             this.pnlBuscar.Name = "pnlBuscar";
-            this.pnlBuscar.Size = new System.Drawing.Size(357, 30);
+            this.pnlBuscar.Size = new System.Drawing.Size(280, 30);
             this.pnlBuscar.TabIndex = 33;
             // 
             // txtBuscar
@@ -543,13 +547,13 @@
             this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscar.Location = new System.Drawing.Point(3, 3);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(319, 22);
+            this.txtBuscar.Size = new System.Drawing.Size(239, 22);
             this.txtBuscar.TabIndex = 31;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Gestion_De_Tickets_Autobus.Properties.Resources.buscarcolorizado;
-            this.pictureBox1.Location = new System.Drawing.Point(328, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(248, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(24, 22);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -561,7 +565,7 @@
             this.btnPersonaExistente.BackColor = System.Drawing.Color.Transparent;
             this.btnPersonaExistente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPersonaExistente.ForeColor = System.Drawing.Color.White;
-            this.btnPersonaExistente.Location = new System.Drawing.Point(377, 306);
+            this.btnPersonaExistente.Location = new System.Drawing.Point(299, 306);
             this.btnPersonaExistente.Name = "btnPersonaExistente";
             this.btnPersonaExistente.Size = new System.Drawing.Size(153, 30);
             this.btnPersonaExistente.TabIndex = 34;
@@ -569,12 +573,28 @@
             this.btnPersonaExistente.UseVisualStyleBackColor = false;
             this.btnPersonaExistente.Click += new System.EventHandler(this.btnPersonaExistente_Click);
             // 
+            // btnEditar
+            // 
+            this.btnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(53)))), ((int)(((byte)(80)))));
+            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar.ForeColor = System.Drawing.Color.White;
+            this.btnEditar.Location = new System.Drawing.Point(489, 305);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(103, 31);
+            this.btnEditar.TabIndex = 35;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Visible = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
             // frmEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(822, 482);
+            this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnPersonaExistente);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
@@ -648,5 +668,6 @@
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnPersonaExistente;
+        private System.Windows.Forms.Button btnEditar;
     }
 }

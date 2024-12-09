@@ -35,11 +35,13 @@ namespace Gestion_De_Tickets_Autobus
         {
             if (rbF.Checked) sexo = 1;
             if (rbM.Checked) sexo = 2;
+            if (rbE.Checked) extranjero = true;
 
             Personas Pr = new Personas
             {
                 per_NombreCompleto = txtNombre.Text,
                 per_DNI = mtxtidentidad.Text,
+                per_Extranjero = extranjero,
                 per_Telefono = txtTelefono.Text,
                 per_FechaNacimiento = dtFechaNacimiento.Value,
                 per_Sexo = sexo,
@@ -50,9 +52,11 @@ namespace Gestion_De_Tickets_Autobus
                 per_FechaCreacion = DateTime.Now,
                 usu_UsuarioCreacion = 1 // Id por mientras, acá va el id del usuario logeado
             };
-
-            string resultados = ClientesDAL.InsertarClientes(Pr);
-            MessageBox.Show(resultados, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+          
+                string resultados = ClientesDAL.InsertarClientes(Pr);
+                MessageBox.Show(resultados, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+          
+            
         }
 
         //LISTAR
@@ -101,11 +105,22 @@ namespace Gestion_De_Tickets_Autobus
             {
                 txtNombre.Text = personas.per_NombreCompleto;
                 extranjero = personas.per_Extranjero;
-                mtxtidentidad.Text = personas.per_DNI;
+                if (extranjero == true)
+                {
+                    txtDNIE.Text = personas.per_DNI;
+                    rbE.Checked = true;
+                }
+                if (extranjero == false)
+                {
+                    mtxtidentidad.Text = personas.per_DNI;
+                    rbH.Checked = true;
+                }
                 txtTelefono.Text = personas.per_Telefono;
                 txtEmail.Text = personas.per_Correo;
                 dtFechaNacimiento.Value = personas.per_FechaNacimiento;
                 sexo = personas.per_Sexo;
+                if (sexo == 1) rbF.Checked = true;
+                if (sexo == 2) rbM.Checked = true;
                 cliente = personas.per_Cargo;
                 txtDirE.Text = personas.per_Direccion;
                 cbxpais.SelectedValue = personas.pais_Id;
@@ -125,6 +140,7 @@ namespace Gestion_De_Tickets_Autobus
                 per_NombreCompleto = txtNombre.Text,
                 per_Correo = txtEmail.Text,
                 per_DNI = mtxtidentidad.Text,
+                per_Extranjero = extranjero,
                 per_Telefono = txtTelefono.Text,
                 per_FechaNacimiento = dtFechaNacimiento.Value,
                 per_Sexo = sexo,
@@ -226,7 +242,7 @@ namespace Gestion_De_Tickets_Autobus
             cbxdepto.Enabled = false;
             cbxdepto.Text = "Seleccione un país.";
             cbxciudad.Text = "Seleccione un departamento.";
-            //cbxpais.SelectedIndex = 0;
+            cbxpais.SelectedIndex = 0;
             dtFechaNacimiento.Value = DateTime.Now;
             lblidentidad.Visible = false;
             mtxtidentidad.Visible = false;
@@ -289,6 +305,35 @@ namespace Gestion_De_Tickets_Autobus
             btnEditar.Visible = false;
             btnGuardar.Visible = true;
 
+        }
+
+        //VALIDAR DNI EXISTENTES
+        private void mtxtidentidad_Leave(object sender, EventArgs e)
+        {
+            if (ClientesDAL.ExistenciaDNI(mtxtidentidad.Text))
+            {
+                MessageBox.Show("El DNI ya está registrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                btnGuardar.Enabled = false;
+                return; // Salir del método si el DNI ya está registrado
+            }
+            else
+            {
+                btnGuardar.Enabled = true;
+            }
+        }
+
+        private void txtDNIE_Leave(object sender, EventArgs e)
+        {
+            if (ClientesDAL.ExistenciaDNI(txtDNIE.Text))
+            {
+                MessageBox.Show("El DNI ya está registrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                btnGuardar.Enabled = false;
+                return; // Salir del método si el DNI ya está registrado
+            }
+            else
+            {
+                btnGuardar.Enabled = true;
+            }
         }
         #endregion
 
@@ -361,6 +406,22 @@ namespace Gestion_De_Tickets_Autobus
             txtDNIE.Visible = true;
 
         }
+
+
+        private void dgClientes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+              if (e.RowIndex < 0)
+                return;
+            boton_mostrarEditar();
+            DataGridViewRow fila = dgClientes.Rows[e.RowIndex];
+
+            int per_ID = Convert.ToInt32(fila.Cells["per_ID"].Value);
+            id_filaseleccionada = per_ID;
+
+            LimpiarCampos();
+            Panel_OcultarValidaciones();
+            Editar_CargarDatos(per_ID);
+        }
         #endregion
 
         #region BOTONES
@@ -386,12 +447,12 @@ namespace Gestion_De_Tickets_Autobus
             LimpiarCampos();
             Panel_OcultarValidaciones();
             MensajeAdvertencia_Hide();
+            boton_mostrarGuardar();
         }
 
         private void dgClientes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0)
-                return;
+          
 
             boton_mostrarEditar();
             DataGridViewRow fila = dgClientes.Rows[e.RowIndex];

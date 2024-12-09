@@ -27,6 +27,8 @@ namespace Gestion_De_Tickets_Autobus
         #region VARIABLES
         private int sexo = 0;
         private int empleado = 1;
+        private bool extranjero;
+        private int id_filaseleccionada;
         #endregion
 
         #region CRUD
@@ -35,11 +37,12 @@ namespace Gestion_De_Tickets_Autobus
         {
             if (rbF.Checked) sexo = 1;
             if (rbM.Checked) sexo = 2;
-
+            if (rbE.Checked) extranjero = true;
             Personas PrEmpleados = new Personas
             {
                 per_NombreCompleto = txtNombre.Text,
                 per_DNI = mtxtidentidad.Text,
+                per_Extranjero = extranjero,
                 per_Telefono = txtTelefono.Text,
                 per_FechaNacimiento = dtFechaNacimiento.Value,
                 per_Sexo = sexo,
@@ -50,7 +53,7 @@ namespace Gestion_De_Tickets_Autobus
                 per_FechaCreacion = DateTime.Now,
                 usu_UsuarioCreacion = 1 // Id por mientras, acá va el id del usuario logeado
             };
-
+            
             string resultados = EmpleadosDAL.InsertarEmpleados(PrEmpleados);
             MessageBox.Show(resultados, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -60,6 +63,64 @@ namespace Gestion_De_Tickets_Autobus
             dgEmpleados.DataSource = EmpleadosDAL.ListarEmpleados();
         }
 
+        //CARGAR DATOS EDITAR
+        public void Editar_CargarDatos(int emp_ID)
+        {
+            Personas personas = EmpleadosDAL.Editar_CargarDatos(emp_ID);
+            if (personas != null)
+            {
+                txtNombre.Text = personas.per_NombreCompleto;
+                extranjero = personas.per_Extranjero;
+                if (extranjero == true)
+                {
+                    txtDNIE.Text = personas.per_DNI;
+                    rbE.Checked = true;
+                }
+                if (extranjero == false)
+                {
+                    mtxtidentidad.Text = personas.per_DNI;
+                    rbH.Checked = true;
+                }
+                txtTelefono.Text = personas.per_Telefono;
+                txtEmail.Text = personas.per_Correo;
+                dtFechaNacimiento.Value = personas.per_FechaNacimiento;
+                sexo = personas.per_Sexo;
+                if (sexo == 1) rbF.Checked = true;
+                if (sexo == 2) rbM.Checked = true;
+                empleado = personas.per_Cargo;
+                txtDirE.Text = personas.per_Direccion;
+                cbxpais.SelectedValue = personas.pais_Id;
+                CargarDeptoPorPaisCMB(personas.pais_Id);
+                cbxdepto.SelectedValue = personas.dept_Id;
+                CargarCiudadesporDepartamentoCMB(personas.dept_Id);
+                cbxciudad.SelectedValue = personas.per_Ciudad;
+
+            }
+        }
+        //EDITAR
+        public void Editar_Empleados(int per_Id)
+        {
+            Personas Empleado = new Personas
+            {
+                per_Id = per_Id,
+                per_NombreCompleto = txtNombre.Text,
+                per_Correo = txtEmail.Text,
+                per_DNI = mtxtidentidad.Text,
+                per_Extranjero =extranjero,
+                per_Telefono = txtTelefono.Text,
+                per_FechaNacimiento = dtFechaNacimiento.Value,
+                per_Sexo = sexo,
+                per_Cargo = empleado,
+                per_Ciudad = Convert.ToInt32(cbxciudad.SelectedValue),
+                per_Direccion = txtDirE.Text,
+                usu_UsuarioModificacion = 1, // acá se debe de cambiar cuando se haga el LogIn
+                per_FechaModificacion = DateTime.Now
+            };
+
+            string resultado = EmpleadosDAL.EditarEmpleados(Empleado);
+
+            MessageBox.Show(resultado, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
         #endregion
         public frmEmpleado()
         {
@@ -148,7 +209,7 @@ namespace Gestion_De_Tickets_Autobus
             cbxdepto.Enabled = false;
             cbxdepto.Text = "Seleccione un país.";
             cbxciudad.Text = "Seleccione un departamento.";
-            //cbxpais.SelectedIndex = 0;
+            cbxpais.SelectedIndex = 0;
             dtFechaNacimiento.Value = DateTime.Now;
             lblidentidad.Visible = false;
             mtxtidentidad.Visible = false;
@@ -200,6 +261,49 @@ namespace Gestion_De_Tickets_Autobus
             else
                 erroremail.Clear();
         }
+
+
+        public void boton_mostrarEditar()
+        {
+            btnEditar.Visible = true;
+            btnGuardar.Visible = false;
+        }
+
+        public void boton_mostrarGuardar()
+        {
+            btnEditar.Visible = false;
+            btnGuardar.Visible = true;
+
+        }
+
+        //VALIDAR DNI EXISTENTES
+        private void mtxtidentidad_Leave(object sender, EventArgs e)
+        {
+            if (EmpleadosDAL.ExistenciaDNI(mtxtidentidad.Text))
+            {
+                MessageBox.Show("El DNI ya está registrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                btnGuardar.Enabled = false;
+                return; // Salir del método si el DNI ya está registrado
+            }
+            else
+            {
+                btnGuardar.Enabled = true;
+            }
+        }
+
+        private void txtDNIE_Leave(object sender, EventArgs e)
+        {
+            if (EmpleadosDAL.ExistenciaDNI(txtDNIE.Text))
+            {
+                MessageBox.Show("El DNI ya está registrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                btnGuardar.Enabled = false;
+                return; // Salir del método si el DNI ya está registrado
+            }
+            else
+            {
+                btnGuardar.Enabled = true;
+            }
+        }
         #endregion
 
         #region MENSAJES
@@ -217,30 +321,7 @@ namespace Gestion_De_Tickets_Autobus
 
 
 
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            LimpiarCampos();
-            panel_OcultarValidaciones();
-            MensajeAdvertencia_Hide();
-        }
-
-        private async void btnGuardar_Click(object sender, EventArgs e)
-        {
-            bool esValido = ValidacionesVacio();
-            if (esValido)
-            {
-                InsertarEmpleados();
-                ListarEmpleados();
-                LimpiarCampos();
-
-            }
-            else
-            {
-                MensajeAdvertencia();
-                await Task.Delay(5000);
-                MensajeAdvertencia_Hide();
-            }
-        }
+       
         private void rbH_CheckedChanged(object sender, EventArgs e)
         {
             lblidentidad.Visible = true;
@@ -298,6 +379,19 @@ namespace Gestion_De_Tickets_Autobus
                 cbxciudad.Enabled = false;
             }
         }
+        private void dgEmpleadoss_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            boton_mostrarEditar();
+            DataGridViewRow fila = dgEmpleados.Rows[e.RowIndex];
+
+            int per_ID = Convert.ToInt32(fila.Cells["per_ID"].Value);
+            id_filaseleccionada = per_ID;
+
+            LimpiarCampos();
+            panel_OcultarValidaciones();
+            Editar_CargarDatos(per_ID);
+        }
 
         #region LLENANDO COMBOBOX
         public void CargarPaisesCMB()
@@ -321,11 +415,63 @@ namespace Gestion_De_Tickets_Autobus
         }
         #endregion
 
+        #region  BOTONES
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
+            panel_OcultarValidaciones();
+            MensajeAdvertencia_Hide();
+            boton_mostrarGuardar();
+        }
+
+        private async void btnGuardar_Click(object sender, EventArgs e)
+        {
+            bool esValido = ValidacionesVacio();
+            if (esValido)
+            {
+                InsertarEmpleados();
+                ListarEmpleados();
+                LimpiarCampos();
+
+            }
+            else
+            {
+                MensajeAdvertencia();
+                await Task.Delay(5000);
+                MensajeAdvertencia_Hide();
+            }
+        }
+        private async void btnEditar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bool esValido = ValidacionesVacio();
+                if (esValido)
+                {
+                    Editar_Empleados(id_filaseleccionada);
+                    ListarEmpleados();
+                    LimpiarCampos();
+                    boton_mostrarGuardar();
+                }
+                else
+                {
+                    MensajeAdvertencia();
+                    await Task.Delay(4000);
+                    MensajeAdvertencia_Hide();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void btnPersonaExistente_Click(object sender, EventArgs e)
         {
             frmRegistrarPersonaExistente registroPersonaExistente = new frmRegistrarPersonaExistente();
             registroPersonaExistente.Show();
         }
+        #endregion
     }
 }
 
