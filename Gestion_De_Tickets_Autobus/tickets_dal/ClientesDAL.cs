@@ -91,6 +91,8 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
                 return lista;
             }
         }
+
+        //CARGAR DATOS EDITAR Y EDITAR
             public static Personas Editar_CargarDatos(int clien_ID)
             {
                 Personas clientes = null;
@@ -147,20 +149,23 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
                         SqlCommand cmd = new SqlCommand(ScriptsDatabase.EditarClientes, conexion);
                         cmd.CommandType = CommandType.StoredProcedure;
 
+                        cmd.Parameters.AddWithValue("@per_ID", clientes.per_Id);
                         cmd.Parameters.AddWithValue("@per_NombreCompleto", clientes.per_NombreCompleto);
                         cmd.Parameters.AddWithValue("@per_Correo", clientes.per_Correo);
                         cmd.Parameters.AddWithValue("@per_DNI", clientes.per_DNI);
+                        cmd.Parameters.AddWithValue("@per_extranjero", clientes.per_Extranjero);
                         cmd.Parameters.AddWithValue("@per_Telefono", clientes.per_Telefono);
                         cmd.Parameters.AddWithValue("@per_FechaNacimiento", clientes.per_FechaNacimiento);
                         cmd.Parameters.AddWithValue("@sex_ID", clientes.per_Sexo);
                         cmd.Parameters.AddWithValue("@car_ID", clientes.per_Cargo);
                         cmd.Parameters.AddWithValue("@ciud_Id", clientes.per_Ciudad);
                         cmd.Parameters.AddWithValue("@per_Direccion", clientes.per_Direccion);
-                        cmd.Parameters.AddWithValue("@dept_Id", clientes.dept_Id);
-                        cmd.Parameters.AddWithValue("@pais_Id", clientes.pais_Id);
+                        cmd.Parameters.AddWithValue("@usu_UsuarioModificacion", clientes.usu_UsuarioModificacion);
+                        cmd.Parameters.AddWithValue("@per_FechaModificacion", clientes.per_FechaModificacion);
 
 
-                        mensaje = (string)cmd.ExecuteScalar();
+
+                    mensaje = (string)cmd.ExecuteScalar();
                     }
 
                 }

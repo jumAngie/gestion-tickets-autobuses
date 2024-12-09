@@ -34,11 +34,12 @@ namespace Gestion_De_Tickets_Autobus
         {
             if (rbF.Checked) sexo = 1;
             if (rbM.Checked) sexo = 2;
-
+            if (rbE.Checked) extranjero = true;
             Personas Pr = new Personas
             {
                 per_NombreCompleto = txtNombre.Text,
                 per_DNI = mtxtidentidad.Text,
+                per_Extranjero = extranjero,
                 per_Telefono = txtTelefono.Text,
                 per_FechaNacimiento = dtFechaNacimiento.Value,
                 per_Sexo = sexo,
@@ -103,6 +104,7 @@ namespace Gestion_De_Tickets_Autobus
                 per_NombreCompleto = txtNombre.Text,
                 per_Correo = txtEmail.Text,
                 per_DNI = mtxtidentidad.Text,
+                per_Extranjero = extranjero,
                 per_Telefono = txtTelefono.Text,
                 per_FechaNacimiento = dtFechaNacimiento.Value,
                 per_Sexo = sexo,
@@ -204,7 +206,7 @@ namespace Gestion_De_Tickets_Autobus
             cbxdepto.Enabled = false;
             cbxdepto.Text = "Seleccione un país.";
             cbxciudad.Text = "Seleccione un departamento.";
-            //cbxpais.SelectedIndex = 0;
+            cbxpais.SelectedIndex = 0;
             dtFechaNacimiento.Value = DateTime.Now;
             lblidentidad.Visible = false;
             mtxtidentidad.Visible = false;
@@ -339,6 +341,21 @@ namespace Gestion_De_Tickets_Autobus
             txtDNIE.Visible = true;
 
         }
+
+
+        private void dgClientes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            boton_mostrarEditar();
+            DataGridViewRow fila = dgClientes.Rows[e.RowIndex];
+
+            int per_ID = Convert.ToInt32(fila.Cells["per_ID"].Value);
+            id_filaseleccionada = per_ID;
+
+            LimpiarCampos();
+            Panel_OcultarValidaciones();
+            Editar_CargarDatos(per_ID);
+        }
         #endregion
 
         #region BOTONES
@@ -364,21 +381,10 @@ namespace Gestion_De_Tickets_Autobus
             LimpiarCampos();
             Panel_OcultarValidaciones();
             MensajeAdvertencia_Hide();
+            boton_mostrarGuardar();
         }
 
-        private void dgClientes_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-            boton_mostrarEditar();
-            DataGridViewRow fila = dgClientes.Rows[e.RowIndex];
-
-            int per_ID = Convert.ToInt32(fila.Cells["per_ID"].Value);
-            id_filaseleccionada = per_ID;
-
-            LimpiarCampos();
-            Panel_OcultarValidaciones();
-            Editar_CargarDatos(per_ID);
-        }
+       
 
 
         private async void btnEditar_Click(object sender, EventArgs e)

@@ -506,7 +506,7 @@
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(702, 301);
+            this.btnCancelar.Location = new System.Drawing.Point(702, 306);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(103, 31);
             this.btnCancelar.TabIndex = 29;
@@ -520,7 +520,7 @@
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar.Location = new System.Drawing.Point(593, 301);
+            this.btnGuardar.Location = new System.Drawing.Point(593, 306);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(103, 31);
             this.btnGuardar.TabIndex = 28;
@@ -533,7 +533,7 @@
             this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscar.Location = new System.Drawing.Point(3, 3);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(319, 22);
+            this.txtBuscar.Size = new System.Drawing.Size(248, 22);
             this.txtBuscar.TabIndex = 31;
             // 
             // panel1
@@ -544,13 +544,13 @@
             this.panel1.Controls.Add(this.txtBuscar);
             this.panel1.Location = new System.Drawing.Point(19, 306);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(357, 30);
+            this.panel1.Size = new System.Drawing.Size(292, 30);
             this.panel1.TabIndex = 32;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Gestion_De_Tickets_Autobus.Properties.Resources.buscarcolorizado;
-            this.pictureBox1.Location = new System.Drawing.Point(328, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(257, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(24, 22);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -563,7 +563,7 @@
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.ForeColor = System.Drawing.Color.White;
-            this.btnEditar.Location = new System.Drawing.Point(470, 297);
+            this.btnEditar.Location = new System.Drawing.Point(484, 305);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(103, 31);
             this.btnEditar.TabIndex = 33;
