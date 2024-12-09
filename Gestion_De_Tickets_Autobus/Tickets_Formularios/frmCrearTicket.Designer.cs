@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label16 = new System.Windows.Forms.Label();
+            this.lblPrecio = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.cmbSalida = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cmbAutobus = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cbmDestino = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -92,7 +92,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.cmbClientes = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -105,11 +105,11 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label16);
+            this.groupBox1.Controls.Add(this.lblPrecio);
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.cmbSalida);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.comboBox2);
+            this.groupBox1.Controls.Add(this.cmbAutobus);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.cbmDestino);
             this.groupBox1.Controls.Add(this.label1);
@@ -121,17 +121,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Tickets";
             // 
-            // label16
+            // lblPrecio
             // 
-            this.label16.AutoSize = true;
-            this.label16.BackColor = System.Drawing.Color.White;
-            this.label16.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.label16.Location = new System.Drawing.Point(331, 101);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(45, 19);
-            this.label16.TabIndex = 6;
-            this.label16.Text = "0.00";
+            this.lblPrecio.AutoSize = true;
+            this.lblPrecio.BackColor = System.Drawing.Color.White;
+            this.lblPrecio.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.lblPrecio.Location = new System.Drawing.Point(331, 101);
+            this.lblPrecio.Name = "lblPrecio";
+            this.lblPrecio.Size = new System.Drawing.Size(45, 19);
+            this.lblPrecio.TabIndex = 6;
+            this.lblPrecio.Text = "0.00";
             // 
             // label15
             // 
@@ -164,14 +164,15 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Salida:";
             // 
-            // comboBox2
+            // cmbAutobus
             // 
-            this.comboBox2.Enabled = false;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(64, 59);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(322, 21);
-            this.comboBox2.TabIndex = 3;
+            this.cmbAutobus.Enabled = false;
+            this.cmbAutobus.FormattingEnabled = true;
+            this.cmbAutobus.Location = new System.Drawing.Point(64, 59);
+            this.cmbAutobus.Name = "cmbAutobus";
+            this.cmbAutobus.Size = new System.Drawing.Size(322, 21);
+            this.cmbAutobus.TabIndex = 3;
+            this.cmbAutobus.SelectedIndexChanged += new System.EventHandler(this.cmbAutobus_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -191,6 +192,7 @@
             this.cbmDestino.Name = "cbmDestino";
             this.cbmDestino.Size = new System.Drawing.Size(129, 21);
             this.cbmDestino.TabIndex = 1;
+            this.cbmDestino.SelectedIndexChanged += new System.EventHandler(this.cbmDestino_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -774,7 +776,7 @@
             this.groupBox3.Controls.Add(this.panel2);
             this.groupBox3.Controls.Add(this.panel1);
             this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Controls.Add(this.comboBox6);
+            this.groupBox3.Controls.Add(this.cmbClientes);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.ForeColor = System.Drawing.Color.White;
             this.groupBox3.Location = new System.Drawing.Point(422, 12);
@@ -989,13 +991,13 @@
             this.label5.TabIndex = 2;
             this.label5.Text = "Método de Pago:";
             // 
-            // comboBox6
+            // cmbClientes
             // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(79, 29);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(271, 21);
-            this.comboBox6.TabIndex = 1;
+            this.cmbClientes.FormattingEnabled = true;
+            this.cmbClientes.Location = new System.Drawing.Point(79, 29);
+            this.cmbClientes.Name = "cmbClientes";
+            this.cmbClientes.Size = new System.Drawing.Size(271, 21);
+            this.cmbClientes.TabIndex = 1;
             // 
             // label6
             // 
@@ -1045,12 +1047,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbSalida;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cmbAutobus;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.ComboBox cmbClientes;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel5;
@@ -1104,7 +1106,7 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label lblPrecio;
         private System.Windows.Forms.Label label15;
     }
 }

@@ -85,5 +85,56 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
             return lista;
         }
 
+        //COMBOBOX
+        public DataTable CargarAutobuses(int pre_ID)
+        {
+            DataTable dt = new DataTable();
+
+            using (SqlConnection conexion = BDConnection.ObtenerConexion())
+            {
+                conexion.Open();
+                using (SqlCommand cmd = new SqlCommand(ScriptsDatabase.Autobuses_CMBX, conexion))
+                {
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@pre_ID", pre_ID);
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(dt);
+                }
+            }
+
+            return dt;
+        }
+
+        public static string Autobus_Precio(int audes_ID)
+        {
+            string mensaje = "";
+            try
+            {
+                using (SqlConnection conexion = BDConnection.ObtenerConexion())
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand(ScriptsDatabase.Autobus_Precio, conexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@audes_ID", audes_ID);
+
+                    object resultado = cmd.ExecuteScalar();
+                    mensaje = Convert.ToString(resultado);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                mensaje = "Error: " + ex.Message;
+                throw;
+            }
+
+            return mensaje;
+
+
+        }
+
     }
 }

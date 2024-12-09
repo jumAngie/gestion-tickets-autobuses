@@ -36,24 +36,12 @@ AS
 	END CATCH
 
 ----------------------------------------------------------------------------------------
---- ESTE ES EL ID DE MI SALIDA
-DECLARE @DES_ID INT = 6
-
----- CONDICIONAR LOS DESTINOS DEPENDIENDO DE LAS SALIDAS --- SERÁ MOSTRADO EN UN COMBOBOX EN VISUAL
-SELECT	pre_ID,des_IDdestino, T2.des_Descripcion, pre_precio  FROM Tick.tbPrecio_Destino T1 INNER JOIN Tick.tbDestino T2
-ON		T1.des_IDdestino = T2.des_ID
-WHERE	des_IDsalida = @DES_ID
-
 ---- GUARDO EL VALOR DE MI DESTINO
 DECLARE @PRE_ID INT = 1
 
 ---- CARGO LOS BUSES QUE CONTIENEN MI RUTA DESEADO Y CARGO INFORMACION DE ESE BUS + HORARIO --- SERÁ MOSTRADO EN UN COMBOBOX EN VISUAL
-	SELECT		T1.audes_ID,
-				T3.aut_Matricula, 
-				T4.hor_hora, 
-				CASE WHEN aut_esVIP = 1 THEN 'VIP'
-				ELSE 'Normal'
-				END AS aut_esVIP 
+	SELECT		audes_ID,
+				T4.hor_hora + ' - ' + T3.aut_Matricula + ' - ' + CASE WHEN aut_esVIP = 1 THEN 'VIP' ELSE 'Normal' END AS  'Autobus'
 	FROM	 Tick.tbAuto_Hora_Preci_Desti T1 INNER JOIN Tick.tbAutobus_Horario T2
 	ON       T1.auh_ID = T2.auh_ID		 INNER JOIN Tick.tbAutobuses T3
 	ON       T2.aut_ID = T3.aut_ID		 INNER JOIN Tick.tbHorario T4

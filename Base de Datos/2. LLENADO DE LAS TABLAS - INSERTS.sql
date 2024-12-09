@@ -457,7 +457,7 @@ VALUES                           (1, 2, 10.00,1, GETDATE())
 GO
 ------------ UNAH CORTES - COLONIA SATELITE
 INSERT INTO Tick.tbPrecio_Destino(des_IDsalida, des_IDdestino, pre_precio, usu_UsuarioCreacion, pre_FechaCreacion)
-VALUES                           (1, 2, 35.00,1, GETDATE())                 
+VALUES                           (1, 3, 35.00,1, GETDATE())                 
 GO
 ------------ UNAH CORTES - EXPOCENTRO
 INSERT INTO Tick.tbPrecio_Destino(des_IDsalida, des_IDdestino, pre_precio, usu_UsuarioCreacion, pre_FechaCreacion)
@@ -465,12 +465,15 @@ VALUES                           (1, 4, 15.00,1, GETDATE())
 GO
 ------------ UNAH CORTES - EL PROGRESO
 INSERT INTO Tick.tbPrecio_Destino(des_IDsalida, des_IDdestino, pre_precio, usu_UsuarioCreacion, pre_FechaCreacion)
-VALUES                           (1, 4, 45.00,1, GETDATE())                 
+VALUES                           (1, 7, 45.00,1, GETDATE())                 
 GO
 ------------ UNAH CORTES - LA LIMA
 INSERT INTO Tick.tbPrecio_Destino(des_IDsalida, des_IDdestino, pre_precio, usu_UsuarioCreacion, pre_FechaCreacion)
 VALUES                           (1, 6, 40.00,1, GETDATE())                 
 GO
+
+SELECT * FROM Tick.tbPrecio_Destino
+SELECT * FROM Tick.tbDestino
 
 --HORARIO
 INSERT INTO Tick.tbHorario(hor_identificador, hor_ruta, hor_hora, usu_UsuarioCreacion, hor_FechaCreacion)

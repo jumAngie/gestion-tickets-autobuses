@@ -111,4 +111,31 @@ BEGIN
 ON		T1.des_IDdestino = T2.des_ID
 WHERE	des_IDsalida = @des_ID
 END
-
+GO
+--- AUTOBUSES
+CREATE OR ALTER PROCEDURE Tick.Autobus_CMB
+@pre_ID INT
+AS
+BEGIN
+	SELECT '0' AS 'audes_ID', ' - Seleccione una opción -' AS 'Autobus'
+	UNION ALL
+	SELECT		audes_ID,
+				T4.hor_hora + ' - ' + T5.mar_Descripcion + '/' + T6.mod_Descripcion +  ' - ' + CASE WHEN aut_esVIP = 1 THEN 'VIP' ELSE 'Normal' END AS  'Autobus'
+	FROM	 Tick.tbAuto_Hora_Preci_Desti T1 INNER JOIN Tick.tbAutobus_Horario T2
+	ON       T1.auh_ID = T2.auh_ID		 INNER JOIN Tick.tbAutobuses T3
+	ON       T2.aut_ID = T3.aut_ID		 INNER JOIN Tick.tbHorario T4
+	ON		 T2.hor_ID = T4.hor_ID		 INNER JOIN Tick.tbMarca T5
+	ON		 T3.mar_ID = T5.mar_ID		 INNER JOIN Tick.tbModelo T6
+	ON		 T3.mod_ID = T6.mod_ID 
+	WHERE pre_ID = @pre_ID
+END
+GO
+CREATE OR ALTER PROCEDURE Tick.Autobus_Precio
+@pre_ID INT
+AS
+BEGIN
+	SELECT	 T2.pre_precio
+	FROM	 Tick.tbAuto_Hora_Preci_Desti T1 INNER JOIN Tick.tbPrecio_Destino T2
+	ON       T1.pre_ID = T2.pre_ID																																															
+	WHERE	 T1.pre_ID = @pre_ID
+END													
