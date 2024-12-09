@@ -54,6 +54,7 @@
     <Compile Include="Tickets_DAL\CiudadesDAL.cs" />
     <Compile Include="Tickets_DAL\ClientesDAL.cs" />
     <Compile Include="Tickets_DAL\DeptosDAL.cs" />
+    <Compile Include="Tickets_DAL\DestinosDAL.cs" />
     <Compile Include="Tickets_DAL\EmpleadosDAL.cs" />
     <Compile Include="Tickets_DAL\MarcasDAL.cs" />
     <Compile Include="Tickets_DAL\ModelosDAL.cs" />

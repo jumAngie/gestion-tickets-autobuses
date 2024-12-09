@@ -68,3 +68,14 @@ BEGIN
 	SELECT hor_ID, hor_identificador, hor_Ruta, hor_hora FROM Tick.tbHorario
 END
 
+GO
+--- Salidas
+CREATE OR ALTER PROCEDURE Gral.Salidas_CMB
+AS
+	BEGIN
+			SELECT '0' AS 'des_ID', ' - Seleccione una opción -' AS 'des_Descripcion'
+			UNION ALL
+			SELECT des_ID, des_Descripcion FROM Tick.tbDestino 
+	END
+GO
+

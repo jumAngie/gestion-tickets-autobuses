@@ -30,13 +30,14 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rbtEsVIP = new System.Windows.Forms.RadioButton();
+            this.rbtNormal = new System.Windows.Forms.RadioButton();
+            this.label5 = new System.Windows.Forms.Label();
             this.cbxMarcas = new System.Windows.Forms.ComboBox();
             this.cbxModelo = new System.Windows.Forms.ComboBox();
             this.pnlModelo = new System.Windows.Forms.Panel();
-            this.rbtNormal = new System.Windows.Forms.RadioButton();
             this.numAsientos = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtMatricula = new System.Windows.Forms.TextBox();
@@ -72,7 +73,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.rbtEsVIP = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numAsientos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -119,6 +119,43 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información General";
             // 
+            // rbtEsVIP
+            // 
+            this.rbtEsVIP.AutoSize = true;
+            this.rbtEsVIP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtEsVIP.ForeColor = System.Drawing.Color.White;
+            this.rbtEsVIP.Location = new System.Drawing.Point(225, 167);
+            this.rbtEsVIP.Name = "rbtEsVIP";
+            this.rbtEsVIP.Size = new System.Drawing.Size(46, 20);
+            this.rbtEsVIP.TabIndex = 4;
+            this.rbtEsVIP.TabStop = true;
+            this.rbtEsVIP.Text = "VIP";
+            this.rbtEsVIP.UseVisualStyleBackColor = true;
+            // 
+            // rbtNormal
+            // 
+            this.rbtNormal.AutoSize = true;
+            this.rbtNormal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtNormal.ForeColor = System.Drawing.Color.White;
+            this.rbtNormal.Location = new System.Drawing.Point(140, 167);
+            this.rbtNormal.Name = "rbtNormal";
+            this.rbtNormal.Size = new System.Drawing.Size(69, 20);
+            this.rbtNormal.TabIndex = 4;
+            this.rbtNormal.TabStop = true;
+            this.rbtNormal.Text = "Normal";
+            this.rbtNormal.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(20, 169);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(83, 16);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "Exclusividad";
+            // 
             // cbxMarcas
             // 
             this.cbxMarcas.FormattingEnabled = true;
@@ -145,22 +182,14 @@
             this.pnlModelo.TabIndex = 22;
             this.pnlModelo.Visible = false;
             // 
-            // rbtNormal
-            // 
-            this.rbtNormal.AutoSize = true;
-            this.rbtNormal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtNormal.ForeColor = System.Drawing.Color.White;
-            this.rbtNormal.Location = new System.Drawing.Point(140, 167);
-            this.rbtNormal.Name = "rbtNormal";
-            this.rbtNormal.Size = new System.Drawing.Size(69, 20);
-            this.rbtNormal.TabIndex = 4;
-            this.rbtNormal.TabStop = true;
-            this.rbtNormal.Text = "Normal";
-            this.rbtNormal.UseVisualStyleBackColor = true;
-            // 
             // numAsientos
             // 
             this.numAsientos.Location = new System.Drawing.Point(225, 123);
+            this.numAsientos.Maximum = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
             this.numAsientos.Name = "numAsientos";
             this.numAsientos.Size = new System.Drawing.Size(175, 22);
             this.numAsientos.TabIndex = 11;
@@ -175,17 +204,6 @@
             this.label2.Size = new System.Drawing.Size(45, 16);
             this.label2.TabIndex = 6;
             this.label2.Text = "Marca";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(20, 169);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(83, 16);
-            this.label5.TabIndex = 27;
-            this.label5.Text = "Exclusividad";
             // 
             // label3
             // 
@@ -564,19 +582,6 @@
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(319, 22);
             this.txtBuscar.TabIndex = 1;
-            // 
-            // rbtEsVIP
-            // 
-            this.rbtEsVIP.AutoSize = true;
-            this.rbtEsVIP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtEsVIP.ForeColor = System.Drawing.Color.White;
-            this.rbtEsVIP.Location = new System.Drawing.Point(225, 167);
-            this.rbtEsVIP.Name = "rbtEsVIP";
-            this.rbtEsVIP.Size = new System.Drawing.Size(46, 20);
-            this.rbtEsVIP.TabIndex = 4;
-            this.rbtEsVIP.TabStop = true;
-            this.rbtEsVIP.Text = "VIP";
-            this.rbtEsVIP.UseVisualStyleBackColor = true;
             // 
             // frmAutobuses
             // 

@@ -39,10 +39,12 @@ namespace Gestion_De_Tickets_Autobus
         public static string MetodosPago_CMBX = "Tick.MetodosPago_CMB";
         public static string Modelos_CMBX = "Tick.Modelos_CMB";
         public static string Marcas_CMBX = "Tick.Marcas_CMB";
+        public static string Salidad_CMBX = "Gral.Salidas_CMB";
         #endregion
 
         #region Validaciones
         public static string ExistenciaDNI = "Gral.ValidarExistenciaDNI";
+        public static string RegistrarPersonaExistente = "Tick.ActualizarCargo";
         #endregion
 
         #region Tickets Encabezado

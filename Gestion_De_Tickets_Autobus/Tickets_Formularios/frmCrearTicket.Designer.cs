@@ -29,19 +29,34 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.cmbSalida = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.button31 = new System.Windows.Forms.Button();
+            this.button26 = new System.Windows.Forms.Button();
             this.button19 = new System.Windows.Forms.Button();
             this.button20 = new System.Windows.Forms.Button();
+            this.button30 = new System.Windows.Forms.Button();
             this.button21 = new System.Windows.Forms.Button();
+            this.button25 = new System.Windows.Forms.Button();
+            this.button29 = new System.Windows.Forms.Button();
             this.button22 = new System.Windows.Forms.Button();
+            this.button24 = new System.Windows.Forms.Button();
+            this.button28 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
+            this.button23 = new System.Windows.Forms.Button();
+            this.button27 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
@@ -79,21 +94,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.comboBox6 = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button23 = new System.Windows.Forms.Button();
-            this.button24 = new System.Windows.Forms.Button();
-            this.button25 = new System.Windows.Forms.Button();
-            this.button26 = new System.Windows.Forms.Button();
-            this.button27 = new System.Windows.Forms.Button();
-            this.button28 = new System.Windows.Forms.Button();
-            this.button29 = new System.Windows.Forms.Button();
-            this.button30 = new System.Windows.Forms.Button();
-            this.button31 = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -107,7 +107,7 @@
             // 
             this.groupBox1.Controls.Add(this.label16);
             this.groupBox1.Controls.Add(this.label15);
-            this.groupBox1.Controls.Add(this.comboBox3);
+            this.groupBox1.Controls.Add(this.cmbSalida);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.comboBox2);
             this.groupBox1.Controls.Add(this.label2);
@@ -121,13 +121,37 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Tickets";
             // 
-            // comboBox3
+            // label16
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(70, 28);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(124, 21);
-            this.comboBox3.TabIndex = 5;
+            this.label16.AutoSize = true;
+            this.label16.BackColor = System.Drawing.Color.White;
+            this.label16.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.label16.Location = new System.Drawing.Point(331, 101);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(45, 19);
+            this.label16.TabIndex = 6;
+            this.label16.Text = "0.00";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.White;
+            this.label15.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.label15.Location = new System.Drawing.Point(236, 101);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(72, 19);
+            this.label15.TabIndex = 2;
+            this.label15.Text = "Precio:";
+            // 
+            // cmbSalida
+            // 
+            this.cmbSalida.FormattingEnabled = true;
+            this.cmbSalida.Location = new System.Drawing.Point(70, 28);
+            this.cmbSalida.Name = "cmbSalida";
+            this.cmbSalida.Size = new System.Drawing.Size(124, 21);
+            this.cmbSalida.TabIndex = 5;
             // 
             // label3
             // 
@@ -218,6 +242,74 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Asientos";
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(79, 33);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(246, 16);
+            this.label14.TabIndex = 20;
+            this.label14.Text = "Seleccione 1 o más asientos a reservar:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.White;
+            this.label13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Maroon;
+            this.label13.Location = new System.Drawing.Point(213, 16);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(95, 13);
+            this.label13.TabIndex = 19;
+            this.label13.Text = "Asiento Ocupado  ";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.White;
+            this.label12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.ForestGreen;
+            this.label12.Location = new System.Drawing.Point(95, 16);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(94, 13);
+            this.label12.TabIndex = 19;
+            this.label12.Text = "Asiento Disponible";
+            // 
+            // button31
+            // 
+            this.button31.BackColor = System.Drawing.Color.ForestGreen;
+            this.button31.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button31.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button31.ForeColor = System.Drawing.Color.White;
+            this.button31.Location = new System.Drawing.Point(311, 237);
+            this.button31.Name = "button31";
+            this.button31.Size = new System.Drawing.Size(65, 30);
+            this.button31.TabIndex = 18;
+            this.button31.Text = "Asiento 4";
+            this.button31.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button31.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button31.UseVisualStyleBackColor = false;
+            this.button31.Click += new System.EventHandler(this.btnAsiento_Click);
+            // 
+            // button26
+            // 
+            this.button26.BackColor = System.Drawing.Color.ForestGreen;
+            this.button26.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button26.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button26.ForeColor = System.Drawing.Color.White;
+            this.button26.Location = new System.Drawing.Point(311, 201);
+            this.button26.Name = "button26";
+            this.button26.Size = new System.Drawing.Size(65, 30);
+            this.button26.TabIndex = 18;
+            this.button26.Text = "Asiento 4";
+            this.button26.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button26.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button26.UseVisualStyleBackColor = false;
+            this.button26.Click += new System.EventHandler(this.btnAsiento_Click);
+            // 
             // button19
             // 
             this.button19.BackColor = System.Drawing.Color.ForestGreen;
@@ -250,6 +342,22 @@
             this.button20.UseVisualStyleBackColor = false;
             this.button20.Click += new System.EventHandler(this.btnAsiento_Click);
             // 
+            // button30
+            // 
+            this.button30.BackColor = System.Drawing.Color.ForestGreen;
+            this.button30.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button30.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button30.ForeColor = System.Drawing.Color.White;
+            this.button30.Location = new System.Drawing.Point(240, 237);
+            this.button30.Name = "button30";
+            this.button30.Size = new System.Drawing.Size(65, 30);
+            this.button30.TabIndex = 13;
+            this.button30.Text = "Asiento 4";
+            this.button30.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button30.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button30.UseVisualStyleBackColor = false;
+            this.button30.Click += new System.EventHandler(this.btnAsiento_Click);
+            // 
             // button21
             // 
             this.button21.BackColor = System.Drawing.Color.ForestGreen;
@@ -265,6 +373,38 @@
             this.button21.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button21.UseVisualStyleBackColor = false;
             this.button21.Click += new System.EventHandler(this.btnAsiento_Click);
+            // 
+            // button25
+            // 
+            this.button25.BackColor = System.Drawing.Color.ForestGreen;
+            this.button25.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button25.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button25.ForeColor = System.Drawing.Color.White;
+            this.button25.Location = new System.Drawing.Point(240, 201);
+            this.button25.Name = "button25";
+            this.button25.Size = new System.Drawing.Size(65, 30);
+            this.button25.TabIndex = 13;
+            this.button25.Text = "Asiento 4";
+            this.button25.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button25.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button25.UseVisualStyleBackColor = false;
+            this.button25.Click += new System.EventHandler(this.btnAsiento_Click);
+            // 
+            // button29
+            // 
+            this.button29.BackColor = System.Drawing.Color.ForestGreen;
+            this.button29.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button29.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button29.ForeColor = System.Drawing.Color.White;
+            this.button29.Location = new System.Drawing.Point(169, 237);
+            this.button29.Name = "button29";
+            this.button29.Size = new System.Drawing.Size(65, 30);
+            this.button29.TabIndex = 14;
+            this.button29.Text = "Asiento 3";
+            this.button29.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button29.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button29.UseVisualStyleBackColor = false;
+            this.button29.Click += new System.EventHandler(this.btnAsiento_Click);
             // 
             // button22
             // 
@@ -282,6 +422,38 @@
             this.button22.UseVisualStyleBackColor = false;
             this.button22.Click += new System.EventHandler(this.btnAsiento_Click);
             // 
+            // button24
+            // 
+            this.button24.BackColor = System.Drawing.Color.ForestGreen;
+            this.button24.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button24.ForeColor = System.Drawing.Color.White;
+            this.button24.Location = new System.Drawing.Point(169, 201);
+            this.button24.Name = "button24";
+            this.button24.Size = new System.Drawing.Size(65, 30);
+            this.button24.TabIndex = 14;
+            this.button24.Text = "Asiento 3";
+            this.button24.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button24.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button24.UseVisualStyleBackColor = false;
+            this.button24.Click += new System.EventHandler(this.btnAsiento_Click);
+            // 
+            // button28
+            // 
+            this.button28.BackColor = System.Drawing.Color.ForestGreen;
+            this.button28.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button28.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button28.ForeColor = System.Drawing.Color.White;
+            this.button28.Location = new System.Drawing.Point(98, 237);
+            this.button28.Name = "button28";
+            this.button28.Size = new System.Drawing.Size(65, 30);
+            this.button28.TabIndex = 12;
+            this.button28.Text = "Asiento 2";
+            this.button28.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button28.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button28.UseVisualStyleBackColor = false;
+            this.button28.Click += new System.EventHandler(this.btnAsiento_Click);
+            // 
             // button15
             // 
             this.button15.BackColor = System.Drawing.Color.ForestGreen;
@@ -298,6 +470,37 @@
             this.button15.UseVisualStyleBackColor = false;
             this.button15.Click += new System.EventHandler(this.btnAsiento_Click);
             // 
+            // button23
+            // 
+            this.button23.BackColor = System.Drawing.Color.ForestGreen;
+            this.button23.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button23.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button23.ForeColor = System.Drawing.Color.White;
+            this.button23.Location = new System.Drawing.Point(98, 201);
+            this.button23.Name = "button23";
+            this.button23.Size = new System.Drawing.Size(65, 30);
+            this.button23.TabIndex = 12;
+            this.button23.Text = "Asiento 2";
+            this.button23.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button23.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button23.UseVisualStyleBackColor = false;
+            this.button23.Click += new System.EventHandler(this.btnAsiento_Click);
+            // 
+            // button27
+            // 
+            this.button27.BackColor = System.Drawing.Color.ForestGreen;
+            this.button27.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button27.ForeColor = System.Drawing.Color.White;
+            this.button27.Location = new System.Drawing.Point(27, 237);
+            this.button27.Name = "button27";
+            this.button27.Size = new System.Drawing.Size(65, 30);
+            this.button27.TabIndex = 11;
+            this.button27.Text = "Asiento 1";
+            this.button27.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button27.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button27.UseVisualStyleBackColor = false;
+            // 
             // button16
             // 
             this.button16.BackColor = System.Drawing.Color.ForestGreen;
@@ -313,6 +516,21 @@
             this.button16.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button16.UseVisualStyleBackColor = false;
             this.button16.Click += new System.EventHandler(this.btnAsiento_Click);
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.ForestGreen;
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(27, 201);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(65, 30);
+            this.button3.TabIndex = 11;
+            this.button3.Text = "Asiento 1";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button3.UseVisualStyleBackColor = false;
             // 
             // button17
             // 
@@ -562,7 +780,6 @@
             this.groupBox3.TabIndex = 6;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Facturación";
-            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
             // label11
             // 
@@ -787,224 +1004,6 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "Cliente:";
             // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.ForestGreen;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(27, 201);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(65, 30);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "Asiento 1";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // button23
-            // 
-            this.button23.BackColor = System.Drawing.Color.ForestGreen;
-            this.button23.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button23.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button23.ForeColor = System.Drawing.Color.White;
-            this.button23.Location = new System.Drawing.Point(98, 201);
-            this.button23.Name = "button23";
-            this.button23.Size = new System.Drawing.Size(65, 30);
-            this.button23.TabIndex = 12;
-            this.button23.Text = "Asiento 2";
-            this.button23.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button23.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button23.UseVisualStyleBackColor = false;
-            this.button23.Click += new System.EventHandler(this.btnAsiento_Click);
-            // 
-            // button24
-            // 
-            this.button24.BackColor = System.Drawing.Color.ForestGreen;
-            this.button24.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button24.ForeColor = System.Drawing.Color.White;
-            this.button24.Location = new System.Drawing.Point(169, 201);
-            this.button24.Name = "button24";
-            this.button24.Size = new System.Drawing.Size(65, 30);
-            this.button24.TabIndex = 14;
-            this.button24.Text = "Asiento 3";
-            this.button24.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button24.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button24.UseVisualStyleBackColor = false;
-            this.button24.Click += new System.EventHandler(this.btnAsiento_Click);
-            // 
-            // button25
-            // 
-            this.button25.BackColor = System.Drawing.Color.ForestGreen;
-            this.button25.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button25.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button25.ForeColor = System.Drawing.Color.White;
-            this.button25.Location = new System.Drawing.Point(240, 201);
-            this.button25.Name = "button25";
-            this.button25.Size = new System.Drawing.Size(65, 30);
-            this.button25.TabIndex = 13;
-            this.button25.Text = "Asiento 4";
-            this.button25.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button25.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button25.UseVisualStyleBackColor = false;
-            this.button25.Click += new System.EventHandler(this.btnAsiento_Click);
-            // 
-            // button26
-            // 
-            this.button26.BackColor = System.Drawing.Color.ForestGreen;
-            this.button26.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button26.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button26.ForeColor = System.Drawing.Color.White;
-            this.button26.Location = new System.Drawing.Point(311, 201);
-            this.button26.Name = "button26";
-            this.button26.Size = new System.Drawing.Size(65, 30);
-            this.button26.TabIndex = 18;
-            this.button26.Text = "Asiento 4";
-            this.button26.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button26.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button26.UseVisualStyleBackColor = false;
-            this.button26.Click += new System.EventHandler(this.btnAsiento_Click);
-            // 
-            // button27
-            // 
-            this.button27.BackColor = System.Drawing.Color.ForestGreen;
-            this.button27.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button27.ForeColor = System.Drawing.Color.White;
-            this.button27.Location = new System.Drawing.Point(27, 237);
-            this.button27.Name = "button27";
-            this.button27.Size = new System.Drawing.Size(65, 30);
-            this.button27.TabIndex = 11;
-            this.button27.Text = "Asiento 1";
-            this.button27.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button27.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button27.UseVisualStyleBackColor = false;
-            // 
-            // button28
-            // 
-            this.button28.BackColor = System.Drawing.Color.ForestGreen;
-            this.button28.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button28.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button28.ForeColor = System.Drawing.Color.White;
-            this.button28.Location = new System.Drawing.Point(98, 237);
-            this.button28.Name = "button28";
-            this.button28.Size = new System.Drawing.Size(65, 30);
-            this.button28.TabIndex = 12;
-            this.button28.Text = "Asiento 2";
-            this.button28.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button28.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button28.UseVisualStyleBackColor = false;
-            this.button28.Click += new System.EventHandler(this.btnAsiento_Click);
-            // 
-            // button29
-            // 
-            this.button29.BackColor = System.Drawing.Color.ForestGreen;
-            this.button29.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button29.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button29.ForeColor = System.Drawing.Color.White;
-            this.button29.Location = new System.Drawing.Point(169, 237);
-            this.button29.Name = "button29";
-            this.button29.Size = new System.Drawing.Size(65, 30);
-            this.button29.TabIndex = 14;
-            this.button29.Text = "Asiento 3";
-            this.button29.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button29.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button29.UseVisualStyleBackColor = false;
-            this.button29.Click += new System.EventHandler(this.btnAsiento_Click);
-            // 
-            // button30
-            // 
-            this.button30.BackColor = System.Drawing.Color.ForestGreen;
-            this.button30.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button30.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button30.ForeColor = System.Drawing.Color.White;
-            this.button30.Location = new System.Drawing.Point(240, 237);
-            this.button30.Name = "button30";
-            this.button30.Size = new System.Drawing.Size(65, 30);
-            this.button30.TabIndex = 13;
-            this.button30.Text = "Asiento 4";
-            this.button30.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button30.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button30.UseVisualStyleBackColor = false;
-            this.button30.Click += new System.EventHandler(this.btnAsiento_Click);
-            // 
-            // button31
-            // 
-            this.button31.BackColor = System.Drawing.Color.ForestGreen;
-            this.button31.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button31.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button31.ForeColor = System.Drawing.Color.White;
-            this.button31.Location = new System.Drawing.Point(311, 237);
-            this.button31.Name = "button31";
-            this.button31.Size = new System.Drawing.Size(65, 30);
-            this.button31.TabIndex = 18;
-            this.button31.Text = "Asiento 4";
-            this.button31.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button31.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button31.UseVisualStyleBackColor = false;
-            this.button31.Click += new System.EventHandler(this.btnAsiento_Click);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.White;
-            this.label12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.ForestGreen;
-            this.label12.Location = new System.Drawing.Point(95, 16);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(94, 13);
-            this.label12.TabIndex = 19;
-            this.label12.Text = "Asiento Disponible";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.White;
-            this.label13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.Maroon;
-            this.label13.Location = new System.Drawing.Point(213, 16);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(95, 13);
-            this.label13.TabIndex = 19;
-            this.label13.Text = "Asiento Ocupado  ";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(79, 33);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(246, 16);
-            this.label14.TabIndex = 20;
-            this.label14.Text = "Seleccione 1 o más asientos a reservar:";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.White;
-            this.label15.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.label15.Location = new System.Drawing.Point(236, 101);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(72, 19);
-            this.label15.TabIndex = 2;
-            this.label15.Text = "Precio:";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.BackColor = System.Drawing.Color.White;
-            this.label16.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.label16.Location = new System.Drawing.Point(331, 101);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(45, 19);
-            this.label16.TabIndex = 6;
-            this.label16.Text = "0.00";
-            // 
             // frmCrearTicket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1017,6 +1016,7 @@
             this.Name = "frmCrearTicket";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Crear Tickets";
+            this.Load += new System.EventHandler(this.frmCrearTicket_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -1040,7 +1040,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cmbSalida;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label2;

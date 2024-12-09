@@ -186,6 +186,15 @@ AS
 	END
 GO
 
+CREATE OR ALTER PROCEDURE Tick.ActualizarCargo
+@per_ID INT
+AS
+BEGIN
+		UPDATE Gral.tbPersonas
+		SET	   car_ID = 3
+		WHERE  per_ID = @per_ID
+END
+
 ------- TICKETS  ------------
 -- CREAR DETALLES --
 GO
