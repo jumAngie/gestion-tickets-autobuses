@@ -31,6 +31,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbxMarca = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbxModelo = new System.Windows.Forms.ComboBox();
+            this.pnlModelo = new System.Windows.Forms.Panel();
             this.rbtVip = new System.Windows.Forms.RadioButton();
             this.rbtNormal = new System.Windows.Forms.RadioButton();
             this.numAsientos = new System.Windows.Forms.NumericUpDown();
@@ -41,26 +43,24 @@
             this.txtMatricula = new System.Windows.Forms.TextBox();
             this.pnlMarca = new System.Windows.Forms.Panel();
             this.pnlMatricula = new System.Windows.Forms.Panel();
-            this.pnlModelo = new System.Windows.Forms.Panel();
-            this.cbxModelo = new System.Windows.Forms.ComboBox();
             this.pnlAsientos = new System.Windows.Forms.Panel();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.lblAdvertencia = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button13 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
@@ -101,7 +101,6 @@
             this.cbxMarca.Size = new System.Drawing.Size(186, 24);
             this.cbxMarca.TabIndex = 2;
             this.cbxMarca.Text = "Selecione...";
-            this.cbxMarca.SelectedIndexChanged += new System.EventHandler(this.BtnGuardar_Click);
             // 
             // groupBox1
             // 
@@ -128,6 +127,24 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información General";
+            // 
+            // cbxModelo
+            // 
+            this.cbxModelo.FormattingEnabled = true;
+            this.cbxModelo.Location = new System.Drawing.Point(23, 121);
+            this.cbxModelo.Name = "cbxModelo";
+            this.cbxModelo.Size = new System.Drawing.Size(186, 24);
+            this.cbxModelo.TabIndex = 28;
+            this.cbxModelo.Text = "Selecione...";
+            // 
+            // pnlModelo
+            // 
+            this.pnlModelo.BackColor = System.Drawing.Color.DarkRed;
+            this.pnlModelo.Location = new System.Drawing.Point(23, 136);
+            this.pnlModelo.Name = "pnlModelo";
+            this.pnlModelo.Size = new System.Drawing.Size(186, 16);
+            this.pnlModelo.TabIndex = 22;
+            this.pnlModelo.Visible = false;
             // 
             // rbtVip
             // 
@@ -212,7 +229,6 @@
             this.txtMatricula.Name = "txtMatricula";
             this.txtMatricula.Size = new System.Drawing.Size(175, 22);
             this.txtMatricula.TabIndex = 5;
-            this.txtMatricula.TextChanged += new System.EventHandler(this.BtnGuardar_Click);
             // 
             // pnlMarca
             // 
@@ -231,24 +247,6 @@
             this.pnlMatricula.Size = new System.Drawing.Size(175, 29);
             this.pnlMatricula.TabIndex = 23;
             this.pnlMatricula.Visible = false;
-            // 
-            // pnlModelo
-            // 
-            this.pnlModelo.BackColor = System.Drawing.Color.DarkRed;
-            this.pnlModelo.Location = new System.Drawing.Point(23, 136);
-            this.pnlModelo.Name = "pnlModelo";
-            this.pnlModelo.Size = new System.Drawing.Size(186, 16);
-            this.pnlModelo.TabIndex = 22;
-            this.pnlModelo.Visible = false;
-            // 
-            // cbxModelo
-            // 
-            this.cbxModelo.FormattingEnabled = true;
-            this.cbxModelo.Location = new System.Drawing.Point(23, 121);
-            this.cbxModelo.Name = "cbxModelo";
-            this.cbxModelo.Size = new System.Drawing.Size(186, 24);
-            this.cbxModelo.TabIndex = 28;
-            this.cbxModelo.Text = "Selecione...";
             // 
             // pnlAsientos
             // 
@@ -331,106 +329,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "SALIENDO A UNAH";
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.button13);
-            this.groupBox3.Controls.Add(this.button15);
-            this.groupBox3.Controls.Add(this.button16);
-            this.groupBox3.Controls.Add(this.button17);
-            this.groupBox3.Controls.Add(this.button18);
-            this.groupBox3.Controls.Add(this.button19);
-            this.groupBox3.Controls.Add(this.button20);
-            this.groupBox3.Controls.Add(this.button21);
-            this.groupBox3.Controls.Add(this.button22);
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.ForeColor = System.Drawing.Color.White;
-            this.groupBox3.Location = new System.Drawing.Point(480, 31);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(319, 131);
-            this.groupBox3.TabIndex = 29;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "DESTINO A UNAH";
-            // 
-            // button1
-            // 
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(30, 27);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(61, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "11:00";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(97, 27);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(61, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "12:00";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Location = new System.Drawing.Point(97, 56);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(61, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "16:00";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.ForeColor = System.Drawing.Color.Black;
-            this.button4.Location = new System.Drawing.Point(164, 27);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(61, 23);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "13:00";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.ForeColor = System.Drawing.Color.Black;
-            this.button5.Location = new System.Drawing.Point(30, 56);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(61, 23);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "15:00";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.ForeColor = System.Drawing.Color.Black;
-            this.button6.Location = new System.Drawing.Point(164, 56);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(61, 23);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "17:00";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.ForeColor = System.Drawing.Color.Black;
-            this.button7.Location = new System.Drawing.Point(231, 27);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(61, 23);
-            this.button7.TabIndex = 6;
-            this.button7.Text = "14:00";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            this.button8.ForeColor = System.Drawing.Color.Black;
-            this.button8.Location = new System.Drawing.Point(231, 56);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(61, 23);
-            this.button8.TabIndex = 7;
-            this.button8.Text = "18:00";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
             // button9
             // 
             this.button9.ForeColor = System.Drawing.Color.Black;
@@ -460,6 +358,106 @@
             this.button11.TabIndex = 8;
             this.button11.Text = "20:00";
             this.button11.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            this.button8.ForeColor = System.Drawing.Color.Black;
+            this.button8.Location = new System.Drawing.Point(231, 56);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(61, 23);
+            this.button8.TabIndex = 7;
+            this.button8.Text = "18:00";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.ForeColor = System.Drawing.Color.Black;
+            this.button7.Location = new System.Drawing.Point(231, 27);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(61, 23);
+            this.button7.TabIndex = 6;
+            this.button7.Text = "14:00";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.ForeColor = System.Drawing.Color.Black;
+            this.button6.Location = new System.Drawing.Point(164, 56);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(61, 23);
+            this.button6.TabIndex = 5;
+            this.button6.Text = "17:00";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.ForeColor = System.Drawing.Color.Black;
+            this.button5.Location = new System.Drawing.Point(30, 56);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(61, 23);
+            this.button5.TabIndex = 4;
+            this.button5.Text = "15:00";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.ForeColor = System.Drawing.Color.Black;
+            this.button4.Location = new System.Drawing.Point(164, 27);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(61, 23);
+            this.button4.TabIndex = 3;
+            this.button4.Text = "13:00";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.ForeColor = System.Drawing.Color.Black;
+            this.button3.Location = new System.Drawing.Point(97, 56);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(61, 23);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "16:00";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.ForeColor = System.Drawing.Color.Black;
+            this.button2.Location = new System.Drawing.Point(97, 27);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(61, 23);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "12:00";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(30, 27);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(61, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "11:00";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.button13);
+            this.groupBox3.Controls.Add(this.button15);
+            this.groupBox3.Controls.Add(this.button16);
+            this.groupBox3.Controls.Add(this.button17);
+            this.groupBox3.Controls.Add(this.button18);
+            this.groupBox3.Controls.Add(this.button19);
+            this.groupBox3.Controls.Add(this.button20);
+            this.groupBox3.Controls.Add(this.button21);
+            this.groupBox3.Controls.Add(this.button22);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.ForeColor = System.Drawing.Color.White;
+            this.groupBox3.Location = new System.Drawing.Point(480, 31);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(319, 131);
+            this.groupBox3.TabIndex = 29;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "DESTINO A UNAH";
             // 
             // button13
             // 

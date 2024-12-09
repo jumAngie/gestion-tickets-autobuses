@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gestion_De_Tickets_Autobus.Tickets_DAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,5 +17,19 @@ namespace Gestion_De_Tickets_Autobus
         {
             InitializeComponent();
         }
+
+        #region CRUD
+        public void ListarTickets()
+        {
+            dgTicketEncabezado.DataSource = TicketsDAL.ListarTickets();
+        }
+        #endregion
+
+        #region EVENTOS DEL FORMULARIO
+        private void frmTickets_Load(object sender, EventArgs e)
+        {
+            ListarTickets();
+        }
+        #endregion
     }
 }

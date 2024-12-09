@@ -28,34 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgTicketEncabezado = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.dgTicketDetalle = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.label1 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgTicketEncabezado)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgTicketDetalle)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgTicketEncabezado
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(16, 44);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(776, 190);
-            this.dataGridView1.TabIndex = 0;
+            this.dgTicketEncabezado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgTicketEncabezado.Location = new System.Drawing.Point(16, 44);
+            this.dgTicketEncabezado.Name = "dgTicketEncabezado";
+            this.dgTicketEncabezado.Size = new System.Drawing.Size(776, 190);
+            this.dgTicketEncabezado.TabIndex = 0;
             // 
             // panel1
             // 
@@ -90,32 +90,13 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.panel3);
-            this.panel2.Controls.Add(this.dataGridView2);
+            this.panel2.Controls.Add(this.dgTicketDetalle);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(16, 240);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(772, 198);
             this.panel2.TabIndex = 34;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.label1.Location = new System.Drawing.Point(25, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(240, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Información del Ticket #";
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(23, 76);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(729, 106);
-            this.dataGridView2.TabIndex = 2;
             // 
             // panel3
             // 
@@ -130,6 +111,28 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(727, 30);
             this.panel3.TabIndex = 3;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(584, 4);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(107, 15);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "meto_Descripcion";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(452, 4);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(116, 15);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Método de Pago:";
             // 
             // label2
             // 
@@ -153,27 +156,13 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "per_NombreCompleto";
             // 
-            // label4
+            // dgTicketDetalle
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(452, 4);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(116, 15);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Método de Pago:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(584, 4);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(107, 15);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "meto_Descripcion";
+            this.dgTicketDetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgTicketDetalle.Location = new System.Drawing.Point(23, 76);
+            this.dgTicketDetalle.Name = "dgTicketDetalle";
+            this.dgTicketDetalle.Size = new System.Drawing.Size(729, 106);
+            this.dgTicketDetalle.TabIndex = 2;
             // 
             // label6
             // 
@@ -187,6 +176,17 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "00000";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.label1.Location = new System.Drawing.Point(25, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(240, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Información del Ticket #";
+            // 
             // frmTickets
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -195,25 +195,26 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgTicketEncabezado);
             this.Name = "frmTickets";
             this.Text = "fmrTickets";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.frmTickets_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgTicketEncabezado)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgTicketDetalle)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgTicketEncabezado;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox txtBuscar;
@@ -221,7 +222,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgTicketDetalle;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
