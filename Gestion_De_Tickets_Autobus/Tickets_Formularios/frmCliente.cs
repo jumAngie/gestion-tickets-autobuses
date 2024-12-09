@@ -449,23 +449,6 @@ namespace Gestion_De_Tickets_Autobus
             MensajeAdvertencia_Hide();
             boton_mostrarGuardar();
         }
-
-        private void dgClientes_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-          
-
-            boton_mostrarEditar();
-            DataGridViewRow fila = dgClientes.Rows[e.RowIndex];
-
-            int per_ID = Convert.ToInt32(fila.Cells["per_ID"].Value);
-            id_filaseleccionada = per_ID;
-
-            LimpiarCampos();
-            Panel_OcultarValidaciones();
-            Editar_CargarDatos(per_ID);
-        }
-
-
         private async void btnEditar_Click(object sender, EventArgs e)
         {
             try
