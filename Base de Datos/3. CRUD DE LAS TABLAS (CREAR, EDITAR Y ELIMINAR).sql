@@ -6,7 +6,6 @@
 -- INSERTAR
 CREATE OR ALTER PROCEDURE Tick.UDP_tbAutobuses_Insertar
 @aut_Matricula			NVARCHAR(10),
-@mar_ID					INT, 
 @mod_ID					INT,		
 @aut_esVIP				BIT, 
 @aut_cantAsientos		INT,
@@ -15,11 +14,11 @@ CREATE OR ALTER PROCEDURE Tick.UDP_tbAutobuses_Insertar
 AS
 	BEGIN
 		BEGIN TRY
-			INSERT INTO Tick.tbAutobuses(aut_Matricula, mar_ID, mod_ID, 
+			INSERT INTO Tick.tbAutobuses(aut_Matricula, mod_ID, 
 										aut_esVIP, aut_cantAsientos, aut_UsuarioCreacion, 
 										aut_FechaCreacion)
 			VALUES							
-										(@aut_Matricula, @mar_ID, @mod_ID,
+										(@aut_Matricula, @mod_ID,
 										@aut_esVIP, @aut_cantAsientos, @aut_UsuarioCreacion, 
 										@aut_FechaCreacion)
 

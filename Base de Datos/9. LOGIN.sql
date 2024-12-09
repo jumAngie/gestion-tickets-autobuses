@@ -49,7 +49,7 @@ AS
 				perm.perm_TienePermiso,
 				pant.PosicionY
 			FROM Acce.tbPermisos perm		INNER JOIN Acce.tbRoles rol
-			ON   perm.role_Id = rol.role_Id	INNER JOIN Acce.tbPantallas pant
+			ON   perm.rol_Id = rol.rol_Id	INNER JOIN Acce.tbPantallas pant
 			ON   perm.pant_ID = pant.pant_ID
 			WHERE perm.role_Id = @role_Id AND  perm.perm_TienePermiso = 1
 	END

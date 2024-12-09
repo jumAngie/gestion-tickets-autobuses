@@ -8,6 +8,37 @@ GO
 INSERT INTO Acce.tbRoles (rol_Descripcion, usu_UsuarioCreacion,rol_FechaCreacion)
 VALUES					('Administrador',		1,					GETDATE());
 GO
+INSERT INTO Acce.tbRoles (rol_Descripcion, usu_UsuarioCreacion,rol_FechaCreacion)
+VALUES					('Supervisor', 1, GETDATE())
+GO
+INSERT INTO Acce.tbRoles (rol_Descripcion, usu_UsuarioCreacion,rol_FechaCreacion)
+VALUES					('Vendedor', 1, GETDATE())
+GO
+INSERT INTO Acce.tbRoles (rol_Descripcion, usu_UsuarioCreacion,rol_FechaCreacion)
+VALUES					('Planificador', 1, GETDATE())
+GO
+INSERT INTO Acce.tbRoles (rol_Descripcion, usu_UsuarioCreacion,rol_FechaCreacion)
+VALUES					('RRHH', 1, GETDATE())
+GO
+--- INSERTANDO PANTALLAS
+INSERT INTO Acce.tbPantallas ([pant_NombrePantalla], [pant_RutaImagen], [pant_NombreBoton], [PosicionY])
+VALUES						 ('Clientes', '', '', 72)
+GO
+INSERT INTO Acce.tbPantallas ([pant_NombrePantalla], [pant_RutaImagen], [pant_NombreBoton], [PosicionY])
+VALUES						 ('Empleados', '', '', 144)
+GO
+INSERT INTO Acce.tbPantallas ([pant_NombrePantalla], [pant_RutaImagen], [pant_NombreBoton], [PosicionY])
+VALUES						 ('Autobuses', '', '', 231)
+GO
+INSERT INTO Acce.tbPantallas ([pant_NombrePantalla], [pant_RutaImagen], [pant_NombreBoton], [PosicionY])
+VALUES						 ('Registrar Venta', '', '', 310)
+GO
+INSERT INTO Acce.tbPantallas ([pant_NombrePantalla], [pant_RutaImagen], [pant_NombreBoton], [PosicionY])
+VALUES						 ('Tickets', '', '', 390)
+GO
+INSERT INTO Acce.tbPantallas ([pant_NombrePantalla], [pant_RutaImagen], [pant_NombreBoton], [PosicionY])
+VALUES						 ('Planificaciones', '', '', 390)
+GO
 -- SEXOS
 INSERT INTO Gral.tbSexos([sex_Descripcion],[usu_UsuarioCreacion],[sex_FechaCreacion])
 VALUES					('Femenino', 1, GETDATE())
