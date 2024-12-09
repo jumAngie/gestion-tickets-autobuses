@@ -468,7 +468,7 @@ namespace Gestion_De_Tickets_Autobus
         }
         private void btnPersonaExistente_Click(object sender, EventArgs e)
         {
-            frmRegistrarPersonaExistente registroPersonaExistente = new frmRegistrarPersonaExistente();
+            frmRegistrarPersonaExistenteClientes registroPersonaExistente = new frmRegistrarPersonaExistenteClientes();
             registroPersonaExistente.Show();
         }
         #endregion
