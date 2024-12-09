@@ -48,7 +48,7 @@ namespace Gestion_De_Tickets_Autobus
 
             // Validar campos
             if (cbxMarca.SelectedIndex == -1) { pnlMarca.Visible = true; esValido = false; }
-            if (string.IsNullOrWhiteSpace(cbxModelo.Text)) { pnlModelo.Visible = true; esValido = false; }
+            if (cbxModelo.SelectedIndex == -1) { pnlModelo.Visible = true; esValido = false; }
             if (string.IsNullOrWhiteSpace(txtMatricula.Text)) { pnlMatricula.Visible = true; esValido = false; }
             if (numAsientos.Value <= 0) { pnlAsientos.Visible = true; esValido = false; }
 
@@ -111,6 +111,15 @@ namespace Gestion_De_Tickets_Autobus
             }
         }
 
+        private void cbxModelo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxModelo.SelectedValue != null && cbxModelo.SelectedValue is int)
+            {
+                int modelo_Id = (int)cbxModelo.SelectedValue;
+                if (modelo_Id > 0) ;
+            }
+
+        }
         private void btVip_CheckedChanged(object sender, EventArgs e)
         {
             esVIP = rbtVip.Checked;
