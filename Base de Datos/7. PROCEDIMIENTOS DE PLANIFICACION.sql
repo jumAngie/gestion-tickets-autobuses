@@ -36,9 +36,6 @@ AS
 	END CATCH
 
 ----------------------------------------------------------------------------------------
---- PARA SELECCIONAR LA SALIDA --- SERÁ MOSTRADO EN UN COMBOBOX EN VISUAL
-SELECT des_ID, des_Descripcion FROM Tick.tbDestino 
-
 --- ESTE ES EL ID DE MI SALIDA
 DECLARE @DES_ID INT = 6
 

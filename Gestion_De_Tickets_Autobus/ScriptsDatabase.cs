@@ -40,6 +40,9 @@ namespace Gestion_De_Tickets_Autobus
         public static string Modelos_CMBX = "Tick.Modelos_CMB";
         public static string Marcas_CMBX = "Tick.Marcas_CMB";
         public static string Salidad_CMBX = "Gral.Salidas_CMB";
+        public static string Destinos_CMBX = "Tick.Destinos_CMB";
+        public static string PersonasExistentes_Clientes = "Gral.Clientes";
+        public static string PersonasExistentes_Empleados = "Gral.Empleados";
         #endregion
 
         #region Validaciones

@@ -61,6 +61,26 @@ AS
 			WHERE  mar_ID = @mar_ID
 	END
 GO
+--- PERSONAS_CLIENTES
+CREATE OR ALTER PROCEDURE Gral.Clientes
+AS
+BEGIN
+	SELECT '0' AS 'per_ID', ' - Seleccione una opción -' AS 'per_NombreCompleto'
+	UNION ALL
+	SELECT per_ID, per_DNI + ' - ' + per_NombreCompleto AS per_NombreCompleto FROM Gral.tbPersonas
+	WHERE  car_ID = 2
+END
+GO
+--- PERSONAS_EMPLEADOS
+CREATE OR ALTER PROCEDURE Gral.Empleados
+AS
+BEGIN
+	SELECT '0' AS 'per_ID', ' - Seleccione una opción -' AS 'per_NombreCompleto'
+	UNION ALL
+	SELECT per_ID, per_DNI + ' - ' + per_NombreCompleto AS per_NombreCompleto FROM Gral.tbPersonas
+	WHERE  car_ID = 1
+END
+GO
 --- HORARIOS
 CREATE OR ALTER PROCEDURE Tick.Horarios_Dibujado
 AS
@@ -69,7 +89,7 @@ BEGIN
 END
 
 GO
---- Salidas
+--- SALIDAS
 CREATE OR ALTER PROCEDURE Gral.Salidas_CMB
 AS
 	BEGIN
@@ -78,4 +98,17 @@ AS
 			SELECT des_ID, des_Descripcion FROM Tick.tbDestino 
 	END
 GO
+--- DESTINOS POR SALIDAS
+CREATE OR ALTER PROCEDURE Tick.Destinos_CMB
+@des_ID INT
+AS
+BEGIN
+	SELECT '0' AS 'pre_ID', ' - Seleccione una opción -' AS 'des_Descripcion'
+	UNION ALL
+	SELECT	pre_ID, 
+			des_Descripcion
+	FROM Tick.tbPrecio_Destino T1 INNER JOIN Tick.tbDestino T2
+ON		T1.des_IDdestino = T2.des_ID
+WHERE	des_IDsalida = @des_ID
+END
 

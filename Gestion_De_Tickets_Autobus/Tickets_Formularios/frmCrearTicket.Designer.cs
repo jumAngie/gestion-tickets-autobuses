@@ -35,7 +35,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbmDestino = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -111,7 +111,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.comboBox2);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.cbmDestino);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
@@ -148,10 +148,11 @@
             // cmbSalida
             // 
             this.cmbSalida.FormattingEnabled = true;
-            this.cmbSalida.Location = new System.Drawing.Point(70, 28);
+            this.cmbSalida.Location = new System.Drawing.Point(64, 28);
             this.cmbSalida.Name = "cmbSalida";
-            this.cmbSalida.Size = new System.Drawing.Size(124, 21);
+            this.cmbSalida.Size = new System.Drawing.Size(130, 21);
             this.cmbSalida.TabIndex = 5;
+            this.cmbSalida.SelectedIndexChanged += new System.EventHandler(this.cmbSalida_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -165,10 +166,11 @@
             // 
             // comboBox2
             // 
+            this.comboBox2.Enabled = false;
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(70, 59);
+            this.comboBox2.Location = new System.Drawing.Point(64, 59);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(316, 21);
+            this.comboBox2.Size = new System.Drawing.Size(322, 21);
             this.comboBox2.TabIndex = 3;
             // 
             // label2
@@ -181,13 +183,14 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Bus:";
             // 
-            // comboBox1
+            // cbmDestino
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(262, 29);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(124, 21);
-            this.comboBox1.TabIndex = 1;
+            this.cbmDestino.Enabled = false;
+            this.cbmDestino.FormattingEnabled = true;
+            this.cbmDestino.Location = new System.Drawing.Point(257, 29);
+            this.cbmDestino.Name = "cbmDestino";
+            this.cbmDestino.Size = new System.Drawing.Size(129, 21);
+            this.cbmDestino.TabIndex = 1;
             // 
             // label1
             // 
@@ -1038,7 +1041,7 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbmDestino;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbSalida;
         private System.Windows.Forms.Label label3;
