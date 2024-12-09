@@ -26,7 +26,6 @@ namespace Gestion_De_Tickets_Autobus
 
         #region VARIABLES
         private bool esVIP = false;
-        private bool esNormal = false;
         #endregion
         
         public frmAutobuses()
@@ -36,10 +35,66 @@ namespace Gestion_De_Tickets_Autobus
         }
 
         #region CRUD
+
+        //INSERTAR
+        public void InsertarAutobuses()
+        {
+            if (rbtEsVIP.Checked) esVIP = true;
+
+            Autobuses aut = new Autobuses
+            {
+                aut_Matricula = txtMatricula.Text,
+                mod_ID = Convert.ToInt32(cbxModelo.SelectedValue),
+                aut_cantAsientos = Convert.ToInt32(numAsientos.Value),
+                aut_esVIP = esVIP,
+                aut_FechaCreacion = DateTime.Now,
+                usu_UsuarioCreacion =1
+            };
+            string resultados = AutobusesDAL.InsertarAutobuses(aut);
+            MessageBox.Show(resultados, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+
+        //listar
         public void CargarAutobuses()
         {
             dgAutobuses.DataSource = AutobusesDAL.ListarAutobuses();
         }
+        public void RestablecerListaOriginal()
+        {
+            txtBuscar.Text = "";
+            CargarAutobuses();
+        }
+
+        //buscar cliente
+        public void BuscarAutobuses()
+        {
+            string filtro = txtBuscar.Text.Trim().ToLower();
+            if (dgAutobuses.DataSource != null)
+            {
+                if (string.IsNullOrEmpty(filtro))
+                {
+                    RestablecerListaOriginal();
+                    return;
+                }
+
+               var listaTickets = (List<AutobusesViewModel>)dgAutobuses.DataSource;
+               var listaFiltrada = listaTickets.Where(t =>
+                 t.aut_Matricula.ToLower().Contains(filtro) ||
+                 t.mod_Descripcion.ToLower().Contains(filtro) ||
+                 t.mar_Descripcion.ToLower().Contains(filtro) 
+                ).ToList();
+
+                dgAutobuses.DataSource = listaFiltrada;
+            }
+        }
+
+        //CARGAR DATOS EDITAR
+        public void Editar_CargarDatos(int aut_id)
+
+
+       //EDITAR
+
         #endregion
 
         #region VALIDACIONES Y LIMPIEZA DE CAMPOS
