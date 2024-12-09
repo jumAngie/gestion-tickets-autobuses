@@ -22,22 +22,62 @@ VALUES					('RRHH', 1, GETDATE())
 GO
 --- INSERTANDO PANTALLAS
 INSERT INTO Acce.tbPantallas ([pant_NombrePantalla], [pant_RutaImagen], [pant_NombreBoton], [PosicionY])
-VALUES						 ('Clientes', '', '', 72)
+VALUES						 ('Clientes', '', 'btnClientes', 72)
 GO
 INSERT INTO Acce.tbPantallas ([pant_NombrePantalla], [pant_RutaImagen], [pant_NombreBoton], [PosicionY])
-VALUES						 ('Empleados', '', '', 144)
+VALUES						 ('Empleados', '', 'btnEmpleados', 144)
 GO
 INSERT INTO Acce.tbPantallas ([pant_NombrePantalla], [pant_RutaImagen], [pant_NombreBoton], [PosicionY])
-VALUES						 ('Autobuses', '', '', 231)
+VALUES						 ('Autobuses', '', 'btnAutobuses', 231)
 GO
 INSERT INTO Acce.tbPantallas ([pant_NombrePantalla], [pant_RutaImagen], [pant_NombreBoton], [PosicionY])
-VALUES						 ('Registrar Venta', '', '', 310)
+VALUES						 ('Registrar Venta', '', 'btnRegistrarVenta', 310)
 GO
 INSERT INTO Acce.tbPantallas ([pant_NombrePantalla], [pant_RutaImagen], [pant_NombreBoton], [PosicionY])
-VALUES						 ('Tickets', '', '', 390)
+VALUES						 ('Tickets', '', 'btnTickets', 390)
 GO
 INSERT INTO Acce.tbPantallas ([pant_NombrePantalla], [pant_RutaImagen], [pant_NombreBoton], [PosicionY])
-VALUES						 ('Planificaciones', '', '', 390)
+VALUES						 ('Planificaciones', '', 'btnPlanificar', 390)
+GO
+
+----- ADMINISTRADOR PERMISOS
+INSERT INTO Acce.tbPermisos(rol_Id, pant_ID, perm_TienePermiso)
+VALUES						(1,       1,           1)
+INSERT INTO Acce.tbPermisos(rol_Id, pant_ID, perm_TienePermiso)
+VALUES						(1,       2,           1)
+INSERT INTO Acce.tbPermisos(rol_Id, pant_ID, perm_TienePermiso)
+VALUES						(1,       3,           1)
+INSERT INTO Acce.tbPermisos(rol_Id, pant_ID, perm_TienePermiso)
+VALUES						(1,       4,           1)
+INSERT INTO Acce.tbPermisos(rol_Id, pant_ID, perm_TienePermiso)
+VALUES						(1,       5,           1)
+INSERT INTO Acce.tbPermisos(rol_Id, pant_ID, perm_TienePermiso)
+VALUES						(1,       6,           1)
+
+---- SUPERVISOR
+INSERT INTO Acce.tbPermisos(rol_Id, pant_ID, perm_TienePermiso)
+VALUES						(2,       1,           1)
+INSERT INTO Acce.tbPermisos(rol_Id, pant_ID, perm_TienePermiso)
+VALUES						(2,       2,           1)
+INSERT INTO Acce.tbPermisos(rol_Id, pant_ID, perm_TienePermiso)
+VALUES						(2,       3,           1)
+INSERT INTO Acce.tbPermisos(rol_Id, pant_ID, perm_TienePermiso)
+VALUES						(2,       4,           1)
+INSERT INTO Acce.tbPermisos(rol_Id, pant_ID, perm_TienePermiso)
+VALUES						(2,       5,           1)
+---- VENDEDOR
+INSERT INTO Acce.tbPermisos(rol_Id, pant_ID, perm_TienePermiso)
+VALUES						(3,       4,           1)
+INSERT INTO Acce.tbPermisos(rol_Id, pant_ID, perm_TienePermiso)
+VALUES						(3,       5,           1)
+---- PLANIFICADRO
+INSERT INTO Acce.tbPermisos(rol_Id, pant_ID, perm_TienePermiso)
+VALUES						(4,       6,           1)
+---- RRHH
+INSERT INTO Acce.tbPermisos(rol_Id, pant_ID, perm_TienePermiso)
+VALUES						(5,       1,           1)
+INSERT INTO Acce.tbPermisos(rol_Id, pant_ID, perm_TienePermiso)
+VALUES						(5,       2,           1)
 GO
 -- SEXOS
 INSERT INTO Gral.tbSexos([sex_Descripcion],[usu_UsuarioCreacion],[sex_FechaCreacion])
