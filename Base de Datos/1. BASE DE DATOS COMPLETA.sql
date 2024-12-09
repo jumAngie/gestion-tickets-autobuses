@@ -55,7 +55,29 @@ CREATE TABLE Acce.tbRoles
 	CONSTRAINT FK_Acce_tbUsuarios_usu_UsuarioModificacion_Acce_tbRoles_usu_ID	FOREIGN KEY (usu_UsuarioModificacion)	REFERENCES Acce.tbUsuarios (usu_ID),
 );
 GO
+----- TABLA DE PANTALLAS -----
+CREATE TABLE Acce.tbPantallas
+(
+	pant_ID					INT IDENTITY(1,1),
+	pant_NombrePantalla		NVARCHAR(500),
+	pant_RutaImagen			NVARCHAR(500),
+	pant_NombreBoton		VARCHAR(50),
+	PosicionY				INT,
 
+	CONSTRAINT PK_Acce_tbPantallas_pant_ID  PRIMARY KEY(pant_ID)
+
+);
+----- CREAR TABLA DE PERMISOS ------
+CREATE TABLE Acce.tbPermisos (
+    perm_ID				INT IDENTITY(1,1),
+    rol_Id				INT,
+	pant_ID				INT,
+	perm_TienePermiso	BIT
+
+	CONSTRAINT PK_Acce_tbPermisos_perm_ID		PRIMARY KEY(perm_ID),
+	CONSTRAINT FK_Acce_tbPermisos_rol_Id_Acce_tbRoles_rol_Id FOREIGN KEY (rol_Id) REFERENCES Acce.tbRoles (rol_Id),
+	CONSTRAINT FK_Acce_tbPermisos_pant_ID_Acce_tbPantallas_pant_ID FOREIGN KEY (pant_ID) REFERENCES Acce.tbPantallas (pant_ID)
+);
 --**********************************************************--
 --*************** SCHEMA Gral ***************************--
 --**********************************************************--

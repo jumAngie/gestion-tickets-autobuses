@@ -1,24 +1,24 @@
 -- PROCEDIMIENTOS PARA EL LOGIN
 CREATE OR ALTER PROCEDURE Acce.UDP_IniciarSesion
     @usua_Usuario NVARCHAR(100),
-    @usua_Contrasenia NVARCHAR(100) 
+    @usua_Contrasenia VARBINARY(MAX) 
 AS
 BEGIN
     BEGIN TRY
         SELECT 
-            usua.usua_Id, 
-            usua.usua_Usuario, 
-            datos.dato_Id,
-            datos.dato_NombreCompleto,
-            datos.dato_email,
-            roles.role_Descripcion,
-            roles.role_Id,
-			datos.sexo_Id
-        FROM Acce.tbUsuarios usua
-            LEFT JOIN Gral.tbDatos_Generales datos ON usua.dato_Id = datos.dato_Id
-            LEFT JOIN Acce.tbRoles roles ON usua.role_Id = roles.role_Id
-        WHERE usua.usua_Usuario = @usua_Usuario
-        AND usua.usua_Contrasenia = @usua_Contrasenia;
+            usua.usu_ID, 
+            usua.usu_Usuario, 
+            T1.per_ID,
+            T1.per_NombreCompleto,
+            T1.per_Correo,
+            T2.rol_Descripcion,
+            T2.rol_ID,
+			T1.sex_ID
+        FROM Acce.tbUsuarios usua	LEFT JOIN Gral.tbPersonas T1 
+		ON usua.per_ID = T1.per_ID	LEFT JOIN Acce.tbRoles T2 
+		ON usua.rol_ID = T2.rol_ID
+        WHERE usua.usu_Usuario = @usua_Usuario
+        AND usua.usu_Contrasena = @usua_Contrasenia;
     END TRY
     BEGIN CATCH
         SELECT 'Error Message: ' + ERROR_MESSAGE();
@@ -31,17 +31,17 @@ DECLARE @CONTRA NVARCHAR(100) = '123'
 DECLARE @contrasenaEncriptada VARBINARY(MAX) = HASHBYTES('SHA2_512', @CONTRA);
 SELECT @contrasenaEncriptada; 
 UPDATE Acce.tbUsuarios
-	   SET usua_Contrasenia = @contrasenaEncriptada
-	   WHERE usua_Id = 1
+	   SET usu_Contrasena = @contrasenaEncriptada
+	   WHERE usu_ID = 1
 GO
 
 -- DIBUJANDO MENU SEGUN ROL
 CREATE OR ALTER PROCEDURE Acce.UDP_DibujarMenuPorRol
-@role_Id INT
+@rol_Id INT
 AS
 	BEGIN
-		SELECT  rol.role_Id, 
-				rol.role_Descripcion, 
+		SELECT  rol.rol_Id, 
+				rol.rol_Descripcion, 
 				pant.pant_NombrePantalla, 
 				pant.pant_ID, 
 				pant.pant_NombreBoton, 
