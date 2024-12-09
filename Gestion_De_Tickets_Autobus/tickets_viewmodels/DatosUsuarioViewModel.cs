@@ -8,13 +8,13 @@ namespace Gestion_De_Tickets_Autobus.Tickets_ViewModels
 {
     public class DatosUsuarioViewModel
     {
-        public int usua_Id { get; set; }
-        public string usua_Usuario { get; set; }
-        public int dato_Id { get; set; }
-        public string dato_NombreCompleto { get; set; }
-        public string dato_email { get; set; }
-        public string role_Descripcion { get; set; }
-        public int role_Id { get; set; }
-        public int sexo_Id { get; set; }
+        public int usu_Id { get; set; }
+        public string usu_Usuario { get; set; }
+        public int per_ID { get; set; }
+        public string per_NombreCompleto { get; set; }
+        public string per_Correo { get; set; }
+        public string rol_Descripcion { get; set; }
+        public int rol_Id { get; set; }
+        public int sex_Id { get; set; }
     }
 }

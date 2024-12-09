@@ -107,7 +107,7 @@ namespace Gestion_De_Tickets_Autobus.Tickets_Formularios
                 if (usuarioAutenticado != null)
                 {
                     lblError.Visible = false;
-                    List<PantallasViewModel> pantallasPermitidas = login.ObtenerPantallasPermitidas(usuarioAutenticado.role_Id);
+                    List<PantallasViewModel> pantallasPermitidas = login.ObtenerPantallasPermitidas(usuarioAutenticado.rol_Id);
                     frmPrincipal formularioPrincipal = new frmPrincipal
                     {
                         UsuarioActual = usuarioAutenticado,

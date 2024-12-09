@@ -21,7 +21,7 @@
 CREATE TABLE Acce.tbUsuarios(
 		usu_ID						INT IDENTITY (1,1),
 		usu_Usuario					NVARCHAR(100)	NOT NULL,
-		usu_Contrasena				NVARCHAR(MAX)	NOT NULL,
+		usu_Contrasena				VARBINARY(MAX)	NOT NULL,
 		per_ID						INT				NOT NULL,
 		rol_ID						INT				NOT NULL,
 

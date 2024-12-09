@@ -18,7 +18,7 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
             DatosUsuarioViewModel usuarioAutenticado = null;
             using (SqlConnection conexion = BDConnection.ObtenerConexion())
             {
-                string query = ScriptsDatabase.IniciarSesión;
+                string query = ScriptsDatabase.IniciarSesion;
                 using (SqlCommand comando = new SqlCommand(query, conexion))
                 {
                     comando.CommandType = CommandType.StoredProcedure;
@@ -32,14 +32,14 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
                         {
                             usuarioAutenticado = new DatosUsuarioViewModel
                             {
-                                usua_Id = reader.GetInt32(reader.GetOrdinal("usua_Id")),
-                                usua_Usuario = reader.GetString(reader.GetOrdinal("usua_Usuario")),
-                                dato_Id = reader.GetInt32(reader.GetOrdinal("dato_Id")),
-                                dato_NombreCompleto = reader.GetString(reader.GetOrdinal("dato_NombreCompleto")),
-                                dato_email = reader.GetString(reader.GetOrdinal("dato_email")),
-                                role_Descripcion = reader.GetString(reader.GetOrdinal("role_Descripcion")),
-                                role_Id = reader.GetInt32(reader.GetOrdinal("role_Id")),
-                                sexo_Id = reader.GetInt32(reader.GetOrdinal("sexo_Id"))
+                                usu_Id = reader.GetInt32(reader.GetOrdinal("usu_Id")),
+                                usu_Usuario = reader.GetString(reader.GetOrdinal("usu_Usuario")),
+                                per_ID = reader.GetInt32(reader.GetOrdinal("per_ID")),
+                                per_NombreCompleto = reader.GetString(reader.GetOrdinal("per_NombreCompleto")),
+                                per_Correo = reader.GetString(reader.GetOrdinal("per_Correo")),
+                                rol_Descripcion = reader.GetString(reader.GetOrdinal("rol_Descripcion")),
+                                rol_Id = reader.GetInt32(reader.GetOrdinal("rol_Id")),
+                                sex_Id = reader.GetInt32(reader.GetOrdinal("sex_Id"))
                             };
                         }
                     }
@@ -49,7 +49,7 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
             return usuarioAutenticado;
         }
 
-        public List<PantallasViewModel> ObtenerPantallasPermitidas(int roleId)
+        public List<PantallasViewModel> ObtenerPantallasPermitidas(int rol_Id)
         {
             List<PantallasViewModel> pantallas = new List<PantallasViewModel>();
 
@@ -59,7 +59,7 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
                 using (SqlCommand comando = new SqlCommand(query, conexion))
                 {
                     comando.CommandType = CommandType.StoredProcedure;
-                    comando.Parameters.AddWithValue("@role_Id", roleId);
+                    comando.Parameters.AddWithValue("@rol_Id", rol_Id);
                     conexion.Open();
 
                     using (SqlDataReader reader = comando.ExecuteReader())

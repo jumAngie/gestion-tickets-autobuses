@@ -62,8 +62,8 @@ namespace Gestion_De_Tickets_Autobus
         #endregion
 
         #region LogIn
-        public static string DibujarPantallas = "";
-        public static string IniciarSesión = "";
+        public static string DibujarPantallas = "Acce.UDP_DibujarMenuPorRol";
+        public static string IniciarSesion = "Acce.UDP_IniciarSesion";
         #endregion
     }
 }
