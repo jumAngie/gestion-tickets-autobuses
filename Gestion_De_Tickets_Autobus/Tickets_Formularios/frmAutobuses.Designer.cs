@@ -73,10 +73,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgHorarios = new System.Windows.Forms.DataGridView();
             this.pnlHorarios = new System.Windows.Forms.Panel();
+            this.lblAutobus = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numAsientos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgAutobuses)).BeginInit();
@@ -84,7 +84,7 @@
             this.groupBox3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgHorarios)).BeginInit();
             this.pnlHorarios.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -120,9 +120,9 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(32, 38);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(585, 330);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
@@ -134,7 +134,7 @@
             this.rbtEsVIP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbtEsVIP.ForeColor = System.Drawing.Color.White;
             this.rbtEsVIP.Location = new System.Drawing.Point(300, 206);
-            this.rbtEsVIP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbtEsVIP.Margin = new System.Windows.Forms.Padding(4);
             this.rbtEsVIP.Name = "rbtEsVIP";
             this.rbtEsVIP.Size = new System.Drawing.Size(56, 24);
             this.rbtEsVIP.TabIndex = 4;
@@ -148,7 +148,7 @@
             this.rbtNormal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbtNormal.ForeColor = System.Drawing.Color.White;
             this.rbtNormal.Location = new System.Drawing.Point(187, 206);
-            this.rbtNormal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbtNormal.Margin = new System.Windows.Forms.Padding(4);
             this.rbtNormal.Name = "rbtNormal";
             this.rbtNormal.Size = new System.Drawing.Size(84, 24);
             this.rbtNormal.TabIndex = 4;
@@ -172,7 +172,7 @@
             // 
             this.cbxMarcas.FormattingEnabled = true;
             this.cbxMarcas.Location = new System.Drawing.Point(29, 63);
-            this.cbxMarcas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbxMarcas.Margin = new System.Windows.Forms.Padding(4);
             this.cbxMarcas.Name = "cbxMarcas";
             this.cbxMarcas.Size = new System.Drawing.Size(248, 28);
             this.cbxMarcas.TabIndex = 30;
@@ -182,7 +182,7 @@
             // 
             this.cbxModelo.FormattingEnabled = true;
             this.cbxModelo.Location = new System.Drawing.Point(31, 149);
-            this.cbxModelo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbxModelo.Margin = new System.Windows.Forms.Padding(4);
             this.cbxModelo.Name = "cbxModelo";
             this.cbxModelo.Size = new System.Drawing.Size(247, 28);
             this.cbxModelo.TabIndex = 28;
@@ -191,7 +191,7 @@
             // 
             this.pnlModelo.BackColor = System.Drawing.Color.DarkRed;
             this.pnlModelo.Location = new System.Drawing.Point(31, 167);
-            this.pnlModelo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlModelo.Margin = new System.Windows.Forms.Padding(4);
             this.pnlModelo.Name = "pnlModelo";
             this.pnlModelo.Size = new System.Drawing.Size(248, 20);
             this.pnlModelo.TabIndex = 22;
@@ -200,7 +200,7 @@
             // numAsientos
             // 
             this.numAsientos.Location = new System.Drawing.Point(300, 151);
-            this.numAsientos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numAsientos.Margin = new System.Windows.Forms.Padding(4);
             this.numAsientos.Maximum = new decimal(new int[] {
             30,
             0,
@@ -249,7 +249,7 @@
             // txtMatricula
             // 
             this.txtMatricula.Location = new System.Drawing.Point(300, 63);
-            this.txtMatricula.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMatricula.Margin = new System.Windows.Forms.Padding(4);
             this.txtMatricula.Name = "txtMatricula";
             this.txtMatricula.Size = new System.Drawing.Size(232, 26);
             this.txtMatricula.TabIndex = 5;
@@ -258,7 +258,7 @@
             // 
             this.pnlMarca.BackColor = System.Drawing.Color.DarkRed;
             this.pnlMarca.Location = new System.Drawing.Point(31, 86);
-            this.pnlMarca.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlMarca.Margin = new System.Windows.Forms.Padding(4);
             this.pnlMarca.Name = "pnlMarca";
             this.pnlMarca.Size = new System.Drawing.Size(248, 15);
             this.pnlMarca.TabIndex = 20;
@@ -268,7 +268,7 @@
             // 
             this.pnlMatricula.BackColor = System.Drawing.Color.DarkRed;
             this.pnlMatricula.Location = new System.Drawing.Point(300, 63);
-            this.pnlMatricula.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlMatricula.Margin = new System.Windows.Forms.Padding(4);
             this.pnlMatricula.Name = "pnlMatricula";
             this.pnlMatricula.Size = new System.Drawing.Size(233, 36);
             this.pnlMatricula.TabIndex = 23;
@@ -278,7 +278,7 @@
             // 
             this.pnlAsientos.BackColor = System.Drawing.Color.DarkRed;
             this.pnlAsientos.Location = new System.Drawing.Point(300, 151);
-            this.pnlAsientos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlAsientos.Margin = new System.Windows.Forms.Padding(4);
             this.pnlAsientos.Name = "pnlAsientos";
             this.pnlAsientos.Size = new System.Drawing.Size(233, 36);
             this.pnlAsientos.TabIndex = 21;
@@ -292,7 +292,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
             this.btnCancelar.Location = new System.Drawing.Point(928, 379);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(137, 38);
             this.btnCancelar.TabIndex = 25;
@@ -307,7 +307,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
             this.btnGuardar.Location = new System.Drawing.Point(783, 379);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(137, 38);
             this.btnGuardar.TabIndex = 24;
@@ -317,17 +317,11 @@
             // 
             // dgAutobuses
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(32, 425);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(585, 148);
-            this.dataGridView1.TabIndex = 11;
             this.dgAutobuses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgAutobuses.Location = new System.Drawing.Point(24, 345);
+            this.dgAutobuses.Location = new System.Drawing.Point(32, 428);
             this.dgAutobuses.Name = "dgAutobuses";
-            this.dgAutobuses.Size = new System.Drawing.Size(775, 120);
+            this.dgAutobuses.RowHeadersWidth = 51;
+            this.dgAutobuses.Size = new System.Drawing.Size(585, 145);
             this.dgAutobuses.TabIndex = 11;
             // 
             // lblAdvertencia
@@ -361,9 +355,9 @@
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(640, 207);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(425, 161);
             this.groupBox2.TabIndex = 28;
             this.groupBox2.TabStop = false;
@@ -373,7 +367,7 @@
             // 
             this.button9.ForeColor = System.Drawing.Color.Black;
             this.button9.Location = new System.Drawing.Point(219, 105);
-            this.button9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button9.Margin = new System.Windows.Forms.Padding(4);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(81, 28);
             this.button9.TabIndex = 10;
@@ -384,7 +378,7 @@
             // 
             this.button10.ForeColor = System.Drawing.Color.Black;
             this.button10.Location = new System.Drawing.Point(40, 105);
-            this.button10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button10.Margin = new System.Windows.Forms.Padding(4);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(81, 28);
             this.button10.TabIndex = 9;
@@ -395,7 +389,7 @@
             // 
             this.button11.ForeColor = System.Drawing.Color.Black;
             this.button11.Location = new System.Drawing.Point(129, 105);
-            this.button11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button11.Margin = new System.Windows.Forms.Padding(4);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(81, 28);
             this.button11.TabIndex = 8;
@@ -406,7 +400,7 @@
             // 
             this.button8.ForeColor = System.Drawing.Color.Black;
             this.button8.Location = new System.Drawing.Point(308, 69);
-            this.button8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button8.Margin = new System.Windows.Forms.Padding(4);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(81, 28);
             this.button8.TabIndex = 7;
@@ -417,7 +411,7 @@
             // 
             this.button7.ForeColor = System.Drawing.Color.Black;
             this.button7.Location = new System.Drawing.Point(308, 33);
-            this.button7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button7.Margin = new System.Windows.Forms.Padding(4);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(81, 28);
             this.button7.TabIndex = 6;
@@ -428,7 +422,7 @@
             // 
             this.button6.ForeColor = System.Drawing.Color.Black;
             this.button6.Location = new System.Drawing.Point(219, 69);
-            this.button6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button6.Margin = new System.Windows.Forms.Padding(4);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(81, 28);
             this.button6.TabIndex = 5;
@@ -439,7 +433,7 @@
             // 
             this.button5.ForeColor = System.Drawing.Color.Black;
             this.button5.Location = new System.Drawing.Point(40, 69);
-            this.button5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button5.Margin = new System.Windows.Forms.Padding(4);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(81, 28);
             this.button5.TabIndex = 4;
@@ -450,7 +444,7 @@
             // 
             this.button4.ForeColor = System.Drawing.Color.Black;
             this.button4.Location = new System.Drawing.Point(219, 33);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(81, 28);
             this.button4.TabIndex = 3;
@@ -461,7 +455,7 @@
             // 
             this.button3.ForeColor = System.Drawing.Color.Black;
             this.button3.Location = new System.Drawing.Point(129, 69);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(81, 28);
             this.button3.TabIndex = 2;
@@ -472,7 +466,7 @@
             // 
             this.button2.ForeColor = System.Drawing.Color.Black;
             this.button2.Location = new System.Drawing.Point(129, 33);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(81, 28);
             this.button2.TabIndex = 1;
@@ -483,7 +477,7 @@
             // 
             this.button1.ForeColor = System.Drawing.Color.Black;
             this.button1.Location = new System.Drawing.Point(40, 33);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(81, 28);
             this.button1.TabIndex = 0;
@@ -504,9 +498,9 @@
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.Color.White;
             this.groupBox3.Location = new System.Drawing.Point(640, 38);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox3.Size = new System.Drawing.Size(425, 161);
             this.groupBox3.TabIndex = 29;
             this.groupBox3.TabStop = false;
@@ -516,7 +510,7 @@
             // 
             this.button13.ForeColor = System.Drawing.Color.Black;
             this.button13.Location = new System.Drawing.Point(37, 102);
-            this.button13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button13.Margin = new System.Windows.Forms.Padding(4);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(81, 28);
             this.button13.TabIndex = 20;
@@ -527,7 +521,7 @@
             // 
             this.button15.ForeColor = System.Drawing.Color.Black;
             this.button15.Location = new System.Drawing.Point(305, 66);
-            this.button15.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button15.Margin = new System.Windows.Forms.Padding(4);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(81, 28);
             this.button15.TabIndex = 18;
@@ -538,7 +532,7 @@
             // 
             this.button16.ForeColor = System.Drawing.Color.Black;
             this.button16.Location = new System.Drawing.Point(305, 31);
-            this.button16.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button16.Margin = new System.Windows.Forms.Padding(4);
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(81, 28);
             this.button16.TabIndex = 17;
@@ -549,7 +543,7 @@
             // 
             this.button17.ForeColor = System.Drawing.Color.Black;
             this.button17.Location = new System.Drawing.Point(216, 66);
-            this.button17.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button17.Margin = new System.Windows.Forms.Padding(4);
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(81, 28);
             this.button17.TabIndex = 16;
@@ -560,7 +554,7 @@
             // 
             this.button18.ForeColor = System.Drawing.Color.Black;
             this.button18.Location = new System.Drawing.Point(37, 66);
-            this.button18.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button18.Margin = new System.Windows.Forms.Padding(4);
             this.button18.Name = "button18";
             this.button18.Size = new System.Drawing.Size(81, 28);
             this.button18.TabIndex = 15;
@@ -571,7 +565,7 @@
             // 
             this.button19.ForeColor = System.Drawing.Color.Black;
             this.button19.Location = new System.Drawing.Point(216, 31);
-            this.button19.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button19.Margin = new System.Windows.Forms.Padding(4);
             this.button19.Name = "button19";
             this.button19.Size = new System.Drawing.Size(81, 28);
             this.button19.TabIndex = 14;
@@ -582,7 +576,7 @@
             // 
             this.button20.ForeColor = System.Drawing.Color.Black;
             this.button20.Location = new System.Drawing.Point(127, 66);
-            this.button20.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button20.Margin = new System.Windows.Forms.Padding(4);
             this.button20.Name = "button20";
             this.button20.Size = new System.Drawing.Size(81, 28);
             this.button20.TabIndex = 13;
@@ -593,7 +587,7 @@
             // 
             this.button21.ForeColor = System.Drawing.Color.Black;
             this.button21.Location = new System.Drawing.Point(127, 31);
-            this.button21.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button21.Margin = new System.Windows.Forms.Padding(4);
             this.button21.Name = "button21";
             this.button21.Size = new System.Drawing.Size(81, 28);
             this.button21.TabIndex = 12;
@@ -604,7 +598,7 @@
             // 
             this.button22.ForeColor = System.Drawing.Color.Black;
             this.button22.Location = new System.Drawing.Point(37, 31);
-            this.button22.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button22.Margin = new System.Windows.Forms.Padding(4);
             this.button22.Name = "button22";
             this.button22.Size = new System.Drawing.Size(81, 28);
             this.button22.TabIndex = 11;
@@ -618,7 +612,7 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.txtBuscar);
             this.panel1.Location = new System.Drawing.Point(32, 380);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(475, 36);
             this.panel1.TabIndex = 33;
@@ -627,7 +621,7 @@
             // 
             this.pictureBox1.Image = global::Gestion_De_Tickets_Autobus.Properties.Resources.buscarcolorizado;
             this.pictureBox1.Location = new System.Drawing.Point(437, 4);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(32, 27);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -638,31 +632,42 @@
             // 
             this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscar.Location = new System.Drawing.Point(4, 4);
-            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(424, 26);
             this.txtBuscar.TabIndex = 1;
             // 
-            // dataGridView2
+            // dgHorarios
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 32);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.Size = new System.Drawing.Size(441, 116);
-            this.dataGridView2.TabIndex = 11;
+            this.dgHorarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgHorarios.Location = new System.Drawing.Point(0, 32);
+            this.dgHorarios.Margin = new System.Windows.Forms.Padding(4);
+            this.dgHorarios.Name = "dgHorarios";
+            this.dgHorarios.RowHeadersWidth = 51;
+            this.dgHorarios.Size = new System.Drawing.Size(441, 116);
+            this.dgHorarios.TabIndex = 11;
             // 
             // pnlHorarios
             // 
             this.pnlHorarios.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.pnlHorarios.Controls.Add(this.label7);
+            this.pnlHorarios.Controls.Add(this.lblAutobus);
             this.pnlHorarios.Controls.Add(this.label6);
-            this.pnlHorarios.Controls.Add(this.dataGridView2);
+            this.pnlHorarios.Controls.Add(this.dgHorarios);
             this.pnlHorarios.Location = new System.Drawing.Point(624, 425);
             this.pnlHorarios.Name = "pnlHorarios";
             this.pnlHorarios.Size = new System.Drawing.Size(441, 148);
             this.pnlHorarios.TabIndex = 34;
+            // 
+            // lblAutobus
+            // 
+            this.lblAutobus.AutoSize = true;
+            this.lblAutobus.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAutobus.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblAutobus.Location = new System.Drawing.Point(192, 9);
+            this.lblAutobus.Name = "lblAutobus";
+            this.lblAutobus.Size = new System.Drawing.Size(19, 16);
+            this.lblAutobus.TabIndex = 12;
+            this.lblAutobus.Text = "   ";
             // 
             // label6
             // 
@@ -673,17 +678,6 @@
             this.label6.Size = new System.Drawing.Size(182, 16);
             this.label6.TabIndex = 12;
             this.label6.Text = "HORARIOS DEL AUTOBUS: ";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label7.Location = new System.Drawing.Point(192, 9);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(84, 16);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "MGKSJFJS";
             // 
             // frmAutobuses
             // 
@@ -700,7 +694,7 @@
             this.Controls.Add(this.dgAutobuses);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblAdvertencia);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmAutobuses";
             this.Text = "fmrAutobuses";
             this.Load += new System.EventHandler(this.frmAutobuses_Load);
@@ -713,7 +707,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgHorarios)).EndInit();
             this.pnlHorarios.ResumeLayout(false);
             this.pnlHorarios.PerformLayout();
             this.ResumeLayout(false);
@@ -767,9 +761,9 @@
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.ComboBox cbxMarcas;
         private System.Windows.Forms.RadioButton rbtEsVIP;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgHorarios;
         private System.Windows.Forms.Panel pnlHorarios;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblAutobus;
     }
 }
