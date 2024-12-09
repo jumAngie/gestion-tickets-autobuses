@@ -19,5 +19,7 @@ namespace Gestion_De_Tickets_Autobus.Tickets_Entities
         public DateTime aut_FechaCreacion { get; set; }
         public int usu_UsuarioModificacion { get; set; }
         public DateTime aut_FechaModificacion { get; set; }
+        public string mod_Descripcion { get; internal set; }
+        public string mar_Descripcion { get; internal set; }
     }
 }
