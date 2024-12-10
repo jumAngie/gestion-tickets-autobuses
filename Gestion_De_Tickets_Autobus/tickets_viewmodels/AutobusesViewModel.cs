@@ -8,7 +8,7 @@ using System.Threading.Tasks;
         namespace Gestion_De_Tickets_Autobus.Tickets_ViewModels
     {
         public class AutobusesViewModel
-        {
+    {
             [DisplayName("ID del Autobús")]
             public int aut_Id { get; set; }
 

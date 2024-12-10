@@ -30,7 +30,6 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
                     cmd.Parameters.AddWithValue("@mod_ID", aut.mod_ID);
                     cmd.Parameters.AddWithValue("@aut_esVIP", aut.aut_esVIP);
                     cmd.Parameters.AddWithValue("@aut_cantAsientos", aut.aut_cantAsientos);
-                    cmd.Parameters.AddWithValue("@aut_Estado", aut.aut_Estado);
                     cmd.Parameters.AddWithValue("@usu_UsuarioCreacion", aut.usu_UsuarioCreacion);
                     cmd.Parameters.AddWithValue("@aut_FechaCreacion", aut.aut_FechaCreacion);
 
@@ -80,6 +79,78 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
             }
 
             return listaAutobuses;
+        }
+
+        //CARGAR DATOS EDITAR 
+        public static Autobuses EditarAutobuses_CargarInformacion(int clien_ID)
+        {
+            Autobuses aut = null;
+            try
+            {
+                using (SqlConnection conexion = BDConnection.ObtenerConexion())
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand(ScriptsDatabase.EditarAutobuses_CargarInformacion, conexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@aut", aut);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            aut = new Autobuses
+                            {
+                                aut_Id = reader.GetInt32(0),
+                                aut_Matricula = reader.GetString(1),
+                                mar_ID = reader.GetInt32(2),
+                               // mod_ID = 
+                               // aut_cantAsientos = 
+                               // aut_esVIP = 
+                                
+                            };
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al cargar la información de los Autobuses: " + ex.Message);
+            }
+
+            return aut;
+        }
+
+
+        // Editar autobuses
+        public static string EditarAutobuses(Autobuses aut)
+        {
+            string mensaje = "";
+            try
+            {
+                using (SqlConnection conexion = BDConnection.ObtenerConexion())
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand(ScriptsDatabase.EditarAutobuses, conexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@aut_Matricula", aut.aut_Matricula);
+                    cmd.Parameters.AddWithValue("@mar_ID", aut.mar_ID);
+                    cmd.Parameters.AddWithValue("@mod_ID", aut.mod_ID);
+                    cmd.Parameters.AddWithValue("@aut_esVIP", aut.aut_esVIP);
+                    cmd.Parameters.AddWithValue("@aut_cantAsientos", aut.aut_cantAsientos);
+                    cmd.Parameters.AddWithValue("@usu_UsuarioCreacion", aut.usu_UsuarioCreacion);
+                    cmd.Parameters.AddWithValue("@aut_FechaCreacion", aut.aut_FechaCreacion);
+
+                    mensaje = (string)cmd.ExecuteScalar();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                mensaje = "Error: " + ex.Message;
+                throw;
+            }
+            return mensaje;
         }
 
 
