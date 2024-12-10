@@ -37,11 +37,23 @@ namespace Gestion_De_Tickets_Autobus
         {
             if (rbF.Checked) sexo = 1;
             if (rbM.Checked) sexo = 2;
+
             if (rbE.Checked) extranjero = true;
+            if (rbH.Checked) extranjero = false;
+
+            string DNI;
+            if (extranjero)
+            {
+                DNI = txtDNIE.Text;
+            }
+            else
+            {
+                DNI = mtxtidentidad.Text;
+            }
             Personas PrEmpleados = new Personas
             {
                 per_NombreCompleto = txtNombre.Text,
-                per_DNI = mtxtidentidad.Text,
+                per_DNI = DNI,
                 per_Extranjero = extranjero,
                 per_Telefono = txtTelefono.Text,
                 per_FechaNacimiento = dtFechaNacimiento.Value,
@@ -75,11 +87,13 @@ namespace Gestion_De_Tickets_Autobus
                 {
                     txtDNIE.Text = personas.per_DNI;
                     rbE.Checked = true;
+                    rbH.Checked = false;
                 }
                 if (extranjero == false)
                 {
                     mtxtidentidad.Text = personas.per_DNI;
                     rbH.Checked = true;
+                    rbE.Checked = false;
                 }
                 txtTelefono.Text = personas.per_Telefono;
                 txtEmail.Text = personas.per_Correo;
@@ -100,12 +114,27 @@ namespace Gestion_De_Tickets_Autobus
         //EDITAR
         public void Editar_Empleados(int per_Id)
         {
+            if (rbF.Checked) sexo = 1;
+            if (rbM.Checked) sexo = 2;
+
+            if (rbE.Checked) extranjero = true;
+            if (rbH.Checked) extranjero = false;
+
+            string DNI;
+            if (extranjero)
+            {
+                DNI = txtDNIE.Text;
+            }
+            else
+            {
+                DNI = mtxtidentidad.Text;
+            }
             Personas Empleado = new Personas
             {
                 per_Id = per_Id,
                 per_NombreCompleto = txtNombre.Text,
                 per_Correo = txtEmail.Text,
-                per_DNI = mtxtidentidad.Text,
+                per_DNI = DNI,
                 per_Extranjero =extranjero,
                 per_Telefono = txtTelefono.Text,
                 per_FechaNacimiento = dtFechaNacimiento.Value,
@@ -419,7 +448,7 @@ namespace Gestion_De_Tickets_Autobus
                     LimpiarCampos();
                 }
             }
-            else if (e.RowIndex < 0)
+            else if (e.RowIndex >= 0)
             {
                 boton_mostrarEditar();
                 DataGridViewRow fila = dgEmpleados.Rows[e.RowIndex];

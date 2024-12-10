@@ -120,14 +120,15 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
                                 per_NombreCompleto = reader.GetString(0),
                                 per_Correo = reader.GetString(1),
                                 per_DNI = reader.GetString(2),
-                                per_Telefono = reader.GetString(3),
-                                per_FechaNacimiento = reader.GetDateTime(4),
-                                per_Sexo = reader.GetInt32(5),
-                                per_Cargo = reader.GetInt32(6),
-                                per_Ciudad = reader.GetInt32(7),
-                                per_Direccion = reader.GetString(8),
-                                dept_Id = reader.GetInt32(9),
-                                pais_Id = reader.GetInt32(10),
+                                per_Extranjero = reader.GetBoolean(3),
+                                per_Telefono = reader.GetString(4),
+                                per_FechaNacimiento = reader.GetDateTime(5),
+                                per_Sexo = reader.GetInt32(6),
+                                per_Cargo = reader.GetInt32(7),
+                                per_Ciudad = reader.GetInt32(8),
+                                per_Direccion = reader.GetString(9),
+                                dept_Id = reader.GetInt32(10),
+                                pais_Id = reader.GetInt32(11),
                             };
                         }
                     }
