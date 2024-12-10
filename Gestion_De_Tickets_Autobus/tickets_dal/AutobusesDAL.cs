@@ -103,10 +103,11 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
                                 aut_Id = reader.GetInt32(0),
                                 aut_Matricula = reader.GetString(1),
                                 mar_ID = reader.GetInt32(2),
-                               // mod_ID = 
-                               // aut_cantAsientos = 
-                               // aut_esVIP = 
-                                
+                                mod_ID = reader.GetInt32(3) ,  
+                                aut_esVIP = reader.GetBoolean(4),
+                                aut_cantAsientos = reader.GetInt32(5),
+                                aut_Estado = reader.GetBoolean(6),
+
                             };
                         }
                     }
@@ -155,7 +156,7 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
 
 
         //COMBOBOX
-        public DataTable CargarAutobuses(int pre_ID)
+        public DataTable CargarAutobuses(int mar_ID)
         {
             DataTable dt = new DataTable();
 
@@ -166,7 +167,7 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
                 {
 
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@pre_ID", pre_ID);
+                    cmd.Parameters.AddWithValue("@mar_ID", mar_ID);
 
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
                     da.Fill(dt);
