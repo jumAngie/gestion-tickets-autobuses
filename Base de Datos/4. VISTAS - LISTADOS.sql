@@ -20,8 +20,9 @@ AS
 			ON pers.car_ID		=	car.car_id		INNER JOIN Gral.tbDepartamentos d
 			ON c.dept_Id		=	d.dept_Id		INNER JOIN Gral.tbPaises p
 			ON d.pais_Id		=	p.pais_Id
- WHERE		pers.car_ID	= 1 OR pers.car_ID = 3 AND per_Estado = 1
+ WHERE		(pers.car_ID = 1 OR pers.car_ID = 3) AND per_Estado = 1
 GO
+
 
 ---------------------------------------------------
 CREATE OR ALTER VIEW Gral.Clientes_Listado
@@ -45,8 +46,9 @@ AS
 			ON pers.car_ID		=	car.car_id		INNER JOIN Gral.tbDepartamentos d
 			ON c.dept_Id		=	d.dept_Id		INNER JOIN Gral.tbPaises p
 			ON d.pais_Id		=	p.pais_Id
- WHERE		pers.car_ID	= 2 OR pers.car_ID = 3 AND per_Estado = 1
+ WHERE		(pers.car_ID = 2 OR pers.car_ID = 3) AND per_Estado = 1
 GO
+
 ---------------------------------------------------
 CREATE OR ALTER VIEW Tick.Listado_Autobuses
 AS

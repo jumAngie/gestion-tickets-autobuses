@@ -334,9 +334,6 @@ namespace Gestion_De_Tickets_Autobus
 
         #region EVENTOS DE LOS ELEMENTOS DEL FORMULARIO
 
-
-
-       
         private void rbH_CheckedChanged(object sender, EventArgs e)
         {
             lblidentidad.Visible = true;
@@ -407,6 +404,9 @@ namespace Gestion_De_Tickets_Autobus
         }
         private void dgEmpleadoss_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0)
+                return;
+
             if (e.ColumnIndex == dgEmpleados.Columns["btnEliminar"].Index && e.RowIndex >= 0)
             {
 
