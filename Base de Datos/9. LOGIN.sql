@@ -18,7 +18,8 @@ BEGIN
 		ON usua.per_ID = T1.per_ID	LEFT JOIN Acce.tbRoles T2 
 		ON usua.rol_ID = T2.rol_ID
         WHERE usua.usu_Usuario = @usua_Usuario
-        AND usua.usu_Contrasena = @usua_Contrasenia;
+        AND usua.usu_Contrasena = @usua_Contrasenia
+		AND per_Estado = 1;
     END TRY
     BEGIN CATCH
         SELECT 'Error Message: ' + ERROR_MESSAGE();

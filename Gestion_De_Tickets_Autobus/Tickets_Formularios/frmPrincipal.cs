@@ -79,7 +79,7 @@ namespace Gestion_De_Tickets_Autobus
                 }
                 else if (pantalla.pant_NombreBoton == "btnPlanificar")
                 {
-                    btnPlanificar.Visible = true;
+                    btnPlanificar.Visible = false;
                     btnPlanificar.Location = new System.Drawing.Point(0, posicionY);
                     posicionY += btnPlanificar.Height + btnPlanificar.Margin.Top + btnPlanificar.Margin.Bottom;
                 }
