@@ -38,7 +38,7 @@
             // 
             this.lblDNI.AutoSize = true;
             this.lblDNI.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblDNI.Location = new System.Drawing.Point(58, 35);
+            this.lblDNI.Location = new System.Drawing.Point(301, 42);
             this.lblDNI.Name = "lblDNI";
             this.lblDNI.Size = new System.Drawing.Size(116, 13);
             this.lblDNI.TabIndex = 0;
@@ -47,7 +47,7 @@
             // cbxDNIREG
             // 
             this.cbxDNIREG.FormattingEnabled = true;
-            this.cbxDNIREG.Location = new System.Drawing.Point(61, 64);
+            this.cbxDNIREG.Location = new System.Drawing.Point(192, 58);
             this.cbxDNIREG.Name = "cbxDNIREG";
             this.cbxDNIREG.Size = new System.Drawing.Size(337, 21);
             this.cbxDNIREG.TabIndex = 1;
@@ -58,7 +58,7 @@
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar.Location = new System.Drawing.Point(61, 112);
+            this.btnGuardar.Location = new System.Drawing.Point(192, 106);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(337, 45);
             this.btnGuardar.TabIndex = 29;

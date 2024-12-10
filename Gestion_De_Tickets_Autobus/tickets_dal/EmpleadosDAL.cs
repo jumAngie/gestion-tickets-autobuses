@@ -234,6 +234,34 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
 
             return dt;
         }
+
+        public static string PersonaExist(int per_Id)
+        {
+            string mensaje = "";
+            try
+            {
+                using (SqlConnection conexion = BDConnection.ObtenerConexion())
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand(ScriptsDatabase.RegistrarPersonaExistente, conexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@per_ID", per_Id);
+
+                    mensaje = (string)cmd.ExecuteScalar() + "Persona cargada exitosamente";
+                }
+
+            }
+            catch (Exception ex)
+            {
+                mensaje = "Error: " + ex.Message;
+                throw;
+            }
+
+            return mensaje;
+
+
+        }
     }
     
 }

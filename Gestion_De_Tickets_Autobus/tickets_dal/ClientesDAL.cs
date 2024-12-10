@@ -242,12 +242,12 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
                 using (SqlConnection conexion = BDConnection.ObtenerConexion())
                 {
                     conexion.Open();
-                    SqlCommand cmd = new SqlCommand(ScriptsDatabase.PersonasExistentes_Empleados, conexion);
+                    SqlCommand cmd = new SqlCommand(ScriptsDatabase.RegistrarPersonaExistente, conexion);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.AddWithValue("@per_ID",per_Id);                    
+                    cmd.Parameters.AddWithValue("@per_ID", per_Id);
 
-                    mensaje = (string)cmd.ExecuteScalar();
+                    mensaje = (string)cmd.ExecuteScalar()+"Persona cargada exitosamente";
                 }
 
             }

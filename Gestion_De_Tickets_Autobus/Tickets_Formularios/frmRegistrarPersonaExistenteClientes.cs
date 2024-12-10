@@ -35,5 +35,33 @@ namespace Gestion_De_Tickets_Autobus.Tickets_Formularios
         {
             CargarPersonas();
         }
+
+        public void CargarP(int per_Id)
+        {
+
+            try
+            {
+                string resultado = EmpleadosDAL.PersonaExist(per_Id);
+                MessageBox.Show(resultado, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar la persona: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            if (cbxDNIREG.SelectedValue != null)
+            {
+                int per_Id = Convert.ToInt32(cbxDNIREG.SelectedValue);
+                CargarP(per_Id);
+                CargarPersonas();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecciona una persona.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

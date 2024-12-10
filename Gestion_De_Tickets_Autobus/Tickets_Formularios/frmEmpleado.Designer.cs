@@ -498,7 +498,7 @@
             this.dgEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgEmpleados.Location = new System.Drawing.Point(13, 342);
             this.dgEmpleados.Name = "dgEmpleados";
-            this.dgEmpleados.Size = new System.Drawing.Size(797, 128);
+            this.dgEmpleados.Size = new System.Drawing.Size(797, 135);
             this.dgEmpleados.TabIndex = 10;
             this.dgEmpleados.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgEmpleadoss_CellClick);
             // 
