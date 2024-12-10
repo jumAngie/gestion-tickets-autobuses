@@ -157,3 +157,13 @@ BEGIN
 	WHERE pln_ID = @pln_ID
 		
 END
+--------------------------------------------------------
+GO
+CREATE OR ALTER PROCEDURE Gral.tbClientes_Listar_
+AS
+BEGIN
+			SELECT '0' AS 'per_ID', ' - Seleccione una opción -' AS 'per_NombreCompleto'
+			UNION ALL
+			SELECT per_ID, per_NombreCompleto FROM Gral.tbPersonas
+			WHERE car_ID = 2 OR car_ID = 3 AND per_Estado = 1
+END

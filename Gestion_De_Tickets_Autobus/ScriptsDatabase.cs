@@ -47,6 +47,7 @@ namespace Gestion_De_Tickets_Autobus
         public static string PersonasExistentes_Clientes = "Gral.Clientes";
         public static string PersonasExistentes_Empleados = "Gral.Empleados";
         public static string Autobuses_CMBX = "Tick.Autobus_CMB";
+        public static string Clientes_Listar = "Gral.tbClientes_Listar_";
         #endregion
 
         #region Validaciones
@@ -57,6 +58,7 @@ namespace Gestion_De_Tickets_Autobus
         #region Tickets Encabezado
         public static string ListarTickets = "SELECT * FROM Tick.Tickets_Listado";
         public static string Autobus_Precio = "Tick.Autobus_Precio";
+        public static string TicketCompleto = "Tick.Insertar_Ticket_Completo";
         #endregion
 
         #region Tickets Detalle

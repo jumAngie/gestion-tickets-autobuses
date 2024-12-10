@@ -216,6 +216,95 @@ AS
 	END
 GO
 ------- TICKETS  ------------
+CREATE OR ALTER PROCEDURE Tick.Insertar_Ticket_Completo
+    @per_ID             INT, 
+    @meto_ID            INT, 
+    @tik_Subtotal       DECIMAL(18,2), 
+    @tik_Impuesto       DECIMAL(18,2), 
+    @tik_Total          DECIMAL(18,2), 
+    @usu_UsuarioCreacion INT, 
+    @tik_FechaCreacion  DATETIME,
+    @Lista_Asientos     NVARCHAR(MAX) -- Recibe una lista separada por comas de pas_IDs
+AS
+BEGIN
+    BEGIN TRY
+        -- Inicia la transacción
+        BEGIN TRANSACTION;
+
+        DECLARE @tik_ID INT; -- Para almacenar el ID del encabezado
+
+        -- Insertar en Encabezado
+        INSERT INTO Tick.tbTickets_Encabezado([per_ID], [meto_ID], [tik_Subtotal], [tik_Descuento], [tik_Impuesto], [tik_Total], [usu_UsuarioCreacion], [tik_FechaCreacion])
+        VALUES (@per_ID, @meto_ID, @tik_Subtotal, 0.00, @tik_Impuesto, @tik_Total, @usu_UsuarioCreacion, @tik_FechaCreacion);
+
+        -- Obtener el ID del encabezado recién insertado
+        SET @tik_ID = SCOPE_IDENTITY();
+
+        -- Insertar en Detalle para cada asiento
+        DECLARE @pas_ID INT;
+
+        -- Cursor para recorrer la lista de asientos
+        DECLARE Cursor_Asientos CURSOR FOR
+        SELECT value AS pas_ID FROM STRING_SPLIT(@Lista_Asientos, ',');
+
+        OPEN Cursor_Asientos;
+        FETCH NEXT FROM Cursor_Asientos INTO @pas_ID;
+
+        WHILE @@FETCH_STATUS = 0
+        BEGIN
+            -- Insertar en Detalle
+            INSERT INTO Tick.tbTickets_Detalle (tik_ID, pas_ID)
+            VALUES (@tik_ID, @pas_ID);
+
+            -- Actualizar la disponibilidad
+            UPDATE Tick.tbPlanificacion_Asientos
+            SET tdt_Disponibilidad = 1
+            WHERE pas_ID = @pas_ID;
+
+            FETCH NEXT FROM Cursor_Asientos INTO @pas_ID;
+        END
+
+        CLOSE Cursor_Asientos;
+        DEALLOCATE Cursor_Asientos;
+
+        -- Confirmar la transacción
+        COMMIT TRANSACTION;
+
+        SELECT 'Ticket y asientos reservados correctamente.' AS Resultado;
+
+    END TRY
+    BEGIN CATCH
+        -- Si ocurre un error, revertir la transacción
+        ROLLBACK TRANSACTION;
+
+        SELECT 'ERROR: ' + ERROR_MESSAGE() AS Resultado;
+    END CATCH
+END;
+GO
+/*
+CREATE OR ALTER PROCEDURE Tick.tbTickets_Encabezado
+@per_ID			INT, 
+@meto_ID		INT, 
+@tik_Subtotal	DECIMAL(18,2), 
+@tik_Impuesto	DECIMAL(18,2), 
+@tik_Total		DECIMAL(18,2), 
+@usu_UsuarioCreacion	INT, 
+@tik_FechaCreacion		DATETIME
+AS
+BEGIN
+	BEGIN TRY
+		BEGIN
+			INSERT INTO Tick.tbTickets_Encabezado([per_ID], [meto_ID], [tik_Subtotal], [tik_Descuento], [tik_Impuesto], [tik_Total], [usu_UsuarioCreacion], [tik_FechaCreacion], [usu_UsuarioModificacion] )
+			VALUES								 (@per_ID, @meto_ID, @tik_Subtotal, 0.00, @tik_Impuesto, @tik_Total, @usu_UsuarioCreacion, @tik_FechaCreacion)
+		END
+	END TRY
+	BEGIN CATCH
+		BEGIN
+			SELECT 'ERROR: ' + ERROR_MESSAGE();
+		END
+	END CATCH
+END
+GO
 -- CREAR DETALLES --
 
 CREATE OR ALTER PROCEDURE Tick.tbTickets_Detalle_Insertar
@@ -260,3 +349,4 @@ BEGIN
         SELECT 'ERROR: ' + ERROR_MESSAGE();
     END CATCH
 END;
+*/

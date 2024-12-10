@@ -65,6 +65,7 @@
     <Compile Include="Tickets_DAL\TicketsDetallesDAL.cs" />
     <Compile Include="Tickets_Entities\Autobuses.cs" />
     <Compile Include="Tickets_Entities\Personas.cs" />
+    <Compile Include="Tickets_Entities\TicketEncabezado.cs" />
     <Compile Include="Tickets_Formularios\frmAutobuses.cs">
       <SubType>Form</SubType>
     </Compile>

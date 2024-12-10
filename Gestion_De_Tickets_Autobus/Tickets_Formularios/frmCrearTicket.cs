@@ -1,7 +1,9 @@
 ﻿using Gestion_De_Tickets_Autobus.Tickets_DAL;
+using Gestion_De_Tickets_Autobus.Tickets_Entities;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gestion_De_Tickets_Autobus
@@ -12,6 +14,7 @@ namespace Gestion_De_Tickets_Autobus
         DestinosDAL destinos = new DestinosDAL();
         AutobusesDAL autobuses = new AutobusesDAL();
         ClientesDAL clientes = new ClientesDAL();
+        TicketsDAL tickets = new TicketsDAL();
         #endregion
 
         List<int> asientosSeleccionados = new List<int>();
@@ -19,6 +22,45 @@ namespace Gestion_De_Tickets_Autobus
         {
             InitializeComponent();
         }
+
+        #region VALIDACIONES Y LIMPIEZA DE CAMPOS
+        public void Panel_OcultarValidaciones()
+        {
+            pnlSalida.Visible = false;
+            pnlDestino.Visible = false;
+            pnlBus.Visible = false;
+            lblMetodoPago.Visible = false;
+            pnlCliente.Visible = false;
+        }
+        
+        public bool ValidacionesVacio()
+        {
+            bool esvalido = true;
+
+            if (cmbSalida.SelectedIndex == 0 || cmbSalida.SelectedIndex == -1) { pnlSalida.Visible = true; esvalido = false; }
+            if (cbmDestino.SelectedIndex == 0 || cbmDestino.SelectedIndex == -1) { pnlDestino.Visible = true; esvalido = false; }
+            if (cmbAutobus.SelectedIndex == 0 || cmbAutobus.SelectedIndex == -1) { pnlBus.Visible = true; esvalido = false; }
+            if(cmbClientes.SelectedIndex == 0 || cmbClientes.SelectedIndex == -1) { pnlCliente.Visible =true; esvalido = false; }
+            if(rbE.Checked == false && rbT.Checked == false) { lblMetodoPago.Visible = true; esvalido=false; }
+            
+            // esconder error
+            pnlSalida.Visible = cmbSalida.SelectedIndex == 0 || cmbSalida.SelectedIndex == -1;
+            pnlDestino.Visible = cbmDestino.SelectedIndex == 0 || cbmDestino.SelectedIndex == -1;
+            pnlBus.Visible = cmbAutobus.SelectedIndex == 0 || cmbAutobus.SelectedIndex == -1;
+            pnlCliente.Visible = cmbClientes.SelectedIndex == 0 || cmbAutobus.SelectedIndex == -1;
+            lblMetodoPago.Visible = rbE.Checked == false && rbT.Checked == false;
+
+            return esvalido;
+        }
+
+        public void LimpiarCampos()
+        {
+            cmbSalida.SelectedIndex = 0;
+            cbmDestino.SelectedIndex = 0;
+            cmbAutobus.SelectedIndex = 0;
+            cmbClientes.SelectedIndex = 0;
+        }
+        #endregion
 
         #region COMBOBOX
         public void CargarSalidas()
@@ -30,7 +72,7 @@ namespace Gestion_De_Tickets_Autobus
 
         public void CargarClientes()
         {
-            cmbClientes.DataSource = clientes.CargarPersonasC();
+            cmbClientes.DataSource = tickets.CargarClientes();
             cmbClientes.ValueMember = "per_ID";
             cmbClientes.DisplayMember = "per_NombreCompleto";
         }
@@ -49,6 +91,38 @@ namespace Gestion_De_Tickets_Autobus
             cmbAutobus.DisplayMember = "Autobus";
         }
 
+        public void InsertarTicket()
+        {
+            int metodoPago = 1;
+            if (rbE.Checked == true) metodoPago = 1;
+            if (rbT.Checked == true) metodoPago = 2;
+            
+            if (asientosSeleccionados == null || asientosSeleccionados.Count == 0)
+            {
+                MessageBox.Show("Debe seleccionar al menos un asiento.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            
+            string listaAsientos = string.Join(",", asientosSeleccionados);
+
+            TicketEncabezado ticket = new TicketEncabezado
+            {
+                per_ID = cmbClientes.SelectedIndex,
+                meto_ID = metodoPago,
+                tik_Subtotal = Convert.ToDecimal(txtSubtotal.Text),
+                tik_Impuesto = Convert.ToDecimal(txtISV.Text),
+                tik_Total = Convert.ToDecimal(txtTotal.Text),
+                usu_UsuarioCreacion = 1,
+                tik_FechaCreacion = DateTime.Now,
+                listaAsientos = listaAsientos 
+            };
+
+            string resultados = TicketsDAL.InsertarTicketCompleto(ticket);
+            MessageBox.Show(resultados, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
+
         public void Autobus_Precio(int audes_ID)
         {
             string precio = AutobusesDAL.Autobus_Precio(audes_ID);
@@ -57,21 +131,27 @@ namespace Gestion_De_Tickets_Autobus
 
         private void ActualizarCantidadYTotal()
         {
-            // Obtener la cantidad de asientos seleccionados
+            
             int cantidad = asientosSeleccionados.Count;
 
-            // Mostrar la cantidad en txtCantidad
+            
             txtCantidad.Text = cantidad.ToString();
 
-            // Obtener el precio desde lblPrecio (convertir a decimal)
-            decimal precio = 0;
-            if (decimal.TryParse(lblPrecio.Text, out precio))
+            
+            double precio = 0;
+            if (double.TryParse(lblPrecio.Text, out precio))
             {
-                // Calcular el total a pagar
-                decimal totalPagar = precio * cantidad;
+                
+                double totalPagar = precio * cantidad;
+                double impuesto = totalPagar * (0.15);
+                double total = totalPagar + impuesto;
+              
 
-                // Mostrar el total en txtTotalPagar
-                txtTotalAPagar.Text = totalPagar.ToString("F2"); // Formato con 2 decimales
+
+                txtTotalAPagar.Text = totalPagar.ToString("F2");
+                txtSubtotal.Text = totalPagar.ToString("F2");
+                txtISV.Text = impuesto.ToString("F2");
+                txtTotal.Text = total.ToString("F2");
             }
             else
             {
@@ -126,9 +206,6 @@ namespace Gestion_De_Tickets_Autobus
                     columna = 0;
                     fila++;
                 }
-
-                txtCantidad.Text = "0";
-                txtTotalAPagar.Text = "0.00";
             }
         }
 
@@ -148,6 +225,17 @@ namespace Gestion_De_Tickets_Autobus
             }
 
         }
+
+        #region MENSAJES
+        public void MensajeAdvertencia()
+        {
+            lblAdvertencia.Visible = true;
+        }
+        public void MensajeAdvertencia_Hide()
+        {
+            lblAdvertencia.Visible = false;
+        }
+        #endregion
 
         private void frmCrearTicket_Load(object sender, System.EventArgs e)
         {
@@ -183,6 +271,11 @@ namespace Gestion_De_Tickets_Autobus
                 int audes_ID = (int)cmbAutobus.SelectedValue;
                 Autobus_Precio(audes_ID);
                 DibujarAsientos(audes_ID);
+                txtCantidad.Text = "0";
+                txtTotalAPagar.Text = "0.00";
+                txtSubtotal.Text = "0.00";
+                txtISV.Text = "0.00";
+                txtTotal.Text = "0.00";
             }
         }
 
@@ -213,9 +306,22 @@ namespace Gestion_De_Tickets_Autobus
             ActualizarCantidadYTotal();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private  async void btnGuardar_Click(object sender, EventArgs e)
         {
-            ReservarAsientos();
+            bool esValido = ValidacionesVacio();
+            if (esValido)
+            {
+                InsertarTicket();
+                LimpiarCampos();
+
+            }
+            else
+            {
+                MensajeAdvertencia();
+                await Task.Delay(5000);
+                MensajeAdvertencia_Hide();
+            }
+
         }
     }
 }
