@@ -156,6 +156,22 @@ namespace Gestion_De_Tickets_Autobus
 
             MessageBox.Show(resultado, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+
+        //ELIMINAR CLIENTES
+        public void Eliminar_Clientes(int per_ID)
+        {
+            Personas persona = new Personas
+            {
+                per_Id = per_ID,
+                usu_UsuarioModificacion = 1, // acá se debe de cambiar cuando se haga el LogIn
+                per_FechaModificacion = DateTime.Now
+            };
+
+            string resultado = ClientesDAL.EliminarClientes(persona);
+
+            MessageBox.Show(resultado, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
         #endregion
 
         public frmCliente()
@@ -361,6 +377,17 @@ namespace Gestion_De_Tickets_Autobus
             LimpiarCampos();
             Panel_OcultarValidaciones();
             MensajeAdvertencia_Hide();
+
+            // Añadiendo el boton de eliminar al final de cada registro.
+            DataGridViewButtonColumn btnEliminar = new DataGridViewButtonColumn();
+            btnEliminar.HeaderText = "Acciones";
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.UseColumnTextForButtonValue = true;
+            btnEliminar.DefaultCellStyle.BackColor = Color.DarkRed;
+            btnEliminar.DefaultCellStyle.ForeColor = Color.DarkRed;
+            btnEliminar.DefaultCellStyle.Font = new Font("Nobile", 9, FontStyle.Regular);
+            dgClientes.Columns.Add(btnEliminar);
         }
 
         private void cbxPais_SelectedIndexChanged(object sender, EventArgs e)
@@ -411,8 +438,20 @@ namespace Gestion_De_Tickets_Autobus
 
         private void dgClientes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-              if (e.RowIndex < 0)
-                return;
+            if (e.ColumnIndex == dgClientes.Columns["btnEliminar"].Index && e.RowIndex >= 0)
+            {
+
+                int per_Id = Convert.ToInt32(dgClientes.Rows[e.RowIndex].Cells["per_ID"].Value);
+                var result = MessageBox.Show("¿Está seguro que desea eliminar este registro?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    Eliminar_Clientes(per_Id);
+                    ListarClientes();
+                    LimpiarCampos();
+                }
+            }
+            else if (e.RowIndex < 0)
+               
             boton_mostrarEditar();
             DataGridViewRow fila = dgClientes.Rows[e.RowIndex];
 

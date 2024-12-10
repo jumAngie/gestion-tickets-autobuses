@@ -194,10 +194,31 @@ BEGIN
 		SET	   car_ID = 3
 		WHERE  per_ID = @per_ID
 END
+GO
+-- Eliminar Registros Personas
+CREATE OR ALTER PROCEDURE Gral.UDP_tbPersonas_Eliminar
+@per_ID	INT,
+@usu_UsuarioModificacion	INT,
+@per_FechaModificacion	    DATETIME
+AS
+	BEGIN
+		BEGIN TRY
+			UPDATE  Gral.tbPersonas	
+			SET		per_Estado = 0, 
+					usu_UsuarioModificacion = @usu_UsuarioModificacion,
+					per_FechaModificacion = @per_FechaModificacion
+			WHERE	per_ID = @per_ID
 
+			SELECT 'Registro eliminado existosamente.'
+		END TRY
+		BEGIN CATCH
+			SELECT 'Error Message: '+ ERROR_MESSAGE();
+		END CATCH				
+	END
+GO
 ------- TICKETS  ------------
 -- CREAR DETALLES --
-GO
+
 CREATE OR ALTER PROCEDURE Tick.tbTickets_Detalle_Insertar
     @tik_ID INT,
     @pas_ID INT

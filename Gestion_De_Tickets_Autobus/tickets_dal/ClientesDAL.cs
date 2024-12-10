@@ -262,5 +262,37 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
 
         }
 
+        //ELIMINAR REGISTRO
+
+        public static string EliminarClientes(Personas personas)
+        {
+            string mensaje = "";
+            try
+            {
+                using (SqlConnection conexion = BDConnection.ObtenerConexion())
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand(ScriptsDatabase.EliminarClientes, conexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@per_ID", personas.per_Id);
+                    cmd.Parameters.AddWithValue("@usu_UsuarioModificacion", personas.usu_UsuarioModificacion);
+                    cmd.Parameters.AddWithValue("@per_FechaModificacion", personas.per_FechaModificacion);
+
+                    mensaje = (string)cmd.ExecuteScalar();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                mensaje = "Error: " + ex.Message;
+                throw;
+            }
+
+            return mensaje;
+
+
+        }
+
     }
 }

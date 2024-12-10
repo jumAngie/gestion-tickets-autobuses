@@ -121,6 +121,21 @@ namespace Gestion_De_Tickets_Autobus
 
             MessageBox.Show(resultado, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        //ELIMINAR EMPLEADOS
+        public void Eliminar_Empleados(int per_ID)
+        {
+            Personas persona = new Personas
+            {
+                per_Id = per_ID,
+                usu_UsuarioModificacion = 1, // acá se debe de cambiar cuando se haga el LogIn
+                per_FechaModificacion = DateTime.Now
+            };
+
+            string resultado = EmpleadosDAL.EliminarEmpleados(persona);
+
+            MessageBox.Show(resultado, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
         #endregion
         public frmEmpleado()
         {
@@ -338,7 +353,7 @@ namespace Gestion_De_Tickets_Autobus
             txtDNIE.Visible = true;
 
         }
-        #endregion
+        
 
         private void frmEmpleado_Load(object sender, EventArgs e)
         {
@@ -349,6 +364,17 @@ namespace Gestion_De_Tickets_Autobus
             LimpiarCampos();
             panel_OcultarValidaciones();
             MensajeAdvertencia_Hide();
+
+            // Añadiendo el boton de eliminar al final de cada registro.
+            DataGridViewButtonColumn btnEliminar = new DataGridViewButtonColumn();
+            btnEliminar.HeaderText = "Acciones";
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.UseColumnTextForButtonValue = true;
+            btnEliminar.DefaultCellStyle.BackColor = Color.DarkRed;
+            btnEliminar.DefaultCellStyle.ForeColor = Color.DarkRed;
+            btnEliminar.DefaultCellStyle.Font = new Font("Nobile", 9, FontStyle.Regular);
+            dgEmpleados.Columns.Add(btnEliminar);
 
         }
         private void cbxPais_SelectedIndexChanged(object sender, EventArgs e)
@@ -381,17 +407,33 @@ namespace Gestion_De_Tickets_Autobus
         }
         private void dgEmpleadoss_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.ColumnIndex == dgEmpleados.Columns["btnEliminar"].Index && e.RowIndex >= 0)
+            {
 
-            boton_mostrarEditar();
-            DataGridViewRow fila = dgEmpleados.Rows[e.RowIndex];
+                int per_Id = Convert.ToInt32(dgEmpleados.Rows[e.RowIndex].Cells["per_ID"].Value);
+                var result = MessageBox.Show("¿Está seguro que desea eliminar este registro?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    Eliminar_Empleados(per_Id);
+                    ListarEmpleados();
+                    LimpiarCampos();
+                }
+            }
+            else if (e.RowIndex < 0)
+            {
+                boton_mostrarEditar();
+                DataGridViewRow fila = dgEmpleados.Rows[e.RowIndex];
 
-            int per_ID = Convert.ToInt32(fila.Cells["per_ID"].Value);
-            id_filaseleccionada = per_ID;
+                int per_ID = Convert.ToInt32(fila.Cells["per_ID"].Value);
+                id_filaseleccionada = per_ID;
 
-            LimpiarCampos();
-            panel_OcultarValidaciones();
-            Editar_CargarDatos(per_ID);
+                LimpiarCampos();
+                panel_OcultarValidaciones();
+                Editar_CargarDatos(per_ID);
+            }
         }
+
+        #endregion
 
         #region LLENANDO COMBOBOX
         public void CargarPaisesCMB()
