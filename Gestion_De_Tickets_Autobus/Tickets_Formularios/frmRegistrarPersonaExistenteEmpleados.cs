@@ -19,7 +19,6 @@ namespace Gestion_De_Tickets_Autobus.Tickets_Formularios
         ClientesDAL Clientes = new ClientesDAL();
         EmpleadosDAL Empleados = new EmpleadosDAL();
         #endregion
-        //public int per_ID;
         public frmRegistrarPersonaExistenteEmpleados()
         {
             InitializeComponent();
@@ -39,16 +38,30 @@ namespace Gestion_De_Tickets_Autobus.Tickets_Formularios
         }
         public void CargarP(int per_Id)
         {
-            per_Id =Convert.ToInt32(cbxDNIREG.SelectedIndex);
 
-            string resultado = ClientesDAL.PersonaExist(per_Id);
-
-            MessageBox.Show(resultado, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            try
+            {
+                string resultado = ClientesDAL.PersonaExist(per_Id);
+                MessageBox.Show(resultado, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar la persona: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            //CargarP(per_ID); 
+            if (cbxDNIREG.SelectedValue != null)
+            {
+                int per_Id = Convert.ToInt32(cbxDNIREG.SelectedValue);
+                CargarP(per_Id);
+                CargarPersonas();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecciona una persona.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

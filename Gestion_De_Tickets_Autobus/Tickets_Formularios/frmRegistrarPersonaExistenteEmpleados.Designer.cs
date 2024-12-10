@@ -38,7 +38,7 @@
             // 
             this.lblDNI.AutoSize = true;
             this.lblDNI.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblDNI.Location = new System.Drawing.Point(58, 35);
+            this.lblDNI.Location = new System.Drawing.Point(301, 42);
             this.lblDNI.Name = "lblDNI";
             this.lblDNI.Size = new System.Drawing.Size(116, 13);
             this.lblDNI.TabIndex = 0;
@@ -47,22 +47,22 @@
             // cbxDNIREG
             // 
             this.cbxDNIREG.FormattingEnabled = true;
-            this.cbxDNIREG.Location = new System.Drawing.Point(61, 64);
+            this.cbxDNIREG.Location = new System.Drawing.Point(192, 58);
             this.cbxDNIREG.Name = "cbxDNIREG";
             this.cbxDNIREG.Size = new System.Drawing.Size(337, 21);
             this.cbxDNIREG.TabIndex = 1;
             // 
             // btnGuardar
             // 
-            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(53)))), ((int)(((byte)(80)))));
+            this.btnGuardar.BackColor = System.Drawing.Color.Gray;
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar.Location = new System.Drawing.Point(61, 112);
+            this.btnGuardar.Location = new System.Drawing.Point(192, 106);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(337, 45);
             this.btnGuardar.TabIndex = 29;
-            this.btnGuardar.Text = "Agregar Cliente/Empleado";
+            this.btnGuardar.Text = "Agregar como Cliente";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 

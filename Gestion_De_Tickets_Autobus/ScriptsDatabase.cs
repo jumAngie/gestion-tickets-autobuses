@@ -14,6 +14,7 @@ namespace Gestion_De_Tickets_Autobus
         public static string InsertarEmpleados = "Gral.UDP_tbPersonas_Insertar";
         public static string EditarEmpleados_CargarInformacion = "Gral.UDP_tbPersonas_CargarInformacion";
         public static string EditarEmpleados = "Gral.UDP_tbPersonas_Editar";
+        public static string EliminarEmpleados = "Gral.UDP_tbPersonas_Eliminar";
         #endregion
 
         #region Clientes
@@ -22,6 +23,7 @@ namespace Gestion_De_Tickets_Autobus
         public static string InsertarClientes = "Gral.UDP_tbPersonas_Insertar";
         public static string EditarClientes_CargarInformacion = "Gral.UDP_tbPersonas_CargarInformacion";
         public static string EditarClientes = "Gral.UDP_tbPersonas_Editar";
+        public static string EliminarClientes = "Gral.UDP_tbPersonas_Eliminar";
         #endregion
 
         #region Autobuses

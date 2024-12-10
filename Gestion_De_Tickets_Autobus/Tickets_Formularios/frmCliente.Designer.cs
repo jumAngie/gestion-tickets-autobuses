@@ -72,9 +72,9 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnPersonaExistente = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).BeginInit();
             this.gbDNI.SuspendLayout();
             this.gbDatosdeContacto.SuspendLayout();
@@ -88,7 +88,7 @@
             this.dgClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgClientes.Location = new System.Drawing.Point(19, 342);
             this.dgClientes.Name = "dgClientes";
-            this.dgClientes.Size = new System.Drawing.Size(786, 128);
+            this.dgClientes.Size = new System.Drawing.Size(786, 137);
             this.dgClientes.TabIndex = 16;
             this.dgClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgClientes_CellClick);
             // 
@@ -551,6 +551,16 @@
             this.panel1.Size = new System.Drawing.Size(292, 30);
             this.panel1.TabIndex = 32;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Gestion_De_Tickets_Autobus.Properties.Resources.buscarcolorizado;
+            this.pictureBox1.Location = new System.Drawing.Point(257, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(24, 22);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 32;
+            this.pictureBox1.TabStop = false;
+            // 
             // btnEditar
             // 
             this.btnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(53)))), ((int)(((byte)(80)))));
@@ -578,16 +588,6 @@
             this.btnPersonaExistente.Text = "Registrar Persona Existente";
             this.btnPersonaExistente.UseVisualStyleBackColor = false;
             this.btnPersonaExistente.Click += new System.EventHandler(this.btnPersonaExistente_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Gestion_De_Tickets_Autobus.Properties.Resources.buscarcolorizado;
-            this.pictureBox1.Location = new System.Drawing.Point(257, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(24, 22);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 32;
-            this.pictureBox1.TabStop = false;
             // 
             // frmCliente
             // 
