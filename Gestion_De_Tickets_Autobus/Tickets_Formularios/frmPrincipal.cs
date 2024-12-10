@@ -129,9 +129,11 @@ namespace Gestion_De_Tickets_Autobus
             //Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
         }
 
-        public void Salir()
+        public void CerrarSesion()
         {
-            Application.Exit();
+            frmLogin login = new frmLogin();
+            login.Show();
+            this.Hide();
         }
 
         private void btnEmpleado_Click(object sender, EventArgs e)
@@ -328,7 +330,7 @@ namespace Gestion_De_Tickets_Autobus
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            Salir();
+            CerrarSesion();
         }
 
         private void frmPrincipal_Load(object sender, EventArgs e)

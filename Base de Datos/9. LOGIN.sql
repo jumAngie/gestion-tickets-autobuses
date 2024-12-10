@@ -63,3 +63,30 @@ DECLARE @contrasenaEncriptada_Juanis VARBINARY(MAX) = HASHBYTES('SHA2_512', @CON
 INSERT INTO Acce.tbUsuarios(usu_Usuario, usu_Contrasena, rol_Id, usu_UsuarioCreacion,usu_FechaCreacion, per_ID)
 VALUES						('Juanis', @contrasenaEncriptada_Juanis, 3,1, GETDATE(), 4)
 GO
+
+---- Juans
+DECLARE @CONTRA_Juanis NVARCHAR(100) = 'JNS123'
+DECLARE @contrasenaEncriptada_Juanis VARBINARY(MAX) = HASHBYTES('SHA2_512', @CONTRA_Juanis);
+INSERT INTO Acce.tbUsuarios(usu_Usuario, usu_Contrasena, rol_Id, usu_UsuarioCreacion,usu_FechaCreacion, per_ID)
+VALUES						('Juanis', @contrasenaEncriptada_Juanis, 3,1, GETDATE(), 4)
+GO
+
+SELECT * FROM Gral.Empleados_Listado
+SELECT * FROM Acce.tbRoles
+---- Juans
+DECLARE @CONTRA NVARCHAR(100) = 'F2001'
+DECLARE @contrasenaEncriptada_Juanis VARBINARY(MAX) = HASHBYTES('SHA2_512', @CONTRA);
+INSERT INTO Acce.tbUsuarios(usu_Usuario, usu_Contrasena, rol_Id, usu_UsuarioCreacion,usu_FechaCreacion, per_ID)
+VALUES						('Pancho', @contrasenaEncriptada_Juanis, 5,1, GETDATE(), 14)
+GO
+
+
+---- Juans
+DECLARE @CONTRA_Juanis NVARCHAR(100) = 'JNS123'
+DECLARE @contrasenaEncriptada_Juanis VARBINARY(MAX) = HASHBYTES('SHA2_512', @CONTRA_Juanis);
+INSERT INTO Acce.tbUsuarios(usu_Usuario, usu_Contrasena, rol_Id, usu_UsuarioCreacion,usu_FechaCreacion, per_ID)
+VALUES						('Juanis', @contrasenaEncriptada_Juanis, 3,1, GETDATE(), 4)
+GO
+
+
+SELECT * FROM Gral.Empleados_Listado
