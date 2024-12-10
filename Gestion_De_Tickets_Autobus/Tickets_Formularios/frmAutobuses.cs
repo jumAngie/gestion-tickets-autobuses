@@ -26,9 +26,8 @@ namespace Gestion_De_Tickets_Autobus
 
         #region VARIABLES
         private bool esVIP = false;
-        private int id_filaseleccionada;
         #endregion
-
+        
         public frmAutobuses()
         {
             InitializeComponent();
@@ -91,62 +90,10 @@ namespace Gestion_De_Tickets_Autobus
         }
 
         //CARGAR DATOS EDITAR
-     
-        public void EditarAutobuses_CargarDatos(int aut_Id)
-        {
-            Autobuses aut = AutobusesDAL.EditarAutobuses_CargarInformacion(aut_Id);
-
-            if (aut != null)
-            {
-                
-                txtMatricula.Text = aut.aut_Matricula;
-                cbxMarcas.SelectedValue = aut.mar_ID;
-                cbxModelo.SelectedValue = aut.mod_ID;
-
-                // Estado VIP
-                if (aut.aut_esVIP)
-                {
-                    rbtEsVIP.Checked = true;
-                }
-                else
-                {
-                    rbtNormal.Checked = true;
-                }
+        public void Editar_CargarDatos(int aut_id)
 
 
-                numAsientos.Text = aut.aut_cantAsientos.ToString();
-             
-            }
-            else
-            {
-                
-                MessageBox.Show("El autobús no se encontró.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-
-
-
-        //EDITAR       
-        public void EditarAutobuses(int aut_Id)
-        {
-            Autobuses autobús = new Autobuses
-            {
-                aut_Id = aut_Id,
-                aut_Matricula = txtMatricula.Text,
-                mar_ID = Convert.ToInt32(cbxMarcas.SelectedValue),
-                mod_ID = Convert.ToInt32(cbxModelo.SelectedValue),
-                aut_esVIP = rbtEsVIP.Checked,
-                aut_cantAsientos = Convert.ToInt32(numAsientos.Text),          
-                usu_UsuarioModificacion = 1, // Esto debe cambiarse cuando se haga el LogIn
-                aut_FechaModificacion = DateTime.Now
-            };
-
-            string resultado = AutobusesDAL.EditarAutobuses(autobús);
-
-            MessageBox.Show(resultado, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
+       //EDITAR
 
         #endregion
 
@@ -176,19 +123,6 @@ namespace Gestion_De_Tickets_Autobus
             pnlAsientos.Visible = numAsientos.Value <= 0;
 
             return esValido;
-        }
-
-        public void boton_mostrarEditar()
-        {
-            btnEditar.Visible = true;
-            btnGuardar.Visible = false;
-        }
-
-        public void boton_mostrarGuardar()
-        {
-            btnEditar.Visible = false;
-            btnGuardar.Visible = true;
-
         }
         public void LimpiarCampos()
         {
@@ -286,63 +220,9 @@ namespace Gestion_De_Tickets_Autobus
             }
         }
 
-        private async void btnEditar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                
-                bool esValido = ValidacionesVacio();
-
-                if (esValido)
-                {
-
-                    EditarAutobuses(id_filaseleccionada);
-
-                    CargarAutobuses();
-
-                    LimpiarCampos();
-
-                    boton_mostrarGuardar();
-                }
-                else
-                {
-                    
-                    MostrarAdvertencia();
-                    await Task.Delay(4000);
-                    OcultarAdvertencia();
-                }
-            }
-            catch (Exception ex)
-            {
- 
-                MessageBox.Show("Ocurrió un error al intentar editar el autobús: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void dgAutobuses_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-            if (e.RowIndex < 0)
-                return;
-
-            boton_mostrarEditar();
-
-            DataGridViewRow fila = dgAutobuses.Rows[e.RowIndex];
-
-            int aut_ID = Convert.ToInt32(fila.Cells["aut_ID"].Value);
-            id_filaseleccionada = aut_ID;
-
-            LimpiarCampos();
-
-            OcultarValidaciones();
-            EditarAutobuses(aut_ID);
-        }
-
-
-
         #endregion
 
-
+        
 
     }
 }
