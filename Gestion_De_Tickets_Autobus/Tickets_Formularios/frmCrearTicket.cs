@@ -1,5 +1,6 @@
 ﻿using Gestion_De_Tickets_Autobus.Tickets_DAL;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -10,8 +11,10 @@ namespace Gestion_De_Tickets_Autobus
         #region CLASES
         DestinosDAL destinos = new DestinosDAL();
         AutobusesDAL autobuses = new AutobusesDAL();
-        ClientesDAL clientes = new ClientesDAL(); 
+        ClientesDAL clientes = new ClientesDAL();
         #endregion
+
+        List<int> asientosSeleccionados = new List<int>();
         public frmCrearTicket()
         {
             InitializeComponent();
@@ -101,9 +104,27 @@ namespace Gestion_De_Tickets_Autobus
             }
         }
 
+        private void ReservarAsientos()
+        {
+            // Si no hay asientos seleccionados, mostrar mensaje
+            if (asientosSeleccionados.Count == 0)
+            {
+                MessageBox.Show("Por favor, selecciona al menos un asiento.");
+                return;
+            }
+
+            // Lógica para guardar los asientos seleccionados en la base de datos
+            foreach (var asientoID in asientosSeleccionados)
+            {
+                //ACÁ VA EL DAL
+            }
+
+        }
+
         private void frmCrearTicket_Load(object sender, System.EventArgs e)
         {
             CargarSalidas();
+            CargarClientes();
         }
 
         private void cmbSalida_SelectedIndexChanged(object sender, System.EventArgs e)
@@ -148,12 +169,21 @@ namespace Gestion_De_Tickets_Autobus
             // Cambiar estado del botón
             if (btnAsiento.BackColor == Color.ForestGreen)
             {
+                // El asiento ha sido seleccionado
                 btnAsiento.BackColor = Color.Orange; // Marcar como seleccionado
+                asientosSeleccionados.Add(pas_ID); // Agregar ID a la lista de seleccionados
             }
             else if (btnAsiento.BackColor == Color.Orange)
             {
+                // El asiento ha sido deseleccionado
                 btnAsiento.BackColor = Color.ForestGreen; // Desmarcar
+                asientosSeleccionados.Remove(pas_ID); // Eliminar ID de la lista de seleccionados
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ReservarAsientos();
         }
     }
 }
