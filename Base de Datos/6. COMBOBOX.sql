@@ -68,7 +68,7 @@ BEGIN
 	SELECT '0' AS 'per_ID', ' - Seleccione una opción -' AS 'per_NombreCompleto'
 	UNION ALL
 	SELECT per_ID, per_DNI + ' - ' + per_NombreCompleto AS per_NombreCompleto FROM Gral.tbPersonas
-	WHERE  car_ID = 2
+	WHERE  car_ID = 2 AND per_Estado = 1
 END
 GO
 --- PERSONAS_EMPLEADOS
@@ -78,7 +78,7 @@ BEGIN
 	SELECT '0' AS 'per_ID', ' - Seleccione una opción -' AS 'per_NombreCompleto'
 	UNION ALL
 	SELECT per_ID, per_DNI + ' - ' + per_NombreCompleto AS per_NombreCompleto FROM Gral.tbPersonas
-	WHERE  car_ID = 1
+	WHERE  car_ID = 1 AND per_Estado = 1
 END
 GO
 --- HORARIOS
