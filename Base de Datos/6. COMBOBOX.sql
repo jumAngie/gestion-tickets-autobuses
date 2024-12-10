@@ -167,3 +167,5 @@ BEGIN
 			SELECT per_ID, per_NombreCompleto FROM Gral.tbPersonas
 			WHERE car_ID = 2 OR car_ID = 3 AND per_Estado = 1
 END
+
+SELECT * FROM Gral.tbPersonas
