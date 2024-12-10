@@ -50,11 +50,9 @@
             this.tHora = new System.Windows.Forms.Timer(this.components);
             this.lblFecha = new System.Windows.Forms.Label();
             this.lblHora = new System.Windows.Forms.Label();
-            this.lblMensajeBienvenida = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.PNmenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,32 +70,29 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(248, 689);
+            this.panel1.Size = new System.Drawing.Size(186, 640);
             this.panel1.TabIndex = 0;
             // 
             // PNav
             // 
             this.PNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.PNav.Location = new System.Drawing.Point(-9, 185);
-            this.PNav.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PNav.Location = new System.Drawing.Point(-7, 150);
             this.PNav.Name = "PNav";
-            this.PNav.Size = new System.Drawing.Size(13, 42);
+            this.PNav.Size = new System.Drawing.Size(10, 34);
             this.PNav.TabIndex = 3;
             // 
             // btnPlanificar
             // 
-            this.btnPlanificar.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnPlanificar.FlatAppearance.BorderSize = 0;
             this.btnPlanificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPlanificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPlanificar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnPlanificar.Image = ((System.Drawing.Image)(resources.GetObject("btnPlanificar.Image")));
-            this.btnPlanificar.Location = new System.Drawing.Point(0, 604);
+            this.btnPlanificar.Location = new System.Drawing.Point(0, 0);
             this.btnPlanificar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 4);
             this.btnPlanificar.Name = "btnPlanificar";
-            this.btnPlanificar.Size = new System.Drawing.Size(248, 76);
+            this.btnPlanificar.Size = new System.Drawing.Size(186, 76);
             this.btnPlanificar.TabIndex = 6;
             this.btnPlanificar.Text = "   Planificaciones";
             this.btnPlanificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -108,16 +103,15 @@
             // 
             // btnTickets
             // 
-            this.btnTickets.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnTickets.FlatAppearance.BorderSize = 0;
             this.btnTickets.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTickets.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTickets.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnTickets.Image = ((System.Drawing.Image)(resources.GetObject("btnTickets.Image")));
-            this.btnTickets.Location = new System.Drawing.Point(0, 528);
-            this.btnTickets.Margin = new System.Windows.Forms.Padding(4, 6, 4, 4);
+            this.btnTickets.Location = new System.Drawing.Point(0, 0);
+            this.btnTickets.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.btnTickets.Name = "btnTickets";
-            this.btnTickets.Size = new System.Drawing.Size(248, 76);
+            this.btnTickets.Size = new System.Drawing.Size(186, 62);
             this.btnTickets.TabIndex = 6;
             this.btnTickets.Text = "    Tickets    ";
             this.btnTickets.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -128,16 +122,15 @@
             // 
             // btnRegistrarVenta
             // 
-            this.btnRegistrarVenta.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnRegistrarVenta.FlatAppearance.BorderSize = 0;
             this.btnRegistrarVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistrarVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrarVenta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnRegistrarVenta.Image = ((System.Drawing.Image)(resources.GetObject("btnRegistrarVenta.Image")));
-            this.btnRegistrarVenta.Location = new System.Drawing.Point(0, 452);
-            this.btnRegistrarVenta.Margin = new System.Windows.Forms.Padding(4, 6, 4, 4);
+            this.btnRegistrarVenta.Location = new System.Drawing.Point(0, 0);
+            this.btnRegistrarVenta.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.btnRegistrarVenta.Name = "btnRegistrarVenta";
-            this.btnRegistrarVenta.Size = new System.Drawing.Size(248, 76);
+            this.btnRegistrarVenta.Size = new System.Drawing.Size(186, 62);
             this.btnRegistrarVenta.TabIndex = 9;
             this.btnRegistrarVenta.Text = "    Registrar Venta";
             this.btnRegistrarVenta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -148,16 +141,15 @@
             // 
             // btnAutobuses
             // 
-            this.btnAutobuses.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAutobuses.FlatAppearance.BorderSize = 0;
             this.btnAutobuses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAutobuses.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAutobuses.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnAutobuses.Image = ((System.Drawing.Image)(resources.GetObject("btnAutobuses.Image")));
-            this.btnAutobuses.Location = new System.Drawing.Point(0, 376);
-            this.btnAutobuses.Margin = new System.Windows.Forms.Padding(4, 6, 4, 4);
+            this.btnAutobuses.Location = new System.Drawing.Point(0, 0);
+            this.btnAutobuses.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.btnAutobuses.Name = "btnAutobuses";
-            this.btnAutobuses.Size = new System.Drawing.Size(248, 76);
+            this.btnAutobuses.Size = new System.Drawing.Size(186, 62);
             this.btnAutobuses.TabIndex = 8;
             this.btnAutobuses.Text = "    Autobuses";
             this.btnAutobuses.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -168,16 +160,15 @@
             // 
             // btnEmpleados
             // 
-            this.btnEmpleados.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnEmpleados.FlatAppearance.BorderSize = 0;
             this.btnEmpleados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEmpleados.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEmpleados.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnEmpleados.Image = ((System.Drawing.Image)(resources.GetObject("btnEmpleados.Image")));
-            this.btnEmpleados.Location = new System.Drawing.Point(0, 300);
-            this.btnEmpleados.Margin = new System.Windows.Forms.Padding(4, 6, 4, 4);
+            this.btnEmpleados.Location = new System.Drawing.Point(0, 0);
+            this.btnEmpleados.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.btnEmpleados.Name = "btnEmpleados";
-            this.btnEmpleados.Size = new System.Drawing.Size(248, 76);
+            this.btnEmpleados.Size = new System.Drawing.Size(186, 62);
             this.btnEmpleados.TabIndex = 5;
             this.btnEmpleados.Text = "    Empleados";
             this.btnEmpleados.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -188,16 +179,15 @@
             // 
             // btnClientes
             // 
-            this.btnClientes.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnClientes.FlatAppearance.BorderSize = 0;
             this.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClientes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnClientes.Image = ((System.Drawing.Image)(resources.GetObject("btnClientes.Image")));
-            this.btnClientes.Location = new System.Drawing.Point(0, 224);
-            this.btnClientes.Margin = new System.Windows.Forms.Padding(4, 6, 4, 4);
+            this.btnClientes.Location = new System.Drawing.Point(0, 0);
+            this.btnClientes.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.btnClientes.Name = "btnClientes";
-            this.btnClientes.Size = new System.Drawing.Size(248, 76);
+            this.btnClientes.Size = new System.Drawing.Size(186, 62);
             this.btnClientes.TabIndex = 4;
             this.btnClientes.Text = "    Clientes";
             this.btnClientes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -214,10 +204,10 @@
             this.btnInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnInicio.Image = global::Gestion_De_Tickets_Autobus.Properties.Resources.home_inicio;
-            this.btnInicio.Location = new System.Drawing.Point(0, 148);
-            this.btnInicio.Margin = new System.Windows.Forms.Padding(4, 6, 4, 4);
+            this.btnInicio.Location = new System.Drawing.Point(0, 124);
+            this.btnInicio.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.btnInicio.Name = "btnInicio";
-            this.btnInicio.Size = new System.Drawing.Size(248, 76);
+            this.btnInicio.Size = new System.Drawing.Size(186, 62);
             this.btnInicio.TabIndex = 3;
             this.btnInicio.Text = "    Inicio      ";
             this.btnInicio.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -232,9 +222,8 @@
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(248, 148);
+            this.panel2.Size = new System.Drawing.Size(186, 124);
             this.panel2.TabIndex = 0;
             // 
             // lblRol
@@ -242,10 +231,9 @@
             this.lblRol.AutoSize = true;
             this.lblRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRol.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(178)))));
-            this.lblRol.Location = new System.Drawing.Point(73, 113);
-            this.lblRol.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRol.Location = new System.Drawing.Point(25, 91);
             this.lblRol.Name = "lblRol";
-            this.lblRol.Size = new System.Drawing.Size(54, 20);
+            this.lblRol.Size = new System.Drawing.Size(45, 17);
             this.lblRol.TabIndex = 2;
             this.lblRol.Text = "rol_ID";
             // 
@@ -254,10 +242,9 @@
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(149)))));
-            this.lblUsername.Location = new System.Drawing.Point(73, 93);
-            this.lblUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUsername.Location = new System.Drawing.Point(25, 75);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(94, 20);
+            this.lblUsername.Size = new System.Drawing.Size(79, 17);
             this.lblUsername.TabIndex = 1;
             this.lblUsername.Text = "User Name";
             // 
@@ -265,10 +252,9 @@
             // 
             this.pictureBox1.Image = global::Gestion_De_Tickets_Autobus.Properties.Resources.autobus;
             this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(88, 15);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(63, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(76, 70);
+            this.pictureBox1.Size = new System.Drawing.Size(57, 57);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -278,9 +264,10 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label3.Location = new System.Drawing.Point(612, 229);
+            this.label3.Location = new System.Drawing.Point(459, 186);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 31);
+            this.label3.Size = new System.Drawing.Size(0, 26);
             this.label3.TabIndex = 1;
             // 
             // lblTitle
@@ -288,22 +275,19 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
-            this.lblTitle.Location = new System.Drawing.Point(275, 11);
-            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTitle.Location = new System.Drawing.Point(208, 17);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(104, 39);
+            this.lblTitle.Size = new System.Drawing.Size(87, 32);
             this.lblTitle.TabIndex = 2;
             this.lblTitle.Text = "Inicio";
             // 
             // PNmenu
             // 
             this.PNmenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.PNmenu.Controls.Add(this.lblMensajeBienvenida);
             this.PNmenu.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PNmenu.Location = new System.Drawing.Point(248, 69);
-            this.PNmenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PNmenu.Location = new System.Drawing.Point(186, 68);
             this.PNmenu.Name = "PNmenu";
-            this.PNmenu.Size = new System.Drawing.Size(1092, 620);
+            this.PNmenu.Size = new System.Drawing.Size(820, 572);
             this.PNmenu.TabIndex = 5;
             // 
             // pictureBox2
@@ -312,10 +296,9 @@
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Image = global::Gestion_De_Tickets_Autobus.Properties.Resources.cerrar_sesion;
-            this.pictureBox2.Location = new System.Drawing.Point(1276, 15);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Location = new System.Drawing.Point(957, 12);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(48, 44);
+            this.pictureBox2.Size = new System.Drawing.Size(36, 36);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
@@ -330,10 +313,9 @@
             this.lblFecha.AutoSize = true;
             this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFecha.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblFecha.Location = new System.Drawing.Point(1123, 11);
-            this.lblFecha.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFecha.Location = new System.Drawing.Point(842, 9);
             this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(79, 29);
+            this.lblFecha.Size = new System.Drawing.Size(60, 24);
             this.lblFecha.TabIndex = 6;
             this.lblFecha.Text = "label5";
             // 
@@ -343,31 +325,18 @@
             this.lblHora.BackColor = System.Drawing.Color.White;
             this.lblHora.Font = new System.Drawing.Font("MS Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHora.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.lblHora.Location = new System.Drawing.Point(1125, 44);
-            this.lblHora.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblHora.Location = new System.Drawing.Point(844, 36);
             this.lblHora.Name = "lblHora";
-            this.lblHora.Size = new System.Drawing.Size(68, 17);
+            this.lblHora.Size = new System.Drawing.Size(55, 13);
             this.lblHora.TabIndex = 6;
             this.lblHora.Text = "label5";
             // 
-            // lblMensajeBienvenida
-            // 
-            this.lblMensajeBienvenida.AutoSize = true;
-            this.lblMensajeBienvenida.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMensajeBienvenida.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblMensajeBienvenida.Location = new System.Drawing.Point(19, 20);
-            this.lblMensajeBienvenida.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblMensajeBienvenida.Name = "lblMensajeBienvenida";
-            this.lblMensajeBienvenida.Size = new System.Drawing.Size(491, 31);
-            this.lblMensajeBienvenida.TabIndex = 2;
-            this.lblMensajeBienvenida.Text = "¡Bienvenid@, Nombre del Empleado!";
-            // 
             // frmPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.ClientSize = new System.Drawing.Size(1340, 689);
+            this.ClientSize = new System.Drawing.Size(1006, 640);
             this.Controls.Add(this.lblHora);
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.pictureBox2);
@@ -376,7 +345,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -386,8 +354,6 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.PNmenu.ResumeLayout(false);
-            this.PNmenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -416,6 +382,5 @@
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Label lblHora;
         private System.Windows.Forms.Button btnPlanificar;
-        private System.Windows.Forms.Label lblMensajeBienvenida;
     }
 }

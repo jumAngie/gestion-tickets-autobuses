@@ -23,25 +23,27 @@ namespace Gestion_De_Tickets_Autobus
         public DatosUsuarioViewModel UsuarioActual { get; set; }
         public List<PantallasViewModel> pantallasPermitidas { get; set; }
 
+        public string mensajeBienvenida = "";
+
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
             DibujarMenu();
             if (UsuarioActual != null)
             {
-                string mensajeBienvenida = "";
                 lblUsername.Text = UsuarioActual.usu_Usuario;
                 lblRol.Text = UsuarioActual.rol_Descripcion;
-                if (UsuarioActual.sex_Id == 1) mensajeBienvenida = "Bienvenida";
-                else mensajeBienvenida = "Bienvenido";
-
-                lblMensajeBienvenida.Text = $"¡ {mensajeBienvenida}, {UsuarioActual.per_NombreCompleto} !";
+                if (UsuarioActual.sex_Id == 1)
+                        mensajeBienvenida = $"¡Bienvenida, {UsuarioActual.per_NombreCompleto}!";
+                else
+                        mensajeBienvenida = $"¡Bienvenido, {UsuarioActual.per_NombreCompleto}!";
+                
             }
         }
 
         private void DibujarMenu()
         {
-            int posicionY = 224; // Margen de espacio entre el header y los botones
+            int posicionY = 182; // Margen de espacio entre el header y los botones
 
             foreach (var pantalla in pantallasPermitidas)
             {
@@ -84,26 +86,47 @@ namespace Gestion_De_Tickets_Autobus
             }
         }
 
+        private frmDashboard frmPrincipal_vrb;
+
+        protected override void OnShown(EventArgs e)
+        {
+            base.OnShown(e);
+
+            // Configura la posición del menú al botón Inicio
+            PNav.Height = btnInicio.Height;
+            PNav.Top = btnInicio.Top;
+            PNav.Left = btnInicio.Left;
+
+            // Crea el mensaje de bienvenida
+            string mensajeBienvenida = "";
+            if (UsuarioActual != null)
+            {
+                if (UsuarioActual.sex_Id == 1)
+                    mensajeBienvenida = $"¡Bienvenida, {UsuarioActual.per_NombreCompleto}!";
+                else
+                    mensajeBienvenida = $"¡Bienvenido, {UsuarioActual.per_NombreCompleto}!";
+            }
+
+            // Instancia el frmDashboard y pasa el mensaje
+            frmPrincipal_vrb = new frmDashboard()
+            {
+                Dock = DockStyle.Fill,
+                TopLevel = false,
+                TopMost = true,
+                MensajeBienvenida = mensajeBienvenida // Configurar la propiedad
+            };
+
+            frmPrincipal_vrb.FormBorderStyle = FormBorderStyle.None;
+            this.PNmenu.Controls.Add(frmPrincipal_vrb);
+            frmPrincipal_vrb.Show();
+        }
+
+
         public frmPrincipal()
         {
             InitializeComponent();
             tHora.Enabled = true;
             //Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
-            PNav.Height = btnInicio.Height;
-            PNav.Top = btnInicio.Top;
-            PNav.Left = btnInicio.Left;
-            // btnInicio.BackColor = Color.FromArgb(46, 51, 73);
-
-            /*frmDashboard frmPrincipal_vrb = new frmDashboard()
-            {
-                Dock = DockStyle.Fill,
-                TopLevel = false,
-                TopMost = true
-            };
-            frmPrincipal_vrb.FormBorderStyle = FormBorderStyle.None;
-            this.PNmenu.Controls.Add(frmPrincipal_vrb);
-
-            frmPrincipal_vrb.Show();*/
         }
 
         public void Salir()
@@ -232,11 +255,20 @@ namespace Gestion_De_Tickets_Autobus
             lblTitle.Text = "Inicio";
             this.PNmenu.Controls.Clear();
 
+            string mensajeBienvenida = "";
+            if (UsuarioActual != null)
+            {
+                if (UsuarioActual.sex_Id == 1)
+                    mensajeBienvenida = $"¡Bienvenida, {UsuarioActual.per_NombreCompleto}!";
+                else
+                    mensajeBienvenida = $"¡Bienvenido, {UsuarioActual.per_NombreCompleto}!";
+            }
             frmDashboard frmPrincipal_vrb = new frmDashboard()
             {
                 Dock = DockStyle.Fill,
                 TopLevel = false,
-                TopMost = true
+                TopMost = true,
+                MensajeBienvenida = mensajeBienvenida
             };
             frmPrincipal_vrb.FormBorderStyle = FormBorderStyle.None;
             this.PNmenu.Controls.Add(frmPrincipal_vrb);

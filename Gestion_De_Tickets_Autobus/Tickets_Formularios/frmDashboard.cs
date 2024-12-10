@@ -12,6 +12,12 @@ namespace Gestion_De_Tickets_Autobus.Tickets_Formularios
 {
     public partial class frmDashboard : Form
     {
+        public string MensajeBienvenida
+        {
+            get { return lblMensajeBienvenida.Text; }
+            set { lblMensajeBienvenida.Text = value; }
+        }
+
         public frmDashboard()
         {
             InitializeComponent();

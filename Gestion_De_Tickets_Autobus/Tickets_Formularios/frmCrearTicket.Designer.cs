@@ -39,8 +39,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.pnlAsientos = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -64,8 +66,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.cmbClientes = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.pnlAsientos = new System.Windows.Forms.Panel();
-            this.label16 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -140,7 +140,7 @@
             // 
             this.cmbAutobus.Enabled = false;
             this.cmbAutobus.FormattingEnabled = true;
-            this.cmbAutobus.Location = new System.Drawing.Point(64, 59);
+            this.cmbAutobus.Location = new System.Drawing.Point(64, 65);
             this.cmbAutobus.Name = "cmbAutobus";
             this.cmbAutobus.Size = new System.Drawing.Size(322, 21);
             this.cmbAutobus.TabIndex = 3;
@@ -150,7 +150,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(9, 63);
+            this.label2.Location = new System.Drawing.Point(9, 69);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(33, 16);
             this.label2.TabIndex = 2;
@@ -195,37 +195,57 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(72, 33);
+            this.label14.Location = new System.Drawing.Point(29, 16);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(246, 16);
             this.label14.TabIndex = 20;
             this.label14.Text = "Seleccione 1 o más asientos a reservar:";
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.BackColor = System.Drawing.Color.Black;
+            this.label16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.Orange;
+            this.label16.Location = new System.Drawing.Point(265, 255);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(97, 13);
+            this.label16.TabIndex = 19;
+            this.label16.Text = "Asiento a Reservar";
+            // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.White;
+            this.label13.BackColor = System.Drawing.Color.Black;
             this.label13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Maroon;
-            this.label13.Location = new System.Drawing.Point(161, 16);
+            this.label13.Location = new System.Drawing.Point(147, 255);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(95, 13);
+            this.label13.Size = new System.Drawing.Size(92, 13);
             this.label13.TabIndex = 19;
-            this.label13.Text = "Asiento Ocupado  ";
+            this.label13.Text = "Asiento Ocupado ";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.White;
+            this.label12.BackColor = System.Drawing.Color.Black;
             this.label12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.ForestGreen;
-            this.label12.Location = new System.Drawing.Point(57, 16);
+            this.label12.Location = new System.Drawing.Point(29, 255);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(94, 13);
             this.label12.TabIndex = 19;
             this.label12.Text = "Asiento Disponible";
+            // 
+            // pnlAsientos
+            // 
+            this.pnlAsientos.Location = new System.Drawing.Point(27, 35);
+            this.pnlAsientos.Name = "pnlAsientos";
+            this.pnlAsientos.Size = new System.Drawing.Size(335, 210);
+            this.pnlAsientos.TabIndex = 21;
             // 
             // groupBox3
             // 
@@ -477,26 +497,6 @@
             this.label6.Size = new System.Drawing.Size(51, 16);
             this.label6.TabIndex = 0;
             this.label6.Text = "Cliente:";
-            // 
-            // pnlAsientos
-            // 
-            this.pnlAsientos.Location = new System.Drawing.Point(27, 52);
-            this.pnlAsientos.Name = "pnlAsientos";
-            this.pnlAsientos.Size = new System.Drawing.Size(335, 210);
-            this.pnlAsientos.TabIndex = 21;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.BackColor = System.Drawing.Color.White;
-            this.label16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.Orange;
-            this.label16.Location = new System.Drawing.Point(262, 16);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(103, 13);
-            this.label16.TabIndex = 19;
-            this.label16.Text = "Asiento a Reservar  ";
             // 
             // frmCrearTicket
             // 

@@ -48,7 +48,7 @@ namespace Gestion_De_Tickets_Autobus.Tickets_Formularios
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            CargarP(per_ID); 
+            //CargarP(per_ID); 
         }
     }
 }

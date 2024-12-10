@@ -10,6 +10,7 @@ namespace Gestion_De_Tickets_Autobus
         #region CLASES
         DestinosDAL destinos = new DestinosDAL();
         AutobusesDAL autobuses = new AutobusesDAL();
+        ClientesDAL clientes = new ClientesDAL(); 
         #endregion
         public frmCrearTicket()
         {
@@ -26,9 +27,9 @@ namespace Gestion_De_Tickets_Autobus
 
         public void CargarClientes()
         {
-            cmbClientes.DataSource = destinos.CargarSalidas();
-            cmbClientes.ValueMember = "des_ID";
-            cmbClientes.DisplayMember = "des_Descripcion";
+            cmbClientes.DataSource = clientes.CargarPersonasC();
+            cmbClientes.ValueMember = "per_ID";
+            cmbClientes.DisplayMember = "per_NombreCompleto";
         }
 
         public void CargarDestinos(int des_ID)
