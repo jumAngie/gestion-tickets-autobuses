@@ -690,6 +690,7 @@ SET tdt_Disponibilidad = 0
 WHERE pln_ID = 5
 
 ----
+GO
 CREATE OR ALTER PROCEDURE Tick.EmpleadosRegistrados
 AS
 	BEGIN
