@@ -438,6 +438,9 @@ namespace Gestion_De_Tickets_Autobus
 
         private void dgClientes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0)
+                return;
+
             if (e.ColumnIndex == dgClientes.Columns["btnEliminar"].Index && e.RowIndex >= 0)
             {
 
