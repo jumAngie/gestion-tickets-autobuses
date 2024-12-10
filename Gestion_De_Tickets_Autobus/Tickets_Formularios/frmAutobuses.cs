@@ -26,9 +26,9 @@ namespace Gestion_De_Tickets_Autobus
 
         #region VARIABLES
         private bool esVIP = false;
-        private bool esNormal = false;
+        private int id_filaseleccionada;
         #endregion
-        
+
         public frmAutobuses()
         {
             InitializeComponent();
@@ -36,10 +36,118 @@ namespace Gestion_De_Tickets_Autobus
         }
 
         #region CRUD
+
+        //INSERTAR
+        public void InsertarAutobuses()
+        {
+            if (rbtEsVIP.Checked) esVIP = true;
+
+            Autobuses aut = new Autobuses
+            {
+                aut_Matricula = txtMatricula.Text,
+                mod_ID = Convert.ToInt32(cbxModelo.SelectedValue),
+                aut_cantAsientos = Convert.ToInt32(numAsientos.Value),
+                aut_esVIP = esVIP,
+                aut_FechaCreacion = DateTime.Now,
+                usu_UsuarioCreacion =1
+            };
+            string resultados = AutobusesDAL.InsertarAutobuses(aut);
+            MessageBox.Show(resultados, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+
+        //listar
         public void CargarAutobuses()
         {
             dgAutobuses.DataSource = AutobusesDAL.ListarAutobuses();
         }
+        public void RestablecerListaOriginal()
+        {
+            txtBuscar.Text = "";
+            CargarAutobuses();
+        }
+
+        //buscar cliente
+        public void BuscarAutobuses()
+        {
+            string filtro = txtBuscar.Text.Trim().ToLower();
+            if (dgAutobuses.DataSource != null)
+            {
+                if (string.IsNullOrEmpty(filtro))
+                {
+                    RestablecerListaOriginal();
+                    return;
+                }
+
+               var listaTickets = (List<AutobusesViewModel>)dgAutobuses.DataSource;
+               var listaFiltrada = listaTickets.Where(t =>
+                 t.aut_Matricula.ToLower().Contains(filtro) ||
+                 t.mod_Descripcion.ToLower().Contains(filtro) ||
+                 t.mar_Descripcion.ToLower().Contains(filtro) 
+                ).ToList();
+
+                dgAutobuses.DataSource = listaFiltrada;
+            }
+        }
+
+        //CARGAR DATOS EDITAR
+     
+        public void EditarAutobuses_CargarDatos(int aut_Id)
+        {
+            Autobuses aut = AutobusesDAL.EditarAutobuses_CargarInformacion(aut_Id);
+
+            if (aut != null)
+            {
+                
+                txtMatricula.Text = aut.aut_Matricula;
+                cbxMarcas.SelectedValue = aut.mar_ID;
+                cbxModelo.SelectedValue = aut.mod_ID;
+
+                // Estado VIP
+                if (aut.aut_esVIP)
+                {
+                    rbtEsVIP.Checked = true;
+                }
+                else
+                {
+                    rbtNormal.Checked = true;
+                }
+
+
+                numAsientos.Text = aut.aut_cantAsientos.ToString();
+             
+            }
+            else
+            {
+                
+                MessageBox.Show("El autobús no se encontró.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+
+
+        //EDITAR       
+        public void EditarAutobuses(int aut_Id)
+        {
+            Autobuses autobús = new Autobuses
+            {
+                aut_Id = aut_Id,
+                aut_Matricula = txtMatricula.Text,
+                mar_ID = Convert.ToInt32(cbxMarcas.SelectedValue),
+                mod_ID = Convert.ToInt32(cbxModelo.SelectedValue),
+                aut_esVIP = rbtEsVIP.Checked,
+                aut_cantAsientos = Convert.ToInt32(numAsientos.Text),          
+                usu_UsuarioModificacion = 1, // Esto debe cambiarse cuando se haga el LogIn
+                aut_FechaModificacion = DateTime.Now
+            };
+
+            string resultado = AutobusesDAL.EditarAutobuses(autobús);
+
+            MessageBox.Show(resultado, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+
         #endregion
 
         #region VALIDACIONES Y LIMPIEZA DE CAMPOS
@@ -68,6 +176,19 @@ namespace Gestion_De_Tickets_Autobus
             pnlAsientos.Visible = numAsientos.Value <= 0;
 
             return esValido;
+        }
+
+        public void boton_mostrarEditar()
+        {
+            btnEditar.Visible = true;
+            btnGuardar.Visible = false;
+        }
+
+        public void boton_mostrarGuardar()
+        {
+            btnEditar.Visible = false;
+            btnGuardar.Visible = true;
+
         }
         public void LimpiarCampos()
         {
@@ -165,9 +286,63 @@ namespace Gestion_De_Tickets_Autobus
             }
         }
 
+        private async void btnEditar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                
+                bool esValido = ValidacionesVacio();
+
+                if (esValido)
+                {
+
+                    EditarAutobuses(id_filaseleccionada);
+
+                    CargarAutobuses();
+
+                    LimpiarCampos();
+
+                    boton_mostrarGuardar();
+                }
+                else
+                {
+                    
+                    MostrarAdvertencia();
+                    await Task.Delay(4000);
+                    OcultarAdvertencia();
+                }
+            }
+            catch (Exception ex)
+            {
+ 
+                MessageBox.Show("Ocurrió un error al intentar editar el autobús: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dgAutobuses_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+            if (e.RowIndex < 0)
+                return;
+
+            boton_mostrarEditar();
+
+            DataGridViewRow fila = dgAutobuses.Rows[e.RowIndex];
+
+            int aut_ID = Convert.ToInt32(fila.Cells["aut_ID"].Value);
+            id_filaseleccionada = aut_ID;
+
+            LimpiarCampos();
+
+            OcultarValidaciones();
+            EditarAutobuses(aut_ID);
+        }
+
+
+
         #endregion
 
-        
+
 
     }
 }

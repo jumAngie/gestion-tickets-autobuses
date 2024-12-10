@@ -29,7 +29,7 @@ namespace Gestion_De_Tickets_Autobus
         public static string BuscarAutobuses = "";
         public static string InsertarAutobuses = "Tick.UDP_tbAutobuses_Insertar";
         public static string EditarAutobuses_CargarInformacion = "Tick.UDP_tbAutobuses_CargarInformacion";
-        public static string EditarAutbouses = "Tick.UDP_tbAutobuses_Editar";
+        public static string EditarAutobuses = "Tick.UDP_tbAutobuses_Editar";
         public static string Autobuses_Asientos = "Tick.Asientos_Autobus";
         #endregion
 
