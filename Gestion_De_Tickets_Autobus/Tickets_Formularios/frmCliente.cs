@@ -483,16 +483,19 @@ namespace Gestion_De_Tickets_Autobus
                 }
             }
             else if (e.RowIndex >= 0)
-               
-            boton_mostrarEditar();
-            DataGridViewRow fila = dgClientes.Rows[e.RowIndex];
+            {
+                boton_mostrarEditar();
+                DataGridViewRow fila = dgClientes.Rows[e.RowIndex];
 
-            int per_ID = Convert.ToInt32(fila.Cells["per_ID"].Value);
-            id_filaseleccionada = per_ID;
+                int per_ID = Convert.ToInt32(fila.Cells["per_ID"].Value);
+                id_filaseleccionada = per_ID;
 
-            LimpiarCampos();
-            Panel_OcultarValidaciones();
-            Editar_CargarDatos(per_ID);
+                LimpiarCampos();
+                Panel_OcultarValidaciones();
+                Editar_CargarDatos(per_ID);
+
+            }
+            
         }
         #endregion
 
