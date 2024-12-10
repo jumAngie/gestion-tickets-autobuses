@@ -164,14 +164,14 @@ namespace Gestion_De_Tickets_Autobus
             bool esValido = true;
 
             // Validar campos
-            if (cbxMarcas.SelectedIndex == -1) { pnlMarca.Visible = true; esValido = false; }
-            if (cbxModelo.SelectedIndex == -1) { pnlModelo.Visible = true; esValido = false; }
+            if (cbxMarcas.SelectedIndex == 0 || cbxMarcas.SelectedIndex == -1) { pnlMarca.Visible = true; esValido = false; }
+            if (cbxModelo.SelectedIndex == 0 || cbxModelo.SelectedIndex == -1) { pnlModelo.Visible = true; esValido = false; }
             if (string.IsNullOrWhiteSpace(txtMatricula.Text)) { pnlMatricula.Visible = true; esValido = false; }
             if (numAsientos.Value <= 0) { pnlAsientos.Visible = true; esValido = false; }
 
             // Ocultar errores si ya son válidos
-            pnlMarca.Visible = cbxMarcas.SelectedIndex == -1;
-            pnlModelo.Visible = string.IsNullOrWhiteSpace(cbxModelo.Text);
+            pnlMarca.Visible = cbxMarcas.SelectedIndex == -1 || cbxMarcas.SelectedIndex == 0;
+            pnlModelo.Visible = cbxModelo.SelectedIndex == -1 || cbxModelo.SelectedIndex == 0;
             pnlMatricula.Visible = string.IsNullOrWhiteSpace(txtMatricula.Text);
             pnlAsientos.Visible = numAsientos.Value <= 0;
 
@@ -253,9 +253,7 @@ namespace Gestion_De_Tickets_Autobus
             if (esValido)
             {
                 InsertarAutobuses();
-                // Lógica para guardar los datos
-                MessageBox.Show("Datos guardados correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                CargarAutobuses();
                 LimpiarCampos();
             }
             else

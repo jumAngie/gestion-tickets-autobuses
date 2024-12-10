@@ -108,7 +108,7 @@ namespace Gestion_De_Tickets_Autobus
 
             TicketEncabezado ticket = new TicketEncabezado
             {
-                per_ID = cmbClientes.SelectedIndex,
+                per_ID = Convert.ToInt32(cmbClientes.SelectedValue),
                 meto_ID = metodoPago,
                 tik_Subtotal = Convert.ToDecimal(txtSubtotal.Text),
                 tik_Impuesto = Convert.ToDecimal(txtISV.Text),

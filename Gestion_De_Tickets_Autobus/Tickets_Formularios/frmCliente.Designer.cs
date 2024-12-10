@@ -88,7 +88,7 @@
             this.dgClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgClientes.Location = new System.Drawing.Point(19, 342);
             this.dgClientes.Name = "dgClientes";
-            this.dgClientes.Size = new System.Drawing.Size(786, 137);
+            this.dgClientes.Size = new System.Drawing.Size(786, 174);
             this.dgClientes.TabIndex = 16;
             this.dgClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgClientes_CellClick);
             // 
@@ -594,7 +594,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(822, 482);
+            this.ClientSize = new System.Drawing.Size(822, 528);
             this.Controls.Add(this.btnPersonaExistente);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.panel1);

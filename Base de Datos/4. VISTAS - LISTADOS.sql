@@ -63,7 +63,8 @@ AS
 
  FROM		Tick.tbAutobuses aut		INNER JOIN Tick.tbModelo mo
 			ON aut.mod_ID = mo.mod_ID	INNER JOIN Tick.tbMarca	 m
-			ON mo.mar_ID = m.mar_ID 	
+			ON mo.mar_ID = m.mar_ID 
+WHERE      aut.aut_Estado = 1
 GO
 ------------------------------------------------------
 CREATE OR ALTER VIEW Tick.Tickets_Listado

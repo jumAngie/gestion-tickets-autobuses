@@ -605,19 +605,48 @@ GO
 ---- AUTOBUS ASIGNADO A LAS 8:00 AM
 INSERT INTO Tick.tbAutobus_Horario(aut_ID, hor_ID, usu_UsuarioCreacion, auh_FechaCreacion)
 VALUES								(1,1,1, GETDATE())
+INSERT INTO Tick.tbAutobus_Horario(aut_ID, hor_ID, usu_UsuarioCreacion, auh_FechaCreacion)
+VALUES								(3,2,1, GETDATE())
+GO
+INSERT INTO Tick.tbAutobus_Horario(aut_ID, hor_ID, usu_UsuarioCreacion, auh_FechaCreacion)
+VALUES								(4,3,1, GETDATE())
+GO
+INSERT INTO Tick.tbAutobus_Horario(aut_ID, hor_ID, usu_UsuarioCreacion, auh_FechaCreacion)
+VALUES								(1,4,1, GETDATE())
+GO
+INSERT INTO Tick.tbAutobus_Horario(aut_ID, hor_ID, usu_UsuarioCreacion, auh_FechaCreacion)
+VALUES								(5,10,1, GETDATE())
 GO
 
 --- AUTOBUS h45lm5 HORARIO: 8:AM RUTA:UNAHCORTES EL PROGRESO-45
 INSERT INTO Tick.tbAuto_Hora_Preci_Desti(auh_ID, pre_ID)
 VALUES		(1,1)
+INSERT INTO Tick.tbAuto_Hora_Preci_Desti(auh_ID, pre_ID)
+VALUES		(2, 6)
+INSERT INTO Tick.tbAuto_Hora_Preci_Desti(auh_ID, pre_ID)
+VALUES		(3, 2)
+INSERT INTO Tick.tbAuto_Hora_Preci_Desti(auh_ID, pre_ID)
+VALUES		(4, 3)
+INSERT INTO Tick.tbAuto_Hora_Preci_Desti(auh_ID, pre_ID)
+VALUES		(5, 8)
+
 
 ----- PLANIFICACION QUE TOMA DE LOS AUTOBUSES YA ASIGNADOS
 INSERT INTO Tick.tbPlanificacion(pln_Fecha, audes_ID, usu_UsuarioCreacion, pln_FechaCreacion)
 VALUES							('2024-12-11', 1, 1, GETDATE())
+INSERT INTO Tick.tbPlanificacion(pln_Fecha, audes_ID, usu_UsuarioCreacion, pln_FechaCreacion)
+VALUES							('2024-12-11', 2, 1, GETDATE())
+INSERT INTO Tick.tbPlanificacion(pln_Fecha, audes_ID, usu_UsuarioCreacion, pln_FechaCreacion)
+VALUES							('2024-12-11', 3, 1, GETDATE())
+INSERT INTO Tick.tbPlanificacion(pln_Fecha, audes_ID, usu_UsuarioCreacion, pln_FechaCreacion)
+VALUES							('2024-12-11', 4, 1, GETDATE())
+INSERT INTO Tick.tbPlanificacion(pln_Fecha, audes_ID, usu_UsuarioCreacion, pln_FechaCreacion)
+VALUES							('2024-12-11', 5, 1, GETDATE())
+
 
 --- INSERTANDO 30 ASIENTOS QUE PERTENECEN A LA PLANIFICACION 1, QUE PERTENECE A EL BUS 1 QUE SALEA LAS 8 AM
-
-DECLARE @pln_ID INT = 1;
+SELECT * FROM Tick.tbPlanificacion
+DECLARE @pln_ID INT = 5;
 DECLARE @cantidadAsientos INT = (SELECT 
 									T4.aut_cantAsientos 
 									FROM Tick.tbPlanificacion T1	INNER JOIN Tick.tbAuto_Hora_Preci_Desti T2
@@ -655,3 +684,7 @@ GO
 EXEC Tick.tbTickets_Detalle_Insertar 1,6
 
 ------
+SELECT * FROM [Tick].[tbPlanificacion_Asientos]
+UPDATE [Tick].[tbPlanificacion_Asientos]
+SET tdt_Disponibilidad = 0
+WHERE pln_ID = 5
