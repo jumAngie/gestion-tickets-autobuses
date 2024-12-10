@@ -54,6 +54,31 @@ namespace Gestion_De_Tickets_Autobus
             string precio = AutobusesDAL.Autobus_Precio(audes_ID);
             lblPrecio.Text = precio;
         }
+
+        private void ActualizarCantidadYTotal()
+        {
+            // Obtener la cantidad de asientos seleccionados
+            int cantidad = asientosSeleccionados.Count;
+
+            // Mostrar la cantidad en txtCantidad
+            txtCantidad.Text = cantidad.ToString();
+
+            // Obtener el precio desde lblPrecio (convertir a decimal)
+            decimal precio = 0;
+            if (decimal.TryParse(lblPrecio.Text, out precio))
+            {
+                // Calcular el total a pagar
+                decimal totalPagar = precio * cantidad;
+
+                // Mostrar el total en txtTotalPagar
+                txtTotalAPagar.Text = totalPagar.ToString("F2"); // Formato con 2 decimales
+            }
+            else
+            {
+                MessageBox.Show("El precio del autobús no es válido.");
+            }
+        }
+
         #endregion
 
         private void DibujarAsientos(int audes_ID)
@@ -101,6 +126,9 @@ namespace Gestion_De_Tickets_Autobus
                     columna = 0;
                     fila++;
                 }
+
+                txtCantidad.Text = "0";
+                txtTotalAPagar.Text = "0.00";
             }
         }
 
@@ -125,6 +153,7 @@ namespace Gestion_De_Tickets_Autobus
         {
             CargarSalidas();
             CargarClientes();
+            
         }
 
         private void cmbSalida_SelectedIndexChanged(object sender, System.EventArgs e)
@@ -166,7 +195,7 @@ namespace Gestion_De_Tickets_Autobus
                 return;
             }
 
-            // Cambiar estado del botón
+            // Cambiar estado del botón y actualizar la lista
             if (btnAsiento.BackColor == Color.ForestGreen)
             {
                 // El asiento ha sido seleccionado
@@ -179,6 +208,9 @@ namespace Gestion_De_Tickets_Autobus
                 btnAsiento.BackColor = Color.ForestGreen; // Desmarcar
                 asientosSeleccionados.Remove(pas_ID); // Eliminar ID de la lista de seleccionados
             }
+
+            // Actualizar cantidad y total a pagar
+            ActualizarCantidadYTotal();
         }
 
         private void button1_Click(object sender, EventArgs e)

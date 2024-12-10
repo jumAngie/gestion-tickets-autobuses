@@ -90,7 +90,7 @@ namespace Gestion_De_Tickets_Autobus
         }
 
         //CARGAR DATOS EDITAR
-        public void Editar_CargarDatos(int aut_id)
+        //public void Editar_CargarDatos(int aut_id)
 
 
        //EDITAR

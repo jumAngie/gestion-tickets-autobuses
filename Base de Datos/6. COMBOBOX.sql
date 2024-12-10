@@ -120,13 +120,13 @@ BEGIN
 	SELECT '0' AS 'audes_ID', ' - Seleccione una opción -' AS 'Autobus'
 	UNION ALL
 	SELECT		audes_ID,
-				T4.hor_hora + ' - ' + T5.mar_Descripcion + '/' + T6.mod_Descripcion +  ' - ' + CASE WHEN aut_esVIP = 1 THEN 'VIP' ELSE 'Normal' END AS  'Autobus'
+				T4.hor_hora + ' - ' + T7.mar_Descripcion + ' / ' + T6.mod_Descripcion +  ' - ' + CASE WHEN aut_esVIP = 1 THEN 'VIP' ELSE 'Normal' END AS  'Autobus'
 	FROM	 Tick.tbAuto_Hora_Preci_Desti T1 INNER JOIN Tick.tbAutobus_Horario T2
 	ON       T1.auh_ID = T2.auh_ID		 INNER JOIN Tick.tbAutobuses T3
 	ON       T2.aut_ID = T3.aut_ID		 INNER JOIN Tick.tbHorario T4
-	ON		 T2.hor_ID = T4.hor_ID		 INNER JOIN Tick.tbMarca T5
-	ON		 T3.mar_ID = T5.mar_ID		 INNER JOIN Tick.tbModelo T6
-	ON		 T3.mod_ID = T6.mod_ID 
+	ON		 T2.hor_ID = T4.hor_ID		 INNER JOIN Tick.tbModelo T6
+	ON		 T3.mod_ID = T6.mod_ID       INNER JOIN  Tick.tbMarca T7
+	ON       T6.mar_ID = T7.mar_ID
 	WHERE pre_ID = @pre_ID
 END
 GO
