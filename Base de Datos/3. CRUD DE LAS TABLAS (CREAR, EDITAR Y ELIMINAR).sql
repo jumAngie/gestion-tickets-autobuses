@@ -38,13 +38,15 @@ AS
 	BEGIN
 			SELECT 
 					aut_ID, 
-					aut_Matricula, 
-					mar_ID, 
-					mod_ID, 
+					aut_Matricula,
+					ma.mar_ID,
+					td.mod_ID,
 					aut_esVIP, 
 					aut_cantAsientos, 
 					aut_Estado
-			FROM	Tick.tbAutobuses
+			FROM	Tick.tbAutobuses td INNER JOIN Tick.tbModelo mo
+			ON		td.mod_ID = mo.mod_ID INNER JOIN Tick.tbMarca ma
+			ON		mo.mar_ID = ma.mar_ID
 			WHERE	aut_ID = @aut_ID
 	END
 GO
@@ -53,7 +55,6 @@ GO
 CREATE OR ALTER PROCEDURE Tick.UDP_tbAutobuses_Editar
 	@aut_ID INT, 
 	@aut_Matricula NVARCHAR(10) ,
-	@mar_ID				INT,
 	@mod_Id				INT ,
 	@aut_esVIP			BIT ,
 	@aut_cantAsientos	INT ,
@@ -64,7 +65,6 @@ AS
 		BEGIN TRY
 			UPDATE Tick.tbAutobuses
 			SET	   aut_Matricula	= @aut_Matricula,
-				   mar_ID			= @mar_ID,
 				   mod_ID			= @mod_Id,
 				   aut_esVIP		= @aut_esVIP,
 				   aut_cantAsientos = @aut_cantAsientos,
@@ -80,7 +80,27 @@ AS
 		END CATCH
 	END
 GO
+-- Eliminar Registros Autobuses
+CREATE OR ALTER PROCEDURE Tick.UDP_tbAutobusess_Eliminar
+@aut_ID	INT,
+@aut_UsuarioModificacion	INT,
+@aut_FechaModificacion	    DATETIME
+AS
+	BEGIN
+		BEGIN TRY
+			UPDATE  Tick.tbAutobuses	
+			SET		aut_Estado = 0, 
+					aut_UsuarioModificacion = @aut_UsuarioModificacion,
+					aut_FechaModificacion = @aut_FechaModificacion
+			WHERE	aut_ID = @aut_ID
 
+			SELECT 'Registro eliminado existosamente.'
+		END TRY
+		BEGIN CATCH
+			SELECT 'Error Message: '+ ERROR_MESSAGE();
+		END CATCH				
+	END
+GO
 ----------------------- PERSONAS -------------------------
 
 --INSERTAR DATOS GRAL_PERSONAS

@@ -301,11 +301,12 @@
             // 
             this.dgAutobuses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgAutobuses.Location = new System.Drawing.Point(24, 348);
-            this.dgAutobuses.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgAutobuses.Margin = new System.Windows.Forms.Padding(2);
             this.dgAutobuses.Name = "dgAutobuses";
             this.dgAutobuses.RowHeadersWidth = 51;
             this.dgAutobuses.Size = new System.Drawing.Size(439, 118);
             this.dgAutobuses.TabIndex = 11;
+            this.dgAutobuses.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgAutobuses_CellClick);
             // 
             // lblAdvertencia
             // 
@@ -591,6 +592,7 @@
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(319, 22);
             this.txtBuscar.TabIndex = 1;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // dgHorarios
             // 
@@ -608,7 +610,7 @@
             this.pnlHorarios.Controls.Add(this.label6);
             this.pnlHorarios.Controls.Add(this.dgHorarios);
             this.pnlHorarios.Location = new System.Drawing.Point(468, 345);
-            this.pnlHorarios.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlHorarios.Margin = new System.Windows.Forms.Padding(2);
             this.pnlHorarios.Name = "pnlHorarios";
             this.pnlHorarios.Size = new System.Drawing.Size(331, 120);
             this.pnlHorarios.TabIndex = 34;
@@ -648,6 +650,7 @@
             this.btnEditar.TabIndex = 35;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // frmAutobuses
             // 
