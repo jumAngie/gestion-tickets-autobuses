@@ -51,6 +51,10 @@ AS
 	END
 GO
 
+SELECT * FROM Tick.tbModelo
+EXECUTE Tick.UDP_tbAutobuses_CargarInformacion 2
+
+
 -- EDITAR AUTOBUSES
 CREATE OR ALTER PROCEDURE Tick.UDP_tbAutobuses_Editar
 	@aut_ID INT, 

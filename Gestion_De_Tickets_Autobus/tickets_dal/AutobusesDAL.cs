@@ -137,8 +137,8 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
                     cmd.Parameters.AddWithValue("@mod_ID", aut.mod_ID);
                     cmd.Parameters.AddWithValue("@aut_esVIP", aut.aut_esVIP);
                     cmd.Parameters.AddWithValue("@aut_cantAsientos", aut.aut_cantAsientos);
-                    cmd.Parameters.AddWithValue("@aut_UsuarioModificacion", aut.usu_UsuarioCreacion);
-                    cmd.Parameters.AddWithValue("@aut_FechaModificacion", aut.aut_FechaCreacion);
+                    cmd.Parameters.AddWithValue("@aut_UsuarioModificacion", aut.usu_UsuarioModificacion);
+                    cmd.Parameters.AddWithValue("@aut_FechaModificacion", aut.aut_FechaModificacion);
 
                     mensaje = (string)cmd.ExecuteScalar();
                 }

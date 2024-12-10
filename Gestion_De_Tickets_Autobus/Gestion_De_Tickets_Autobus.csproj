@@ -54,6 +54,7 @@
     <Compile Include="Tickets_DAL\AutobusesDAL.cs" />
     <Compile Include="Tickets_DAL\CiudadesDAL.cs" />
     <Compile Include="Tickets_DAL\ClientesDAL.cs" />
+    <Compile Include="Tickets_DAL\DashboardDAL.cs" />
     <Compile Include="Tickets_DAL\DeptosDAL.cs" />
     <Compile Include="Tickets_DAL\DestinosDAL.cs" />
     <Compile Include="Tickets_DAL\EmpleadosDAL.cs" />
@@ -266,6 +267,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cerrar-con-llave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\572828-200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agregar-usuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agregar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\factura.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

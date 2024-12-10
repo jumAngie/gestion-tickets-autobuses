@@ -107,7 +107,7 @@ namespace Gestion_De_Tickets_Autobus
                     rbtNormal.Checked = true;
                 }
                 cbxMarcas.SelectedValue = autobuses.mar_ID;
-                CargarModelosCMB(autobuses.mod_ID);
+                CargarModelosCMB(autobuses.mar_ID);
                 cbxModelo.SelectedValue = autobuses.mod_ID;
                 numAsientos.Value = autobuses.aut_cantAsientos;
 

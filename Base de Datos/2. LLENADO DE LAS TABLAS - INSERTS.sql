@@ -688,3 +688,22 @@ SELECT * FROM [Tick].[tbPlanificacion_Asientos]
 UPDATE [Tick].[tbPlanificacion_Asientos]
 SET tdt_Disponibilidad = 0
 WHERE pln_ID = 5
+
+----
+CREATE OR ALTER PROCEDURE Tick.EmpleadosRegistrados
+AS
+	BEGIN
+		SELECT COUNT(*) AS CantidadEmpleado FROM Gral.Empleados_Listado
+	END
+	GO
+CREATE OR ALTER PROCEDURE Tick.ClientesRegistrados
+AS
+	BEGIN
+		SELECT COUNT(*) AS CantidadCliente FROM Gral.Clientes_Listado
+	END
+GO
+CREATE OR ALTER PROCEDURE Tick.TicketsVendidos
+AS
+	BEGIN
+		SELECT COUNT(*) AS CantidadTicket FROM Tick.tbTickets_Encabezado
+	END

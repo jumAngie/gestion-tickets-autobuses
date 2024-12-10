@@ -95,9 +95,9 @@
             this.gbDatospersonales.Controls.Add(this.pnlnombre);
             this.gbDatospersonales.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.gbDatospersonales.Location = new System.Drawing.Point(16, 15);
-            this.gbDatospersonales.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbDatospersonales.Margin = new System.Windows.Forms.Padding(4);
             this.gbDatospersonales.Name = "gbDatospersonales";
-            this.gbDatospersonales.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbDatospersonales.Padding = new System.Windows.Forms.Padding(4);
             this.gbDatospersonales.Size = new System.Drawing.Size(525, 167);
             this.gbDatospersonales.TabIndex = 0;
             this.gbDatospersonales.TabStop = false;
@@ -107,7 +107,7 @@
             // 
             this.dtFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtFechaNacimiento.Location = new System.Drawing.Point(284, 123);
-            this.dtFechaNacimiento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtFechaNacimiento.Margin = new System.Windows.Forms.Padding(4);
             this.dtFechaNacimiento.Name = "dtFechaNacimiento";
             this.dtFechaNacimiento.Size = new System.Drawing.Size(159, 22);
             this.dtFechaNacimiento.TabIndex = 6;
@@ -126,7 +126,7 @@
             // 
             this.rbF.AutoSize = true;
             this.rbF.Location = new System.Drawing.Point(152, 123);
-            this.rbF.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbF.Margin = new System.Windows.Forms.Padding(4);
             this.rbF.Name = "rbF";
             this.rbF.Size = new System.Drawing.Size(88, 20);
             this.rbF.TabIndex = 4;
@@ -138,7 +138,7 @@
             // 
             this.rbM.AutoSize = true;
             this.rbM.Location = new System.Drawing.Point(31, 123);
-            this.rbM.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbM.Margin = new System.Windows.Forms.Padding(4);
             this.rbM.Name = "rbM";
             this.rbM.Size = new System.Drawing.Size(89, 20);
             this.rbM.TabIndex = 3;
@@ -159,7 +159,7 @@
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(31, 46);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(412, 22);
             this.txtNombre.TabIndex = 1;
@@ -179,7 +179,7 @@
             this.pnlnombre.BackColor = System.Drawing.Color.DarkRed;
             this.pnlnombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlnombre.Location = new System.Drawing.Point(31, 47);
-            this.pnlnombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlnombre.Margin = new System.Windows.Forms.Padding(4);
             this.pnlnombre.Name = "pnlnombre";
             this.pnlnombre.Size = new System.Drawing.Size(413, 28);
             this.pnlnombre.TabIndex = 7;
@@ -208,9 +208,9 @@
             this.gbDatosdeContacto.Controls.Add(this.pnlpais);
             this.gbDatosdeContacto.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.gbDatosdeContacto.Location = new System.Drawing.Point(549, 15);
-            this.gbDatosdeContacto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbDatosdeContacto.Margin = new System.Windows.Forms.Padding(4);
             this.gbDatosdeContacto.Name = "gbDatosdeContacto";
-            this.gbDatosdeContacto.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbDatosdeContacto.Padding = new System.Windows.Forms.Padding(4);
             this.gbDatosdeContacto.Size = new System.Drawing.Size(531, 343);
             this.gbDatosdeContacto.TabIndex = 7;
             this.gbDatosdeContacto.TabStop = false;
@@ -233,7 +233,7 @@
             // txtDirE
             // 
             this.txtDirE.Location = new System.Drawing.Point(40, 271);
-            this.txtDirE.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDirE.Margin = new System.Windows.Forms.Padding(4);
             this.txtDirE.Multiline = true;
             this.txtDirE.Name = "txtDirE";
             this.txtDirE.Size = new System.Drawing.Size(461, 46);
@@ -253,7 +253,7 @@
             // 
             this.cbxciudad.FormattingEnabled = true;
             this.cbxciudad.Location = new System.Drawing.Point(40, 194);
-            this.cbxciudad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbxciudad.Margin = new System.Windows.Forms.Padding(4);
             this.cbxciudad.Name = "cbxciudad";
             this.cbxciudad.Size = new System.Drawing.Size(461, 24);
             this.cbxciudad.TabIndex = 9;
@@ -262,7 +262,7 @@
             // 
             this.cbxdepto.FormattingEnabled = true;
             this.cbxdepto.Location = new System.Drawing.Point(265, 117);
-            this.cbxdepto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbxdepto.Margin = new System.Windows.Forms.Padding(4);
             this.cbxdepto.Name = "cbxdepto";
             this.cbxdepto.Size = new System.Drawing.Size(236, 24);
             this.cbxdepto.TabIndex = 8;
@@ -272,7 +272,7 @@
             // 
             this.cbxpais.FormattingEnabled = true;
             this.cbxpais.Location = new System.Drawing.Point(40, 117);
-            this.cbxpais.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbxpais.Margin = new System.Windows.Forms.Padding(4);
             this.cbxpais.Name = "cbxpais";
             this.cbxpais.Size = new System.Drawing.Size(197, 24);
             this.cbxpais.TabIndex = 7;
@@ -311,7 +311,7 @@
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(269, 43);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(232, 22);
             this.txtEmail.TabIndex = 3;
@@ -330,7 +330,7 @@
             // txtTelefono
             // 
             this.txtTelefono.Location = new System.Drawing.Point(40, 44);
-            this.txtTelefono.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTelefono.Margin = new System.Windows.Forms.Padding(4);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(197, 22);
             this.txtTelefono.TabIndex = 1;
@@ -351,7 +351,7 @@
             this.pnlciudad.BackColor = System.Drawing.Color.DarkRed;
             this.pnlciudad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlciudad.Location = new System.Drawing.Point(40, 197);
-            this.pnlciudad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlciudad.Margin = new System.Windows.Forms.Padding(4);
             this.pnlciudad.Name = "pnlciudad";
             this.pnlciudad.Size = new System.Drawing.Size(462, 28);
             this.pnlciudad.TabIndex = 8;
@@ -362,7 +362,7 @@
             this.pnlDIRE.BackColor = System.Drawing.Color.DarkRed;
             this.pnlDIRE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlDIRE.Location = new System.Drawing.Point(40, 289);
-            this.pnlDIRE.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlDIRE.Margin = new System.Windows.Forms.Padding(4);
             this.pnlDIRE.Name = "pnlDIRE";
             this.pnlDIRE.Size = new System.Drawing.Size(462, 33);
             this.pnlDIRE.TabIndex = 9;
@@ -373,7 +373,7 @@
             this.pnlTel.BackColor = System.Drawing.Color.DarkRed;
             this.pnlTel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlTel.Location = new System.Drawing.Point(40, 46);
-            this.pnlTel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlTel.Margin = new System.Windows.Forms.Padding(4);
             this.pnlTel.Name = "pnlTel";
             this.pnlTel.Size = new System.Drawing.Size(198, 28);
             this.pnlTel.TabIndex = 9;
@@ -384,7 +384,7 @@
             this.pnlcorreo.BackColor = System.Drawing.Color.DarkRed;
             this.pnlcorreo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlcorreo.Location = new System.Drawing.Point(269, 46);
-            this.pnlcorreo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlcorreo.Margin = new System.Windows.Forms.Padding(4);
             this.pnlcorreo.Name = "pnlcorreo";
             this.pnlcorreo.Size = new System.Drawing.Size(233, 28);
             this.pnlcorreo.TabIndex = 10;
@@ -395,7 +395,7 @@
             this.pnldepto.BackColor = System.Drawing.Color.DarkRed;
             this.pnldepto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnldepto.Location = new System.Drawing.Point(265, 117);
-            this.pnldepto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnldepto.Margin = new System.Windows.Forms.Padding(4);
             this.pnldepto.Name = "pnldepto";
             this.pnldepto.Size = new System.Drawing.Size(237, 30);
             this.pnldepto.TabIndex = 11;
@@ -406,7 +406,7 @@
             this.pnlpais.BackColor = System.Drawing.Color.DarkRed;
             this.pnlpais.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlpais.Location = new System.Drawing.Point(40, 119);
-            this.pnlpais.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlpais.Margin = new System.Windows.Forms.Padding(4);
             this.pnlpais.Name = "pnlpais";
             this.pnlpais.Size = new System.Drawing.Size(198, 28);
             this.pnlpais.TabIndex = 12;
@@ -425,9 +425,9 @@
             this.gbDNI.Controls.Add(this.pnlDNIE);
             this.gbDNI.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.gbDNI.Location = new System.Drawing.Point(17, 191);
-            this.gbDNI.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbDNI.Margin = new System.Windows.Forms.Padding(4);
             this.gbDNI.Name = "gbDNI";
-            this.gbDNI.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbDNI.Padding = new System.Windows.Forms.Padding(4);
             this.gbDNI.Size = new System.Drawing.Size(524, 167);
             this.gbDNI.TabIndex = 7;
             this.gbDNI.TabStop = false;
@@ -436,7 +436,7 @@
             // txtDNIE
             // 
             this.txtDNIE.Location = new System.Drawing.Point(228, 95);
-            this.txtDNIE.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDNIE.Margin = new System.Windows.Forms.Padding(4);
             this.txtDNIE.Name = "txtDNIE";
             this.txtDNIE.Size = new System.Drawing.Size(213, 22);
             this.txtDNIE.TabIndex = 8;
@@ -457,7 +457,7 @@
             // mtxtidentidad
             // 
             this.mtxtidentidad.Location = new System.Drawing.Point(33, 96);
-            this.mtxtidentidad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mtxtidentidad.Margin = new System.Windows.Forms.Padding(4);
             this.mtxtidentidad.Mask = "0000-0000-00000";
             this.mtxtidentidad.Name = "mtxtidentidad";
             this.mtxtidentidad.Size = new System.Drawing.Size(132, 22);
@@ -481,7 +481,7 @@
             // 
             this.rbE.AutoSize = true;
             this.rbE.Location = new System.Drawing.Point(228, 43);
-            this.rbE.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbE.Margin = new System.Windows.Forms.Padding(4);
             this.rbE.Name = "rbE";
             this.rbE.Size = new System.Drawing.Size(88, 20);
             this.rbE.TabIndex = 4;
@@ -494,7 +494,7 @@
             // 
             this.rbH.AutoSize = true;
             this.rbH.Location = new System.Drawing.Point(29, 43);
-            this.rbH.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbH.Margin = new System.Windows.Forms.Padding(4);
             this.rbH.Name = "rbH";
             this.rbH.Size = new System.Drawing.Size(95, 20);
             this.rbH.TabIndex = 3;
@@ -518,7 +518,7 @@
             this.pnlDNI.BackColor = System.Drawing.Color.DarkRed;
             this.pnlDNI.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlDNI.Location = new System.Drawing.Point(33, 96);
-            this.pnlDNI.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlDNI.Margin = new System.Windows.Forms.Padding(4);
             this.pnlDNI.Name = "pnlDNI";
             this.pnlDNI.Size = new System.Drawing.Size(133, 29);
             this.pnlDNI.TabIndex = 13;
@@ -529,7 +529,7 @@
             this.pnlDNIE.BackColor = System.Drawing.Color.DarkRed;
             this.pnlDNIE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlDNIE.Location = new System.Drawing.Point(228, 96);
-            this.pnlDNIE.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlDNIE.Margin = new System.Windows.Forms.Padding(4);
             this.pnlDNIE.Name = "pnlDNIE";
             this.pnlDNIE.Size = new System.Drawing.Size(214, 29);
             this.pnlDNIE.TabIndex = 14;
@@ -539,10 +539,10 @@
             // 
             this.dgEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgEmpleados.Location = new System.Drawing.Point(17, 421);
-            this.dgEmpleados.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgEmpleados.Margin = new System.Windows.Forms.Padding(4);
             this.dgEmpleados.Name = "dgEmpleados";
             this.dgEmpleados.RowHeadersWidth = 51;
-            this.dgEmpleados.Size = new System.Drawing.Size(1063, 166);
+            this.dgEmpleados.Size = new System.Drawing.Size(1063, 220);
             this.dgEmpleados.TabIndex = 10;
             this.dgEmpleados.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgEmpleadoss_CellClick);
             // 
@@ -554,7 +554,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
             this.btnCancelar.Location = new System.Drawing.Point(943, 377);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(137, 38);
             this.btnCancelar.TabIndex = 27;
@@ -569,7 +569,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
             this.btnGuardar.Location = new System.Drawing.Point(797, 377);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(137, 38);
             this.btnGuardar.TabIndex = 26;
@@ -584,7 +584,7 @@
             this.pnlBuscar.Controls.Add(this.txtBuscar);
             this.pnlBuscar.Controls.Add(this.pictureBox1);
             this.pnlBuscar.Location = new System.Drawing.Point(17, 377);
-            this.pnlBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.pnlBuscar.Name = "pnlBuscar";
             this.pnlBuscar.Size = new System.Drawing.Size(373, 36);
             this.pnlBuscar.TabIndex = 33;
@@ -593,7 +593,7 @@
             // 
             this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscar.Location = new System.Drawing.Point(4, 4);
-            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(317, 26);
             this.txtBuscar.TabIndex = 31;
@@ -602,7 +602,7 @@
             // 
             this.pictureBox1.Image = global::Gestion_De_Tickets_Autobus.Properties.Resources.buscarcolorizado;
             this.pictureBox1.Location = new System.Drawing.Point(331, 4);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(32, 27);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -615,7 +615,7 @@
             this.btnPersonaExistente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPersonaExistente.ForeColor = System.Drawing.Color.White;
             this.btnPersonaExistente.Location = new System.Drawing.Point(428, 375);
-            this.btnPersonaExistente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPersonaExistente.Margin = new System.Windows.Forms.Padding(4);
             this.btnPersonaExistente.Name = "btnPersonaExistente";
             this.btnPersonaExistente.Size = new System.Drawing.Size(204, 37);
             this.btnPersonaExistente.TabIndex = 34;
@@ -630,7 +630,7 @@
             this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.ForeColor = System.Drawing.Color.White;
             this.btnEditar.Location = new System.Drawing.Point(797, 376);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(137, 38);
             this.btnEditar.TabIndex = 35;
@@ -644,7 +644,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(1096, 593);
+            this.ClientSize = new System.Drawing.Size(1096, 654);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnPersonaExistente);
             this.Controls.Add(this.btnCancelar);
@@ -654,7 +654,7 @@
             this.Controls.Add(this.gbDatosdeContacto);
             this.Controls.Add(this.gbDatospersonales);
             this.Controls.Add(this.pnlBuscar);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmEmpleado";
             this.Text = "frmEmpleado";
             this.Load += new System.EventHandler(this.frmEmpleado_Load);

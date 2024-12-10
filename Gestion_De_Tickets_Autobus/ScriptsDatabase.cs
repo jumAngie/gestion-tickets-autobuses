@@ -70,5 +70,11 @@ namespace Gestion_De_Tickets_Autobus
         public static string DibujarPantallas = "Acce.UDP_DibujarMenuPorRol";
         public static string IniciarSesion = "Acce.UDP_IniciarSesion";
         #endregion
+
+        #region Dashboard
+        public static string ClientesRegistrados = "Tick.ClientesRegistrados";
+        public static string EmpleadosRegistrados = "Tick.EmpleadosRegistrados";
+        public static string TicketsVendidos = "Tick.TicketsVendidos";
+        #endregion
     }
 }

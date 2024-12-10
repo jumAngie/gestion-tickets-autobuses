@@ -19,3 +19,5 @@ DROP CONSTRAINT FK_Tick_tbAutobuses_mar_Id
 ALTER TABLE Tick.tbAutobuses
 DROP COLUMN mar_ID
 -------------------------------------------------------
+ALTER TABLE Tick.tbModelo
+ADD  mar_ID INT
