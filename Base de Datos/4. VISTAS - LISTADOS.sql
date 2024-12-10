@@ -61,9 +61,9 @@ AS
 			END AS aut_esVIP, 
 			aut_cantAsientos
 
- FROM		Tick.tbAutobuses aut		INNER JOIN Tick.tbMarca m
-			ON aut.mar_ID = m.mar_ID	INNER JOIN Tick.tbModelo mo
-			ON aut.mod_ID = mo.mod_ID 	
+ FROM		Tick.tbAutobuses aut		INNER JOIN Tick.tbModelo mo
+			ON aut.mod_ID = mo.mod_ID	INNER JOIN Tick.tbMarca	 m
+			ON mo.mar_ID = m.mar_ID 	
 GO
 ------------------------------------------------------
 CREATE OR ALTER VIEW Tick.Tickets_Listado

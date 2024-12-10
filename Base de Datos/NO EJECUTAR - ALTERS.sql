@@ -13,3 +13,9 @@ ADD CONSTRAINT UQ_Gral_tbPersonas_per_DNI UNIQUE(per_DNI)
 ALTER TABLE Gral.tbPersonas
 ADD per_Extranjero BIT DEFAULT 0
 ------------------------------------------------------------
+ALTER TABLE Tick.tbAutobuses
+DROP CONSTRAINT FK_Tick_tbAutobuses_mar_Id
+
+ALTER TABLE Tick.tbAutobuses
+DROP COLUMN mar_ID
+-------------------------------------------------------

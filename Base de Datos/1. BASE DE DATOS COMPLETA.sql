@@ -247,12 +247,13 @@ CREATE TABLE Tick.tbModelo
 );
 GO
 
+SELECT * FROM Tick.tbModelo
+
 -- -- -- TABLA AUTOBUSES -- -- --
 CREATE TABLE Tick.tbAutobuses
 (
 		aut_ID						INT				IDENTITY(1,1),
-		aut_Matricula				NVARCHAR(10),
-		mar_ID						INT,		
+		aut_Matricula				NVARCHAR(10),	
 		mod_ID						INT,			
 		aut_esVIP					BIT				DEFAULT		0,
 		aut_cantAsientos			INT,
@@ -264,7 +265,6 @@ CREATE TABLE Tick.tbAutobuses
 		aut_Estado					BIT				DEFAULT		1,
 
 		CONSTRAINT PK_Tick_tbAutobuses_aut_ID		PRIMARY KEY(aut_ID),
-		CONSTRAINT FK_Tick_tbAutobuses_mar_Id		FOREIGN KEY (mar_ID) REFERENCES Tick.tbMarca (mar_ID),
 		CONSTRAINT FK_Tick_tbAutobuses_mod_Id		FOREIGN KEY (mod_ID) REFERENCES Tick.tbModelo (mod_ID)
 
 );
