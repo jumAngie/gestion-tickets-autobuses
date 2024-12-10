@@ -25,13 +25,14 @@ namespace Gestion_De_Tickets_Autobus
         #endregion
 
         #region VARIABLES
-        private bool esVIP = false;
+        private bool esVIP;
+        private int id_filaseleccionada;
         #endregion
-        
+
         public frmAutobuses()
         {
             InitializeComponent();
-            
+
         }
 
         #region CRUD
@@ -48,7 +49,7 @@ namespace Gestion_De_Tickets_Autobus
                 aut_cantAsientos = Convert.ToInt32(numAsientos.Value),
                 aut_esVIP = esVIP,
                 aut_FechaCreacion = DateTime.Now,
-                usu_UsuarioCreacion =1
+                usu_UsuarioCreacion = 1
             };
             string resultados = AutobusesDAL.InsertarAutobuses(aut);
             MessageBox.Show(resultados, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -78,23 +79,75 @@ namespace Gestion_De_Tickets_Autobus
                     return;
                 }
 
-               var listaTickets = (List<AutobusesViewModel>)dgAutobuses.DataSource;
-               var listaFiltrada = listaTickets.Where(t =>
-                 t.aut_Matricula.ToLower().Contains(filtro) ||
-                 t.mod_Descripcion.ToLower().Contains(filtro) ||
-                 t.mar_Descripcion.ToLower().Contains(filtro) 
-                ).ToList();
+                var listaTickets = (List<AutobusesViewModel>)dgAutobuses.DataSource;
+                var listaFiltrada = listaTickets.Where(t =>
+                  t.aut_Matricula.ToLower().Contains(filtro) ||
+                  t.mod_Descripcion.ToLower().Contains(filtro) ||
+                  t.mar_Descripcion.ToLower().Contains(filtro)
+                 ).ToList();
 
                 dgAutobuses.DataSource = listaFiltrada;
             }
         }
 
         //CARGAR DATOS EDITAR
-        public void Editar_CargarDatos(int aut_id)
+        public void Editar_CargarDatos(int aut_Id)
+        {
+            Autobuses autobuses = AutobusesDAL.EditarAutobuses_CargarInformacion(aut_Id);
+            if (autobuses != null)
+            {
+                txtMatricula.Text = autobuses.aut_Matricula;
+                esVIP = autobuses.aut_esVIP;
+                if (esVIP == true)
+                {
+                    rbtEsVIP.Checked = true;
+                }
+                if (esVIP == false)
+                {
+                    rbtNormal.Checked = true;
+                }
+                cbxMarcas.SelectedValue = autobuses.mar_ID;
+                CargarModelosCMB(autobuses.mod_ID);
+                cbxModelo.SelectedValue = autobuses.mod_ID;
+                numAsientos.Value = autobuses.aut_cantAsientos;
 
+            }
+        }
 
-       //EDITAR
+        //EDITAR
+        public void Editar_Autobuses(int aut_Id)
+        {
+            Autobuses autobuses = new Autobuses
+            {
+                aut_Id = aut_Id,
+                aut_Matricula = txtMatricula.Text,
+                mar_ID = Convert.ToInt32(cbxMarcas.SelectedValue),
+                mod_ID = Convert.ToInt32(cbxModelo.SelectedValue),
+                aut_esVIP = esVIP,
+                aut_cantAsientos = Convert.ToInt32(numAsientos.Text),
+                usu_UsuarioModificacion = 1, // acá se debe de cambiar cuando se haga el LogIn
+                aut_FechaModificacion = DateTime.Now
+            };
 
+            string resultado = AutobusesDAL.EditarAutobuses(autobuses);
+
+            MessageBox.Show(resultado, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        //ELIMINAR Autobuses
+        public void Eliminar_Autobuses(int aut_ID)
+        {
+            Autobuses autobuses = new Autobuses
+            {
+                aut_Id = aut_ID,
+                usu_UsuarioModificacion = 1, // acá se debe de cambiar cuando se haga el LogIn
+                aut_FechaModificacion = DateTime.Now
+            };
+
+            string resultado = AutobusesDAL.EliminarAutobuses(autobuses);
+
+            MessageBox.Show(resultado, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
         #endregion
 
         #region VALIDACIONES Y LIMPIEZA DE CAMPOS
@@ -176,11 +229,22 @@ namespace Gestion_De_Tickets_Autobus
         {
             CargarAutobuses();
             CargarMarcasCMB();
-            cbxModelo.Text = "Seleccione una marca."; 
+            cbxModelo.Text = "Seleccione una marca.";
             cbxModelo.Enabled = false;
             LimpiarCampos();
             OcultarValidaciones();
             OcultarAdvertencia();
+
+            // Añadiendo el boton de eliminar al final de cada registro.
+            DataGridViewButtonColumn btnEliminar = new DataGridViewButtonColumn();
+            btnEliminar.HeaderText = "Acciones";
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.UseColumnTextForButtonValue = true;
+            btnEliminar.DefaultCellStyle.BackColor = Color.DarkRed;
+            btnEliminar.DefaultCellStyle.ForeColor = Color.DarkRed;
+            btnEliminar.DefaultCellStyle.Font = new Font("Nobile", 9, FontStyle.Regular);
+            dgAutobuses.Columns.Add(btnEliminar);
         }
 
         private async void BtnGuardar_Click(object sender, EventArgs e)
@@ -188,6 +252,7 @@ namespace Gestion_De_Tickets_Autobus
             bool esValido = ValidacionesVacio();
             if (esValido)
             {
+                InsertarAutobuses();
                 // Lógica para guardar los datos
                 MessageBox.Show("Datos guardados correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -216,13 +281,85 @@ namespace Gestion_De_Tickets_Autobus
             var result = MessageBox.Show("¿Está seguro de que desea cancelar?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
+                boton_mostrarGuardar();
                 LimpiarCampos();
             }
         }
 
-        #endregion
+        private void dgAutobuses_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dgAutobuses.Columns["btnEliminar"].Index && e.RowIndex >= 0)
+            {
 
+                int aut_Id = Convert.ToInt32(dgAutobuses.Rows[e.RowIndex].Cells["aut_ID"].Value);
+                var result = MessageBox.Show("¿Está seguro que desea eliminar este registro?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    Eliminar_Autobuses(aut_Id);
+                    CargarAutobuses();
+                    LimpiarCampos();
+                }
+            }
+            else if (e.RowIndex >= 0)
+            {
+
+                boton_mostrarEditar();
+                DataGridViewRow fila = dgAutobuses.Rows[e.RowIndex];
+
+                int aut_ID = Convert.ToInt32(fila.Cells["aut_ID"].Value);
+                id_filaseleccionada = aut_ID;
+
+                LimpiarCampos();
+                OcultarValidaciones();
+                Editar_CargarDatos(aut_ID);
+            }
+        }
         
 
+        public void boton_mostrarEditar()
+        {
+            btnEditar.Visible = true;
+            btnGuardar.Visible = false;
+        }
+
+        public void boton_mostrarGuardar()
+        {
+            btnEditar.Visible = false;
+            btnGuardar.Visible = true;
+
+        }
+
+        #endregion
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            BuscarAutobuses();
+        }
+
+        private async void btnEditar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bool esValido = ValidacionesVacio();
+                if (esValido)
+                {
+                    Editar_Autobuses(id_filaseleccionada);
+                    CargarAutobuses();
+                    LimpiarCampos();
+                    boton_mostrarGuardar();
+                }
+                else
+                {
+                    MostrarAdvertencia();
+                    await Task.Delay(4000);
+                    OcultarAdvertencia();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

@@ -26,11 +26,10 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.AddWithValue("@aut_Matricula", aut.aut_Matricula);
-                    cmd.Parameters.AddWithValue("@mar_ID", aut.mar_ID);
                     cmd.Parameters.AddWithValue("@mod_ID", aut.mod_ID);
                     cmd.Parameters.AddWithValue("@aut_esVIP", aut.aut_esVIP);
                     cmd.Parameters.AddWithValue("@aut_cantAsientos", aut.aut_cantAsientos);
-                    cmd.Parameters.AddWithValue("@usu_UsuarioCreacion", aut.usu_UsuarioCreacion);
+                    cmd.Parameters.AddWithValue("@aut_UsuarioCreacion", aut.usu_UsuarioCreacion);
                     cmd.Parameters.AddWithValue("@aut_FechaCreacion", aut.aut_FechaCreacion);
 
                     mensaje = (string)cmd.ExecuteScalar();
@@ -82,7 +81,7 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
         }
 
         //CARGAR DATOS EDITAR 
-        public static Autobuses EditarAutobuses_CargarInformacion(int clien_ID)
+        public static Autobuses EditarAutobuses_CargarInformacion(int aut_ID)
         {
             Autobuses aut = null;
             try
@@ -92,7 +91,7 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
                     conexion.Open();
                     SqlCommand cmd = new SqlCommand(ScriptsDatabase.EditarAutobuses_CargarInformacion, conexion);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@aut", aut);
+                    cmd.Parameters.AddWithValue("@aut_ID", aut_ID);
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -103,9 +102,10 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
                                 aut_Id = reader.GetInt32(0),
                                 aut_Matricula = reader.GetString(1),
                                 mar_ID = reader.GetInt32(2),
-                               // mod_ID = 
-                               // aut_cantAsientos = 
-                               // aut_esVIP = 
+                                mod_ID = reader.GetInt32(3),
+                                aut_esVIP = reader.GetBoolean(4),
+                                aut_cantAsientos = reader.GetInt32(5),
+                                aut_Estado = reader.GetBoolean(6),
                                 
                             };
                         }
@@ -132,14 +132,13 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
                     conexion.Open();
                     SqlCommand cmd = new SqlCommand(ScriptsDatabase.EditarAutobuses, conexion);
                     cmd.CommandType = CommandType.StoredProcedure;
-
+                    cmd.Parameters.AddWithValue("@aut_ID", aut.aut_Id);
                     cmd.Parameters.AddWithValue("@aut_Matricula", aut.aut_Matricula);
-                    cmd.Parameters.AddWithValue("@mar_ID", aut.mar_ID);
                     cmd.Parameters.AddWithValue("@mod_ID", aut.mod_ID);
                     cmd.Parameters.AddWithValue("@aut_esVIP", aut.aut_esVIP);
                     cmd.Parameters.AddWithValue("@aut_cantAsientos", aut.aut_cantAsientos);
-                    cmd.Parameters.AddWithValue("@usu_UsuarioCreacion", aut.usu_UsuarioCreacion);
-                    cmd.Parameters.AddWithValue("@aut_FechaCreacion", aut.aut_FechaCreacion);
+                    cmd.Parameters.AddWithValue("@aut_UsuarioModificacion", aut.usu_UsuarioCreacion);
+                    cmd.Parameters.AddWithValue("@aut_FechaModificacion", aut.aut_FechaCreacion);
 
                     mensaje = (string)cmd.ExecuteScalar();
                 }
@@ -153,7 +152,37 @@ namespace Gestion_De_Tickets_Autobus.Tickets_DAL
             return mensaje;
         }
 
+        //ELIMINAR REGISTRO
 
+        public static string EliminarAutobuses(Autobuses autobuses)
+        {
+            string mensaje = "";
+            try
+            {
+                using (SqlConnection conexion = BDConnection.ObtenerConexion())
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand(ScriptsDatabase.EliminarAutobuses, conexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@aut_ID", autobuses.aut_Id);
+                    cmd.Parameters.AddWithValue("@aut_UsuarioModificacion", autobuses.usu_UsuarioModificacion);
+                    cmd.Parameters.AddWithValue("@aut_FechaModificacion", autobuses.aut_FechaModificacion);
+
+                    mensaje = (string)cmd.ExecuteScalar();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                mensaje = "Error: " + ex.Message;
+                throw;
+            }
+
+            return mensaje;
+
+
+        }
         //COMBOBOX
         public DataTable CargarAutobuses(int pre_ID)
         {

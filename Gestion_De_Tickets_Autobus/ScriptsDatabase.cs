@@ -33,6 +33,7 @@ namespace Gestion_De_Tickets_Autobus
         public static string EditarAutobuses_CargarInformacion = "Tick.UDP_tbAutobuses_CargarInformacion";
         public static string EditarAutobuses = "Tick.UDP_tbAutobuses_Editar";
         public static string Autobuses_Asientos = "Tick.Asientos_Autobus";
+        public static string EliminarAutobuses = "Tick.UDP_tbAutobusess_Eliminar";
         #endregion
 
         #region ComboBox
