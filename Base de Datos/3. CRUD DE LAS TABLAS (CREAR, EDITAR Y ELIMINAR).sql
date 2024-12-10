@@ -146,6 +146,7 @@ AS
 				per_NombreCompleto, 
 				per_Correo,
 				per_DNI,
+				per_Extranjero,
 				per_Telefono, 
 				per_FechaNacimiento,
 				sex_ID,
